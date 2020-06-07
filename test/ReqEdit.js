@@ -29,7 +29,7 @@ export default class ReqEdit extends SuperClass {
       if (typeof arg !== 'object') this.throwError(400, 'arg has invalid type');
       let _VALUE = Object.values(arg).flat();
 
-      const tokenTypes: string[] = [];
+      const tokenTypes = [];
       tokenTypes[TokenType.class] = 'class';
       tokenTypes[TokenType.enum] = 'enum';
       tokenTypes[TokenType.interface] = 'interface';
@@ -42,6 +42,8 @@ export default class ReqEdit extends SuperClass {
       tokenTypes[TokenType.function] = 'function';
       tokenTypes[TokenType.member] = 'member';
 
+      console.log('tokenTypes', tokenTypes);
+      
       const next = await new TaskExtractValidIP({
         ...this.init,
         addr: _VALUE,
@@ -69,6 +71,8 @@ export default class ReqEdit extends SuperClass {
 
     const _filter = f => ![...first].includes(f);
     const result = await second.filter(_filter);
+    console.log('checkDublicate result', result);
+    console.log('checkDublicate result', result);
     console.log('checkDublicate result', result);
     return result;
   }
