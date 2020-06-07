@@ -339,7 +339,7 @@
     // "*.readonly.local": "#FFFF8D",
     // "variable.local": "#FFFF8D",
     "function.local": "#CBCCC6",
-    "variable.local": "#CBCCC6"
+    "variable.local": "#CBCCC6" 
   },
 
   "tokenColors": [

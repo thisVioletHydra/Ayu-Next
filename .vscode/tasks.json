@@ -1,0 +1,14 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "auto-commit",
+      "type": "shell",
+      "windows": {
+        "command": "cls && echo. && echo ===== • Last Commit • =====  && git log --stat --graph -1 && echo. && echo ===== • New Files • =====  && git status -s && echo. && echo ===== • Start Upload • =====  && git commit -am '⭐ Auto-Commit' && git push && echo. && echo ===== • SUCCESS! • =====  && echo. && echo Press any key to continue ... &&  pause >NUL && exit  || cls  && echo ===== • Nothing happened • ===== && echo ===== • Upload is Aborted! • ===== && pause >NUL && exit"
+      }
+    }
+  ]
+}
