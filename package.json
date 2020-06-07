@@ -1,8 +1,8 @@
 {
-  "name": "ayu-next-theme",
-  "displayName": "ayu-next-theme",
-  "description": "ayu-next-theme",
-  "version": "0.0.1",
+  "name": "ayu-next",
+  "displayName": "ayu-next",
+  "description": "ayu-next",
+  "version": "1.0.1",
   "engines": {
     "vscode": "^1.45.0"
   },
