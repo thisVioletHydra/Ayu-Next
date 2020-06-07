@@ -340,8 +340,6 @@
     // "variable.local": "#FFFF8D",
     "function.local": "#CBCCC6",
     "variable.local": "#CBCCC6"
-    // "entity.name": "#BCAAA4",
-    // "entity.name": "#BCAAA4"
   },
 
   "tokenColors": [
