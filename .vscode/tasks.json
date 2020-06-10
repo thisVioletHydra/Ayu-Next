@@ -2,12 +2,34 @@
   // See https://go.microsoft.com/fwlink/?LinkId=733558
   // for the documentation about the tasks.json format
   "version": "2.0.0",
+  "presentation": {
+    "echo": true,
+    "reveal": "always",
+    "focus": true,
+    "panel": "shared",
+    "showReuseMessage": false,
+    "clear": true
+  },
   "tasks": [
     {
-      "label": "auto-commit",
+      "label": "git-auto-commit",
+      "type": "shell",
+      "command": "echo Hello",
+      "problemMatcher": [],
+      "windows": {
+        "command": "c:\\Users\\Anna\\.vscode\\scripts\\autocommit.ps1"
+        // "command": "${relativeFileDirname}\\scripts\\autocommit.ps1"
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "git-status",
       "type": "shell",
       "windows": {
-        "command": "cls && echo. && echo ===== • Last Commit • =====  && git log --stat --graph -1 && echo. && echo ===== • New Files • =====  && git status -s && echo. && echo ===== • Start Upload • =====  && git commit -am '⭐ Auto-Commit' && git push && echo. && echo ===== • SUCCESS! • =====  && echo. && echo Press any key to continue ... &&  pause >NUL && exit  || cls  && echo ===== • Nothing happened • ===== && echo ===== • Upload is Aborted! • ===== && pause >NUL && exit"
+        "command": "cls && git status"
       }
     }
   ]
