@@ -336,7 +336,7 @@
     "property.declaration": "#BAE67E",
     "readonly.local": "#BAE67E",
     "variable.local": "#CBCCC6",
-    "member.defaultLibrary.entity.name.function": "#CBCCC6"
+    // "member.defaultLibrary.entity.name.function": "#CBCCC6"
     // "*.readonly.local": "#FFFF8D",
     // "function.local": "#CBCCC6",
     // "other": "#5CCFE6",
