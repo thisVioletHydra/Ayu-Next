@@ -335,7 +335,7 @@
     "class.defaultLibrary": "#5CCFE6",
     "property.declaration": "#BAE67E",
     "readonly.local": "#BAE67E",
-    "variable.local": "#CBCCC6",
+    "variable.local": "#CBCCC6"
     // "member.defaultLibrary.entity.name.function": "#CBCCC6"
     // "*.readonly.local": "#FFFF8D",
     // "function.local": "#CBCCC6",
@@ -346,12 +346,11 @@
     // "variable": "#CBCCC6",
   },
 
-  
-  
-   
-   "tokenColors": [
+  "tokenColors": [
     {
-      "scope": ["source.js meta.export.default meta.class meta.method.declaration meta.block meta.function-call support.function.console"],
+      "scope": [
+        "source.js meta.export.default meta.class meta.method.declaration meta.block meta.function-call support.function.console"
+      ],
       "settings": { "foreground": "#F27983", "fontStyle": "" }
     },
     {
@@ -359,11 +358,15 @@
       "settings": { "foreground": "#FFD580", "fontStyle": "" }
     },
     {
-      "scope": ["source meta.export.default meta.class meta.method.declaration meta.block variable.other.object.property"],
+      "scope": [
+        "source meta.export.default meta.class meta.method.declaration meta.block variable.other.object.property"
+      ],
       "settings": { "foreground": "#CBCCC6", "fontStyle": "" }
     },
     {
-      "scope": ["source.js meta.export.default meta.class meta.method.declaration meta.block meta.block meta.array.literal variable.other.property"],
+      "scope": [
+        "source.js meta.export.default meta.class meta.method.declaration meta.block meta.block meta.array.literal variable.other.property"
+      ],
       "settings": { "foreground": "#CBCCC6", "fontStyle": "" }
     },
     {
