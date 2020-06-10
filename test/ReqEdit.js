@@ -22,6 +22,10 @@ export default class ReqEdit extends SuperClass {
 
     this.appendQuery = this.isBoolean(this.req.query && this.req.query.append) || false;
     console.log('this.appendQuery', this.appendQuery);
+    console.log('this.appendQuery', this.appendQuery);
+    console.log('this.appendQuery', this.appendQuery);
+ 
+ 
   }
 
   async extractAddr(arg) {
@@ -71,11 +75,14 @@ export default class ReqEdit extends SuperClass {
 
     const _filter = f => ![...first].includes(f);
     const result = await second.filter(_filter);
+    const result = await second.filter(_filter);
     console.log('checkDublicate result', result);
     console.log('checkDublicate result', result);
     console.log('checkDublicate result', result);
     return result;
   }
+  
+  
 
   async appendAddr(...arg) {
     try {
