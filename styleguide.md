@@ -22,7 +22,7 @@
 | Accent              | #FFCC66   |
 | Dropdrag            | #D4BFFFAE |
 | Editorerror         | #FF3333   |
-| Inactive            | #2D3B4D   |
+| Inactive            | #323a4c   |
 | Null                | #FF00FF   |
 | Selection           | #3D516A   |
 | Separator           | #1F2430AE |

@@ -3,6 +3,7 @@
   "displayName": "ayu-next",
   "description": "ayu-next",
   "version": "1.0.1",
+  "homepage": "https://github.com/thisVioletHydra/ayu-next#readme",
   "engines": {
     "vscode": "^1.45.0"
   },

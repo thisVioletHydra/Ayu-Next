@@ -5,7 +5,7 @@
     // розовый FF66CC
     "editor.background": "#1F2430",
     "editor.foreground": "#CBCCC6",
-    "editor.selectionBackground": "#34455a",
+    "editor.selectionBackground": "#33415e",
 
     "editor.selectionHighlightBackground": "#FF66CC",
     "peekViewResult.selectionBackground": "#FF66CC",
@@ -90,7 +90,7 @@
     "menu.selectionBorder": "#FFCC66",
     "menu.selectionBackground": "#171b24ee",
     "menu.selectionForeground": "#fff",
-    "menu.separatorBackground": "#34455a",
+    "menu.separatorBackground": "#33415e",
     "menubar.selectionBorder": "#0000",
     "menubar.selectionBackground": "#171b24ee",
     "menubar.selectionForeground": "#fff",
