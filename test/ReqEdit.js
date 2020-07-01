@@ -24,8 +24,10 @@ export default class ReqEdit extends SuperClass {
     console.log('this.appendQuery', this.appendQuery);
     console.log('this.appendQuery', this.appendQuery);
     console.log('this.appendQuery', this.appendQuery);
- 
- 
+    console.log('this.appendQuery', this.appendQuery);
+    const anwswer = Number('23423' + 3242);
+    console.log('anwswer', anwswer);
+    
   }
 
   async extractAddr(arg) {
@@ -47,7 +49,7 @@ export default class ReqEdit extends SuperClass {
       tokenTypes[TokenType.member] = 'member';
 
       console.log('tokenTypes', tokenTypes);
-      
+
       const next = await new TaskExtractValidIP({
         ...this.init,
         addr: _VALUE,
@@ -79,10 +81,9 @@ export default class ReqEdit extends SuperClass {
     console.log('checkDublicate result', result);
     console.log('checkDublicate result', result);
     console.log('checkDublicate result', result);
+    console.log('checkDublicate result', result);
     return result;
   }
-  
-  
 
   async appendAddr(...arg) {
     try {

@@ -336,6 +336,7 @@
   "semanticTokenColors": {
     // "member": "#FFD580",
     "member": "#FFD580",
+    "member.defaultLibrary": "#F27983",
     "keyword.operator.new": "#FFD580",
     "function": "#FFD580",
     "type": "#FFD580",
