@@ -1,0 +1,44 @@
+const obj = {
+  
+  
+  name: 123,
+  name: 123,
+  name: 123,
+  name: 123,
+};
+console.log("obj", obj)
+
+
+const future = () => 'helloworld'
+console.log("future", future)
+
+var utils = require('../utils')
+  , nodes = require('../nodes');
+
+/**
+ * Returns substring of the given `val`.
+ *
+ * @param {String|Ident} val
+ * @param {Number} start
+ * @param {Number} [length]
+ * @return {String|Ident}
+ * @api public
+ */
+
+function substr(val, start, length){
+  utils.assertString(val, 'val');
+  utils.assertType(start, 'unit', 'start');
+  length = length && length.val;
+  var res = val.string.substr(start.val, length);
+  return val instanceof nodes.Ident
+      ? new nodes.Ident(res)
+      : new nodes.String(res);
+}
+substr.params = ['val', 'start', 'length'];
+module.exports = substr;
+
+// модуль"my-module.js"
+export default function cube(x) {
+  return x * x * x;
+}
+import { helloworld } from "module";

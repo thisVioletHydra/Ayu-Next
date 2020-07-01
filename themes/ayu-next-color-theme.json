@@ -358,6 +358,16 @@
 
   "tokenColors": [
     {
+      "scope": ["meta.function-call entity.name.function"],
+      "settings": { "foreground": "#FFD580", "fontStyle": "" }
+    },
+    {
+      "scope": [
+        "source support.type.object.module"
+      ],
+      "settings": { "foreground": "#F29E74", "fontStyle": "" }
+    },
+    {
       "scope": [
         "source meta.export.default meta.class meta.method.declaration meta.block meta.function-call support.function.console"
       ],
@@ -377,10 +387,7 @@
       ],
       "settings": { "foreground": "#F29E74", "fontStyle": "" }
     },
-    {
-      "scope": ["entity.name.function"],
-      "settings": { "foreground": "#FFD580", "fontStyle": "" }
-    },
+   
     {
       "scope": [
         "source meta.export.default meta.class meta.method.declaration meta.block variable.other.object.property"

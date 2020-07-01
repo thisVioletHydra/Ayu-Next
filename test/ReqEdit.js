@@ -27,7 +27,6 @@ export default class ReqEdit extends SuperClass {
     console.log('this.appendQuery', this.appendQuery);
     const anwswer = Number('23423' + 3242);
     console.log('anwswer', anwswer);
-    
   }
 
   async extractAddr(arg) {
