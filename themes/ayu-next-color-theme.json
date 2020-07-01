@@ -196,6 +196,9 @@
     "listFilterWidget.outline": "#0000",
 
     // panel - ctrl+j панелька
+    "panelSectionHeader.background": "#ff00ff",
+    "panelSection.border": "#ff00ff",
+    "panelSectionHeader.foreground": "#ff00ff",
     "panel.background": "#1F2430",
     "panel.border": "#191e2a",
     "panelSection.dropBackground": "#D4BFFFae",
@@ -305,6 +308,8 @@
     "terminal.ansiYellow": "#fad07b",
     "terminal.background": "#1F2430",
     "terminal.foreground": "#cbccc6",
+    "terminal.selectionBackground": "#ff0000",
+    "terminalCursor.background": "#ff0000",
 
     "textBlockQuote.background": "#232834",
 
