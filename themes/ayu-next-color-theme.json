@@ -357,7 +357,23 @@
   },
 
   "tokenColors": [
-    // -------------- VUE --------------
+    // -------------- VUE --------------123123---
+    {
+      "scope": ["source.vue variable.parameter"],
+      "settings": { "foreground": "#CBCCC6", "fontStyle": "" }
+    },
+    {
+      "scope": ["source.vue variable.object.property"],
+      "settings": { "foreground": "#BAE67E", "fontStyle": "" }
+    },
+    {
+      "scope": ["source.vue support.function"],
+      "settings": { "foreground": "#F27983", "fontStyle": "" }
+    },
+    {
+      "scope": ["source.vue support.class.builtin"],
+      "settings": { "foreground": "#5CCFE6", "fontStyle": "" }
+    },
     {
       "scope": ["source.vue string.template variable.other.readwrite"],
       "settings": { "foreground": "#CBCCC6", "fontStyle": "" }
