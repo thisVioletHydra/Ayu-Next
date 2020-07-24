@@ -12,4 +12,4 @@ This is a clone theme, remade for my tastes, I write in javascript and vue, not 
 
 ## License
 
-[MIT License](LICENSE)
+[MIT License](https://github.com/thisVioletHydra/ayu-next/blob/master/LICENSE)
