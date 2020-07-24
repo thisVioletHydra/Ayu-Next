@@ -3,7 +3,7 @@ origin: https://github.com/dempfi/ayu
 ---
 
 ## Preview
-![Picture](https://github.com/thisVioletHydra/ayu-next/images/--preview-cover.png)
+![Picture](https://github.com/thisVioletHydra/ayu-next/blob/master/images/--preview-cover.png)
 
 # README
 

@@ -1,5 +1,5 @@
 {
-  "icon": "https://github.com/thisVioletHydra/ayu-next/images/icon-hero.png",
+  "icon": "images/icon-hero.png",
   "name": "ayu-next",
   "displayName": "ayu-next",
   "description": "ayu-next",
@@ -22,6 +22,9 @@
   },
   "categories": [
     "Themes"
+  ],
+  "keywords": [
+    "theme"
   ],
   "contributes": {
     "themes": [
