@@ -27,6 +27,7 @@
 # *.vscode
 *.yarn-integrity
 
+*.PSD
 ayu-exports
 tmp
 test
