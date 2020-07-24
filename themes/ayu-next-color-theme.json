@@ -357,7 +357,7 @@
   },
 
   "tokenColors": [
-    // -------------- VUE --------------123123---
+    // -------------- VUE -----------------
     {
       "scope": ["source.vue variable.parameter"],
       "settings": { "foreground": "#CBCCC6", "fontStyle": "" }
