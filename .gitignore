@@ -27,6 +27,13 @@
 # *.vscode
 *.yarn-integrity
 
+ayu-exports
+tmp
+test
+out
+VERSION
+*.vsix
+
 __resource/*
 development/tmp
 dist/

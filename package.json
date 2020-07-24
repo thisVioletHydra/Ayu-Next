@@ -2,8 +2,20 @@
   "name": "ayu-next",
   "displayName": "ayu-next",
   "description": "ayu-next",
-  "version": "1.0.1",
+  "version": "1.0.2",
+  "license": "MIT",
+  "private": "false",
+  "publisher": "Roman",
+  "author": "VioletHydra <mrG0bliN.tm@gmail.com>",
   "homepage": "https://github.com/thisVioletHydra/ayu-next#readme",
+  "bugs": {
+    "url": "https://github.com/thisVioletHydra/ayu-next/issues",
+    "email": "mrG0bliN.tm@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "directory": "https://github.com/thisVioletHydra/ayu-next"
+  },
   "engines": {
     "vscode": "^1.45.0"
   },
