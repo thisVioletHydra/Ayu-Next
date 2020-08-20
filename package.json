@@ -3,7 +3,7 @@
   "name": "ayu-next",
   "displayName": "Ayu Next",
   "description": "🔥 This is a Dark theme (Mirage), screenshots inside",
-  "version": "1.0.6",
+  "version": "1.0.6b",
   "license": "MIT",
   "private": "false",
   "publisher": "Roman",
@@ -47,6 +47,6 @@
     "fetch": "git fetch && git merge && yarn",
     "fix": "eslint --fix --ext .js --ignore-path .gitignore .",
     "up": "yarn-check -u && yarn",
-    "autopush": "git add . && pwsh -Command . ${env:userprofile}\\.vscode\\scripts\\index.ps1"
+    "autopush": "git status -s && git add . && pwsh -Command . ${env:userprofile}\\.vscode\\scripts\\index.ps1"
   }
 }
