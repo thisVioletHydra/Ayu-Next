@@ -10,35 +10,35 @@ I write code every day and use my own theme, if I find any bugs in the display a
 
 ### Nuxt code
 
-![Picture](https://joxi.ru/n2YZxjTZqXLMA6?d=1)
+![Picture](https://dl3.joxi.net/drive/2020/08/21/0000/3658/24138/38/dd387fc79b.png)
 
 ### Vue code
 
-![Picture](https://joxi.ru/xAevMVcgo3zGry?d=1)
+![Picture](https://dl4.joxi.net/drive/2020/08/21/0000/3658/24138/38/f352c60be4.png)
 
 ### Node code
 
-![Picture](https://joxi.ru/EA4XoVUOgLJJAb?d=1)
+![Picture](https://dl4.joxi.net/drive/2020/08/21/0000/3658/24138/38/cefc596770.png)
 
 ### JavaScript code
 
-![Picture](https://joxi.ru/V2VdOjcK9pgRrv?d=1)
+![Picture](https://dl4.joxi.net/drive/2020/08/21/0000/3658/24138/38/e9283868da.png)
 
 ### Json code
 
-![Picture](https://joxi.ru/nAybKRHjp8parZ?d=1)
+![Picture](https://dl3.joxi.net/drive/2020/08/21/0000/3658/24138/38/15b1e8e1a5.png)
 
 ### Html code
 
-![Picture](https://joxi.ru/bmo0gjt9Vapn2y?d=1)
+![Picture](https://dl3.joxi.net/drive/2020/08/21/0000/3658/24138/38/3e59aee4a4.png)
 
 ### Css code
 
-![Picture](https://joxi.ru/vAWLnjTqJpvWrW?d=1)
+![Picture](https://dl4.joxi.net/drive/2020/08/21/0000/3658/24138/38/9d6facc900.png)
 
 ### Markdown code
 
-![Picture](https://joxi.ru/E2pBqQiaR5n1rY?d=1)
+![Picture](https://dl3.joxi.net/drive/2020/08/21/0000/3658/24138/38/a18030fbec.png)
 
 ## Attention
 

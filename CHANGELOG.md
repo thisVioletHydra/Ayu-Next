@@ -2,16 +2,24 @@
 
 ## [Unreleased]
 
+## [1.0.10] - 2020-08-21 02:28:35
+
+### Fixed
+
+- fixed minor bugs
+
+---
+
 ## [1.0.9] - 2020-08-21 02:18:50
 
 ### Added
 
 - `readme` gallery
-- `vue` -` variable.other.readwrite.js` syntax highlighting
-- `vue` -` meta.object-literal.key` syntax highlighting
-- `JavaScript` -` punctuation.definition.template-expression` syntax highlighting
-- `JavaScript` -` punctuation.definition.string.template` syntax highlighting
-- `JavaScript` -` meta.template.expression` syntax highlighting
+- `vue` -`variable.other.readwrite.js` syntax highlighting
+- `vue` -`meta.object-literal.key` syntax highlighting
+- `JavaScript` -`punctuation.definition.template-expression` syntax highlighting
+- `JavaScript` -`punctuation.definition.string.template` syntax highlighting
+- `JavaScript` -`meta.template.expression` syntax highlighting
 
 ### Changed
 
@@ -19,11 +27,12 @@
 
 ### Fixed
 
-- gitDecoration - removed highlighting exceptions, so as not to lose focus on the content
+- focusBorder - changed to a softer color
 
 ### Removed
 
-- focusBorder - changed to a softer color
+- gitDecoration - removed highlighting exceptions, so as not to lose focus on the content
+
 ---
 
 ## [1.0.8] - 2020-08-20 23:52:08
