@@ -1,9 +1,9 @@
 {
   "icon": "images/icon-hero.png",
   "name": "ayu-next",
-  "displayName": "ayu-next",
-  "description": "This is a refork theme",
-  "version": "1.0.5",
+  "displayName": "Ayu Next",
+  "description": "🔥 This is a Dark theme (Mirage), screenshots inside",
+  "version": "1.0.6",
   "license": "MIT",
   "private": "false",
   "publisher": "Roman",
@@ -13,18 +13,25 @@
     "url": "https://github.com/thisVioletHydra/ayu-next/issues",
     "email": "mrG0bliN.tm@gmail.com"
   },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "repository": {
     "type": "git",
     "directory": "https://github.com/thisVioletHydra/ayu-next"
   },
   "engines": {
-    "vscode": "^1.45.0"
+    "vscode": "^1.22.0"
   },
   "categories": [
     "Themes"
   ],
   "keywords": [
-    "theme"
+    "theme",
+    "ayu",
+    "dark",
+    "color-theme",
+    "icon-theme" 
   ],
   "contributes": {
     "themes": [
@@ -34,5 +41,12 @@
         "path": "./themes/ayu-next-color-theme.json"
       }
     ]
+  },
+  "scripts": {
+    "killnode": "taskkill /f /im node.exe /im RuntimeBroker.exe /im winword.exe",
+    "fetch": "git fetch && git merge && yarn",
+    "fix": "eslint --fix --ext .js --ignore-path .gitignore .",
+    "up": "yarn-check -u && yarn",
+    "autopush": "git add . && pwsh -Command . ${env:userprofile}\\.vscode\\scripts\\index.ps1"
   }
 }

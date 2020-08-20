@@ -13,6 +13,7 @@
 | -                   | -         |
 | Border              | #FFCC66AE |
 | Activeborder        | #FFA759   |
+| Modifier            | #FF9944   |
 | Inactiveborder      | #805500   |
 | -                   | -         |
 | Hoverbackground     | #191E2A   |
@@ -21,9 +22,8 @@
 | -                   | -         |
 | Accent              | #FFCC66   |
 | Dropdrag            | #D4BFFFAE |
-| Editorerror         | #FF3333   |
+| ERROR               | #E74C3C   |
 | Inactive            | #323a4c   |
-| Null                | #FF00FF   |
 | Selection           | #3D516A   |
 | Separator           | #1F2430AE |
 | -                   | -         |
@@ -41,4 +41,9 @@
 | Added               | #A6CC70   |
 | Deleted             | #F27983   |
 | Modified            | #77A8D9   |
+| -                   | -         |
+| foldBackground      | #24AEF317 |
+| Null                | #FF00FF   |
+| SoftBlack           | #191E2A   |
+| HardBlack           | #171C24   |
 | -                   | -         |
