@@ -1,10 +1,30 @@
 # Change Log
 
-All notable changes to the "theme" extension will be documented in this file.
-
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
-
 ## [Unreleased]
+
+## [1.0.9] - 2020-08-21 02:18:50
+
+### Added
+
+- `readme` gallery
+- `vue` -` variable.other.readwrite.js` syntax highlighting
+- `vue` -` meta.object-literal.key` syntax highlighting
+- `JavaScript` -` punctuation.definition.template-expression` syntax highlighting
+- `JavaScript` -` punctuation.definition.string.template` syntax highlighting
+- `JavaScript` -` meta.template.expression` syntax highlighting
+
+### Changed
+
+- dropBackground - changed to a softer color
+
+### Fixed
+
+- gitDecoration - removed highlighting exceptions, so as not to lose focus on the content
+
+### Removed
+
+- focusBorder - changed to a softer color
+---
 
 ## [1.0.8] - 2020-08-20 23:52:08
 

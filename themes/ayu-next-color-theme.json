@@ -3,6 +3,9 @@
   "$schema": "vscode://schemas/color-theme",
   "type": "dark",
   "colors": {
+    // "contrastActiveBorder": "#00000012",
+    // "inputOption.activeForeground": "#ff0000",
+    // "window.activeBorder": "#ff0000",
     // ------------- activityBar -------------
     // activityBar - самая левая боковая панелька
     "activityBar.background": "#1F2430",
@@ -59,7 +62,7 @@
     "editor.foreground": "#CBCCC6",
     "editor.inactiveSelectionBackground": "#3d516a",
     "editor.lineHighlightBackground": "#191E2A",
-    "editor.rangeHighlightBackground": "#141925",
+    "editor.rangeHighlightBackground": "#0000",
 
     // задний фон для схлопнутого куска кода
     "editor.foldBackground": "#24AEF317",
@@ -79,7 +82,7 @@
     // editorGroup
     "editorGroup.emptyBackground": "#232834",
     "editorGroup.border": "#191e2a",
-    "editorGroup.dropBackground": "#D4BFFFae",
+    "editorGroup.dropBackground": "#FFFFFF17",
     "editorGroup.focusedEmptyBorder": "#191e2a",
 
     // editorGroupHeader
@@ -131,12 +134,13 @@
     "extensionButton.prominentForeground": "#1F2430",
     "extensionButton.prominentHoverBackground": "#fac761",
 
-    "focusBorder": "#141925",
+    "focusBorder": "#0000",
     "foreground": "#707a8c",
 
     "gitDecoration.conflictingResourceForeground": "#E74C3C",
     "gitDecoration.deletedResourceForeground": "#F27983",
-    "gitDecoration.ignoredResourceForeground": "#484f5e",
+    "gitDecoration.ignoredResourceForeground": "#707a8c",
+    "gitDecoration.addedResourceForeground": "#FEF2C0",
     "gitDecoration.modifiedResourceForeground": "#77A8D9",
     "gitDecoration.submoduleResourceForeground": "#d4bfffb3",
     "gitDecoration.untrackedResourceForeground": "#A6CC70",
@@ -178,7 +182,7 @@
     "list.focusForeground": "#CBCCC6",
 
     "list.deemphasizedForeground": "#8c8c8c",
-    "list.dropBackground": "#D4BFFFAE",
+    "list.dropBackground": "#FFFFFF17",
     "list.errorForeground": "#E74C3C",
     "list.filterMatchBackground": "#ffcc660d",
     "list.filterMatchBorder": "#ffcc6659",
@@ -191,7 +195,7 @@
     // sideBar - слева explorer
     "sideBar.background": "#1F2430",
     "sideBar.foreground": "#707A8C",
-    "sideBar.dropBackground": "#D4BFFFAE",
+    "sideBar.dropBackground": "#FFFFFF17",
     "sideBar.border": "#191e2a",
     "sideBarSectionHeader.border": "#191E2A95",
     "sideBarSectionHeader.background": "#1F2430",
@@ -209,7 +213,7 @@
     "panelSectionHeader.foreground": "#ff00ff",
     "panel.background": "#1F2430",
     "panel.border": "#191e2a",
-    "panelSection.dropBackground": "#D4BFFFae",
+    "panelSection.dropBackground": "#FFFFFF17",
     "panelTitle.activeBorder": "#ffcc66",
     "panelTitle.activeForeground": "#cbccc6",
     "panelTitle.inactiveForeground": "#707A8C",
@@ -367,6 +371,28 @@
 
   "tokenColors": [
     // -------------- VUE -----------------
+    // {
+    //   "scope": [
+    //    " source.vue source.js meta.export.default.js meta.objectliteral.js meta.object.member.js meta.objectliteral.js meta.method.declaration.js meta.block.js meta.block.js meta.function-call.js entity.name.function.js"
+    //   ],
+    //   "settings": { "foreground": "#F27983", "fontStyle": "" }
+    // },
+    {
+      "scope": [
+        "source.vue source.js meta.export.default.js meta.objectliteral.js meta.object.member.js meta.objectliteral.js meta.object.member.js meta.object-literal.key.js entity.name.function.js"
+      ],
+      "settings": { "foreground": "#FFD580", "fontStyle": "" }
+    },
+    {
+      "scope": [
+        "source.vue text.html.vue-html meta.tag.block.any.html meta.directive.vue source.directive.vue variable.other.readwrite.js"
+      ],
+      "settings": { "foreground": "#FF9944", "fontStyle": "" }
+    },
+    {
+      "scope": ["source.vue text.html.vue-html expression.embedded.vue variable.other.readwrite.js"],
+      "settings": { "foreground": "#FF9944", "fontStyle": "" }
+    },
     {
       "scope": ["source.vue variable.parameter"],
       "settings": { "foreground": "#CBCCC6", "fontStyle": "" }
@@ -419,6 +445,30 @@
     },
 
     // -------------- JS --------------
+    // {
+    //   "scope": [
+    //     "source.js meta.export.default.js meta.class.js meta.method.declaration.js meta.block.js meta.var.expr.js meta.objectliteral.js meta.object.member.js string.template.js",
+    //   ],
+    //   "settings": { "foreground": "#BAE67E", "fontStyle": "" }
+    // },
+    {
+      "scope": [
+        "source.js meta.template.expression.js punctuation.definition.template-expression.begin.js",
+        "source.js meta.template.expression.js punctuation.definition.template-expression.end.js"
+      ],
+      "settings": { "foreground": "#FF9944", "fontStyle": "" }
+    },
+    {
+      "scope": [
+        "source.js meta.template.expression.js punctuation.definition.string.template.begin.js",
+        "source.js meta.template.expression.js punctuation.definition.string.template.end.js"
+      ],
+      "settings": { "foreground": "#FF9944", "fontStyle": "" }
+    },
+    {
+      "scope": ["source.js meta.template.expression.js meta.embedded.line.js variable.other.object.js"],
+      "settings": { "foreground": "#CBCCC6", "fontStyle": "" }
+    },
     {
       "scope": ["meta.function-call entity.name.function"],
       "settings": { "foreground": "#FFD580", "fontStyle": "" }
@@ -477,6 +527,10 @@
     //   "settings": { "foreground": "#F27983", "fontStyle": "" }
     // },
     {
+      "scope": "string, constant.other.symbol",
+      "settings": { "foreground": "#bae67e", "fontStyle": "" }
+    },
+    {
       "scope": ["variable.parameter", "meta.parameter"],
       "settings": { "foreground": "#D4BFFFAE" }
     },
@@ -509,10 +563,7 @@
       "scope": "keyword.control.export",
       "settings": { "foreground": "#F29E74", "fontStyle": "" }
     },
-    {
-      "scope": "string, constant.other.symbol",
-      "settings": { "foreground": "#bae67e", "fontStyle": "" }
-    },
+
     {
       "scope": "string.regexp, constant.character, constant.other",
       "settings": { "foreground": "#95e6cb", "fontStyle": "" }
