@@ -1,5 +1,7 @@
 # 🎨 Ayu-Next Theme
 
+Attention, `semanticTokenColors` does not work correctly with` * .vue` !!!
+
 Thanks to the [creator](https://github.com/dempfi/ayu) for such a perfect theme for me, I have been using the SublimeText editor for a very long time, and over time I switched to Visual Studio Code
 
 ## Description
