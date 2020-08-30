@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+## [1.1.4] - 2020-08-30 08:41:27
+
+- hotfix
+
 ## [1.1.3] - 2020-08-30 08:30:26
 
 - added automatic versioning of updates
