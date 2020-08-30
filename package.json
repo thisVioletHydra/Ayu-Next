@@ -3,7 +3,7 @@
   "name": "ayu-next",
   "displayName": "Ayu Next",
   "description": "🔥 This is a Dark theme (Mirage), screenshots inside",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "license": "MIT",
   "private": "false",
   "publisher": "Roman",
@@ -65,7 +65,7 @@
     "up": "yarn-check -u && yarn",
     "up:latest": "yarn upgrade-interactive --latest"
   },
-  "dependencies": {
+  "devDependencies": {
     "npm-run-all": "^4.1.5"
   }
 }
