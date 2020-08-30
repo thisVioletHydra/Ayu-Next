@@ -2,6 +2,22 @@
 
 ## [Unreleased]
 
+## [1.1.3] - 2020-08-30 08:30:26
+
+- added automatic versioning of updates
+
+### Added
+
+- `variable.defaultLibrary` - syntax highlighting
+- `new.expr` - syntax highlighting
+- `punctuation.definition.string` - syntax highlighting
+
+### Fixed
+
+- `console.*` - changed to a softer color
+- `string.template` - fixed variables
+- `list.inactiveSelectionBackground` - changed to normal color display
+
 ## [1.0.10] - 2020-08-21 02:28:35
 
 ### Fixed
@@ -23,15 +39,15 @@
 
 ### Changed
 
-- dropBackground - changed to a softer color
+- `dropBackground` - changed to a softer color
 
 ### Fixed
 
-- focusBorder - changed to a softer color
+- `focusBorder` - changed to a softer color
 
 ### Removed
 
-- gitDecoration - removed highlighting exceptions, so as not to lose focus on the content
+- `gitDecoration` - removed highlighting exceptions, so as not to lose focus on the content
 
 ---
 

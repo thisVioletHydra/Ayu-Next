@@ -371,7 +371,6 @@
   },
 
   "tokenColors": [
-    
     // -------------- GLOBAL -----------------
     {
       "scope": ["new.expr entity.name.type"],
