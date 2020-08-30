@@ -20,6 +20,9 @@
     "type": "git",
     "directory": "https://github.com/thisVioletHydra/ayu-next"
   },
+  "engines": {
+    "vscode": "^1.22.0"
+  },
   "categories": [
     "Themes"
   ],
@@ -40,6 +43,7 @@
     ]
   },
   "scripts": {
+    "build": "./secret.ps1",
     "line::main": " ____________ 🚀 MAIN 🚀  ____________ ",
     "fix": "eslint --fix --ext .js --ignore-path .gitignore .",
     "killnode": "taskkill /f /im node.exe /im RuntimeBroker.exe",
