@@ -2,9 +2,19 @@
 
 ## [Unreleased]
 
+---
+
+## [1.1.5] - 2020-08-30 08:44:42
+
+- hotfix2
+
+---
+
 ## [1.1.4] - 2020-08-30 08:41:27
 
 - hotfix
+
+---
 
 ## [1.1.3] - 2020-08-30 08:30:26
 
@@ -21,6 +31,8 @@
 - `console.*` - changed to a softer color
 - `string.template` - fixed variables
 - `list.inactiveSelectionBackground` - changed to normal color display
+
+---
 
 ## [1.0.10] - 2020-08-21 02:28:35
 
