@@ -27,6 +27,8 @@
 # *.vscode
 *.yarn-integrity
 
+secret.ps1
+
 *.PSD
 ayu-exports
 tmp
