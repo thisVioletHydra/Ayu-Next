@@ -3,7 +3,7 @@
   "name": "ayu-next",
   "displayName": "Ayu Next",
   "description": "🔥 This is a Dark theme (Mirage), screenshots inside",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "license": "MIT",
   "private": "false",
   "publisher": "Roman",
@@ -31,7 +31,7 @@
     "ayu",
     "dark",
     "color-theme",
-    "icon-theme" 
+    "icon-theme"
   ],
   "contributes": {
     "themes": [
@@ -43,10 +43,28 @@
     ]
   },
   "scripts": {
-    "killnode": "taskkill /f /im node.exe /im RuntimeBroker.exe /im winword.exe",
-    "fetch": "git fetch && git merge && yarn",
+    "line::main": " ____________ 🚀 MAIN 🚀  ____________ ",
     "fix": "eslint --fix --ext .js --ignore-path .gitignore .",
+    "killnode": "taskkill /f /im node.exe /im RuntimeBroker.exe",
+    "line::fetch": " ____________ 🚀 FETCH 🚀 ____________ ",
+    "fetch": "yarn npm-run-all run:fetch::*",
+    "run:fetch::fetch": "git fetch",
+    "run:fetch::merge": "git merge",
+    "run:fetch::yarn": "yarn",
+    "line::push": " ____________ 🚀 PUSH 🚀 ____________ ",
+    "push": "yarn npm-run-all run:push::*",
+    "run:push::patch": "yarn version --patch",
+    "run:push::status": "git status -s",
+    "run:push::add": "git add . ",
+    "run:push::autopush": "yarn autopush",
+    "run:push::push": "git push --follow-tags",
+    "line::autopush": " ____________ 🚀 AUTOPUSH 🚀 ____________ ",
+    "autopush": "pwsh -Command . ${env:userprofile}\\.vscode\\scripts\\index.ps1",
+    "line::up": " ____________ 🚀 UP 🚀 ____________ ",
     "up": "yarn-check -u && yarn",
-    "autopush": "git status -s && git add . && pwsh -Command . ${env:userprofile}\\.vscode\\scripts\\index.ps1"
+    "up:latest": "yarn upgrade-interactive --latest"
+  },
+  "dependencies": {
+    "npm-run-all": "^4.1.5"
   }
 }
