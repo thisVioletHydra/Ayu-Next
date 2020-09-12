@@ -1,4 +1,4 @@
-# 🎨 Ayu-Next Theme
+# 🎨 Ayu Next Theme
 
 Attention, `semanticTokenColors` does not work correctly with` * .vue` !!!
 
@@ -7,6 +7,10 @@ Thanks to the [creator](https://github.com/dempfi/ayu) for such a perfect theme 
 ## Description
 
 I write code every day and use my own theme, if I find any bugs in the display and rendering, I try to fix and update my theme as soon as possible, so updates are released very often 🎈😁
+
+## Changelog
+
+[CHANGELOG](https://github.com/thisVioletHydra/ayu-next/blob/master/CHANGELOG.md)
 
 ## Preview
 
