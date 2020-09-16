@@ -4,25 +4,21 @@
 
 ---
 
-## [1.1.7] - 2020-08-30 08:44:42
+## [1.1.8] - 2020-09-16 17:43:28
 
 ### Changed
 
+> Vue
+
 - Vue `variable.other.readwrite` - syntax highlighting
+
+> Editor
+
+- `editorSuggestWidget` - better `highlightForeground` color
 
 ### Fixed
 
 - fixed minor bugs
-
-## [1.1.5] - 2020-08-30 08:44:42
-
-- hotfix2
-
----
-
-## [1.1.4] - 2020-08-30 08:41:27
-
-- hotfix
 
 ---
 
