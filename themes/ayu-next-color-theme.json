@@ -403,11 +403,11 @@
       "scope": [
         "source.vue text.html.vue-html meta.tag.block.any.html meta.directive.vue source.directive.vue variable.other.readwrite.js"
       ],
-      "settings": { "foreground": "#FF9944", "fontStyle": "" }
+      "settings": { "foreground": "#D4BFFF", "fontStyle": "" }
     },
     {
       "scope": ["source.vue text.html.vue-html expression.embedded.vue variable.other.readwrite.js"],
-      "settings": { "foreground": "#FF9944", "fontStyle": "" }
+      "settings": { "foreground": "#D4BFFF", "fontStyle": "" }
     },
     {
       "scope": ["source.vue variable.parameter"],

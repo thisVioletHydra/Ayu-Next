@@ -4,6 +4,16 @@
 
 ---
 
+## [1.1.7] - 2020-08-30 08:44:42
+
+### Changed
+
+- Vue `variable.other.readwrite` - syntax highlighting
+
+### Fixed
+
+- fixed minor bugs
+
 ## [1.1.5] - 2020-08-30 08:44:42
 
 - hotfix2
