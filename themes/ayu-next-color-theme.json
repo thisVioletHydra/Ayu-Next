@@ -462,12 +462,12 @@
 
     // -------------- JS --------------
 
-    {
-      "scope": [
-        "meta.export.default.js meta.class.js meta.method.declaration.js meta.block.js meta.function-call.js entity.name.function.js"
-      ],
-      "settings": { "foreground": "#f27983", "fontStyle": "" }
-    },
+    // {
+    //   "scope": [
+    //     "meta.export.default.js meta.class.js meta.method.declaration.js meta.block.js meta.block.js meta.function-call.js entity.name.function.js"
+    //   ],
+    //   "settings": { "foreground": "#f27983", "fontStyle": "" }
+    // },
 
     {
       "scope": [
