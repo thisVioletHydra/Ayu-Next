@@ -118,14 +118,14 @@
     "editorOverviewRuler.warningForeground": "#ffcc66",
 
     "editorRuler.foreground": "#707a8c4d",
-    
+
     // editorSuggestWidget - выпадающие подсказки
     "editorSuggestWidget.background": "#191E2A",
     "editorSuggestWidget.border": "#191E2A",
     "editorSuggestWidget.foreground": "#CBCCC6",
     "editorSuggestWidget.highlightForeground": "#ffcc66",
     "editorSuggestWidget.selectedBackground": "#3D516ACC",
-    
+
     "editorWarning.foreground": "#ffcc66",
     "editorMarkerNavigationWarning.background": "#ffcc66",
 
@@ -461,6 +461,20 @@
     },
 
     // -------------- JS --------------
+
+    {
+      "scope": [
+        "meta.export.default.js meta.class.js meta.method.declaration.js meta.block.js meta.function-call.js entity.name.function.js"
+      ],
+      "settings": { "foreground": "#f27983", "fontStyle": "" }
+    },
+
+    {
+      "scope": [
+        "meta.export.default.js meta.class.js meta.method.declaration.js meta.block.js meta.function-call.js variable.other.object.js"
+      ],
+      "settings": { "foreground": "#59c9de99", "fontStyle": "" }
+    },
 
     {
       "scope": [
