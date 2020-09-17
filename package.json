@@ -3,7 +3,7 @@
   "name": "ayu-next",
   "displayName": "Ayu Next",
   "description": "🔥 This is a Dark theme (Mirage), screenshots inside",
-  "version": "1.1.8",
+  "version": "1.1.9",
   "license": "MIT",
   "private": "false",
   "publisher": "Roman",
@@ -43,7 +43,7 @@
     ]
   },
   "scripts": {
-    "build": "./secret.ps1",
+    "secret": "./secret.ps1",
     "line::main": " ____________ 🚀 MAIN 🚀  ____________ ",
     "fix": "eslint --fix --ext .js --ignore-path .gitignore .",
     "killnode": "taskkill /f /im node.exe /im RuntimeBroker.exe",
