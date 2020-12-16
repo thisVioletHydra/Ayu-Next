@@ -359,7 +359,7 @@
     "*.declaration": "#D4BFFF",
 
     "class": { "foreground": "#F29E74", "fontStyle": "" },
-    "class.declaration": "#F29E74",
+    "class.declaration": "#5CCFE6",
     "class.defaultLibrary": "#5CCFE6",
 
     "comment": { "foreground": "#5C6773", "fontStyle": "italic" },
@@ -388,7 +388,7 @@
     "support.defaultLibrary": "#F27983",
     "type": "#FFD580",
 
-    "interface": { "foreground": "#C29252", "fontStyle": "" },
+    "interface": { "foreground": "#B9F6CA", "fontStyle": "" },
     // "interface": { "foreground": "#BEE2E1DD", "fontStyle": "" },
 
     "property": { "foreground": "#CBCCC6", "fontStyle": "" },
@@ -417,13 +417,7 @@
         "fontStyle": ""
       }
     },
-    {
-      "scope": ["source meta.block"],
-      "settings": {
-        "foreground": "#CBCCC6",
-        "fontStyle": ""
-      }
-    },
+
     {
       "scope": ["source meta.class meta.field.declaration meta.type.annotation keyword.operator"],
       "settings": {
@@ -433,14 +427,21 @@
     },
     // -------------- TS -----------------
     {
-      "scope": ["punctuation.separator"],
+      "scope": ["source meta.block"],
+      "settings": {
+        "foreground": "#CBCCC6",
+        "fontStyle": ""
+      }
+    },
+    {
+      "scope": ["punctuation.separator.comma"],
       "settings": {
         "foreground": "#f29e7499",
         "fontStyle": ""
       }
     },
     {
-      "scope": ["punctuation.terminator"],
+      "scope": ["punctuation.terminator", "punctuation.separator.key-value"],
       "settings": {
         "foreground": "#CBCCC6B3",
         "fontStyle": ""
@@ -449,7 +450,7 @@
     {
       "scope": ["punctuation.definition.template-expression.begin", "punctuation.definition.template-expression.end"],
       "settings": {
-        "foreground": "#f29e7499",
+        "foreground": "#BAE67E",
         "fontStyle": ""
       }
     },
@@ -755,7 +756,7 @@
     },
     {
       "scope": "storage.type.class",
-      "settings": { "foreground": "#5ccfe6", "fontStyle": "bold" }
+      "settings": { "foreground": "#FF9944", "fontStyle": "bold" }
     },
     {
       "scope": "meta.decorator variable.other, meta.decorator punctuation.decorator, storage.type.annotation, variable.annotation, punctuation.definition.annotation",
