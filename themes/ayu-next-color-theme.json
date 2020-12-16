@@ -386,8 +386,8 @@
     "readonly.local": "#BAE67E",
     "stringLiteral": "#ce9178",
     "support.defaultLibrary": "#F27983",
-    "type": "#FFD580",
 
+    "type": { "foreground": "#B9F6CA", "fontStyle": "" },
     "interface": { "foreground": "#B9F6CA", "fontStyle": "" },
     // "interface": { "foreground": "#BEE2E1DD", "fontStyle": "" },
 
