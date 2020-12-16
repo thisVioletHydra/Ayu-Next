@@ -4,6 +4,47 @@
 
 ---
 
+## [1.1.13] - 2020-12-16 13:52:43
+
+### Added
+
+- Partial `TypeScript` support
+
+> semanticTokenColors
+
+- `class`
+- `type`
+- `interface`
+- `property`
+- `comment`
+- `number`
+- `variable`
+
+> tokenColors
+
+- `keyword.operator`
+- `punctuation.separator`
+- `template-expression`
+- `storage.type`
+- `meta.block`
+- `punctuation.terminator`
+- `typeparameters`
+- `string.template`
+
+### Changed
+
+> semanticTokenColors
+
+- `member` -> `method`
+
+### Fixed
+
+> Js
+
+- `function` colors
+
+---
+
 ## [1.1.8] - 2020-09-16 17:43:28
 
 ### Changed

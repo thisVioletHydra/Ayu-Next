@@ -1,8 +1,12 @@
 # 🎨 Ayu Next Theme
 
-Attention, `semanticTokenColors` does not work correctly with` * .vue` !!!
-
 Thanks to the [creator](https://github.com/dempfi/ayu) for such a perfect theme for me, I have been using the SublimeText editor for a very long time, and over time I switched to Visual Studio Code
+
+### Hot message
+
+- Tested Syntax: `.html`, `.css`, `.js`, `.json`,`.jsonc`,`.vue`, `.ts` , `.md` , `.log`
+- Tested Project: `Nuxt`
+- Partial `TypeScript` support
 
 ## Description
 
@@ -12,7 +16,7 @@ I write code every day and use my own theme, if I find any bugs in the display a
 
 [CHANGELOG](https://github.com/thisVioletHydra/ayu-next/blob/master/CHANGELOG.md)
 
-## Preview
+## Preview Picture (2020-08-20 23:52:08)
 
 ### Nuxt code
 
