@@ -4,6 +4,21 @@
 
 ---
 
+## [1.1.16] - 2020-12-23 04:55:59
+
+### Fixed
+
+> Vue
+
+- `entity.name.function`
+- `console`
+- `variable.other.object`
+- `punctuation.definition`
+
+> Ts
+
+- `punctuation.definition`
+
 ## [1.1.15] - 2020-12-16 13:52:43
 
 ### Added

@@ -406,17 +406,7 @@
   },
 
   "tokenColors": [
-    // -------------- UNKNOWN -----------------
-    {
-      "scope": [
-        "source meta.interface meta.field.declaration meta.type.annotation keyword.operator.type.annotation",
-        "source meta.type meta.object.type keyword.operator"
-      ],
-      "settings": {
-        "foreground": "#CBCCC6B3",
-        "fontStyle": ""
-      }
-    },
+    // -------------- 🔥 UNKNOWN -----------------
 
     {
       "scope": ["source meta.class meta.field.declaration meta.type.annotation keyword.operator"],
@@ -425,7 +415,28 @@
         "fontStyle": ""
       }
     },
-    // -------------- TS -----------------
+    // -------------- 🔥 TS -----------------
+    {
+      "scope": [
+        "source.ts meta.interface meta.field.declaration meta.type.annotation keyword.operator.type.annotation",
+        "source meta.type meta.object.type keyword.operator"
+      ],
+      "settings": {
+        "foreground": "#CBCCC6B3",
+        "fontStyle": ""
+      }
+    },
+    {
+      "scope": [
+        "source.ts punctuation.definition.typeparameters.begin",
+        "source.ts punctuation.definition.typeparameters.end"
+      ],
+      "settings": {
+        "foreground": "#FF9944",
+        "fontStyle": ""
+      }
+    },
+    // -------------- 🔥 SOURCE -----------------
     {
       "scope": ["source meta.block"],
       "settings": {
@@ -434,21 +445,24 @@
       }
     },
     {
-      "scope": ["punctuation.separator.comma"],
+      "scope": ["source punctuation.separator.comma"],
       "settings": {
         "foreground": "#f29e7499",
         "fontStyle": ""
       }
     },
     {
-      "scope": ["punctuation.terminator", "punctuation.separator.key-value"],
+      "scope": ["source punctuation.terminator", "source punctuation.separator.key-value"],
       "settings": {
         "foreground": "#CBCCC6B3",
         "fontStyle": ""
       }
     },
     {
-      "scope": ["punctuation.definition.template-expression.begin", "punctuation.definition.template-expression.end"],
+      "scope": [
+        "source punctuation.definition.template-expression.begin",
+        "source punctuation.definition.template-expression.end"
+      ],
       "settings": {
         "foreground": "#BAE67E",
         "fontStyle": ""
@@ -456,8 +470,10 @@
     },
     {
       "scope": [
-        "string.template punctuation.definition.string.template.begin",
-        "string.template punctuation.definition.string.template.end"
+        "source punctuation.definition.string.template.begin.js",
+        "source punctuation.definition.string.template.end.js",
+        "source string.template punctuation.definition.string.template.begin",
+        "source string.template punctuation.definition.string.template.end"
       ],
       "settings": {
         "foreground": "#FF9944",
@@ -465,34 +481,72 @@
       }
     },
     {
-      "scope": ["punctuation.definition.typeparameters.begin", "punctuation.definition.typeparameters.end"],
-      "settings": {
-        "foreground": "#FF9944",
-        "fontStyle": ""
-      }
-    },
-    // -------------- GLOBAL -----------------
-    {
-      "scope": ["new.expr entity.name.type"],
+      "scope": ["source new.expr entity.name.type"],
       "settings": { "foreground": "#F29E74", "fontStyle": "" }
     },
     {
       "scope": [
-        "string.template meta.template.expression meta.embedded.line variable.other.readwrite",
-        "string.template meta.template.expression meta.embedded.line variable.other"
+        "source string.template meta.template.expression meta.embedded.line variable.other.readwrite",
+        "source string.template meta.template.expression meta.embedded.line variable.other"
       ],
       "settings": { "foreground": "#CBCCC6", "fontStyle": "" }
     },
 
-    {
-      "scope": ["punctuation.definition.string.template.begin.js", "punctuation.definition.string.template.end.js"],
-      "settings": { "foreground": "#FF9944", "fontStyle": "" }
-    },
-
-    // -------------- VUE -----------------
+    // -------------- 🔥 VUE -----------------
+    // ---> console
     {
       "scope": [
-        "source.vue source.js meta.export.default.js meta.objectliteral.js meta.object.member.js meta.objectliteral.js meta.object.member.js meta.object-literal.key.js entity.name.function.js"
+        "source.vue meta.objectliteral meta.object.member meta.objectliteral meta.method.declaration meta.block meta.function-call entity.name.function.js",
+
+        "source.vue meta.export.default meta.objectliteral meta.method.declaration meta.block meta.objectliteral meta.object.member meta.function-call entity.name.function.js",
+
+        "source.vue meta.function-call entity.name.function.js"
+      ],
+      "settings": { "foreground": "#F27983", "fontStyle": "" }
+    },
+    {
+      "scope": [
+        "source.vue meta.block meta.function-call variable.other.object.js",
+        "source.vue meta.function-call variable.other.object.js"
+      ],
+      "settings": { "foreground": "#59C9DE99", "fontStyle": "" }
+    },
+    // console <---
+    // ---> function
+    {
+      "scope": [
+        "source.vue meta.export.default meta.objectliteral meta.object.member meta.function-call entity.name.function.js"
+      ],
+      "settings": { "foreground": "#F27983", "fontStyle": "" }
+    },
+    {
+      "scope": [
+        "source.vue meta.export.default meta.objectliteral meta.object.member meta.objectliteral meta.method.declaration meta.block meta.function-call entity.name.function.js",
+
+        "source.vue meta.export.default meta.objectliteral meta.object.member meta.method.declaration meta.block meta.block meta.function-call entity.name.function.js",
+
+        "source.vue meta.export.default meta.objectliteral meta.object.member entity.name.function.js",
+
+        "source.vue meta.export.default meta.objectliteral meta.object.member meta.objectliteral meta.object.member meta.function-call entity.name.function.js",
+
+        "source.vue meta.export.default meta.objectliteral meta.method.declaration meta.block meta.var.expr meta.function-call entity.name.function.js",
+
+        "source.vue meta.export.default meta.objectliteral meta.method.declaration meta.block meta.function-call entity.name.function.js"
+      ],
+      "settings": { "foreground": "#FFD580", "fontStyle": "" }
+    },
+    {
+      "scope": ["source.vue punctuation.definition.tag.begin", "source.vue punctuation.definition.tag.end"],
+      "settings": { "foreground": "#5CCFE6", "fontStyle": "" }
+    },
+    // function <---
+    {
+      "scope": ["source.vue text.html.vue-html meta.tag.block.any"],
+      "settings": { "foreground": "#5CCFE6", "fontStyle": "" }
+    },
+    {
+      "scope": [
+        "source.vue meta.export.default meta.objectliteral meta.object.member meta.objectliteral meta.object.member meta.object-literal.key entity.name.function.js"
       ],
       "settings": { "foreground": "#FFD580", "fontStyle": "" }
     },
@@ -535,7 +589,7 @@
       "settings": { "foreground": "#FFD580", "fontStyle": "" }
     },
 
-    // -------------- stylus --------------
+    // -------------- 🔥 STYLUS --------------
     {
       "scope": ["source.stylus meta.property-list.css"],
       "settings": { "foreground": "#FF9944", "fontStyle": "" }
@@ -557,26 +611,11 @@
       "settings": { "foreground": "#5CCFE6", "fontStyle": "" }
     },
 
-    // -------------- JS --------------
-
-    // {
-    //   "scope": [
-    //     "meta.export.default.js meta.class.js meta.method.declaration.js meta.block.js meta.block.js meta.function-call.js entity.name.function.js"
-    //   ],
-    //   "settings": { "foreground": "#f27983", "fontStyle": "" }
-    // },
-
-    // not working
-    // {
-    //   "scope": [
-    //     "meta.export.default.js meta.class.js meta.method.declaration.js meta.block.js meta.function-call.js variable.other.object.js"
-    //   ],
-    //   "settings": { "foreground": "#59c9de99", "fontStyle": "" }
-    // },
-
+    // -------------- 🔥 JS --------------
     {
       "scope": [
         "source.js meta.template.expression.js punctuation.definition.template-expression.begin.js",
+
         "source.js meta.template.expression.js punctuation.definition.template-expression.end.js"
       ],
       "settings": { "foreground": "#FF9944", "fontStyle": "" }
@@ -641,7 +680,7 @@
     },
     {
       "scope": ["variable.parameter", "meta.parameter"],
-      "settings": { "foreground": "#D4BFFFAE" }
+      "settings": { "foreground": "#D4BFFFAE", "fontStyle": "" }
     },
     {
       "scope": "comment",
@@ -672,7 +711,6 @@
       "scope": "keyword.control.export",
       "settings": { "foreground": "#F29E74", "fontStyle": "" }
     },
-
     {
       "scope": "string.regexp, constant.character, constant.other",
       "settings": { "foreground": "#95e6cb", "fontStyle": "" }
@@ -705,10 +743,6 @@
       "scope": "keyword.operator",
       "settings": { "foreground": "#f29e74", "fontStyle": "" }
     },
-    // {
-    //   "scope": "punctuation.separator, punctuation.terminator",
-    //   "settings": { "foreground": "#cbccc6b3", "fontStyle": "" }
-    // },
     {
       "scope": "punctuation.section",
       "settings": { "foreground": "#cbccc6", "fontStyle": "" }
