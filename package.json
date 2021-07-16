@@ -3,7 +3,7 @@
   "name": "ayu-next",
   "displayName": "Ayu Next",
   "description": "🔥 This is a Dark theme (Mirage), screenshots inside",
-  "version": "1.1.21",
+  "version": "1.1.22",
   "license": "MIT",
   "private": "false",
   "publisher": "Roman",
@@ -62,8 +62,7 @@
     "line::autopush": " ____________ 🚀 AUTOPUSH 🚀 ____________ ",
     "autopush": "pwsh -Command . ${env:userprofile}/.vscode/extensions/roman.git-autocommit-1.2.3/index.ps1",
     "line::up": " ____________ 🚀 UP 🚀 ____________ ",
-    "up": "yarn-check -u && yarn",
-    "up:latest": "yarn upgrade-interactive --latest"
+    "up": "yarn upgrade-interactive --latest"
   },
   "devDependencies": {
     "npm-run-all": "^4.1.5"
