@@ -1,8 +1,24 @@
 {
   "folders": [
-	{
-		"path": "."
-	}
-],
-  "settings": {}
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "cSpell.words": [
+      "c",
+      "cls",
+      "cmd",
+      "commandline",
+      "env",
+      "exe",
+      "gsudo",
+      "index",
+      "ps",
+      "pwsh",
+      "scripts",
+      "userprofile",
+      "vscode"
+    ]
+  }
 }

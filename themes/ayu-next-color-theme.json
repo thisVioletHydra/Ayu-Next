@@ -64,14 +64,16 @@
     "editor.lineHighlightBackground": "#191E2A",
     "editor.rangeHighlightBackground": "#0000",
 
-    // задний фон для схлопнутого куска кода
+    // задний фон для с хлопнутого куска кода
     "editor.foldBackground": "#24AEF317",
     "editor.hoverHighlightBackground": "#3D516ACC",
     "editor.focusedStackFrameHighlightBackground": "#ff00ff",
     "editor.selectionHighlightBackground": "#0000",
     "editor.selectionHighlightBorder": "#FF9944",
-    "editor.wordHighlightBackground": "#ff00ff",
-    "editor.wordHighlightStrongBackground": "#ff00ff",
+
+    // @TODO
+    "editor.wordHighlightBackground": "#FF9944",
+    "editor.wordHighlightStrongBackground": "#FF9944",
 
     "editorBracketMatch.background": "#707a8c4d",
     "editorBracketMatch.border": "#707a8c99",
@@ -96,8 +98,13 @@
     "editorGutter.deletedBackground": "#F27983",
     "editorGutter.modifiedBackground": "#77A8D9",
 
-    "editorHoverWidget.background": "#232834",
-    "editorHoverWidget.border": "#101521",
+    // editorIndentGuide - всплывающее окно при наведении на переменную
+    "editorHoverWidget.background": "#20232F",
+    "editorHoverWidget.border": "#191e2a",
+    "editorHoverWidget.foreground": "#ffffff73",
+    "editorHoverWidget.statusBarBackground": "#232834",
+
+    // editorIndentGuide
     "editorIndentGuide.activeBackground": "#171C24",
     "editorIndentGuide.background": "#707a8c4d",
     "editorLineNumber.activeForeground": "#707a8ccc",
@@ -110,7 +117,7 @@
     "editorOverviewRuler.selectionHighlightForeground": "#ffcc66ae",
     "editorOverviewRuler.border": "#0000",
     "editorOverviewRuler.background": "#1F2430",
-    "editorOverviewRuler.currentContentForeground": "#ff00ff",
+    "editorOverviewRuler.currentContentForeground": "#707a8c4d",
     "editorOverviewRuler.addedForeground": "#A6CC70",
     "editorOverviewRuler.deletedForeground": "#F27983",
     "editorOverviewRuler.modifiedForeground": "#77A8D9",
@@ -214,6 +221,7 @@
     "panelSectionHeader.background": "#ff00ff",
     "panelSection.border": "#ff00ff",
     "panelSectionHeader.foreground": "#ff00ff",
+
     "panel.background": "#1F2430",
     "panel.border": "#191e2a",
     "panelSection.dropBackground": "#FFFFFF17",
@@ -254,8 +262,23 @@
     "statusBar.border": "#191e2a",
     "statusBar.debuggingBackground": "#89D185",
     "statusBar.debuggingForeground": "#1F2430",
+    "statusBar.debuggingBorder": "#0000",
+
     "statusBar.foreground": "#707a8c",
+
+    // statusBar - без папок, тупо когда один файл
+    "statusBar.noFolderBorder": "#141925",
     "statusBar.noFolderBackground": "#232834",
+    "statusBar.noFolderForeground": "#707A8C",
+
+    // statusBarItem
+    // statusBarItem - wsl значок в левом нижнем углу
+    "statusBarItem.prominentForeground": "#20232F",
+    "statusBarItem.remoteBackground": "#20232F",
+    "statusBarItem.remoteForeground": "#cbccc6",
+
+    "statusBarItem.errorBackground": "#F27983",
+    "statusBarItem.errorForeground": "#cbccc6",
 
     "statusBarItem.activeBackground": "#171C24",
     "statusBarItem.hoverBackground": "#191E2A",
@@ -334,6 +357,7 @@
 
     "textPreformat.foreground": "#cbccc6",
 
+    // titleBar
     "titleBar.activeBackground": "#1F2430",
     "titleBar.activeForeground": "#cbccc6",
     "titleBar.border": "#191e2a",
@@ -345,12 +369,21 @@
     "problemsWarningIcon.foreground": "#ffcc66",
 
     "walkThrough.embeddedEditorBackground": "#232834",
-    "widget.shadow": "#141925"
-    // "breadcrumb.activeSelectionForeground": "#ff0000",
-    // "breadcrumbPicker.background": "#ff0000"
+    "widget.shadow": "#141925",
+
+    "extensionBadge.remoteBackground": "#FFCC66ae",
+    "extensionBadge.remoteForeground": "#1F2430ae",
+
+    "sash.hoverBorder": "#3D516A",
+    // "banner.background": "#ff0000",
+    "contrastBorder": "#0000",
+    "contrastActiveBorder": "#0000",
+    "debugToolBar.border": "#0000",
+    // "editorPane.background": "#ff0000",
+    // "toolbar.activeBackground": "#FFA759",
+    "toolbar.hoverOutline": "#0000"
   },
-  "workbench.sash.size": 4,
-  "sash.hoverBorder": "#FFD580",
+  "workbench.sash.size": 2,
 
   "semanticHighlighting": true,
   "semanticTokenColors": {
