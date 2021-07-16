@@ -4,6 +4,31 @@
 
 ---
 
+## [1.2.1] - 2021-07-16 04:43:40
+
+### Added
+
+> tsconfig.json
+> .vscode/settings.json
+
+### Changed
+
+> package.json
+
+- invalid upload code
+
+### Fixed
+
+> Editor
+
+- `statusBarItem` - wsl background colors
+- `statusBar` - noFolder
+- `editorHoverWidget` - strange hover errors
+- `editorOverviewRuler` - miss color
+- `sash` - didn't work right
+
+---
+
 ## [1.1.18] - 2020-12-23 04:55:59
 
 ### Fixed
