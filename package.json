@@ -1,9 +1,9 @@
 {
-  "icon": "images/icon-hero.png",
+  "icon": "https://raw.githubusercontent.com/thisVioletHydra/Ayu-Next/master/images/icon-hero.png",
   "name": "ayu-next",
   "displayName": "Ayu Next",
   "description": "🔥 This is a Dark theme (Mirage), screenshots inside",
-  "version": "1.2.7",
+  "version": "1.2.8",
   "license": "MIT",
   "private": "false",
   "publisher": "Roman",
