@@ -1,4 +1,4 @@
-<p align="center"><img alt="Picture" src="https://github.com/thisVioletHydra/Ayu-Next/blob/master/images/icon-hero.png"/></p>
+<p align="center"><img alt="Picture" src="https://raw.githubusercontent.com/thisVioletHydra/Ayu-Next/master/images/icon-hero.png"/></p>
 <h1 align="center">🎨 Ayu Next Theme</h1>
 <p align="center"> 🔥 This is a Dark theme (Mirage) for VS Code</p>
 <br>
@@ -30,35 +30,35 @@ I write code every day and use my own theme, if I find any bugs in the display a
 
 ### Nuxt code
 
-![Picture](https://github.com/thisVioletHydra/Ayu-Next/blob/master/images/code/dd387fc79b.png)
+![Picture](https://raw.githubusercontent.com/thisVioletHydra/Ayu-Next/master/images/code/dd387fc79b.png)
 
 ### Vue code
 
-![Picture](https://github.com/thisVioletHydra/Ayu-Next/blob/master/images/code/f352c60be4.png)
+![Picture](https://raw.githubusercontent.com/thisVioletHydra/Ayu-Next/master/images/code/f352c60be4.png)
 
 ### Node code
 
-![Picture](https://github.com/thisVioletHydra/Ayu-Next/blob/master/images/code/cefc596770.png)
+![Picture](https://raw.githubusercontent.com/thisVioletHydra/Ayu-Next/master/images/code/cefc596770.png)
 
 ### JavaScript code
 
-![Picture](https://github.com/thisVioletHydra/Ayu-Next/blob/master/images/code/e9283868da.png)
+![Picture](https://raw.githubusercontent.com/thisVioletHydra/Ayu-Next/master/images/code/e9283868da.png)
 
 ### Json code
 
-![Picture](https://github.com/thisVioletHydra/Ayu-Next/blob/master/images/code/15b1e8e1a5.png)
+![Picture](https://raw.githubusercontent.com/thisVioletHydra/Ayu-Next/master/images/code/15b1e8e1a5.png)
 
 ### Html code
 
-![Picture](https://github.com/thisVioletHydra/Ayu-Next/blob/master/images/code/3e59aee4a4.png)
+![Picture](https://raw.githubusercontent.com/thisVioletHydra/Ayu-Next/master/images/code/3e59aee4a4.png)
 
 ### Css code
 
-![Picture](https://github.com/thisVioletHydra/Ayu-Next/blob/master/images/code/9d6facc900.png)
+![Picture](https://raw.githubusercontent.com/thisVioletHydra/Ayu-Next/master/images/code/9d6facc900.png)
 
 ### Markdown code
 
-![Picture](https://github.com/thisVioletHydra/Ayu-Next/blob/master/images/code/a18030fbec.png)
+![Picture](https://raw.githubusercontent.com/thisVioletHydra/Ayu-Next/master/images/code/a18030fbec.png)
 
 ## Attention
 
