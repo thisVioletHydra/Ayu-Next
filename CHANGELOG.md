@@ -4,6 +4,22 @@
 
 ---
 
+## [1.2.12] - 2022-10-28 22:26:14
+
+### Added
+
+- `quickInput`
+- `quickInputList`
+
+### Changed
+
+- `badge.background`
+- `extensionIcon` - change background pattern
+
+### Fixed
+
+---
+
 ## [1.2.4] - 2021-07-16 04:43:40
 
 ### Added
