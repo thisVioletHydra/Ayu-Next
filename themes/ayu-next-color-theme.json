@@ -19,9 +19,10 @@
 
     // badge - лепешка с цифрами
     "activityBarBadge.background": "#FFCC66",
+    // "activityBarItem.settingsProfilesBackground": "#ff0000",
     "activityBarBadge.foreground": "#1F2430",
-    "badge.background": "#FFCC66",
-    "badge.foreground": "#1F2430",
+    "badge.background": "#1F2430",
+    "badge.foreground": "#707A8C",
 
     // ------------- button -------------
     // button - кнопка
@@ -144,6 +145,9 @@
     "extensionButton.prominentForeground": "#1F2430",
     "extensionButton.prominentHoverBackground": "#fac761",
 
+    // "panelSectionHeader.border": "#ff0000",
+    // "panel.dropBorder": "#ff0000",
+
     "focusBorder": "#0000",
     "foreground": "#707a8c",
 
@@ -166,9 +170,14 @@
     "inputValidation.warningForeground": "#ffcc66",
     "panelInput.border": "#E74C3C",
 
-    "quickInput.background": "#272B34",
-    "quickInput.foreground": "#CBCCC6",
-    "quickInputTitle.background": "#0000",
+    // quickInput
+    "quickInputTitle.background": "#1F2430",
+    "quickInput.background": "#1F2430",
+    "quickInput.foreground": "#707A8C",
+
+    "quickInputList.focusBackground": "#191E2A",
+    "quickInputList.focusForeground": "#FFFFFF",
+    "quickInputList.focusIconForeground": "#CBCCC6",
 
     "inputOption.activeBorder": "#FFCC66a5",
 
@@ -371,7 +380,14 @@
     "walkThrough.embeddedEditorBackground": "#232834",
     "widget.shadow": "#141925",
 
+    "extensionIcon.preReleaseForeground": "#3D516ACC",
+    "extensionIcon.sponsorForeground": "#E74C3C",
+    "extensionIcon.starForeground": "#ffcc66",
+    "extensionIcon.verifiedForeground": "#ffcc66",
+
+    // "extensionBadge.remoteBackground": "#ff00ff",
     "extensionBadge.remoteBackground": "#FFCC66ae",
+    // "extensionBadge.remoteForeground": "#f00",
     "extensionBadge.remoteForeground": "#1F2430ae",
 
     "sash.hoverBorder": "#3D516A",
