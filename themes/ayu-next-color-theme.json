@@ -159,8 +159,11 @@
     "gitDecoration.submoduleResourceForeground": "#d4bfffb3",
     "gitDecoration.untrackedResourceForeground": "#A6CC70",
 
-    "input.background": "#171C24",
-    // "searchEditor.textInputBorder": "#ff0000",
+    // "searchEditor.textInputBorder": "#d4bfffb3",
+    // "searchEditor.findMatchBackground": "#d4bfffb3",
+    // "searchEditor.findMatchBorder": "#d4bfffb3",
+
+    "input.background": "#1a1d29",
     "input.border": "#0000",
     "input.foreground": "#CBCCC6",
     "input.placeholderForeground": "#707A8C",
@@ -168,13 +171,25 @@
     "inputValidation.errorForeground": "#E74C3C",
     "inputValidation.infoForeground": "#77A8D9",
     "inputValidation.warningForeground": "#ffcc66",
-    "panelInput.border": "#E74C3C",
+    "panelInput.border": "#1F2430",
+
+    // commandCenter
+    "commandCenter.activeBackground": "#1a1d29",
+    "commandCenter.activeBorder": "#0000",
+    "commandCenter.activeForeground": "#CBCCC6",
+    "commandCenter.background": "#1F2430",
+    "commandCenter.border": "#0000",
+    "commandCenter.foreground": "#CBCCC6",
+    "commandCenter.inactiveBorder": "#0000",
+    "commandCenter.inactiveForeground": "#CBCCC6",
 
     // quickInput
+    // "activityBarItem.profilesBackground": "#ff0000",
+    // "activityBarItem.profilesForeground": "#ff0000",
+    // "activityBarItem.profilesHoverForeground": "#ff0000",
     "quickInputTitle.background": "#1F2430",
     "quickInput.background": "#1F2430",
     "quickInput.foreground": "#707A8C",
-
     "quickInputList.focusBackground": "#191E2A",
     "quickInputList.focusForeground": "#FFFFFF",
     "quickInputList.focusIconForeground": "#CBCCC6",
@@ -227,9 +242,9 @@
     "listFilterWidget.outline": "#0000",
 
     // panel - ctrl+j панелька
-    "panelSectionHeader.background": "#ff00ff",
-    "panelSection.border": "#ff00ff",
-    "panelSectionHeader.foreground": "#ff00ff",
+    "panelSectionHeader.background": "#1F2430",
+    "panelSection.border": "#191e2a",
+    "panelSectionHeader.foreground": "#707A8C",
 
     "panel.background": "#1F2430",
     "panel.border": "#191e2a",
@@ -356,8 +371,9 @@
     "terminal.ansiYellow": "#fad07b",
     "terminal.background": "#1F2430",
     "terminal.foreground": "#cbccc6",
-    "terminal.selectionBackground": "#ff0000",
-    "terminalCursor.background": "#ff0000",
+
+    "terminal.selectionBackground": "#232834",
+    "terminalCursor.background": "#232834",
 
     "textBlockQuote.background": "#232834",
 

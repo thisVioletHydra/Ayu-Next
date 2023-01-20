@@ -4,6 +4,20 @@
 
 ---
 
+## [1.2.13] - 2023-01-20 12:43:16
+
+### Added
+
+- `commandCenter`
+
+### Changed
+
+### Fixed
+
+-`input.background`
+
+---
+
 ## [1.2.12] - 2022-10-28 22:26:14
 
 ### Added
@@ -59,6 +73,8 @@
 > Ts
 
 - `punctuation.definition`
+
+---
 
 ## [1.1.15] - 2020-12-16 13:52:43
 
