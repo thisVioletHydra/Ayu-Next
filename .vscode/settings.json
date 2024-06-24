@@ -1,14 +1,4 @@
 {
-  "cSpell.words": [
-    "decoration",
-    "foreground",
-    "git",
-    "objectliteral",
-    "readonly",
-    "readwrite",
-    "resource",
-    "submodule",
-    "typeparameters",
-    "untracked"
-  ]
+  "workbench.iconTheme": "material-icon-theme",
+  "editor.semanticHighlighting.enabled": false,
 }

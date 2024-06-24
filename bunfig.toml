@@ -1,0 +1,7 @@
+[install] 
+registry = "https://registry.npmjs.org"
+
+[install.scopes]
+registry = { url = "https://web-dev.reaxoft.ru/registry/", token = "RH6CXFATkrpuXr3H8Rmidg==" }
+blitz-web = { url = "https://web-dev.reaxoft.ru/registry/", token = "RH6CXFATkrpuXr3H8Rmidg==" }
+blitz = { url = "https://web-dev.reaxoft.ru/registry/", token = "RH6CXFATkrpuXr3H8Rmidg==" }

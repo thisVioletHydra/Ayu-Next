@@ -7,16 +7,5 @@
     "panel": "shared",
     "showReuseMessage": false,
     "clear": true
-  },
-  "tasks": [
-    {
-      "label": "git-auto-commit",
-      "type": "shell",
-      "command": "echo Hello",
-      "problemMatcher": [],
-      "windows": {
-        "command": "${env:userprofile}\\.vscode\\scripts\\index.ps1"
-      }
-    }
-  ]
+  }
 }

@@ -1,0 +1,1 @@
+export { eslintFlatConfig as default } from '@blitz/eslint-flat';
