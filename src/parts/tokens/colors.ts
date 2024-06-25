@@ -1,18 +1,17 @@
 import { readdir, stat } from 'node:fs/promises';
 import { join } from 'node:path';
 
-import { root } from '@/src/root';
+import { useRootDir } from '@/src/shared/toPath';
 
 export async function colors() {
   const _map = new Map();
-  const path = join(root().get('~~'), 'src', 'parts', 'tokens', 'colors');
+  const path = join(useRootDir(), 'src', 'parts', 'tokens', 'colors');
   const getFiles = await readdir(path);
 
   const modules = await Promise.all(getFiles.map(async (f) => {
     const module = await import(`${path}/${f}`);
-    const result = await module[f.replace('.ts', '')]();
 
-    return result;
+    return module[f.replace('.ts', '')]();
   }));
 
   for (const f of modules) {
