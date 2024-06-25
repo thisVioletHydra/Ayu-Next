@@ -14,14 +14,17 @@ async function editorFindMatch() {
 async function editorGeneral() {
   return promiseMap([
     ['editor.background', palette('darkPrimary')],
-    ['editor.selectionBackground', palette('mediumGray')],
-    ['editor.foreground', palette('neutral')],
-    ['editor.inactiveSelectionBackground', palette('mediumGray')],
-    ['editor.lineHighlightBackground', palette('darkSecondary')],
-    ['editor.rangeHighlightBackground', palette('empty')],
-    ['editor.foldBackground', palette('transparentPrimary')],
-    ['editor.hoverHighlightBackground', palette('transparentSecondary')],
     ['editor.focusedStackFrameHighlightBackground', '#ff00ff'],
+    ['editor.foldBackground', palette('transparentPrimary')],
+    ['editor.foreground', palette('neutral')],
+    ['editor.hoverHighlightBackground', palette('transparentSecondary')],
+    ['editor.inactiveSelectionBackground', palette('mediumGray')],
+
+    ['editor.lineHighlightBackground', palette('iceBlue')],
+    ['editor.lineHighlightBorder', palette('ice')],
+
+    ['editor.rangeHighlightBackground', palette('empty')],
+    ['editor.selectionBackground', palette('mediumGray')],
     ['editor.selectionHighlightBackground', palette('empty')],
     ['editor.selectionHighlightBorder', palette('lightPrimary')],
     ['editor.wordHighlightBackground', palette('lightPrimary')],

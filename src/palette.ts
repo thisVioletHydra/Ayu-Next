@@ -28,6 +28,8 @@ const paletteMap = {
   lightTeal: '#90E1C6',
   lightYellowGreen: '#BAE67E',
   lightSecondary: '#FFCC66',
+  ice: '#9fced11f',
+  iceBlue: '#1073cf2d',
   mediumGray: '#3D516A',
   neutral: '#CBCCC6',
   pink: '#F27983',

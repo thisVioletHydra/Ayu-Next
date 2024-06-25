@@ -75,14 +75,15 @@
     "editor.findRangeHighlightBackground": "#00000000",
     "editor.findRangeHighlightBorder": "#FF9944",
     "editor.background": "#1F2430",
-    "editor.selectionBackground": "#3D516A",
-    "editor.foreground": "#CBCCC6",
-    "editor.inactiveSelectionBackground": "#3D516A",
-    "editor.lineHighlightBackground": "#191E2A",
-    "editor.rangeHighlightBackground": "#00000000",
-    "editor.foldBackground": "#24AEF317",
-    "editor.hoverHighlightBackground": "#3D516ACC",
     "editor.focusedStackFrameHighlightBackground": "#ff00ff",
+    "editor.foldBackground": "#24AEF317",
+    "editor.foreground": "#CBCCC6",
+    "editor.hoverHighlightBackground": "#3D516ACC",
+    "editor.inactiveSelectionBackground": "#3D516A",
+    "editor.lineHighlightBackground": "#1073cf2d",
+    "editor.lineHighlightBorder": "#9fced11f",
+    "editor.rangeHighlightBackground": "#00000000",
+    "editor.selectionBackground": "#3D516A",
     "editor.selectionHighlightBackground": "#00000000",
     "editor.selectionHighlightBorder": "#FF9944",
     "editor.wordHighlightBackground": "#FF9944",
@@ -420,12 +421,10 @@
   },
   "tokenColors": [
     {
-      "name": "__NAME__",
-      "scope": [
-        "__NAME__"
-      ],
+      "name": "export",
+      "scope": "source.ts meta.function.ts keyword.control.export.ts",
       "settings": {
-        "foreground": "#B9F6CA",
+        "foreground": "#FF9944",
         "fontStyle": ""
       }
     }
