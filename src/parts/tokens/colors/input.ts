@@ -1,31 +1,20 @@
 import { palette } from '@/src/palette';
 import { promiseMap } from '@/src/shared/promiseMap';
 
-/**
- * Input parameters
- */
 async function inputOther() {
   return promiseMap([
-    ['input.background', palette('darkSecondary')],
+    ['input.background', palette('darkBackgroundSecondary')],
     ['input.border', palette('empty')],
     ['input.foreground', palette('neutral')],
     ['input.placeholderForeground', palette('textPrimary')],
   ]);
 }
-
-/**
- * Input Option parameters
- */
 async function inputOption() {
   return promiseMap([
     ['inputOption.activeBackground', palette('empty')],
     ['inputOption.activeBorder', palette('transparentSecondary')],
   ]);
 }
-
-/**
- * Input Validation parameters
- */
 async function inputValidation() {
   return promiseMap([
     ['inputValidation.errorForeground', palette('error')],
@@ -39,17 +28,9 @@ async function inputValidation() {
     ['inputValidation.warningBorder', palette('lightPrimary')],
   ]);
 }
-
-/**
- * Panel Input parameters
- */
 async function panelInput() {
   return promiseMap([['panelInput.border', palette('darkPrimary')]]);
 }
-
-/**
- * Quick Input parameters
- */
 async function quickInput() {
   return promiseMap([
     ['quickInputTitle.background', palette('darkPrimary')],

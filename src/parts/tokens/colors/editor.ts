@@ -1,10 +1,6 @@
 import { palette } from '@/src/palette';
 import { promiseMap } from '@/src/shared/promiseMap';
 
-/**
- *
- * @returns Editor Find Match parameters
- */
 async function editorFindMatch() {
   return promiseMap([
     ['editor.findMatchBackground', palette('empty')],
@@ -15,11 +11,6 @@ async function editorFindMatch() {
     ['editor.findRangeHighlightBorder', palette('lightPrimary')],
   ]);
 }
-
-/**
- *
- * @returns Editor General parameters
- */
 async function editorGeneral() {
   return promiseMap([
     ['editor.background', palette('darkPrimary')],
@@ -42,11 +33,6 @@ async function editorGeneral() {
     ['editorError.foreground', palette('error')],
   ]);
 }
-
-/**
- *
- * @returns Editor Group parameters
- */
 async function editorGroup() {
   return promiseMap([
     ['editorGroup.emptyBackground', palette('backgroundPrimary')],
@@ -55,11 +41,6 @@ async function editorGroup() {
     ['editorGroup.focusedEmptyBorder', palette('darkSecondary')],
   ]);
 }
-
-/**
- *
- * @returns Editor Group Header parameters
- */
 async function editorGroupHeader() {
   return promiseMap([
     ['editorGroupHeader.border', palette('darkSecondary')],
@@ -68,11 +49,6 @@ async function editorGroupHeader() {
     ['editorGroupHeader.tabsBorder', palette('darkSecondary')],
   ]);
 }
-
-/**
- *
- * @returns Editor Gutter parameters
- */
 async function editorGutter() {
   return promiseMap([
     ['editorGutter.addedBackground', palette('green')],
@@ -80,11 +56,6 @@ async function editorGutter() {
     ['editorGutter.modifiedBackground', palette('blue')],
   ]);
 }
-
-/**
- *
- * @returns Editor Hover Widget parameters
- */
 async function editorHoverWidget() {
   return promiseMap([
     ['editorHoverWidget.background', palette('darkBackgroundTertiary')],
@@ -93,11 +64,6 @@ async function editorHoverWidget() {
     ['editorHoverWidget.statusBarBackground', palette('backgroundPrimary')],
   ]);
 }
-
-/**
- *
- * @returns Editor Indent Guide parameters
- */
 async function editorIndentGuide() {
   return promiseMap([
     ['editorIndentGuide.activeBackground', palette('darkBackground')],
@@ -108,11 +74,6 @@ async function editorIndentGuide() {
     ['editorMarkerNavigation.background', palette('backgroundPrimary')],
   ]);
 }
-
-/**
- *
- * @returns Editor Overview Ruler parameters
- */
 async function editorOverviewRuler() {
   return promiseMap([
     ['editorOverviewRuler.findMatchForeground', palette('transparentSecondary')],
@@ -127,19 +88,6 @@ async function editorOverviewRuler() {
     ['editorOverviewRuler.warningForeground', palette('lightSecondary')],
   ]);
 }
-
-/**
- *
- * @returns Editor Ruler parameters
- */
-async function editorRuler() {
-  return promiseMap([['editorRuler.foreground', palette('disabled')]]);
-}
-
-/**
- *
- * @returns Editor Suggest Widget parameters
- */
 async function editorSuggestWidget() {
   return promiseMap([
     ['editorSuggestWidget.background', palette('darkSecondary')],
@@ -149,32 +97,14 @@ async function editorSuggestWidget() {
     ['editorSuggestWidget.selectedBackground', palette('transparentSecondary')],
   ]);
 }
-
-/**
- *
- * @returns Editor Warning parameters
- */
-async function editorWarning() {
+async function editorOther() {
   return promiseMap([
     ['editorWarning.foreground', palette('lightSecondary')],
     ['editorMarkerNavigationWarning.background', palette('lightSecondary')],
+    ['editorWhitespace.foreground', palette('gray25')],
+    ['editorWidget.background', palette('backgroundPrimary')],
+    ['editorRuler.foreground', palette('disabled')],
   ]);
-}
-
-/**
- *
- * @returns Editor Whitespace parameters
- */
-async function editorWhitespace() {
-  return promiseMap([['editorWhitespace.foreground', palette('gray25')]]);
-}
-
-/**
- *
- * @returns Editor Widget parameters
- */
-async function editorWidget() {
-  return promiseMap([['editorWidget.background', palette('backgroundPrimary')]]);
 }
 
 export async function editor() {
@@ -187,11 +117,8 @@ export async function editor() {
     editorHoverWidget(),
     editorIndentGuide(),
     editorOverviewRuler(),
-    editorRuler(),
     editorSuggestWidget(),
-    editorWarning(),
-    editorWhitespace(),
-    editorWidget(),
+    editorOther(),
   ]);
 
   const _map = new Map();
