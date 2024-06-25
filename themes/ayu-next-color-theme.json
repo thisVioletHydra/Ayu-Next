@@ -293,7 +293,130 @@
     "terminalCursor.background": "#232834"
   },
   "semanticTokenColors": {
-    "__NAME__": "foo"
+    "*.declaration": {
+      "foreground": "#D4BFFFB3",
+      "fontStyle": ""
+    },
+    "class": {
+      "foreground": "#ED8274",
+      "fontStyle": ""
+    },
+    "class.declaration": {
+      "foreground": "#5CCFE6",
+      "fontStyle": ""
+    },
+    "class.defaultLibrary": {
+      "foreground": "#5CCFE6",
+      "fontStyle": ""
+    },
+    "comment": {
+      "foreground": "#33415E",
+      "fontStyle": "italic"
+    },
+    "event": {
+      "foreground": "#75BEFF",
+      "fontStyle": ""
+    },
+    "string": {
+      "foreground": "#95E6CB",
+      "fontStyle": ""
+    },
+    "customLiteral": {
+      "foreground": "#DCDCAA",
+      "fontStyle": ""
+    },
+    "function.declaration": {
+      "foreground": "#FFCC66",
+      "fontStyle": ""
+    },
+    "function": {
+      "foreground": "#FFCC66",
+      "fontStyle": ""
+    },
+    "keyword.operator.new": {
+      "foreground": "#FFCC66",
+      "fontStyle": ""
+    },
+    "method.declaration.async": {
+      "foreground": "#FFCC66",
+      "fontStyle": ""
+    },
+    "method.defaultLibrary": {
+      "foreground": "#F27983",
+      "fontStyle": ""
+    },
+    "method": {
+      "foreground": "#FFCC66",
+      "fontStyle": ""
+    },
+    "number": {
+      "foreground": "#75BEFF",
+      "fontStyle": ""
+    },
+    "newOperator": {
+      "foreground": "#C586C0",
+      "fontStyle": ""
+    },
+    "numberLiteral": {
+      "foreground": "#b5cea8",
+      "fontStyle": ""
+    },
+    "readonly.local": {
+      "foreground": "#95E6CB",
+      "fontStyle": ""
+    },
+    "stringLiteral": {
+      "foreground": "#ce9178",
+      "fontStyle": ""
+    },
+    "support.defaultLibrary": {
+      "foreground": "#F27983",
+      "fontStyle": ""
+    },
+    "type": {
+      "foreground": "#90E1C6",
+      "fontStyle": ""
+    },
+    "interface": {
+      "foreground": "#90E1C6",
+      "fontStyle": ""
+    },
+    "property": {
+      "foreground": "#CBCCC6",
+      "fontStyle": ""
+    },
+    "property.declaration": {
+      "foreground": "#95E6CB",
+      "fontStyle": ""
+    },
+    "parameter": {
+      "foreground": "#CBCCC6",
+      "fontStyle": ""
+    },
+    "parameter.declaration": {
+      "foreground": "#D4BFFFB3",
+      "fontStyle": ""
+    },
+    "module": {
+      "foreground": "#ED8274",
+      "fontStyle": ""
+    },
+    "variable": {
+      "foreground": "#CBCCC6",
+      "fontStyle": ""
+    },
+    "variable.defaultLibrary": {
+      "foreground": "#59C9DE99",
+      "fontStyle": ""
+    },
+    "variable.local": {
+      "foreground": "#CBCCC6",
+      "fontStyle": ""
+    },
+    "variable.language.this": {
+      "foreground": "#5CCFE6",
+      "fontStyle": "italic"
+    }
   },
   "tokenColors": [
     {

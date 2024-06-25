@@ -1,4 +1,6 @@
 export type MapValue = string | number | boolean | undefined;
+export type MapListValue = string | number | boolean | never | {};
+export type MapModule = Map<string, MapValue>;
 
 type Token = {
   name: string;

@@ -9,16 +9,15 @@ import { toObject } from './shared/toObject';
 
 import { useRootDir } from '@/src/shared/toPath';
 
-export async function findMyFile() {
+export async function start() {
   const storage = await info();
   storage.set('colors', Object.fromEntries(await colors()));
   storage.set('semanticTokenColors', Object.fromEntries(await semanticTokenColors()));
   storage.set('tokenColors', await tokenColors());
 
   const convertFormMapToJson = toObject(storage);
-
+  console.log(`[LOG] tokenColors`, [...storage.get('tokenColors')].length);
   const _path = join(useRootDir(), 'themes', 'ayu-next-color-theme.json');
-  console.log(`[LOG] _path`, `<${typeof _path}>`, _path);
 
   if (!(await fsStatFile(_path))) {
     await fsCreateFile({

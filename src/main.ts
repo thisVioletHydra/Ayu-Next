@@ -1,8 +1,9 @@
-import { findMyFile } from './logic';
+import { start } from './logic';
 
 (async () => {
   try {
-    await findMyFile();
+    await start();
+    console.log('✅', 'done');
   } catch (error) {
     console.log(`❌`, `<${typeof error}>`, error);
   }

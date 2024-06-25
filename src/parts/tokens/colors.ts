@@ -1,15 +1,17 @@
+import type { MapModule, MapValue } from '@/src/types';
+
 import { readdir, stat } from 'node:fs/promises';
 import { join } from 'node:path';
 
 import { useRootDir } from '@/src/shared/toPath';
 
 export async function colors() {
-  const _map = new Map();
-  const path = join(useRootDir(), 'src', 'parts', 'tokens', 'colors');
-  const getFiles = await readdir(path);
+  const _map: MapModule = new Map();
+  const path: string = join(useRootDir(), 'src', 'parts', 'tokens', 'colors');
+  const getFiles: string[] = await readdir(path);
 
-  const modules = await Promise.all(getFiles.map(async (f) => {
-    const module = await import(`${path}/${f}`);
+  const modules: MapModule[] = await Promise.all(getFiles.map(async (f) => {
+    const module: Record<string, () => MapModule> = await import(`${path}/${f}`);
 
     return module[f.replace('.ts', '')]();
   }));
