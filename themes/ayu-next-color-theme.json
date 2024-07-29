@@ -427,6 +427,15 @@
         "foreground": "#FF9944",
         "fontStyle": ""
       }
+    },
+    {
+      "name": "const2",
+      "scope": "source.ts meta.var.expr.ts storage.type.ts  ",
+      "settings": {
+        "foreground": "#FF9944",
+        "background": "#1F2430",
+        "fontStyle": ""
+      }
     }
   ]
 }

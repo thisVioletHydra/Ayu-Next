@@ -1,0 +1,13 @@
+.grid {
+  justify-content: start;
+  display: grid;
+         align-items: center;
+  grid-auto-columns: 1fr auto;
+  grid-auto-flow: column;
+
+  @media screen and (width <= 1160px) {
+    .desc {
+           font-size: 12px
+    }
+  }
+}   

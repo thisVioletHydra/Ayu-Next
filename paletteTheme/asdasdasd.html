@@ -1,0 +1,44 @@
+<div id="captcha_container" class="formCaptcha__style">
+  <div class="captcha formCaptcha__box">
+    <div class="formCaptcha__title">
+      <p class="captcha-text">Решите пример:</p>
+    </div>
+
+    <div class="formCaptcha__container">
+      <label class="formCaptcha__label">
+        <div class="formCaptcha__canvas">
+          <canvas
+            id="captcha-placeholder"
+            style="
+              display: block;
+              width: 100%;
+              height: auto;
+              max-height: 100%;
+              box-sizing: border-box;
+              border: 1px solid;
+              border-radius: 4px;
+              border-color: #c4c8d0;
+              will-change: auto;
+            "
+          ></canvas>
+        </div>
+
+        <input
+          name="captcha_answer"
+          type="text"
+          value=""
+          data-parsley-required="true"
+          data-parsley-required-message="Введите ответ"
+          class="captcha-input-field"
+          placeholder="Ответ"
+        />
+      </label>
+
+      <button type="button" class="formCaptcha__button--reset" data-js="trigger-captcha-reset">
+        <div class="formCaptcha__icon">
+          <img src="https://www.svgrepo.com/show/343263/reset.svg" />
+        </div>
+      </button>
+    </div>
+  </div>
+</div>

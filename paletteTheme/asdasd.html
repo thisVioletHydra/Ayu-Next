@@ -1,0 +1,61 @@
+@(headers: Html, fBuilder: FormBuilder, scripts: Html, path: String)(implicit request: RelyingPartyRequest[_], messages:
+Messages)
+
+<!doctype html>
+<html lang="ru">
+  <head>
+    @headers
+    
+    <script type="text/javascript">
+      (function () {
+        var run = function () {
+          var KICK_IDP = '/stylesheets/idp.min.css';
+          var observer = new MutationObserver(function (mutationsList) {
+            for (var i = 0; i < mutationsList.length; i++) {
+              var mutation = mutationsList[i];
+              if (mutation.type === 'childList') {
+                var linkTags = document.head.querySelectorAll('link');
+                for (var j = 0; j < linkTags.length; j++) {
+                  var linkTag = linkTags[j];
+                  if ( linkTag.href.includes(KICK_IDP) ) {
+                    linkTag.parentNode.removeChild(linkTag);
+                    observer.disconnect();
+                    break;
+                  }
+                }
+              }
+            }
+          });
+          observer.observe(document.head, { childList: true, subtree: true });
+        };
+
+        document.addEventListener('DOMContentLoaded', function () { run(); });
+      })();
+    </script>
+    
+    <link rel="shortcut icon" href='@controllers.common.routes.Assets.at("blitz-common/img/favicon.ico")' type="image/x-icon" />
+    <link rel="icon" href='@controllers.common.routes.Assets.at("blitz-common/img/favicon.ico")' type="image/x-icon" />
+    <link rel="stylesheet" href="@path/light/css/ibn.css?v=1" />
+    <link rel="stylesheet" href="@path/page.css" />
+
+    <link rel="stylesheet" href="@path/idp.fonts.min.css" />
+    <link rel="stylesheet" href="@path/idp.styles.min.css" />
+
+    <script type="text/javascript">
+      var locationHref = 'https://login.eskigov.ru/blitz/login/externalIdps/execute/esia/esia?isPopup=false';
+      var url = new URL(document.location);
+      var bo = url.searchParams.get('bo');
+      
+      if (bo.indexOf('base-esia') !== -1) { window.location = locationHref; }
+    </script>
+  </head>
+
+  <body>
+    <div id="main" class="pos-c animated fadeIn">
+      <section id="content_wrapper">
+        <section id="content">@fBuilder()</section>
+      </section>
+    </div>
+    @scripts
+  </body>
+</html>
