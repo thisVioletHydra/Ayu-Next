@@ -422,19 +422,114 @@
   "tokenColors": [
     {
       "name": "export",
-      "scope": "source.ts meta.function.ts keyword.control.export.ts",
+      "scope": "keyword.control.export.1ts meta.function.1ts source.1ts",
       "settings": {
-        "foreground": "#FF9944",
-        "fontStyle": ""
+        "foreground": "#F27983"
       }
     },
     {
-      "name": "const2",
-      "scope": "source.ts meta.var.expr.ts storage.type.ts  ",
+      "name": "punctuation.terminator",
+      "scope": "source.ts punctuation.terminator.statement.ts",
       "settings": {
-        "foreground": "#FF9944",
-        "background": "#1F2430",
-        "fontStyle": ""
+        "foreground": "#CBCCC6B3"
+      }
+    },
+    {
+      "name": "string.quoted.single",
+      "scope": "source.ts meta.import.ts string.quoted.single.ts",
+      "settings": {
+        "foreground": "#BAE67E"
+      }
+    },
+    {
+      "name": "from",
+      "scope": "source.ts meta.import.ts keyword.control.from.ts",
+      "settings": {
+        "foreground": "#FF9944"
+      }
+    },
+    {
+      "name": "readwrite",
+      "scope": "source.ts meta.import.ts variable.other.readwrite.alias.ts",
+      "settings": {
+        "foreground": "#CBCCC6"
+      }
+    },
+    {
+      "name": "const",
+      "scope": "source.ts meta.var.expr.ts storage.type.ts",
+      "settings": {
+        "foreground": "#FF9944"
+      }
+    },
+    {
+      "name": "export",
+      "scope": "source.ts meta.type.declaration.ts keyword.control.export.ts",
+      "settings": {
+        "foreground": "#F29E74"
+      }
+    },
+    {
+      "name": "import",
+      "scope": "source.ts meta.import.ts keyword.control.import.ts",
+      "settings": {
+        "foreground": "#F29E74"
+      }
+    },
+    {
+      "name": "console",
+      "scope": "source.ts meta.function-call.ts variable.other.object.ts",
+      "settings": {
+        "foreground": "#59C9DE99"
+      }
+    },
+    {
+      "name": "new",
+      "scope": "source.ts meta.var.expr.ts new.expr.ts keyword.operator.new.ts",
+      "settings": {
+        "foreground": "#F27983"
+      }
+    },
+    {
+      "name": "variable",
+      "scope": "source.ts meta.var.expr.ts meta.var-single-variable.expr.ts meta.definition.variable.ts variable.other.constant.ts",
+      "settings": {
+        "foreground": "#CBCCC6"
+      }
+    },
+    {
+      "name": "type",
+      "scope": "source.ts meta.var.expr.ts entity.name.type.ts",
+      "settings": {
+        "foreground": "#90E1C6"
+      }
+    },
+    {
+      "name": "storage",
+      "scope": "source.ts meta.type.declaration.ts storage.type.type.ts",
+      "settings": {
+        "foreground": "#FF9944"
+      }
+    },
+    {
+      "name": "class",
+      "scope": "source.ts meta.var.expr.ts new.expr.ts meta.function-call.ts entity.name.function.ts",
+      "settings": {
+        "foreground": "#5CCFE6"
+      }
+    },
+    {
+      "name": "punctuation",
+      "scope": "source.ts meta.function-call.ts punctuation.accessor.ts",
+      "settings": {
+        "foreground": "#CBCCC6"
+      }
+    },
+    {
+      "name": "parameter",
+      "scope": "source.ts meta.type.declaration.ts meta.type.paren.cover.ts meta.object.type.ts meta.field.declaration.ts meta.definition.property.ts variable.object.property.ts",
+      "settings": {
+        "foreground": "#D4BFFF"
       }
     }
   ]

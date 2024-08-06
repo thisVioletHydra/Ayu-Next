@@ -52,12 +52,13 @@ const paletteMap = {
   white71: '#FFFFFF71',
   gray25: '#CCCCCC25',
   empty: '#00000000',
+  fatal: '#E74C3C',
 } as const;
 
 type PaletteKey = keyof typeof paletteMap;
 
-export function palette(name: PaletteKey) {
+export function palette(name: PaletteKey): string {
   const _map = new Map<PaletteKey, string>(Object.entries(paletteMap) as [PaletteKey, string][]);
 
-  return _map.get(name);
+  return _map.get(name) ?? paletteMap.fatal;
 }

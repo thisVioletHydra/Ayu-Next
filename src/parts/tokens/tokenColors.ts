@@ -6,9 +6,9 @@ import { join } from 'node:path';
 import { useRootDir } from '@/src/shared/toPath';
 
 export async function tokenColors() {
+  const _map: MapModule = new Map();
   const path: string = join(useRootDir(), 'src', 'parts', 'tokens', 'tokenColors');
   const getFiles: string[] = await readdir(path);
-  console.log(`[LOG] getFiles`, `<${typeof getFiles}>`, getFiles);
 
   const modules: MapModule[] = await Promise.all(getFiles.map(async (f) => {
     const module: Record<string, () => MapModule> = await import(`${path}/${f}`);
@@ -16,7 +16,7 @@ export async function tokenColors() {
     return module[f.replace('.ts', '')]();
   }));
 
-  const result = modules.map((map) => Object.fromEntries(map));
+  const flattenedArray = modules.reduce((acc, f) => acc.concat(f), []);
 
-  return Promise.resolve(result);
+  return Promise.resolve(flattenedArray);
 }
