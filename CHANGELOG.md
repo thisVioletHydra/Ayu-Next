@@ -4,6 +4,21 @@
 
 ---
 
+## [2.0.0] - 2026-09-14
+
+### Changed
+
+- Tooling: pnpm 12 + Node 24, oxlint (+ @oxyhub) instead of eslint/prettier/yarn
+- Theme source moved to TypeScript builder (`src/`) with semantic tokens (`bg`/`fg`/`border`/`accent`/`state`/`term`) and paint modules by VS Code UI area
+- Package.json `#` subpath imports; lean `.vscodeignore` for vsix contents
+
+### Notes
+
+- Visual theme colors preserved; contributor workflow is the breaking change
+- Marketplace publish is separate from this git release
+
+---
+
 ## [1.2.13] - 2023-01-20 12:43:16
 
 ### Added

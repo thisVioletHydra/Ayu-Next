@@ -3,7 +3,6 @@
 *.ai
 *.AppleDouble
 *.DS_Store
-*.eslintcache
 *.idea
 *.lock
 *.lock-wscript
@@ -25,7 +24,6 @@
 *.tmp/
 *.tmPreferences.cache
 # *.vscode
-*.yarn-integrity
 
 secret.ps1
 
@@ -48,8 +46,6 @@ selenium-debug.log
 sftp-config.json
 test/e2e/reports
 test/unit/coverage
-yarn-debug.log*
-yarn-error.log*
 
 tmp/
 temp/
@@ -64,7 +60,6 @@ upload/*
 
 .DS_Store
 node_modules/
-/themes/
 package-lock.json
 build
 *.vsix

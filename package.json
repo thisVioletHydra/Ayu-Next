@@ -3,26 +3,43 @@
   "name": "ayu-next",
   "displayName": "Ayu Next",
   "description": "🔥 This is a Dark theme (Mirage), screenshots inside",
-  "version": "1.2.16",
+  "version": "2.0.0",
   "license": "MIT",
-  "private": "false",
+  "private": false,
+  "type": "module",
+  "imports": {
+    "#colors": "./src/colors.ts",
+    "#semanticTokenColors": "./src/semanticTokenColors.ts",
+    "#tokenColors": "./src/tokenColors.ts",
+    "#types/*": "./src/types/*.d.ts",
+    "#tokens": "./src/tokens/index.ts",
+    "#tokens/catalog": "./src/tokens/catalog/index.ts",
+    "#tokens/catalog/*": "./src/tokens/catalog/*.ts",
+    "#tokens/*": "./src/tokens/*.ts",
+    "#paint": "./src/paint/index.ts",
+    "#paint/*": "./src/paint/*.ts",
+    "#data/*": "./src/data/*"
+  },
   "publisher": "Roman",
-  "author": "VioletHydra <mrG0bliN.tm@gmail.com>",
+  "author": "VioletHydra <thisviolethydra@gmail.com>",
   "homepage": "https://github.com/thisVioletHydra/ayu-next#readme",
   "bugs": {
     "url": "https://github.com/thisVioletHydra/ayu-next/issues",
-    "email": "mrG0bliN.tm@gmail.com"
+    "email": "thisviolethydra@gmail.com"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
   },
   "repository": {
     "type": "git",
-    "directory": "https://github.com/thisVioletHydra/ayu-next"
+    "url": "https://github.com/thisVioletHydra/ayu-next.git"
   },
   "engines": {
-    "vscode": "^1.22.0"
+    "vscode": "^1.22.0",
+    "node": ">=24",
+    "pnpm": ">=12.4.1"
   },
+  "packageManager": "pnpm@12.4.1",
   "categories": [
     "Themes"
   ],
@@ -43,32 +60,20 @@
     ]
   },
   "scripts": {
-    "secret": "pwsh ./secret.ps1",
-    "line::main": " ____________ 🚀 MAIN 🚀  ____________ ",
-    "fix": "eslint --fix --ext .js --ignore-path .gitignore .",
-    "killnode": "taskkill /f /im node.exe /im RuntimeBroker.exe",
-    "line::fetch": " ____________ 🚀 FETCH 🚀 ____________ ",
-    "fetch": "yarn npm-run-all run:fetch::*",
-    "run:fetch::fetch": "git fetch",
-    "run:fetch::merge": "git merge",
-    "run:fetch::yarn": "yarn",
-    "line::push": " ____________ 🚀 PUSH 🚀 ____________ ",
-    "push": "yarn npm-run-all run:push::*",
-    "run:push::patch": "yarn version --patch",
-    "run:push::status": "git status -s",
-    "run:push::add": "git add . ",
-    "run:push::autopush": "yarn autopush",
-    "run:push::push": "git push --follow-tags",
-    "line::autopush": " ____________ 🚀 AUTOPUSH 🚀 ____________ ",
-    "autopush": "pwsh -Command . ${env:userprofile}/.vscode/extensions/roman.git-autocommit-1.2.3/index.ps1",
-    "line::up": " ____________ 🚀 UP 🚀 ____________ ",
-    "up": "yarn upgrade-interactive --latest"
+    "gen:keys": "tsx scripts/gen-workbench-keys.ts",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "build": "tsx src/build.ts",
+    "lint": "oxlint .",
+    "lint:fix": "oxlint --fix .",
+    "package": "pnpm build && vsce package",
+    "publish": "pnpm build && vsce publish"
   },
   "devDependencies": {
-    "npm-run-all": "^4.1.5"
-  },
-  "dependencies": {
-    "@vscode/vsce": "^2.16.0",
-    "typescript": "^4.9.4"
+    "@oxyhub/oxlint-plugin": "^0.3.1",
+    "@types/node": "^26.5.1",
+    "@vscode/vsce": "^3.9.2",
+    "oxlint": "^1.82.0",
+    "tsx": "^4.23.13",
+    "typescript": "^7.0.2"
   }
 }

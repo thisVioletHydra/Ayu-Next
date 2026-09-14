@@ -1,57 +1,21 @@
 {
-  "display": "TypeScript compiler",
   "compilerOptions": {
-    "moduleResolution": "Node",
-    "lib": ["DOM", "DOM.Iterable", "ESNext", "ESNext.AsyncIterable"],
     "target": "ESNext",
-    "module": "ESNext",
-    "baseUrl": ".",
-    "jsx": "preserve",
-
-    "allowJs": true,
-    "allowUnreachableCode": true,
-
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "lib": ["ESNext"],
     "strict": true,
-    "alwaysStrict": true,
-    "declaration": true,
-    "emitDeclarationOnly": true,
+    "noImplicitAny": true,
+    "skipLibCheck": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
-    "noImplicitAny": true,
-    "skipDefaultLibCheck": true,
-    "skipLibCheck": true,
-
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-
-    "paths": {
-      "@access": ["./.access/index"],
-      "@access/*": ["./.access/*"],
-
-      "@routes": ["./main/src/routes/index"],
-      "@routes/*": ["./main/src/routes/*"],
-
-      "@logic": ["./main/src/logic/index"],
-      "@logic/*": ["./main/src/logic/*"],
-
-      "@app/*": ["./main/src/app/*"],
-      "@models/*": ["./main/src/models/*"],
-      "@middleware/*": ["./main/src/middleware/*"],
-      "@helper/*": ["./main/src/helper/*"],
-      "@stash/*": ["./main/src/stash/*"],
-
-      "@schema": ["./main/src/schema/index"],
-      "@schema/*": ["./main/src/schema/*"],
-
-      "@root": ["."],
-      "@/*": ["./*"],
-      "@@/*": ["./*"],
-      "~/*": ["./*"],
-      "~~/*": ["./*"]
-    }
+    "verbatimModuleSyntax": true,
+    "resolveJsonModule": true,
+    "noEmit": true,
+    "rootDir": ".",
+    "types": ["node"]
   },
-
-  "include": ["**/*"],
-  "exclude": ["node_modules", ".nuxt", "dist", "docs", "webpack", "assets"]
+  "include": ["src/**/*", "scripts/**/*"],
+  "exclude": ["node_modules", "themes", "images"]
 }

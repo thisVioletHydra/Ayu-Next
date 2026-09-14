@@ -1,14 +1,48 @@
 {
-  "cSpell.words": [
-    "decoration",
-    "foreground",
-    "git",
-    "objectliteral",
-    "readonly",
-    "readwrite",
-    "resource",
-    "submodule",
-    "typeparameters",
-    "untracked"
-  ]
+  "eslint.enable": false,
+  "editor.semanticHighlighting.enabled": true,
+  "editor.codeActionsOnSaveMode": "all",
+  "oxc.enable": true,
+  "oxc.enable.oxfmt": false,
+  "oxc.enable.oxlint": true,
+  "oxc.typeAware": true,
+  "oxc.fixKind": "all",
+  "oxc.lint.run": "onType",
+  "oxc.disableNestedConfig": false,
+  "oxc.requireConfig": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.oxc": "always"
+  },
+  "[javascript]": {
+    "editor.formatOnSave": false,
+    "editor.defaultFormatter": null,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.oxc": "always",
+      "source.format.oxc": "never"
+    }
+  },
+  "[javascriptreact]": {
+    "editor.formatOnSave": false,
+    "editor.defaultFormatter": null,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.oxc": "always",
+      "source.format.oxc": "never"
+    }
+  },
+  "[typescript]": {
+    "editor.formatOnSave": false,
+    "editor.defaultFormatter": null,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.oxc": "always",
+      "source.format.oxc": "never"
+    }
+  },
+  "[typescriptreact]": {
+    "editor.formatOnSave": false,
+    "editor.defaultFormatter": null,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.oxc": "always",
+      "source.format.oxc": "never"
+    }
+  }
 }
