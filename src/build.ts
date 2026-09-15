@@ -3,6 +3,7 @@ import {
   semanticHighlighting,
   semanticTokenColors,
 } from '#semanticTokenColors';
+import { ownedScopeHex, rolePaint } from '#syntax/roles';
 import { token } from '#tokens';
 import { tokenColors } from '#tokenColors';
 
@@ -77,16 +78,18 @@ function hexOf(value: string | { foreground?: string } | undefined): string {
 }
 
 function assertSyntaxAligned(): void {
-  const entity = token('syntax.entity').toLowerCase();
-  const func = token('syntax.func').toLowerCase();
   const mismatches: string[] = [];
+  const owned = ownedScopeHex();
+  const semanticOwner = new Map<string, string>();
   const banned = [
     '*.declaration',
     'customLiteral',
     'newOperator',
     'stringLiteral',
     'numberLiteral',
-  ] as const;
+    'function.defaultLibrary',
+    'method.defaultLibrary',
+  ];
 
   for (const key of banned) {
     if (key in semanticTokenColors) {
@@ -94,39 +97,56 @@ function assertSyntaxAligned(): void {
     }
   }
 
-  const semanticExpect: Record<string, string> = {
-    type: entity,
-    class: entity,
-    function: func,
-    method: func,
-    decorator: func,
-  };
+  for (const paint of rolePaint) {
+    const expected = token(paint.role).toLowerCase();
 
-  for (const [key, expected] of Object.entries(semanticExpect)) {
-    const actual = hexOf(
-      semanticTokenColors[key as keyof typeof semanticTokenColors],
-    );
+    for (const selector of paint.semantic) {
+      const prev = semanticOwner.get(selector);
 
-    if (actual !== expected) {
-      mismatches.push(`semantic ${key} is ${actual || '(missing)'}, expected ${expected}`);
+      if (prev && prev !== paint.role) {
+        mismatches.push(
+          `semantic ${selector} owned by both ${prev} and ${paint.role}`,
+        );
+      }
+
+      semanticOwner.set(selector, paint.role);
+
+      const actual = hexOf(
+        semanticTokenColors[selector as keyof typeof semanticTokenColors],
+      );
+
+      if (actual !== expected) {
+        mismatches.push(
+          `semantic ${selector} is ${actual || '(missing)'}, expected ${paint.role} ${expected}`,
+        );
+      }
     }
   }
 
   for (const rule of tokenColors as TokenRule[]) {
-    const scopes = scopesOf(rule);
     const foreground = String(rule.settings?.foreground ?? '').toLowerCase();
 
-    if (scopes.length === 1 && scopes[0] === 'entity.name.type' && foreground !== entity) {
-      mismatches.push(`TextMate entity.name.type is ${foreground}, expected ${entity}`);
-    }
+    for (const scope of scopesOf(rule)) {
+      const owner = owned.get(scope);
 
-    if (scopes.length === 1 && scopes[0] === 'entity.name' && foreground !== entity) {
-      mismatches.push(`TextMate entity.name is ${foreground}, expected ${entity}`);
+      if (owner && foreground !== owner.hex) {
+        mismatches.push(
+          `TextMate ${scope} is ${foreground}, owned by ${owner.role} ${owner.hex}`,
+        );
+      }
     }
+  }
 
-    if (scopes.some((scope) => scope.includes('punctuation.decorator')) && foreground !== func) {
-      mismatches.push(`TextMate decorator punctuation is ${foreground}, expected ${func}`);
-    }
+  if (token('syntax.keywordStrong').toLowerCase() !== token('syntax.keyword').toLowerCase()) {
+    mismatches.push('syntax.keywordStrong must stay the same hex as syntax.keyword');
+  }
+
+  if (token('syntax.propKey').toLowerCase() !== token('syntax.string').toLowerCase()) {
+    mismatches.push('syntax.propKey must stay the same hex as syntax.string');
+  }
+
+  if (token('syntax.typeBuiltin').toLowerCase() !== token('syntax.fg').toLowerCase()) {
+    mismatches.push('syntax.typeBuiltin must stay the same hex as syntax.fg');
   }
 
   if (mismatches.length > 0) {

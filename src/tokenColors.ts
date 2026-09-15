@@ -1,3 +1,12 @@
-import tokenColorsJson from '#data/token-colors.json' with { type: 'json' };
+import leftoverJson from '#data/token-colors.json' with { type: 'json' };
+import { textMateFromRoles } from '#syntax/roles';
 
-export const tokenColors = tokenColorsJson;
+type TokenRule = {
+  scope: string | string[];
+  settings: { foreground?: string; fontStyle?: string };
+};
+
+export const tokenColors: TokenRule[] = [
+  ...textMateFromRoles(),
+  ...(leftoverJson as TokenRule[]),
+];

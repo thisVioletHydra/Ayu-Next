@@ -18,6 +18,7 @@
     "#tokens/*": "./src/tokens/*.ts",
     "#paint": "./src/paint/index.ts",
     "#paint/*": "./src/paint/*.ts",
+    "#syntax/*": "./src/syntax/*.ts",
     "#data/*": "./src/data/*"
   },
   "publisher": "Roman",

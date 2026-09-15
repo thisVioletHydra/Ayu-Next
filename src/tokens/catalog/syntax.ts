@@ -3,14 +3,14 @@ import type { HexColor } from '#types/workbench-colors';
 export type CatalogEntry = { hex: HexColor; desc: string };
 
 /**
- * Ayu Mirage syntax roles. One role → one hex.
- * Semantic tokens and TextMate scopes must both read from here
- * so type/function/keyword rules cannot drift apart.
+ * One role → one hex. Ownership of TextMate + semantic selectors
+ * lives in `src/syntax/roles.ts` — do not assign the same scope
+ * to two roles.
  */
 export const syntaxCatalog = {
   'syntax.fg': {
     hex: '#CBCCC6',
-    desc: 'Default source text, punctuation, variables',
+    desc: 'Default text, values, builtin types (`string` in annotations)',
   },
   'syntax.comment': {
     hex: '#5C6773',
@@ -18,50 +18,78 @@ export const syntaxCatalog = {
   },
   'syntax.keyword': {
     hex: '#FF9944',
-    desc: 'Keywords and storage (`type`, `class`, `return`, `new`)',
+    desc: 'Keywords: type/interface/return/new/if/private/readonly',
+  },
+  'syntax.keywordStrong': {
+    hex: '#FF9944',
+    desc: 'Thick keyword: `class` keyword and decorator `@` (bold)',
   },
   'syntax.operator': {
     hex: '#F29E74',
-    desc: 'Operators, accessors, modules',
+    desc: 'Operators, accessors, import/export',
   },
   'syntax.string': {
     hex: '#BAE67E',
-    desc: 'Strings',
+    desc: 'String literals only — not types, not object keys',
+  },
+  'syntax.propKey': {
+    hex: '#BAE67E',
+    desc: 'Object-literal and destructure KEYS on the left',
+  },
+  'syntax.propField': {
+    hex: '#F29E74',
+    desc: 'Interface / type-literal field names — not object keys',
   },
   'syntax.regexp': {
     hex: '#95E6CB',
-    desc: 'Regexp, enum members, special characters',
+    desc: 'Regexp, enum members',
   },
   'syntax.number': {
     hex: '#8C9EFF',
     desc: 'Numbers',
   },
-  'syntax.constant': {
+  'syntax.param': {
     hex: '#D4BFFF',
-    desc: 'Named constants and parameters',
+    desc: 'Function params at declaration AND body usage',
   },
   'syntax.func': {
     hex: '#FFD580',
-    desc: 'Functions, methods, decorators',
+    desc: 'Functions, methods, decorator NAMES (not `@`)',
   },
   'syntax.entity': {
     hex: '#73D0FF',
-    desc: 'Types, classes, structs, enums',
+    desc: 'Class identifiers and type-alias names (ThemeService, ThemeId)',
+  },
+  'syntax.interface': {
+    hex: '#73D0FF',
+    desc: 'Interface names (TokenDto) — own role so fields cannot steal it',
+  },
+  'syntax.ctor': {
+    hex: '#73D0FF',
+    desc: 'Every `new X` constructor name — one color, no class/string/error mix',
+  },
+  'syntax.typeBuiltin': {
+    hex: '#CBCCC6',
+    desc: 'Builtin / primitive type annotations (`string`, `number`)',
+  },
+  'syntax.this': {
+    hex: '#5CCFE6',
+    desc: '`this` / `super`',
   },
   'syntax.tag': {
     hex: '#5CCFE6',
-    desc: 'Interfaces, tags, library types, `this`',
+    desc: 'HTML/XML tags only — not TS types',
   },
   'syntax.markup': {
     hex: '#F28779',
-    desc: 'Member variables, library functions (console.*)',
+    desc: 'Library callables (console.*) — not constructors',
   },
   'syntax.special': {
     hex: '#FFE6B3',
-    desc: 'Macros / special punctuation leftover',
+    desc: 'Macros',
   },
   'syntax.invalid': {
     hex: '#E74C3C',
-    desc: 'Invalid / error tokens',
+    desc: 'Invalid tokens',
   },
 } as const satisfies Record<string, CatalogEntry>;
