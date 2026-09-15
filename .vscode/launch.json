@@ -6,7 +6,11 @@
       "type": "extensionHost",
       "request": "launch",
       "runtimeExecutable": "${execPath}",
-      "args": ["--extensionDevelopmentPath=${workspaceFolder}"]
+      "preLaunchTask": "ayu-next: build",
+      "args": [
+        "--extensionDevelopmentPath=${workspaceFolder}",
+        "${workspaceFolder}/playground"
+      ]
     }
   ]
 }

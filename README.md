@@ -1,69 +1,61 @@
-<p align="center"><img alt="Picture" src="https://raw.githubusercontent.com/thisVioletHydra/Ayu-Next/master/images/icon-hero.png"/></p>
-<h1 align="center">🎨 Ayu Next Theme</h1>
-<p align="center"> 🔥 This is a Dark theme (Mirage) for VS Code</p>
+<p align="center"><img alt="Ayu Next" src="https://raw.githubusercontent.com/thisVioletHydra/Ayu-Next/master/images/icon-hero.png"/></p>
+<h1 align="center">Ayu Next</h1>
+<p align="center">Dark Mirage for VS Code. Built for people who live in the editor.</p>
 <br>
 
-## Hot message
+## Why
 
-- Tested Syntax: `.html`, `.css`, `.js`, `.json`,`.jsonc`,`.vue`, `.ts` , `.md` , `.log`
-- Tested Project: `Nuxt`
-- Partial `TypeScript` support
+Ayu Next is a precision dark theme — Mirage depth, sharp accents, syntax that stays readable at 2 a.m. Crafted for modern web stacks and refined every day in real projects.
 
-## Requirements
+## Pair with
 
 - [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme)
-- ~~[Bracket Pair Colorizer 2](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer-2)~~ (do not need anymore)
 - [Highlight Matching Tag](https://marketplace.visualstudio.com/items?itemName=vincaslt.highlight-matching-tag)
 - [Color Highlight](https://marketplace.visualstudio.com/items?itemName=naumovs.color-highlight)
 - [Error Lens](https://marketplace.visualstudio.com/items?itemName=usernamehw.errorlens)
 
-## Description
+## Heritage
 
-Thanks to the [creator](https://github.com/dempfi/ayu) for such a perfect theme for me, I have been using the SublimeText editor for a very long time, and over time I switched to Visual Studio Code.
-I write code every day and use my own theme, if I find any bugs in the display and rendering, I try to fix and update my theme as soon as possible, so updates are released very often 🎈😁
+Standing on the shoulders of [Ayu](https://github.com/dempfi/ayu) — then rebuilt for how we actually write software now.
 
 ## Changelog
 
-[CHANGELOG](https://github.com/thisVioletHydra/ayu-next/blob/master/CHANGELOG.md)
+[CHANGELOG](https://github.com/thisVioletHydra/Ayu-Next/blob/master/CHANGELOG.md)
 
-## Preview Picture (2020-08-20 23:52:08)
+## Screenshots
 
-### Nuxt code
+### Nuxt
 
-![Picture](https://raw.githubusercontent.com/thisVioletHydra/Ayu-Next/master/images/code/dd387fc79b.png)
+![Nuxt](https://raw.githubusercontent.com/thisVioletHydra/Ayu-Next/master/images/code/dd387fc79b.png)
 
-### Vue code
+### Vue
 
-![Picture](https://raw.githubusercontent.com/thisVioletHydra/Ayu-Next/master/images/code/f352c60be4.png)
+![Vue](https://raw.githubusercontent.com/thisVioletHydra/Ayu-Next/master/images/code/f352c60be4.png)
 
-### Node code
+### Node
 
-![Picture](https://raw.githubusercontent.com/thisVioletHydra/Ayu-Next/master/images/code/cefc596770.png)
+![Node](https://raw.githubusercontent.com/thisVioletHydra/Ayu-Next/master/images/code/cefc596770.png)
 
-### JavaScript code
+### JavaScript
 
-![Picture](https://raw.githubusercontent.com/thisVioletHydra/Ayu-Next/master/images/code/e9283868da.png)
+![JavaScript](https://raw.githubusercontent.com/thisVioletHydra/Ayu-Next/master/images/code/e9283868da.png)
 
-### Json code
+### JSON
 
-![Picture](https://raw.githubusercontent.com/thisVioletHydra/Ayu-Next/master/images/code/15b1e8e1a5.png)
+![JSON](https://raw.githubusercontent.com/thisVioletHydra/Ayu-Next/master/images/code/15b1e8e1a5.png)
 
-### Html code
+### HTML
 
-![Picture](https://raw.githubusercontent.com/thisVioletHydra/Ayu-Next/master/images/code/3e59aee4a4.png)
+![HTML](https://raw.githubusercontent.com/thisVioletHydra/Ayu-Next/master/images/code/3e59aee4a4.png)
 
-### Css code
+### CSS
 
-![Picture](https://raw.githubusercontent.com/thisVioletHydra/Ayu-Next/master/images/code/9d6facc900.png)
+![CSS](https://raw.githubusercontent.com/thisVioletHydra/Ayu-Next/master/images/code/9d6facc900.png)
 
-### Markdown code
+### Markdown
 
-![Picture](https://raw.githubusercontent.com/thisVioletHydra/Ayu-Next/master/images/code/a18030fbec.png)
-
-## Attention
-
-This is a clone theme, remade for my tastes, I write in javascript and vue, not optimized for other languages
+![Markdown](https://raw.githubusercontent.com/thisVioletHydra/Ayu-Next/master/images/code/a18030fbec.png)
 
 ## License
 
-[MIT License](https://github.com/thisVioletHydra/ayu-next/blob/master/LICENSE)
+[MIT License](https://github.com/thisVioletHydra/Ayu-Next/blob/master/LICENSE)

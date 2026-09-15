@@ -1,0 +1,13 @@
+{
+  "name": "ayu-next",
+  "version": "2.0.0",
+  "private": true,
+  "scripts": {
+    "build": "tsx src/build.ts",
+    "lint": "oxlint ."
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "keywords": ["theme", "ayu", "dark", "mirage"]
+}

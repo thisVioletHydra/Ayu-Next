@@ -9,6 +9,9 @@ export default defineConfig({
     'themes/**',
     'images/**',
     'schemas/**',
+    'playground',
+    'playground/**',
+    '**/playground/**',
     'src/types/workbench-colors.d.ts',
   ],
 });

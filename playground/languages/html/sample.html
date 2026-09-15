@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Ayu Next — HTML sample</title>
+    <link rel="stylesheet" href="./sample.css" />
+  </head>
+  <body class="page">
+    <!-- structure / landmarks -->
+    <header id="top" data-theme="mirage">
+      <h1>Ayu Next</h1>
+      <nav aria-label="Primary">
+        <a href="#features">Features</a>
+        <a href="#api">API</a>
+      </nav>
+    </header>
+
+    <main>
+      <section id="features">
+        <h2>Highlights</h2>
+        <ul>
+          <li>Dark Mirage surfaces</li>
+          <li>Sharp accents</li>
+          <li>Readable syntax</li>
+        </ul>
+      </section>
+
+      <form id="api" action="/submit" method="post">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" placeholder="you@example.com" required />
+        <button type="submit">Continue</button>
+      </form>
+    </main>
+
+    <script type="module" src="./sample.js"></script>
+  </body>
+</html>
