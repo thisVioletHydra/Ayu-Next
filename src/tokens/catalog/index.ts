@@ -1,7 +1,7 @@
 /**
  * Semantic color tokens (see each *Catalog file for per-role desc).
  *
- * Groups: bg surfaces · fg text · border · accent · state · term ANSI slots 0–15 · debug
+ * Groups: bg surfaces · fg text · border · accent · state · term ANSI slots 0–15 · debug · syntax
  *
  * term.* = protocol slot index, NOT a promise of hue.
  *   0 black 1 red 2 green 3 yellow 4 blue 5 magenta 6 cyan 7 white · 8–15 bright
@@ -12,6 +12,7 @@ import { borderCatalog } from '#tokens/catalog/border';
 import { debugCatalog } from '#tokens/catalog/debug';
 import { fgCatalog } from '#tokens/catalog/fg';
 import { stateCatalog } from '#tokens/catalog/state';
+import { syntaxCatalog } from '#tokens/catalog/syntax';
 import { termCatalog } from '#tokens/catalog/term';
 
 export type { CatalogEntry } from '#tokens/catalog/bg';
@@ -24,6 +25,7 @@ export const tokenCatalog = {
   ...stateCatalog,
   ...termCatalog,
   ...debugCatalog,
+  ...syntaxCatalog,
 } as const;
 
 export type TokenRole = keyof typeof tokenCatalog;
