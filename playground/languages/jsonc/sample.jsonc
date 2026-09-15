@@ -1,0 +1,10 @@
+{
+  // JSONC — comments + trailing commas allowed
+  "theme": "Ayu Next",
+  "uiTheme": "vs-dark",
+  "tokens": {
+    "bg.base": "#1F2430",
+    "fg.primary": "#CBCCC6",
+    "accent.default": "#FFCC66",
+  },
+}

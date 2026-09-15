@@ -1,6 +1,6 @@
 {
   "eslint.enable": false,
-  "editor.semanticHighlighting.enabled": true,
+  "editor.semanticHighlighting.enabled": "configuredByTheme",
   "editor.codeActionsOnSaveMode": "all",
   "oxc.enable": true,
   "oxc.enable.oxfmt": false,
@@ -8,7 +8,9 @@
   "oxc.typeAware": true,
   "oxc.fixKind": "all",
   "oxc.lint.run": "onType",
-  "oxc.disableNestedConfig": false,
+  "oxc.configPath": "./oxlint.config.ts",
+  "oxc.tsConfigPath": "./tsconfig.json",
+  "oxc.disableNestedConfig": true,
   "oxc.requireConfig": false,
   "editor.codeActionsOnSave": {
     "source.fixAll.oxc": "always"

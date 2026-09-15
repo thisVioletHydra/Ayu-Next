@@ -51,6 +51,9 @@
     "icon-theme"
   ],
   "contributes": {
+    "configurationDefaults": {
+      "editor.semanticHighlighting.enabled": "configuredByTheme"
+    },
     "themes": [
       {
         "label": "Ayu Next",
@@ -63,6 +66,8 @@
     "gen:keys": "tsx scripts/gen-workbench-keys.ts",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "build": "tsx src/build.ts",
+    "build:watch": "tsx --watch src/build.ts",
+    "theme:debug": "pnpm build && tsx scripts/debug-theme-colors.ts",
     "lint": "oxlint .",
     "lint:fix": "oxlint --fix .",
     "package": "pnpm build && vsce package",

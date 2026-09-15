@@ -13,6 +13,7 @@ yarn.lock
 src/**
 scripts/**
 schemas/**
+playground/**
 oxlint.config.ts
 tsconfig.json
 styleguide.md
