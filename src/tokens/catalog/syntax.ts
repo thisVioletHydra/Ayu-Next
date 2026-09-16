@@ -73,8 +73,12 @@ export const syntaxCatalog = {
     desc: 'Every `new X` / lib class in type or value (Map, Date, HttpException) — cyan',
   },
   'syntax.typeBuiltin': {
-    hex: '#5CCFE6',
-    desc: 'Lib/builtin types in annotations: string, Readonly, etc. — cyan (not salad names)',
+    hex: '#CBCCC6',
+    desc: 'Primitive/lib type annotations (`string`) — light per Nest shot (not salad names)',
+  },
+  'syntax.decoratorName': {
+    hex: '#CBCCC6',
+    desc: 'Decorator names (Injectable, Controller) — light; `@` stays keywordStrong orange',
   },
   'syntax.this': {
     hex: '#5CCFE6',

@@ -1,6 +1,6 @@
 /**
- * Builtin / lib types in annotations (`string`, `number`, `Readonly`).
- * Cyan `#5CCFE6` — not salad (salad is only custom type/interface names).
+ * Builtin primitives in annotations (`string`, `number`) — light `#CBCCC6`.
+ * Custom type/interface names stay salad lock `#BAE67E`.
  */
 export const typeBuiltinTyping = {
   role: 'syntax.typeBuiltin' as const,
@@ -10,5 +10,5 @@ export const typeBuiltinTyping = {
     'support.type.builtin',
     'storage.type.primitive',
   ] as const,
-  hex: '#5CCFE6' as const,
+  hex: '#CBCCC6' as const,
 } as const;

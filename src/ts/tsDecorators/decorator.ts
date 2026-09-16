@@ -1,10 +1,9 @@
 /**
- * Decorators from app.controller.ts: @Injectable / @Controller / @Get / ...
- * `@` stays keywordStrong (bold orange). Decorator NAME is orange like methods.
- * Must never repaint salad type/interface names.
+ * Decorator NAMES from app.controller.ts — light `#CBCCC6`.
+ * `@` stays keywordStrong (bold orange). Must not touch salad type lock.
  */
 export const decoratorNamePaint = {
-  role: 'syntax.func' as const,
+  role: 'syntax.decoratorName' as const,
   semantic: ['decorator'] as const,
   textmate: [
     'entity.name.function.decorator',
@@ -15,4 +14,4 @@ export const decoratorNamePaint = {
   ] as const,
 };
 
-export const DECORATOR_NAME_HEX = '#FF9944' as const;
+export const DECORATOR_NAME_HEX = '#CBCCC6' as const;

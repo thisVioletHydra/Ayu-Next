@@ -34,7 +34,7 @@ Syntax roles are split by construct under ASCII paths only (no Cyrillic in folde
 
 **Hard lock:** type and interface names stay salad green `#BAE67E` forever. `pnpm build` fails if another role repaints those scopes. Reference file: `playground/node/nest/app.controller.ts`.
 
-Nest playground target (approx): types/interfaces `#BAE67E`, classes/ctors/Readonly/lib builtins `#5CCFE6`, keywords/methods/decorator-names/strings `#FF9944`, params/properties `#CBCCC6`.
+Nest playground target (approx): types/interfaces `#BAE67E`, classes/ctors `#5CCFE6`, keywords/methods/strings `#FF9944`, params/properties/`string`/decorator-names `#CBCCC6`.
 
 ```bash
 pnpm build
