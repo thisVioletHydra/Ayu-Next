@@ -21,6 +21,8 @@
     "#syntax/*": "./src/syntax/*.ts",
     "#ts/tsTypes": "./src/ts/tsTypes/index.ts",
     "#ts/tsTypes/*": "./src/ts/tsTypes/*.ts",
+    "#ts/tsClasses": "./src/ts/tsClasses/index.ts",
+    "#ts/tsClasses/*": "./src/ts/tsClasses/*.ts",
     "#data/*": "./src/data/*"
   },
   "publisher": "Roman",

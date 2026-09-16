@@ -4,6 +4,7 @@ import {
   interfaceTypingPaint,
   typeAliasTypingPaint,
 } from '#ts/tsTypes';
+import { classPaint } from '#ts/tsClasses';
 
 export type SyntaxRole = Extract<TokenRole, `syntax.${string}`>;
 
@@ -81,19 +82,9 @@ export const rolePaint = [
     ],
   },
   {
-    role: 'syntax.entity',
-    semantic: [
-      'class.declaration',
-      'enum',
-      'enum.defaultLibrary',
-      'struct',
-      'struct.defaultLibrary',
-    ],
-    textmate: [
-      'entity.name.type.class',
-      'entity.name.type.enum',
-      'support.class',
-    ],
+    role: classPaint.role,
+    semantic: [...classPaint.semantic],
+    textmate: [...classPaint.textmate],
   },
   // tsTypes (типизация): имена интерфейсов и type-alias — салатовый замок (src/ts/tsTypes)
   {

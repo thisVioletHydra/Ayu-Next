@@ -293,10 +293,10 @@
   "semanticHighlighting": true,
   "semanticTokenColors": {
     "keyword": "#FF9944",
-    "function": "#FFD580",
-    "method": "#FFD580",
-    "method.defaultLibrary": "#FFD580",
-    "decorator": "#FFD580",
+    "function": "#FF9944",
+    "method": "#FF9944",
+    "method.defaultLibrary": "#FF9944",
+    "decorator": "#FF9944",
     "class.declaration": "#5CCFE6",
     "enum": "#5CCFE6",
     "enum.defaultLibrary": "#5CCFE6",
@@ -312,11 +312,11 @@
     "function.defaultLibrary": "#5CCFE6",
     "property.defaultLibrary": "#5CCFE6",
     "type.defaultLibrary": "#CBCCC6",
-    "property": "#BAE67E",
+    "property": "#FF9944",
     "property.declaration": "#CBCCC6",
-    "parameter": "#D4BFFF",
-    "parameter.declaration": "#D4BFFF",
-    "string": "#BAE67E",
+    "parameter": "#CBCCC6",
+    "parameter.declaration": "#CBCCC6",
+    "string": "#FF9944",
     "comment": {
       "foreground": "#5C6773",
       "fontStyle": "italic"
@@ -380,7 +380,7 @@
         "variable.annotation"
       ],
       "settings": {
-        "foreground": "#FFD580"
+        "foreground": "#FF9944"
       }
     },
     {
@@ -450,7 +450,7 @@
         "meta.array-binding-pattern variable.object.property"
       ],
       "settings": {
-        "foreground": "#BAE67E"
+        "foreground": "#FF9944"
       }
     },
     {
@@ -470,7 +470,7 @@
         "meta.parameter"
       ],
       "settings": {
-        "foreground": "#D4BFFF"
+        "foreground": "#CBCCC6"
       }
     },
     {
@@ -479,7 +479,7 @@
         "constant.other.symbol"
       ],
       "settings": {
-        "foreground": "#BAE67E"
+        "foreground": "#FF9944"
       }
     },
     {

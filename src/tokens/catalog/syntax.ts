@@ -29,12 +29,12 @@ export const syntaxCatalog = {
     desc: 'Operators, accessors, import/export',
   },
   'syntax.string': {
-    hex: '#BAE67E',
-    desc: 'String literals only — not types, not object keys',
+    hex: '#FF9944',
+    desc: 'String literals — orange per Nest original shot',
   },
   'syntax.propKey': {
-    hex: '#BAE67E',
-    desc: 'Object-literal and destructure KEYS on the left',
+    hex: '#FF9944',
+    desc: 'Object-literal / destructure keys — same family as strings',
   },
   'syntax.propField': {
     hex: '#CBCCC6',
@@ -49,12 +49,12 @@ export const syntaxCatalog = {
     desc: 'Numbers',
   },
   'syntax.param': {
-    hex: '#D4BFFF',
-    desc: 'Function params at declaration AND body usage',
+    hex: '#CBCCC6',
+    desc: 'Function params (id, dto) — white/fg, not purple',
   },
   'syntax.func': {
-    hex: '#FFD580',
-    desc: 'Functions, methods, decorator NAMES (not `@`)',
+    hex: '#FF9944',
+    desc: 'Methods + decorator names — orange per Nest original (not yellow)',
   },
   'syntax.entity': {
     hex: '#5CCFE6',
