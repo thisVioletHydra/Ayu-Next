@@ -33,8 +33,8 @@ export const syntaxCatalog = {
     desc: 'String literals — orange per Nest original shot',
   },
   'syntax.propKey': {
-    hex: '#FF9944',
-    desc: 'Object-literal / destructure keys — same family as strings',
+    hex: '#CBCCC6',
+    desc: 'Object-literal / destructure / property keys — light like params',
   },
   'syntax.propField': {
     hex: '#CBCCC6',

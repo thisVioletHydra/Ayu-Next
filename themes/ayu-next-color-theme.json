@@ -312,7 +312,7 @@
     "function.defaultLibrary": "#5CCFE6",
     "property.defaultLibrary": "#5CCFE6",
     "type.defaultLibrary": "#CBCCC6",
-    "property": "#FF9944",
+    "property": "#CBCCC6",
     "property.declaration": "#CBCCC6",
     "parameter": "#CBCCC6",
     "parameter.declaration": "#CBCCC6",
@@ -450,7 +450,7 @@
         "meta.array-binding-pattern variable.object.property"
       ],
       "settings": {
-        "foreground": "#FF9944"
+        "foreground": "#CBCCC6"
       }
     },
     {

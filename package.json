@@ -23,6 +23,10 @@
     "#ts/tsTypes/*": "./src/ts/tsTypes/*.ts",
     "#ts/tsClasses": "./src/ts/tsClasses/index.ts",
     "#ts/tsClasses/*": "./src/ts/tsClasses/*.ts",
+    "#ts/tsLanguage": "./src/ts/tsLanguage/index.ts",
+    "#ts/tsLanguage/*": "./src/ts/tsLanguage/*.ts",
+    "#ts/tsKeywords": "./src/ts/tsKeywords/index.ts",
+    "#ts/tsKeywords/*": "./src/ts/tsKeywords/*.ts",
     "#data/*": "./src/data/*"
   },
   "publisher": "Roman",

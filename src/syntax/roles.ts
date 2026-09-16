@@ -4,7 +4,9 @@ import {
   interfaceTypingPaint,
   typeAliasTypingPaint,
 } from '#ts/tsTypes';
-import { classPaint } from '#ts/tsClasses';
+import { classPaint, ctorPaint } from '#ts/tsClasses';
+import { thisPaint } from '#ts/tsLanguage';
+import { keywordPaint, keywordStrongPaint } from '#ts/tsKeywords';
 
 export type SyntaxRole = Extract<TokenRole, `syntax.${string}`>;
 
@@ -37,29 +39,15 @@ export type RolePaint = {
  */
 export const rolePaint = [
   {
-    role: 'syntax.keyword',
-    semantic: ['keyword'],
-    textmate: [
-      'keyword',
-      'storage',
-      'storage.type.keyword',
-      'storage.type.function',
-      'storage.type.type',
-      'storage.type.interface',
-      'keyword.control.default',
-      'keyword.operator.new',
-    ],
+    role: keywordPaint.role,
+    semantic: [...keywordPaint.semantic],
+    textmate: [...keywordPaint.textmate],
   },
   {
-    role: 'syntax.keywordStrong',
-    semantic: [],
-    textmate: [
-      'storage.type.class',
-      'punctuation.decorator',
-      'punctuation.definition.decorator',
-      'punctuation.definition.annotation',
-    ],
-    fontStyle: 'bold',
+    role: keywordStrongPaint.role,
+    semantic: [...keywordStrongPaint.semantic],
+    textmate: [...keywordStrongPaint.textmate],
+    fontStyle: keywordStrongPaint.fontStyle,
   },
   {
     role: 'syntax.func',
@@ -98,32 +86,9 @@ export const rolePaint = [
     textmate: [...typeAliasTypingPaint.textmate],
   },
   {
-    role: 'syntax.ctor',
-    semantic: [
-      'class',
-      'class.defaultLibrary',
-      'variable.defaultLibrary',
-      'function.defaultLibrary',
-      'property.defaultLibrary',
-    ],
-    textmate: [
-      'meta.function-call.constructor',
-      'meta.function-call.constructor entity.name.function',
-      'meta.function-call.constructor entity.name.type',
-      'meta.function-call.constructor support.class',
-      'meta.function-call.constructor support.class.builtin',
-      'meta.function-call.constructor variable.other.readwrite',
-      'new.expr entity.name.type',
-      'new.expr entity.name.function',
-      'new.expr entity.name.type.class',
-      'new.expr support.class',
-      'new.expr support.class.builtin',
-      'new.expr variable.other.readwrite',
-      'new.expr variable.other.constant',
-      'meta.new-expression entity.name.type',
-      'source new.expr entity.name.type',
-      'source meta.export.default meta.class meta.method.declaration meta.block meta.var.expr new.expr entity.name.type',
-    ],
+    role: ctorPaint.role,
+    semantic: [...ctorPaint.semantic],
+    textmate: [...ctorPaint.textmate],
   },
   {
     role: 'syntax.typeBuiltin',
@@ -191,10 +156,10 @@ export const rolePaint = [
     textmate: ['string.regexp', 'constant.character', 'constant.other'],
   },
   {
-    role: 'syntax.this',
-    semantic: ['variable.language.this'],
-    textmate: ['variable.language.this', 'variable.language.super'],
-    fontStyle: 'italic',
+    role: thisPaint.role,
+    semantic: [...thisPaint.semantic],
+    textmate: [...thisPaint.textmate],
+    fontStyle: thisPaint.fontStyle,
   },
   {
     role: 'syntax.tag',
