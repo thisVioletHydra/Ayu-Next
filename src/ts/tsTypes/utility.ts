@@ -1,7 +1,10 @@
 /**
- * Utility в позиции типа (`Readonly<{...}>`): cyan как lib class/type,
- * не салатовый (салатовый только свои interface/type-alias имена).
+ * Utility types in type position (`Readonly<...>`).
+ * Painted via syntax.typeBuiltin / lib class cyan `#5CCFE6`.
+ * Never override salad lock on custom interface/type-alias names.
  */
 export const utilityTyping = {
-  note: 'Readonly / Partial / etc. → cyan via ctor/defaultLibrary; never override salad lock',
+  role: 'syntax.typeBuiltin' as const,
+  hex: '#5CCFE6' as const,
+  examples: ['Readonly', 'Partial', 'Pick'] as const,
 } as const;

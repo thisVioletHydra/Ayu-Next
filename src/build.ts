@@ -157,9 +157,6 @@ function assertSyntaxAligned(): void {
     mismatches.push('syntax.keywordStrong must stay the same hex as syntax.keyword');
   }
 
-  if (token('syntax.typeBuiltin').toLowerCase() !== token('syntax.fg').toLowerCase()) {
-    mismatches.push('syntax.typeBuiltin must stay the same hex as syntax.fg');
-  }
 
   const ctorSelectors = [
     'class',

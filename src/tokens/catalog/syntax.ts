@@ -73,8 +73,8 @@ export const syntaxCatalog = {
     desc: 'Every `new X` / lib class in type or value (Map, Date, HttpException) — cyan',
   },
   'syntax.typeBuiltin': {
-    hex: '#CBCCC6',
-    desc: 'Builtin / primitive type annotations (`string`, `number`)',
+    hex: '#5CCFE6',
+    desc: 'Lib/builtin types in annotations: string, Readonly, etc. — cyan (not salad names)',
   },
   'syntax.this': {
     hex: '#5CCFE6',

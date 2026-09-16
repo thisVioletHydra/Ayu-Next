@@ -311,7 +311,7 @@
     "variable.defaultLibrary": "#5CCFE6",
     "function.defaultLibrary": "#5CCFE6",
     "property.defaultLibrary": "#5CCFE6",
-    "type.defaultLibrary": "#CBCCC6",
+    "type.defaultLibrary": "#5CCFE6",
     "property": "#CBCCC6",
     "property.declaration": "#CBCCC6",
     "parameter": "#CBCCC6",
@@ -440,7 +440,7 @@
         "storage.type.primitive"
       ],
       "settings": {
-        "foreground": "#CBCCC6"
+        "foreground": "#5CCFE6"
       }
     },
     {

@@ -1,9 +1,14 @@
 /**
- * Примитивы в аннотациях (`string`, `number`) — белый `syntax.typeBuiltin` / fg.
- * Не имена интерфейсов/alias (салатовый замок) и не классы (cyan).
- * Владение scopes: src/syntax/roles.ts → syntax.typeBuiltin.
+ * Builtin / lib types in annotations (`string`, `number`, `Readonly`).
+ * Cyan `#5CCFE6` — not salad (salad is only custom type/interface names).
  */
 export const typeBuiltinTyping = {
   role: 'syntax.typeBuiltin' as const,
-  note: 'primitives stay #CBCCC6; salad lock must not own type.defaultLibrary',
+  semantic: ['type.defaultLibrary'] as const,
+  textmate: [
+    'support.type.primitive',
+    'support.type.builtin',
+    'storage.type.primitive',
+  ] as const,
+  hex: '#5CCFE6' as const,
 } as const;

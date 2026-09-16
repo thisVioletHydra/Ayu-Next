@@ -7,6 +7,7 @@ import {
 import { classPaint, ctorPaint } from '#ts/tsClasses';
 import { thisPaint } from '#ts/tsLanguage';
 import { keywordPaint, keywordStrongPaint } from '#ts/tsKeywords';
+import { decoratorNamePaint } from '#ts/tsDecorators';
 import { propKeyPaint, propFieldPaint } from '#ts/tsProps';
 
 export type SyntaxRole = Extract<TokenRole, `syntax.${string}`>;
@@ -52,7 +53,12 @@ export const rolePaint = [
   },
   {
     role: 'syntax.func',
-    semantic: ['function', 'method', 'method.defaultLibrary', 'decorator'],
+    semantic: [
+      'function',
+      'method',
+      'method.defaultLibrary',
+      ...decoratorNamePaint.semantic,
+    ],
     textmate: [
       'entity.name.function',
       'entity.name.function.member',
@@ -63,11 +69,7 @@ export const rolePaint = [
       'meta.function-call.generic',
       'support.function',
       'meta.function-call support.function',
-      'entity.name.function.decorator',
-      'meta.decorator entity.name.function',
-      'meta.decorator variable.other',
-      'storage.type.annotation',
-      'variable.annotation',
+      ...decoratorNamePaint.textmate,
     ],
   },
   {
