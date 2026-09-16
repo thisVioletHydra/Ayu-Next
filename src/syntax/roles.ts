@@ -20,8 +20,8 @@ export type RolePaint = {
  *   syntax.func           — methods + decorator NAME (`Injectable`)
  *   syntax.entity         — class + type-alias identifiers
  *   syntax.interface      — interface names only
- *   syntax.ctor           — `new X` constructor names (TM-only; semantic
- *                           `class` would re-split Date/HttpException)
+ *   syntax.ctor           — every `new X` name: defaultLibrary + constructor
+ *                           TM scopes (Date/Map/Error/HttpException)
  *   syntax.typeBuiltin    — primitives (`string` in annotations)
  *   syntax.propKey        — `{ id, accent: }` / destructure keys
  *   syntax.propField      — interface field names (`role`, `hex`)
@@ -73,9 +73,7 @@ export const rolePaint = [
   {
     role: 'syntax.entity',
     semantic: [
-      'class',
       'class.declaration',
-      'class.defaultLibrary',
       'enum',
       'enum.defaultLibrary',
       'struct',
@@ -97,13 +95,27 @@ export const rolePaint = [
   },
   {
     role: 'syntax.ctor',
-    semantic: [],
+    semantic: [
+      'class',
+      'class.defaultLibrary',
+      'variable.defaultLibrary',
+      'function.defaultLibrary',
+      'property.defaultLibrary',
+    ],
     textmate: [
+      'meta.function-call.constructor',
+      'meta.function-call.constructor entity.name.function',
+      'meta.function-call.constructor entity.name.type',
+      'meta.function-call.constructor support.class',
+      'meta.function-call.constructor support.class.builtin',
+      'meta.function-call.constructor variable.other.readwrite',
       'new.expr entity.name.type',
       'new.expr entity.name.function',
-      'new.expr support.class',
-      'new.expr support.type',
       'new.expr entity.name.type.class',
+      'new.expr support.class',
+      'new.expr support.class.builtin',
+      'new.expr variable.other.readwrite',
+      'new.expr variable.other.constant',
       'meta.new-expression entity.name.type',
       'source new.expr entity.name.type',
       'source meta.export.default meta.class meta.method.declaration meta.block meta.var.expr new.expr entity.name.type',

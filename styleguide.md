@@ -58,9 +58,9 @@ Source of truth: `src/syntax/roles.ts` + `src/tokens/catalog/syntax.ts`.
 | `syntax.keyword` | `type` / `return` / `new` / `if` | decorator `@`, class keyword |
 | `syntax.keywordStrong` | `class` keyword, `@` | decorator name |
 | `syntax.func` | methods, decorator name | `@`, constructors |
-| `syntax.entity` | class + type-alias names | `new X`, builtins, interface fields |
+| `syntax.entity` | `class.declaration` + type-alias names | `new X`, builtins, interface fields |
 | `syntax.interface` | interface names | interface field names |
-| `syntax.ctor` | every `new X` name | class declarations |
+| `syntax.ctor` | every `new X` name: `class/variable/function/property.defaultLibrary` + `new.expr` / `meta.function-call.constructor` | class declarations, object keys, methods |
 | `syntax.typeBuiltin` | `string` / `number` annotations | type-alias / interface names |
 | `syntax.propKey` | object / destructure keys | interface fields, values after `:` |
 | `syntax.propField` | interface field names | object-literal keys |

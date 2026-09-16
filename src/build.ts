@@ -87,7 +87,6 @@ function assertSyntaxAligned(): void {
     'newOperator',
     'stringLiteral',
     'numberLiteral',
-    'function.defaultLibrary',
     'method.defaultLibrary',
   ];
 
@@ -147,6 +146,26 @@ function assertSyntaxAligned(): void {
 
   if (token('syntax.typeBuiltin').toLowerCase() !== token('syntax.fg').toLowerCase()) {
     mismatches.push('syntax.typeBuiltin must stay the same hex as syntax.fg');
+  }
+
+  const ctorSelectors = [
+    'class',
+    'class.defaultLibrary',
+    'variable.defaultLibrary',
+    'function.defaultLibrary',
+    'property.defaultLibrary',
+  ];
+
+  for (const selector of ctorSelectors) {
+    const actual = hexOf(
+      semanticTokenColors[selector as keyof typeof semanticTokenColors],
+    );
+
+    if (actual !== token('syntax.ctor').toLowerCase()) {
+      mismatches.push(
+        `semantic ${selector} must be syntax.ctor ${token('syntax.ctor')} (got ${actual || 'missing'})`,
+      );
+    }
   }
 
   if (mismatches.length > 0) {
