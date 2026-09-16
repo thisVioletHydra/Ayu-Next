@@ -18,6 +18,25 @@ Ayu Next is a precision dark theme — Mirage depth, sharp accents, syntax that 
 
 Standing on the shoulders of [Ayu](https://github.com/dempfi/ayu) — then rebuilt for how we actually write software now.
 
+
+## Builder (TypeScript syntax)
+
+Syntax roles are split by construct under ASCII paths only (no Cyrillic in folders/files):
+
+| Path | Owns |
+| --- | --- |
+| `src/ts/tsTypes/` | Type & interface **names** (`ThemeId`, `TokenDto`) |
+| `src/ts/tsClasses/` | Class names + `new X` / lib ctors |
+| `src/ts/tsKeywords/` | Keywords + decorator `@` |
+| `src/ts/tsLanguage/` | `this` / `super` |
+| `src/ts/tsProps/` | Property access & interface fields |
+
+**Hard lock:** type and interface names stay salad green `#BAE67E` forever. `pnpm build` fails if another role repaints those scopes. Reference file: `playground/node/nest/app.controller.ts`.
+
+```bash
+pnpm build
+```
+
 ## Changelog
 
 [CHANGELOG](https://github.com/thisVioletHydra/Ayu-Next/blob/master/CHANGELOG.md)

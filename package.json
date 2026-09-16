@@ -27,6 +27,8 @@
     "#ts/tsLanguage/*": "./src/ts/tsLanguage/*.ts",
     "#ts/tsKeywords": "./src/ts/tsKeywords/index.ts",
     "#ts/tsKeywords/*": "./src/ts/tsKeywords/*.ts",
+    "#ts/tsProps": "./src/ts/tsProps/index.ts",
+    "#ts/tsProps/*": "./src/ts/tsProps/*.ts",
     "#data/*": "./src/data/*"
   },
   "publisher": "Roman",

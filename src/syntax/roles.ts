@@ -7,6 +7,7 @@ import {
 import { classPaint, ctorPaint } from '#ts/tsClasses';
 import { thisPaint } from '#ts/tsLanguage';
 import { keywordPaint, keywordStrongPaint } from '#ts/tsKeywords';
+import { propKeyPaint, propFieldPaint } from '#ts/tsProps';
 
 export type SyntaxRole = Extract<TokenRole, `syntax.${string}`>;
 
@@ -100,23 +101,14 @@ export const rolePaint = [
     ],
   },
   {
-    role: 'syntax.propKey',
-    semantic: ['property'],
-    textmate: [
-      'meta.object-literal.key',
-      'meta.object-binding-pattern variable.object.property',
-      'meta.array-binding-pattern variable.object.property',
-    ],
+    role: propKeyPaint.role,
+    semantic: [...propKeyPaint.semantic],
+    textmate: [...propKeyPaint.textmate],
   },
   {
-    role: 'syntax.propField',
-    semantic: ['property.declaration'],
-    textmate: [
-      'meta.interface meta.field.declaration variable.object.property',
-      'meta.interface meta.field.declaration variable.other.readwrite',
-      'meta.type.declaration meta.field.declaration variable.object.property',
-      'meta.type.object.type meta.field.declaration variable.object.property',
-    ],
+    role: propFieldPaint.role,
+    semantic: [...propFieldPaint.semantic],
+    textmate: [...propFieldPaint.textmate],
   },
   {
     role: 'syntax.param',
