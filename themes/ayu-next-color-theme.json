@@ -293,7 +293,6 @@
   "semanticHighlighting": true,
   "semanticTokenColors": {
     "keyword": "#FF9944",
-    "function": "#FFD580",
     "method": "#FFD580",
     "method.defaultLibrary": "#FFD580",
     "decorator": "#FFD580",
@@ -305,17 +304,25 @@
     "typeParameter": "#73D0FF",
     "interface": "#73D0FF",
     "type.defaultLibrary": "#5CCFE6",
+    "type.defaultLibrary:typescript": "#5CCFE6",
     "class.defaultLibrary": "#5CCFE6",
     "enum.defaultLibrary": "#5CCFE6",
     "struct.defaultLibrary": "#5CCFE6",
     "interface.defaultLibrary": "#5CCFE6",
+    "interface.defaultLibrary:typescript": "#5CCFE6",
     "variable.defaultLibrary": "#5CCFE6",
+    "function": "#5CCFE6",
     "function.defaultLibrary": "#5CCFE6",
+    "function.defaultLibrary:typescript": "#5CCFE6",
     "property.defaultLibrary": "#5CCFE6",
     "property": "#BAE67E",
-    "property.declaration": "#CBCCC6",
+    "property.declaration": "#BAE67E",
     "parameter": "#D4BFFF",
     "parameter.declaration": "#D4BFFF",
+    "parameter:typescript": "#D4BFFF",
+    "parameter.declaration:typescript": "#D4BFFF",
+    "parameter.readonly": "#D4BFFF",
+    "parameter.declaration.readonly": "#D4BFFF",
     "string": "#BAE67E",
     "comment": {
       "foreground": "#5C6773",
@@ -401,18 +408,13 @@
     },
     {
       "scope": [
-        "meta.function-call.constructor",
-        "meta.function-call.constructor entity.name.function",
         "meta.function-call.constructor entity.name.type",
         "meta.function-call.constructor support.class",
         "meta.function-call.constructor support.class.builtin",
         "new.expr entity.name.type",
-        "new.expr entity.name.function",
         "new.expr entity.name.type.class",
         "new.expr support.class",
         "new.expr support.class.builtin",
-        "new.expr variable.other.readwrite",
-        "new.expr variable.other.constant",
         "meta.new-expression entity.name.type",
         "source new.expr entity.name.type"
       ],
@@ -426,7 +428,16 @@
         "support.class",
         "support.type.primitive",
         "support.type.builtin",
-        "storage.type.primitive"
+        "support.type.primitive.ts",
+        "support.type.builtin.ts",
+        "storage.type.primitive",
+        "meta.type.annotation support.type.primitive",
+        "meta.type.annotation support.type.builtin",
+        "meta.type.parameters support.type.primitive",
+        "new.expr entity.name.function",
+        "new.expr meta.function-call entity.name.function",
+        "new.expr meta.function-call.constructor entity.name.function",
+        "meta.function-call.constructor entity.name.function"
       ],
       "settings": {
         "foreground": "#5CCFE6"
@@ -435,6 +446,14 @@
     {
       "scope": [
         "meta.object-literal.key",
+        "meta.object-literal.key entity.name.function",
+        "meta.object.member meta.object-literal.key",
+        "meta.object.member meta.object-literal.key entity.name.function",
+        "meta.definition.property",
+        "meta.definition.property entity.name.function",
+        "meta.definition.property variable.object.property",
+        "meta.field.declaration variable.object.property",
+        "meta.object.type variable.object.property",
         "meta.object-binding-pattern variable.object.property",
         "meta.array-binding-pattern variable.object.property"
       ],
@@ -444,10 +463,7 @@
     },
     {
       "scope": [
-        "meta.interface meta.field.declaration variable.object.property",
-        "meta.interface meta.field.declaration variable.other.readwrite",
-        "meta.type.declaration meta.field.declaration variable.object.property",
-        "meta.type.object.type meta.field.declaration variable.object.property"
+        "meta.interface meta.field.declaration variable.other.readwrite"
       ],
       "settings": {
         "foreground": "#CBCCC6"
@@ -456,7 +472,11 @@
     {
       "scope": [
         "variable.parameter",
-        "meta.parameter"
+        "variable.parameter.ts",
+        "meta.parameter",
+        "meta.parameters variable.parameter",
+        "meta.parameters entity.name.function",
+        "meta.definition.method variable.parameter"
       ],
       "settings": {
         "foreground": "#D4BFFF"

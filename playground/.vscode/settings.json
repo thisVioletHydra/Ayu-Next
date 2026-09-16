@@ -1,6 +1,7 @@
 {
   "editor.semanticHighlighting.enabled": true,
-  "oxc.enable": false,
+    "oxc.enable": false,
+    "oxc.typeAware": false,
   "[typescript]": {
     "editor.semanticHighlighting.enabled": true
   },

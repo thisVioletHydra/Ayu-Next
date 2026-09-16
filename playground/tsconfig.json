@@ -16,8 +16,7 @@
     "checkJs": false,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "isolatedModules": false,
-    "types": []
+    "isolatedModules": false
   },
   "include": [
     "**/*.ts",

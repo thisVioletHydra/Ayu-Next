@@ -144,6 +144,27 @@ function assertSyntaxAligned(): void {
     mismatches.push('TextMate entity.name.function must be owned by syntax.func');
   }
 
+  if (
+    !owned.has('new.expr meta.function-call entity.name.function')
+    || owned.get('new.expr meta.function-call entity.name.function')?.role !== 'syntax.typeBuiltin'
+  ) {
+    mismatches.push('TextMate new.expr meta.function-call entity.name.function must be syntax.typeBuiltin (Date cyan, not function yellow)');
+  }
+
+  if (
+    !owned.has('meta.object-literal.key entity.name.function')
+    || owned.get('meta.object-literal.key entity.name.function')?.role !== 'syntax.propKey'
+  ) {
+    mismatches.push('TextMate meta.object-literal.key entity.name.function must be syntax.propKey (keys lime, not method yellow)');
+  }
+
+  if (
+    !owned.has('meta.definition.property entity.name.function')
+    || owned.get('meta.definition.property entity.name.function')?.role !== 'syntax.propKey'
+  ) {
+    mismatches.push('TextMate meta.definition.property entity.name.function must be syntax.propKey');
+  }
+
   const methodHex = hexOf(semanticTokenColors.method);
   const funcHex = token('syntax.func').toLowerCase();
   const classHex = hexOf(semanticTokenColors.class);
@@ -171,6 +192,24 @@ function assertSyntaxAligned(): void {
   if (paramHex !== token('syntax.param').toLowerCase()) {
     mismatches.push(
       `semantic parameter is ${paramHex || '(missing)'}, expected syntax.param ${token('syntax.param')}`,
+    );
+  }
+
+  const functionHex = hexOf(semanticTokenColors.function);
+
+  if (functionHex !== tagHex) {
+    mismatches.push(
+      `semantic function is ${functionHex || '(missing)'}, expected syntax.typeBuiltin ${tagHex} so Date is cyan not yellow`,
+    );
+  }
+
+  const propDeclHex = hexOf(
+    semanticTokenColors['property.declaration' as keyof typeof semanticTokenColors],
+  );
+
+  if (propDeclHex !== token('syntax.propKey').toLowerCase()) {
+    mismatches.push(
+      `semantic property.declaration is ${propDeclHex || '(missing)'}, expected syntax.propKey ${token('syntax.propKey')}`,
     );
   }
 

@@ -57,12 +57,12 @@ Source of truth: `src/syntax/roles.ts` + `src/tokens/catalog/syntax.ts`.
 | --- | --- | --- |
 | `syntax.keyword` | `type` / `return` / `new` / `if` | decorator `@`, class keyword |
 | `syntax.keywordStrong` | `class` keyword, `@` | decorator name |
-| `syntax.func` | methods, `method.defaultLibrary`, decorator name | `@`, `variable` |
+| `syntax.func` | methods, decorator name | `@`, `new Date` (`function` is cyan) |
 | `syntax.entity` | `class` / `type` / `entity.name` | builtins, methods (`entity.name.function` is more specific) |
 | `syntax.interface` | interface names | interface field names |
-| `syntax.ctor` | `new.expr` TextMate only | semantic `class` / `variable` |
-| `syntax.typeBuiltin` | `string` / Map / Date library types (cyan) | user `ThemeId` / `ThemeService` |
-| `syntax.propKey` | object-literal keys | interface fields |
+| `syntax.ctor` | `new.expr` class names (HttpException) | `new Date` function-call |
+| `syntax.typeBuiltin` | `string` / Readonly / Date / `support.type.primitive` | user `ThemeId` / `ThemeService` |
+| `syntax.propKey` | object + type-literal keys, including `meta.object-literal.key entity.name.function` | values after `:` |
 | `syntax.propField` | interface field names (fg) | object-literal keys |
 | `syntax.param` | params in signature and body | locals that are not params |
 | `syntax.string` | quoted strings | types, keys |

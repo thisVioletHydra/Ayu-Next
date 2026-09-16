@@ -55,6 +55,19 @@
     "configurationDefaults": {
       "editor.semanticHighlighting.enabled": "configuredByTheme"
     },
+    "semanticTokenScopes": [
+      {
+        "language": "typescript",
+        "scopes": {
+          "parameter": ["variable.parameter.ts", "variable.parameter"],
+          "type.defaultLibrary": ["support.type.primitive.ts", "support.type.builtin.ts", "support.type"],
+          "interface.defaultLibrary": ["support.type.builtin.ts", "support.class.ts"],
+          "function.defaultLibrary": ["support.class.ts", "support.type.builtin.ts"],
+          "class.defaultLibrary": ["support.class.ts"],
+          "property": ["meta.object-literal.key.ts", "variable.object.property.ts"]
+        }
+      }
+    ],
     "themes": [
       {
         "label": "Ayu Next",

@@ -3,7 +3,7 @@
     "target": "ESNext",
     "module": "ESNext",
     "moduleResolution": "bundler",
-    "lib": ["ESNext"],
+    "lib": ["ESNext", "DOM"],
     "strict": false,
     "noEmit": true,
     "skipLibCheck": true,
@@ -11,8 +11,7 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "useDefineForClassFields": false,
-    "isolatedModules": false,
-    "types": []
+    "isolatedModules": false
   },
   "include": ["./**/*.ts", "./**/*.d.ts"]
 }

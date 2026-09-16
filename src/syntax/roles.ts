@@ -17,12 +17,12 @@ export type RolePaint = {
  *
  *   syntax.keyword        — type/return/new/if/private/readonly
  *   syntax.keywordStrong  — bold `class` keyword + decorator `@`
- *   syntax.func           — methods + decorator NAME
+ *   syntax.func           — methods + decorator NAME (`function` is library/Date cyan)
  *   syntax.entity         — ThemeService / ThemeId / entity.name
  *   syntax.interface      — TokenDto (same sky as class on the left)
- *   syntax.ctor           — `new X` TextMate only (same sky)
- *   syntax.typeBuiltin    — `string` / Map in annotations (cyan)
- *   syntax.propKey        — `{ id, accent: }` keys
+ *   syntax.ctor           — `new X` class-name TextMate (HttpException)
+ *   syntax.typeBuiltin    — `string` / Readonly / Date / Map library family (cyan)
+ *   syntax.propKey        — `{ id, accent, updatedAt }` including grammar's entity.name.function keys
  *   syntax.propField      — interface field names (fg, not keys)
  *   syntax.param          — id/dto in signature AND body
  *   syntax.string         — quoted strings
@@ -55,7 +55,7 @@ export const rolePaint = [
   },
   {
     role: 'syntax.func',
-    semantic: ['function', 'method', 'method.defaultLibrary', 'decorator'],
+    semantic: ['method', 'method.defaultLibrary', 'decorator'],
     textmate: [
       'entity.name.function',
       'entity.name.function.member',
@@ -97,18 +97,13 @@ export const rolePaint = [
     role: 'syntax.ctor',
     semantic: [],
     textmate: [
-      'meta.function-call.constructor',
-      'meta.function-call.constructor entity.name.function',
       'meta.function-call.constructor entity.name.type',
       'meta.function-call.constructor support.class',
       'meta.function-call.constructor support.class.builtin',
       'new.expr entity.name.type',
-      'new.expr entity.name.function',
       'new.expr entity.name.type.class',
       'new.expr support.class',
       'new.expr support.class.builtin',
-      'new.expr variable.other.readwrite',
-      'new.expr variable.other.constant',
       'meta.new-expression entity.name.type',
       'source new.expr entity.name.type',
     ],
@@ -117,12 +112,16 @@ export const rolePaint = [
     role: 'syntax.typeBuiltin',
     semantic: [
       'type.defaultLibrary',
+      'type.defaultLibrary:typescript',
       'class.defaultLibrary',
       'enum.defaultLibrary',
       'struct.defaultLibrary',
       'interface.defaultLibrary',
+      'interface.defaultLibrary:typescript',
       'variable.defaultLibrary',
+      'function',
       'function.defaultLibrary',
+      'function.defaultLibrary:typescript',
       'property.defaultLibrary',
     ],
     textmate: [
@@ -130,32 +129,60 @@ export const rolePaint = [
       'support.class',
       'support.type.primitive',
       'support.type.builtin',
+      'support.type.primitive.ts',
+      'support.type.builtin.ts',
       'storage.type.primitive',
+      'meta.type.annotation support.type.primitive',
+      'meta.type.annotation support.type.builtin',
+      'meta.type.parameters support.type.primitive',
+      'new.expr entity.name.function',
+      'new.expr meta.function-call entity.name.function',
+      'new.expr meta.function-call.constructor entity.name.function',
+      'meta.function-call.constructor entity.name.function',
     ],
   },
   {
     role: 'syntax.propKey',
-    semantic: ['property'],
+    semantic: ['property', 'property.declaration'],
     textmate: [
       'meta.object-literal.key',
+      'meta.object-literal.key entity.name.function',
+      'meta.object.member meta.object-literal.key',
+      'meta.object.member meta.object-literal.key entity.name.function',
+      'meta.definition.property',
+      'meta.definition.property entity.name.function',
+      'meta.definition.property variable.object.property',
+      'meta.field.declaration variable.object.property',
+      'meta.object.type variable.object.property',
       'meta.object-binding-pattern variable.object.property',
       'meta.array-binding-pattern variable.object.property',
     ],
   },
   {
     role: 'syntax.propField',
-    semantic: ['property.declaration'],
+    semantic: [],
     textmate: [
-      'meta.interface meta.field.declaration variable.object.property',
       'meta.interface meta.field.declaration variable.other.readwrite',
-      'meta.type.declaration meta.field.declaration variable.object.property',
-      'meta.type.object.type meta.field.declaration variable.object.property',
     ],
   },
   {
     role: 'syntax.param',
-    semantic: ['parameter', 'parameter.declaration'],
-    textmate: ['variable.parameter', 'meta.parameter'],
+    semantic: [
+      'parameter',
+      'parameter.declaration',
+      'parameter:typescript',
+      'parameter.declaration:typescript',
+      'parameter.readonly',
+      'parameter.declaration.readonly',
+    ],
+    textmate: [
+      'variable.parameter',
+      'variable.parameter.ts',
+      'meta.parameter',
+      'meta.parameters variable.parameter',
+      'meta.parameters entity.name.function',
+      'meta.definition.method variable.parameter',
+    ],
   },
   {
     role: 'syntax.string',
