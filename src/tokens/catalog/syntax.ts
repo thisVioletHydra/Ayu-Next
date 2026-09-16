@@ -62,11 +62,11 @@ export const syntaxCatalog = {
   },
   'syntax.typeAlias': {
     hex: '#BAE67E',
-    desc: 'Type-alias names (ThemeId) — салатовый замок типизации',
+    desc: 'Type-alias names (ThemeId) — salad lock (tsTypes)',
   },
   'syntax.interface': {
     hex: '#BAE67E',
-    desc: 'Interface names (TokenDto) — салатовый замок типизации, forever',
+    desc: 'Interface names (TokenDto) — salad lock (tsTypes), forever',
   },
   'syntax.ctor': {
     hex: '#5CCFE6',

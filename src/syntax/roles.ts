@@ -80,7 +80,7 @@ export const rolePaint = [
     semantic: [...classPaint.semantic],
     textmate: [...classPaint.textmate],
   },
-  // tsTypes (типизация): имена интерфейсов и type-alias — салатовый замок (src/ts/tsTypes)
+  // tsTypes: interface + type-alias names — salad lock (src/ts/tsTypes)
   {
     role: interfaceTypingPaint.role,
     semantic: [...interfaceTypingPaint.semantic],

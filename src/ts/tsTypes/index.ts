@@ -9,7 +9,7 @@ export { typeBuiltinTyping } from './type-builtin.js';
 export { genericTyping } from './generic.js';
 export { utilityTyping } from './utility.js';
 
-/** Роли типизации, которые уже красятся (не пустышки). */
+/** tsTypes roles already painted (not stubs). */
 export const typingPaints = [
   interfaceTypingPaint,
   typeAliasTypingPaint,
