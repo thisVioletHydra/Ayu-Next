@@ -10,7 +10,7 @@ export type CatalogEntry = { hex: HexColor; desc: string };
 export const syntaxCatalog = {
   'syntax.fg': {
     hex: '#CBCCC6',
-    desc: 'Default text, values, builtin types (`string` in annotations)',
+    desc: 'Default text, property access, interface field names',
   },
   'syntax.comment': {
     hex: '#5C6773',
@@ -37,8 +37,8 @@ export const syntaxCatalog = {
     desc: 'Object-literal and destructure KEYS on the left',
   },
   'syntax.propField': {
-    hex: '#F29E74',
-    desc: 'Interface / type-literal field names — not object keys',
+    hex: '#CBCCC6',
+    desc: 'Interface field names (`role`, `hex`) — fg, not object keys',
   },
   'syntax.regexp': {
     hex: '#95E6CB',
@@ -66,11 +66,11 @@ export const syntaxCatalog = {
   },
   'syntax.ctor': {
     hex: '#73D0FF',
-    desc: 'Every `new X` constructor name — one color, no class/string/error mix',
+    desc: '`new X` TextMate scopes — same sky as class names',
   },
   'syntax.typeBuiltin': {
-    hex: '#CBCCC6',
-    desc: 'Builtin / primitive type annotations (`string`, `number`)',
+    hex: '#5CCFE6',
+    desc: 'Library types: `string` / Map / Date in annotations',
   },
   'syntax.this': {
     hex: '#5CCFE6',
@@ -78,7 +78,7 @@ export const syntaxCatalog = {
   },
   'syntax.tag': {
     hex: '#5CCFE6',
-    desc: 'HTML/XML tags only — not TS types',
+    desc: 'HTML/XML tags — same cyan as library types',
   },
   'syntax.markup': {
     hex: '#F28779',

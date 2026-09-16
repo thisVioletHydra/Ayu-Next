@@ -1,4 +1,3 @@
-// @ts-nocheck — visual sample only
 import {
   Body,
   Controller,

@@ -11,23 +11,21 @@ export type RolePaint = {
 };
 
 /**
- * Ownership table. Each syntax.* role owns at most one semantic
- * selector set and one TextMate scope set. Do not list the same
- * scope on two roles — `build.ts` fails if they collide or drift.
+ * Ownership table. Sampled from the LEFT Nest pane (Ayu Mirage depth).
+ * Do not color semantic `variable` — that flattens methods/types/params
+ * to editor foreground in the Extension Host.
  *
- *   syntax.keyword        — keywords (`type`, `return`, `new`)
+ *   syntax.keyword        — type/return/new/if/private/readonly
  *   syntax.keywordStrong  — bold `class` keyword + decorator `@`
- *   syntax.func           — methods + .get/.set + decorator NAME (`Injectable`)
- *   syntax.entity         — class + type-alias identifiers
- *   syntax.interface      — interface names only
- *   syntax.ctor           — every `new X` name: defaultLibrary + constructor
- *                           TM scopes (Date/Map/Error/HttpException)
- *   syntax.typeBuiltin    — primitives (`string` in annotations)
- *   syntax.propKey        — `{ id, accent: }` / destructure keys
- *   syntax.propField      — interface field names (`role`, `hex`)
- *   syntax.param          — params in signature AND body
- *   syntax.string         — quoted strings only
- *   syntax.fg             — values after `:` in object literals (fallback)
+ *   syntax.func           — methods + decorator NAME
+ *   syntax.entity         — ThemeService / ThemeId / entity.name
+ *   syntax.interface      — TokenDto (same sky as class on the left)
+ *   syntax.ctor           — `new X` TextMate only (same sky)
+ *   syntax.typeBuiltin    — `string` / Map in annotations (cyan)
+ *   syntax.propKey        — `{ id, accent: }` keys
+ *   syntax.propField      — interface field names (fg, not keys)
+ *   syntax.param          — id/dto in signature AND body
+ *   syntax.string         — quoted strings
  */
 export const rolePaint = [
   {
@@ -66,11 +64,8 @@ export const rolePaint = [
       'meta.definition.method entity.name.function',
       'variable.function',
       'meta.function-call.generic',
-      'support.function',
-      'meta.function-call support.function',
       'entity.name.function.decorator',
       'meta.decorator entity.name.function',
-      'meta.decorator variable.other',
       'storage.type.annotation',
       'variable.annotation',
     ],
@@ -78,43 +73,35 @@ export const rolePaint = [
   {
     role: 'syntax.entity',
     semantic: [
+      'class',
       'class.declaration',
       'enum',
-      'enum.defaultLibrary',
       'struct',
-      'struct.defaultLibrary',
       'type',
       'typeParameter',
     ],
     textmate: [
+      'entity.name',
       'entity.name.type',
       'entity.name.type.class',
       'entity.name.type.alias',
       'entity.name.type.enum',
-      'support.class',
     ],
   },
   {
     role: 'syntax.interface',
-    semantic: ['interface', 'interface.defaultLibrary'],
+    semantic: ['interface'],
     textmate: ['entity.name.type.interface'],
   },
   {
     role: 'syntax.ctor',
-    semantic: [
-      'class',
-      'class.defaultLibrary',
-      'variable.defaultLibrary',
-      'function.defaultLibrary',
-      'property.defaultLibrary',
-    ],
+    semantic: [],
     textmate: [
       'meta.function-call.constructor',
       'meta.function-call.constructor entity.name.function',
       'meta.function-call.constructor entity.name.type',
       'meta.function-call.constructor support.class',
       'meta.function-call.constructor support.class.builtin',
-      'meta.function-call.constructor variable.other.readwrite',
       'new.expr entity.name.type',
       'new.expr entity.name.function',
       'new.expr entity.name.type.class',
@@ -124,13 +111,23 @@ export const rolePaint = [
       'new.expr variable.other.constant',
       'meta.new-expression entity.name.type',
       'source new.expr entity.name.type',
-      'source meta.export.default meta.class meta.method.declaration meta.block meta.var.expr new.expr entity.name.type',
     ],
   },
   {
     role: 'syntax.typeBuiltin',
-    semantic: ['type.defaultLibrary'],
+    semantic: [
+      'type.defaultLibrary',
+      'class.defaultLibrary',
+      'enum.defaultLibrary',
+      'struct.defaultLibrary',
+      'interface.defaultLibrary',
+      'variable.defaultLibrary',
+      'function.defaultLibrary',
+      'property.defaultLibrary',
+    ],
     textmate: [
+      'support.type',
+      'support.class',
       'support.type.primitive',
       'support.type.builtin',
       'storage.type.primitive',
@@ -207,6 +204,7 @@ export const rolePaint = [
     role: 'syntax.markup',
     semantic: [],
     textmate: [
+      'support.function',
       'support.macro',
       'support.function.console',
       'source meta.export.default meta.class meta.method.declaration meta.block meta.function-call support.function.console',
@@ -224,7 +222,7 @@ export const rolePaint = [
   },
   {
     role: 'syntax.fg',
-    semantic: ['variable'],
+    semantic: [],
     textmate: [],
   },
 ] satisfies readonly RolePaint[];

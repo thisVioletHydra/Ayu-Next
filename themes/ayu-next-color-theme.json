@@ -297,23 +297,23 @@
     "method": "#FFD580",
     "method.defaultLibrary": "#FFD580",
     "decorator": "#FFD580",
+    "class": "#73D0FF",
     "class.declaration": "#73D0FF",
     "enum": "#73D0FF",
-    "enum.defaultLibrary": "#73D0FF",
     "struct": "#73D0FF",
-    "struct.defaultLibrary": "#73D0FF",
     "type": "#73D0FF",
     "typeParameter": "#73D0FF",
     "interface": "#73D0FF",
-    "interface.defaultLibrary": "#73D0FF",
-    "class": "#73D0FF",
-    "class.defaultLibrary": "#73D0FF",
-    "variable.defaultLibrary": "#73D0FF",
-    "function.defaultLibrary": "#73D0FF",
-    "property.defaultLibrary": "#73D0FF",
-    "type.defaultLibrary": "#CBCCC6",
+    "type.defaultLibrary": "#5CCFE6",
+    "class.defaultLibrary": "#5CCFE6",
+    "enum.defaultLibrary": "#5CCFE6",
+    "struct.defaultLibrary": "#5CCFE6",
+    "interface.defaultLibrary": "#5CCFE6",
+    "variable.defaultLibrary": "#5CCFE6",
+    "function.defaultLibrary": "#5CCFE6",
+    "property.defaultLibrary": "#5CCFE6",
     "property": "#BAE67E",
-    "property.declaration": "#F29E74",
+    "property.declaration": "#CBCCC6",
     "parameter": "#D4BFFF",
     "parameter.declaration": "#D4BFFF",
     "string": "#BAE67E",
@@ -331,8 +331,7 @@
       "foreground": "#5CCFE6",
       "fontStyle": "italic"
     },
-    "macro": "#FFE6B3",
-    "variable": "#CBCCC6"
+    "macro": "#FFE6B3"
   },
   "tokenColors": [
     {
@@ -371,11 +370,8 @@
         "meta.definition.method entity.name.function",
         "variable.function",
         "meta.function-call.generic",
-        "support.function",
-        "meta.function-call support.function",
         "entity.name.function.decorator",
         "meta.decorator entity.name.function",
-        "meta.decorator variable.other",
         "storage.type.annotation",
         "variable.annotation"
       ],
@@ -385,11 +381,11 @@
     },
     {
       "scope": [
+        "entity.name",
         "entity.name.type",
         "entity.name.type.class",
         "entity.name.type.alias",
-        "entity.name.type.enum",
-        "support.class"
+        "entity.name.type.enum"
       ],
       "settings": {
         "foreground": "#73D0FF"
@@ -410,7 +406,6 @@
         "meta.function-call.constructor entity.name.type",
         "meta.function-call.constructor support.class",
         "meta.function-call.constructor support.class.builtin",
-        "meta.function-call.constructor variable.other.readwrite",
         "new.expr entity.name.type",
         "new.expr entity.name.function",
         "new.expr entity.name.type.class",
@@ -419,8 +414,7 @@
         "new.expr variable.other.readwrite",
         "new.expr variable.other.constant",
         "meta.new-expression entity.name.type",
-        "source new.expr entity.name.type",
-        "source meta.export.default meta.class meta.method.declaration meta.block meta.var.expr new.expr entity.name.type"
+        "source new.expr entity.name.type"
       ],
       "settings": {
         "foreground": "#73D0FF"
@@ -428,12 +422,14 @@
     },
     {
       "scope": [
+        "support.type",
+        "support.class",
         "support.type.primitive",
         "support.type.builtin",
         "storage.type.primitive"
       ],
       "settings": {
-        "foreground": "#CBCCC6"
+        "foreground": "#5CCFE6"
       }
     },
     {
@@ -454,7 +450,7 @@
         "meta.type.object.type meta.field.declaration variable.object.property"
       ],
       "settings": {
-        "foreground": "#F29E74"
+        "foreground": "#CBCCC6"
       }
     },
     {
@@ -536,6 +532,7 @@
     },
     {
       "scope": [
+        "support.function",
         "support.macro",
         "support.function.console",
         "source meta.export.default meta.class meta.method.declaration meta.block meta.function-call support.function.console"

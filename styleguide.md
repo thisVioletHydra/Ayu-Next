@@ -57,12 +57,14 @@ Source of truth: `src/syntax/roles.ts` + `src/tokens/catalog/syntax.ts`.
 | --- | --- | --- |
 | `syntax.keyword` | `type` / `return` / `new` / `if` | decorator `@`, class keyword |
 | `syntax.keywordStrong` | `class` keyword, `@` | decorator name |
-| `syntax.func` | methods (`resolve` / `.get` / `.set`), `method.defaultLibrary`, decorator name | `@`, constructors |
-| `syntax.entity` | `class.declaration` + type-alias names | `new X`, builtins, interface fields |
+| `syntax.func` | methods, `method.defaultLibrary`, decorator name | `@`, `variable` |
+| `syntax.entity` | `class` / `type` / `entity.name` | builtins, methods (`entity.name.function` is more specific) |
 | `syntax.interface` | interface names | interface field names |
-| `syntax.ctor` | every `new X` name: `class/variable/function/property.defaultLibrary` + `new.expr` / `meta.function-call.constructor` | class declarations, object keys, methods |
-| `syntax.typeBuiltin` | `string` / `number` annotations | type-alias / interface names |
-| `syntax.propKey` | object / destructure keys | interface fields, values after `:` |
-| `syntax.propField` | interface field names | object-literal keys |
+| `syntax.ctor` | `new.expr` TextMate only | semantic `class` / `variable` |
+| `syntax.typeBuiltin` | `string` / Map / Date library types (cyan) | user `ThemeId` / `ThemeService` |
+| `syntax.propKey` | object-literal keys | interface fields |
+| `syntax.propField` | interface field names (fg) | object-literal keys |
 | `syntax.param` | params in signature and body | locals that are not params |
 | `syntax.string` | quoted strings | types, keys |
+
+Do not assign semantic `variable`. That paints Host identifiers as foreground and kills method/type/param depth.

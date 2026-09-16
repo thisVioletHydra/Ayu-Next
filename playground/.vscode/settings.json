@@ -1,4 +1,10 @@
 {
   "editor.semanticHighlighting.enabled": true,
-  "typescript.tsserver.experimental.enableProjectDiagnostics": true
+  "oxc.enable": false,
+  "[typescript]": {
+    "editor.semanticHighlighting.enabled": true
+  },
+  "[javascript]": {
+    "editor.semanticHighlighting.enabled": true
+  }
 }

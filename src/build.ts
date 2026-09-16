@@ -87,6 +87,7 @@ function assertSyntaxAligned(): void {
     'newOperator',
     'stringLiteral',
     'numberLiteral',
+    'variable',
   ];
 
   for (const key of banned) {
@@ -125,12 +126,6 @@ function assertSyntaxAligned(): void {
     const foreground = String(rule.settings?.foreground ?? '').toLowerCase();
 
     for (const scope of scopesOf(rule)) {
-      if (scope === 'entity.name') {
-        mismatches.push(
-          `TextMate entity.name is banned — it paints methods sky (got ${foreground || 'empty'})`,
-        );
-      }
-
       const owner = owned.get(scope);
 
       if (owner && foreground !== owner.hex) {
@@ -141,15 +136,42 @@ function assertSyntaxAligned(): void {
     }
   }
 
+  if (!owned.has('entity.name') || owned.get('entity.name')?.role !== 'syntax.entity') {
+    mismatches.push('TextMate entity.name must be owned by syntax.entity');
+  }
+
+  if (!owned.has('entity.name.function') || owned.get('entity.name.function')?.role !== 'syntax.func') {
+    mismatches.push('TextMate entity.name.function must be owned by syntax.func');
+  }
+
   const methodHex = hexOf(semanticTokenColors.method);
   const funcHex = token('syntax.func').toLowerCase();
+  const classHex = hexOf(semanticTokenColors.class);
+  const entityHex = token('syntax.entity').toLowerCase();
+  const builtinHex = hexOf(
+    semanticTokenColors['type.defaultLibrary' as keyof typeof semanticTokenColors],
+  );
+  const tagHex = token('syntax.typeBuiltin').toLowerCase();
+  const paramHex = hexOf(semanticTokenColors.parameter);
 
   if (methodHex !== funcHex) {
     mismatches.push(`semantic method is ${methodHex || '(missing)'}, expected syntax.func ${funcHex}`);
   }
 
-  if (!owned.has('entity.name.function') || owned.get('entity.name.function')?.role !== 'syntax.func') {
-    mismatches.push('TextMate entity.name.function must be owned by syntax.func');
+  if (classHex !== entityHex) {
+    mismatches.push(`semantic class is ${classHex || '(missing)'}, expected syntax.entity ${entityHex}`);
+  }
+
+  if (builtinHex !== tagHex) {
+    mismatches.push(
+      `semantic type.defaultLibrary is ${builtinHex || '(missing)'}, expected syntax.typeBuiltin ${tagHex}`,
+    );
+  }
+
+  if (paramHex !== token('syntax.param').toLowerCase()) {
+    mismatches.push(
+      `semantic parameter is ${paramHex || '(missing)'}, expected syntax.param ${token('syntax.param')}`,
+    );
   }
 
   if (token('syntax.keywordStrong').toLowerCase() !== token('syntax.keyword').toLowerCase()) {
@@ -160,28 +182,16 @@ function assertSyntaxAligned(): void {
     mismatches.push('syntax.propKey must stay the same hex as syntax.string');
   }
 
-  if (token('syntax.typeBuiltin').toLowerCase() !== token('syntax.fg').toLowerCase()) {
-    mismatches.push('syntax.typeBuiltin must stay the same hex as syntax.fg');
+  if (token('syntax.typeBuiltin').toLowerCase() !== token('syntax.tag').toLowerCase()) {
+    mismatches.push('syntax.typeBuiltin must stay the same hex as syntax.tag');
   }
 
-  const ctorSelectors = [
-    'class',
-    'class.defaultLibrary',
-    'variable.defaultLibrary',
-    'function.defaultLibrary',
-    'property.defaultLibrary',
-  ];
+  if (token('syntax.ctor').toLowerCase() !== token('syntax.entity').toLowerCase()) {
+    mismatches.push('syntax.ctor must stay the same hex as syntax.entity');
+  }
 
-  for (const selector of ctorSelectors) {
-    const actual = hexOf(
-      semanticTokenColors[selector as keyof typeof semanticTokenColors],
-    );
-
-    if (actual !== token('syntax.ctor').toLowerCase()) {
-      mismatches.push(
-        `semantic ${selector} must be syntax.ctor ${token('syntax.ctor')} (got ${actual || 'missing'})`,
-      );
-    }
+  if (token('syntax.propField').toLowerCase() !== token('syntax.fg').toLowerCase()) {
+    mismatches.push('syntax.propField must stay the same hex as syntax.fg');
   }
 
   if (mismatches.length > 0) {
