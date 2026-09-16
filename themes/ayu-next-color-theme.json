@@ -297,23 +297,23 @@
     "method": "#FFD580",
     "method.defaultLibrary": "#FFD580",
     "decorator": "#FFD580",
-    "class.declaration": "#73D0FF",
-    "enum": "#73D0FF",
-    "enum.defaultLibrary": "#73D0FF",
-    "struct": "#73D0FF",
-    "struct.defaultLibrary": "#73D0FF",
+    "class.declaration": "#5CCFE6",
+    "enum": "#5CCFE6",
+    "enum.defaultLibrary": "#5CCFE6",
+    "struct": "#5CCFE6",
+    "struct.defaultLibrary": "#5CCFE6",
     "interface": "#BAE67E",
     "interface.defaultLibrary": "#BAE67E",
     "type": "#BAE67E",
     "typeParameter": "#BAE67E",
-    "class": "#73D0FF",
-    "class.defaultLibrary": "#73D0FF",
-    "variable.defaultLibrary": "#73D0FF",
-    "function.defaultLibrary": "#73D0FF",
-    "property.defaultLibrary": "#73D0FF",
+    "class": "#5CCFE6",
+    "class.defaultLibrary": "#5CCFE6",
+    "variable.defaultLibrary": "#5CCFE6",
+    "function.defaultLibrary": "#5CCFE6",
+    "property.defaultLibrary": "#5CCFE6",
     "type.defaultLibrary": "#CBCCC6",
     "property": "#BAE67E",
-    "property.declaration": "#F29E74",
+    "property.declaration": "#CBCCC6",
     "parameter": "#D4BFFF",
     "parameter.declaration": "#D4BFFF",
     "string": "#BAE67E",
@@ -390,7 +390,7 @@
         "support.class"
       ],
       "settings": {
-        "foreground": "#73D0FF"
+        "foreground": "#5CCFE6"
       }
     },
     {
@@ -430,7 +430,7 @@
         "source meta.export.default meta.class meta.method.declaration meta.block meta.var.expr new.expr entity.name.type"
       ],
       "settings": {
-        "foreground": "#73D0FF"
+        "foreground": "#5CCFE6"
       }
     },
     {
@@ -461,7 +461,7 @@
         "meta.type.object.type meta.field.declaration variable.object.property"
       ],
       "settings": {
-        "foreground": "#F29E74"
+        "foreground": "#CBCCC6"
       }
     },
     {

@@ -3,7 +3,7 @@ import { token } from '#tokens';
 import {
   interfaceTypingPaint,
   typeAliasTypingPaint,
-} from '#ts/типизация';
+} from '#ts/tsTypes';
 
 export type SyntaxRole = Extract<TokenRole, `syntax.${string}`>;
 
@@ -95,7 +95,7 @@ export const rolePaint = [
       'support.class',
     ],
   },
-  // типизация: имена интерфейсов и type-alias — салатовый замок (src/ts/типизация)
+  // tsTypes (типизация): имена интерфейсов и type-alias — салатовый замок (src/ts/tsTypes)
   {
     role: interfaceTypingPaint.role,
     semantic: [...interfaceTypingPaint.semantic],

@@ -5,9 +5,9 @@ import { typeAliasTypingPaint } from './type-alias.js';
 export { TYPING_NAME_HEX } from './lock.js';
 export { interfaceTypingPaint, interfaceTypingHex } from './interface.js';
 export { typeAliasTypingPaint, typeAliasTypingHex } from './type-alias.js';
-export { typeBuiltinTypingStub } from './type-builtin.js';
-export { genericTypingStub } from './generic.js';
-export { utilityTypingStub } from './utility.js';
+export { typeBuiltinTyping } from './type-builtin.js';
+export { genericTyping } from './generic.js';
+export { utilityTyping } from './utility.js';
 
 /** Роли типизации, которые уже красятся (не пустышки). */
 export const typingPaints = [

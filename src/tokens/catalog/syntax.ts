@@ -37,8 +37,8 @@ export const syntaxCatalog = {
     desc: 'Object-literal and destructure KEYS on the left',
   },
   'syntax.propField': {
-    hex: '#F29E74',
-    desc: 'Interface / type-literal field names — not object keys',
+    hex: '#CBCCC6',
+    desc: 'Interface / type-literal field names (role, hex) — fg white, not keys',
   },
   'syntax.regexp': {
     hex: '#95E6CB',
@@ -57,8 +57,8 @@ export const syntaxCatalog = {
     desc: 'Functions, methods, decorator NAMES (not `@`)',
   },
   'syntax.entity': {
-    hex: '#73D0FF',
-    desc: 'Class identifiers only (ThemeService) — type-alias names live in syntax.typeAlias',
+    hex: '#5CCFE6',
+    desc: 'Class identifiers (ThemeService, ThemeController) — cyan, not salad types',
   },
   'syntax.typeAlias': {
     hex: '#BAE67E',
@@ -69,8 +69,8 @@ export const syntaxCatalog = {
     desc: 'Interface names (TokenDto) — салатовый замок типизации, forever',
   },
   'syntax.ctor': {
-    hex: '#73D0FF',
-    desc: 'Every `new X` constructor name — one color, no class/string/error mix',
+    hex: '#5CCFE6',
+    desc: 'Every `new X` / lib class in type or value (Map, Date, HttpException) — cyan',
   },
   'syntax.typeBuiltin': {
     hex: '#CBCCC6',

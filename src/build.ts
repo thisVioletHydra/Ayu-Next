@@ -5,7 +5,7 @@ import {
 } from '#semanticTokenColors';
 import { ownedScopeHex, rolePaint } from '#syntax/roles';
 import { token } from '#tokens';
-import { typingNameLock } from '#ts/типизация';
+import { typingNameLock } from '#ts/tsTypes';
 import { tokenColors } from '#tokenColors';
 
 import fsPromises from 'node:fs/promises';

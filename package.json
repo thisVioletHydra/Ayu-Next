@@ -19,8 +19,8 @@
     "#paint": "./src/paint/index.ts",
     "#paint/*": "./src/paint/*.ts",
     "#syntax/*": "./src/syntax/*.ts",
-    "#ts/типизация": "./src/ts/типизация/index.ts",
-    "#ts/типизация/*": "./src/ts/типизация/*.ts",
+    "#ts/tsTypes": "./src/ts/tsTypes/index.ts",
+    "#ts/tsTypes/*": "./src/ts/tsTypes/*.ts",
     "#data/*": "./src/data/*"
   },
   "publisher": "Roman",
