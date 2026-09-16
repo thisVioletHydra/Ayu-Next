@@ -1,3 +1,4 @@
 {
-  "editor.semanticHighlighting.enabled": "configuredByTheme"
+  "editor.semanticHighlighting.enabled": true,
+  "typescript.tsserver.experimental.enableProjectDiagnostics": true
 }
