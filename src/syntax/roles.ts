@@ -18,13 +18,15 @@ export type RolePaint = {
  *   syntax.keyword        — keywords (`type`, `return`, `new`)
  *   syntax.keywordStrong  — bold `class` keyword + decorator `@`
  *   syntax.func           — methods + .get/.set + decorator NAME (`Injectable`)
- *   syntax.entity         — class + type-alias identifiers
- *   syntax.interface      — interface names only
+ *   syntax.entity         — class identifiers only (NOT type/interface names)
+ *   syntax.interface      — unused here; locked in src/ts/типизация/interface.ts
  *   syntax.ctor           — every `new X` name: defaultLibrary + constructor
  *                           TM scopes (Date/Map/Error/HttpException)
  *   syntax.typeBuiltin    — primitives (`string` in annotations)
  *   syntax.propKey        — `{ id, accent: }` / destructure keys
- *   syntax.propField      — interface field names (`role`, `hex`)
+ *   syntax.propField      — interface / type-literal field names (`role`, `hex`)
+ *   syntax.propDecl       — class field declaration (`private readonly accents`)
+ *   syntax.propAccess     — property access (`dto.hex`, `this.accents`)
  *   syntax.param          — params in signature AND body
  *   syntax.string         — quoted strings only
  *   syntax.fg             — values after `:` in object literals (fallback)
@@ -83,21 +85,13 @@ export const rolePaint = [
       'enum.defaultLibrary',
       'struct',
       'struct.defaultLibrary',
-      'type',
       'typeParameter',
     ],
     textmate: [
-      'entity.name.type',
       'entity.name.type.class',
-      'entity.name.type.alias',
       'entity.name.type.enum',
       'support.class',
     ],
-  },
-  {
-    role: 'syntax.interface',
-    semantic: ['interface', 'interface.defaultLibrary'],
-    textmate: ['entity.name.type.interface'],
   },
   {
     role: 'syntax.ctor',
@@ -138,7 +132,7 @@ export const rolePaint = [
   },
   {
     role: 'syntax.propKey',
-    semantic: ['property'],
+    semantic: [],
     textmate: [
       'meta.object-literal.key',
       'meta.object-binding-pattern variable.object.property',
@@ -153,6 +147,28 @@ export const rolePaint = [
       'meta.interface meta.field.declaration variable.other.readwrite',
       'meta.type.declaration meta.field.declaration variable.object.property',
       'meta.type.object.type meta.field.declaration variable.object.property',
+      'meta.object.type meta.field.declaration variable.object.property',
+      'meta.type.parameters meta.object.type variable.object.property',
+    ],
+  },
+  {
+    role: 'syntax.propDecl',
+    semantic: ['property.declaration.readonly'],
+    textmate: [
+      'meta.class meta.field.declaration variable.object.property',
+      'meta.class meta.field.declaration variable.other.readwrite',
+      'meta.class meta.definition.property variable.object.property',
+      'meta.class meta.field.declaration meta.definition.property',
+      'variable.member',
+    ],
+  },
+  {
+    role: 'syntax.propAccess',
+    semantic: ['property'],
+    textmate: [
+      'variable.other.property',
+      'variable.object.property',
+      'variable.other.object.property',
     ],
   },
   {

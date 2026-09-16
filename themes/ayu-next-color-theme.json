@@ -302,20 +302,18 @@
     "enum.defaultLibrary": "#73D0FF",
     "struct": "#73D0FF",
     "struct.defaultLibrary": "#73D0FF",
-    "type": "#73D0FF",
     "typeParameter": "#73D0FF",
-    "interface": "#73D0FF",
-    "interface.defaultLibrary": "#73D0FF",
     "class": "#73D0FF",
     "class.defaultLibrary": "#73D0FF",
     "variable.defaultLibrary": "#73D0FF",
     "function.defaultLibrary": "#73D0FF",
     "property.defaultLibrary": "#73D0FF",
     "type.defaultLibrary": "#CBCCC6",
-    "property": "#BAE67E",
-    "property.declaration": "#F29E74",
-    "parameter": "#D4BFFF",
-    "parameter.declaration": "#D4BFFF",
+    "property.declaration": "#C48464",
+    "property.declaration.readonly": "#BD7F63",
+    "property": "#98BC6C",
+    "parameter": "#A898CC",
+    "parameter.declaration": "#A898CC",
     "string": "#BAE67E",
     "comment": {
       "foreground": "#5C6773",
@@ -328,11 +326,16 @@
     "regexp": "#95E6CB",
     "enumMember": "#95E6CB",
     "variable.language.this": {
-      "foreground": "#5CCFE6",
+      "foreground": "#4CACC0",
       "fontStyle": "italic"
     },
     "macro": "#FFE6B3",
-    "variable": "#CBCCC6"
+    "variable": "#CBCCC6",
+    "type": "#BAF6CA",
+    "type.declaration": "#BAF6CA",
+    "interface": "#BAF6CA",
+    "interface.declaration": "#BAF6CA",
+    "interface.defaultLibrary": "#BAF6CA"
   },
   "tokenColors": [
     {
@@ -385,19 +388,9 @@
     },
     {
       "scope": [
-        "entity.name.type",
         "entity.name.type.class",
-        "entity.name.type.alias",
         "entity.name.type.enum",
         "support.class"
-      ],
-      "settings": {
-        "foreground": "#73D0FF"
-      }
-    },
-    {
-      "scope": [
-        "entity.name.type.interface"
       ],
       "settings": {
         "foreground": "#73D0FF"
@@ -451,10 +444,34 @@
         "meta.interface meta.field.declaration variable.object.property",
         "meta.interface meta.field.declaration variable.other.readwrite",
         "meta.type.declaration meta.field.declaration variable.object.property",
-        "meta.type.object.type meta.field.declaration variable.object.property"
+        "meta.type.object.type meta.field.declaration variable.object.property",
+        "meta.object.type meta.field.declaration variable.object.property",
+        "meta.type.parameters meta.object.type variable.object.property"
       ],
       "settings": {
-        "foreground": "#F29E74"
+        "foreground": "#C48464"
+      }
+    },
+    {
+      "scope": [
+        "meta.class meta.field.declaration variable.object.property",
+        "meta.class meta.field.declaration variable.other.readwrite",
+        "meta.class meta.definition.property variable.object.property",
+        "meta.class meta.field.declaration meta.definition.property",
+        "variable.member"
+      ],
+      "settings": {
+        "foreground": "#BD7F63"
+      }
+    },
+    {
+      "scope": [
+        "variable.other.property",
+        "variable.object.property",
+        "variable.other.object.property"
+      ],
+      "settings": {
+        "foreground": "#98BC6C"
       }
     },
     {
@@ -463,7 +480,7 @@
         "meta.parameter"
       ],
       "settings": {
-        "foreground": "#D4BFFF"
+        "foreground": "#A898CC"
       }
     },
     {
@@ -520,7 +537,7 @@
         "variable.language.super"
       ],
       "settings": {
-        "foreground": "#5CCFE6",
+        "foreground": "#4CACC0",
         "fontStyle": "italic"
       }
     },
@@ -940,6 +957,26 @@
       "scope": "punctuation.definition.markdown",
       "settings": {
         "foreground": "#5c6773"
+      }
+    },
+    {
+      "scope": [
+        "entity.name.type.alias",
+        "meta.type.declaration entity.name.type.alias",
+        "entity.name.type"
+      ],
+      "settings": {
+        "foreground": "#BAF6CA"
+      }
+    },
+    {
+      "scope": [
+        "entity.name.type.interface",
+        "meta.interface entity.name.type.interface",
+        "meta.type.annotation entity.name.type.interface"
+      ],
+      "settings": {
+        "foreground": "#BAF6CA"
       }
     }
   ]

@@ -6,6 +6,11 @@ import {
 import { ownedScopeHex, rolePaint } from '#syntax/roles';
 import { token } from '#tokens';
 import { tokenColors } from '#tokenColors';
+import {
+  LOCKED_TYPE_SEMANTIC,
+  LOCKED_TYPE_TEXTMATE,
+  SALAD_GREEN_LC,
+} from '#ts/типизация/salad';
 
 import fsPromises from 'node:fs/promises';
 import path from 'node:path';
@@ -164,6 +169,35 @@ function assertSyntaxAligned(): void {
     mismatches.push('syntax.typeBuiltin must stay the same hex as syntax.fg');
   }
 
+  const propFieldHex = token('syntax.propField').toLowerCase();
+  const propDeclHex = token('syntax.propDecl').toLowerCase();
+  const propAccessHex = token('syntax.propAccess').toLowerCase();
+
+  if (propFieldHex === propAccessHex) {
+    mismatches.push('syntax.propField must not equal syntax.propAccess (declaration vs usage)');
+  }
+
+  if (propDeclHex === propAccessHex) {
+    mismatches.push('syntax.propDecl must not equal syntax.propAccess (class field vs member access)');
+  }
+
+  if (hexOf(semanticTokenColors.property) !== propAccessHex) {
+    mismatches.push(
+      `semantic property must be syntax.propAccess ${propAccessHex} (got ${hexOf(semanticTokenColors.property) || 'missing'})`,
+    );
+  }
+
+  const propDeclSelector = 'property.declaration.readonly';
+  const propDeclActual = hexOf(
+    semanticTokenColors[propDeclSelector as keyof typeof semanticTokenColors],
+  );
+
+  if (propDeclActual !== propDeclHex) {
+    mismatches.push(
+      `semantic ${propDeclSelector} must be syntax.propDecl ${propDeclHex} (got ${propDeclActual || 'missing'})`,
+    );
+  }
+
   const ctorSelectors = [
     'class',
     'class.defaultLibrary',
@@ -184,9 +218,68 @@ function assertSyntaxAligned(): void {
     }
   }
 
+  mismatches.push(...assertSaladGreenLock());
+
   if (mismatches.length > 0) {
     throw new Error(`Syntax roles drifted:\n- ${mismatches.join('\n- ')}`);
   }
+}
+
+function lastTextMateHex(scope: string): string {
+  for (let i = tokenColors.length - 1; i >= 0; i -= 1) {
+    const rule = tokenColors[i] as TokenRule;
+    const scopes = scopesOf(rule);
+    const foreground = String(rule.settings?.foreground ?? '').toLowerCase();
+
+    if (scopes.includes(scope) && foreground) {
+      return foreground;
+    }
+  }
+
+  return '';
+}
+
+function assertSaladGreenLock(): string[] {
+  const mismatches: string[] = [];
+  const banned = new Set(['#73d0ff', '#5ccfe6', '#cbccc6']);
+
+  for (const selector of LOCKED_TYPE_SEMANTIC) {
+    const actual = hexOf(
+      semanticTokenColors[selector as keyof typeof semanticTokenColors],
+    );
+
+    if (actual !== SALAD_GREEN_LC) {
+      mismatches.push(
+        `LOCK type/interface ${selector} is ${actual || '(missing)'}, expected salad ${SALAD_GREEN_LC}`,
+      );
+    }
+
+    if (banned.has(actual)) {
+      mismatches.push(
+        `LOCK FAILED: ${selector} flipped off salad to ${actual}`,
+      );
+    }
+  }
+
+  for (const scope of LOCKED_TYPE_TEXTMATE) {
+    const actual = lastTextMateHex(scope);
+
+    if (actual !== SALAD_GREEN_LC) {
+      mismatches.push(
+        `LOCK TM last-wins ${scope} is ${actual || '(missing)'}, expected salad ${SALAD_GREEN_LC}`,
+      );
+    }
+  }
+
+  if (token('syntax.interface').toLowerCase() !== SALAD_GREEN_LC) {
+    mismatches.push(`syntax.interface catalog drifted off salad ${SALAD_GREEN_LC}`);
+  }
+
+  if (token('syntax.typeName').toLowerCase() !== SALAD_GREEN_LC) {
+    mismatches.push(`syntax.typeName catalog drifted off salad ${SALAD_GREEN_LC}`);
+  }
+
+  return mismatches;
 }
 
 async function assertPlaygroundProject(): Promise<void> {

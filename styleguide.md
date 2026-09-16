@@ -58,11 +58,30 @@ Source of truth: `src/syntax/roles.ts` + `src/tokens/catalog/syntax.ts`.
 | `syntax.keyword` | `type` / `return` / `new` / `if` | decorator `@`, class keyword |
 | `syntax.keywordStrong` | `class` keyword, `@` | decorator name |
 | `syntax.func` | methods (`resolve` / `.get` / `.set`), `method.defaultLibrary`, decorator name | `@`, constructors |
-| `syntax.entity` | `class.declaration` + type-alias names | `new X`, builtins, interface fields |
-| `syntax.interface` | interface names | interface field names |
+| `syntax.entity` | class identifiers | type/interface **names** (locked salad) |
+| `syntax.interface` | interface names `#BAF6CA` (LOCKED) | interface field names |
+| `syntax.typeName` | type alias names `#BAF6CA` (LOCKED) | class names, constructors |
+
+Type/interface **names** are owned by `src/ts/типизация/` and appended last in the theme. Do not recolor to `#73D0FF`.
 | `syntax.ctor` | every `new X` name: `class/variable/function/property.defaultLibrary` + `new.expr` / `meta.function-call.constructor` | class declarations, object keys, methods |
 | `syntax.typeBuiltin` | `string` / `number` annotations | type-alias / interface names |
-| `syntax.propKey` | object / destructure keys | interface fields, values after `:` |
-| `syntax.propField` | interface field names | object-literal keys |
-| `syntax.param` | params in signature and body | locals that are not params |
+| `syntax.propKey` | object / destructure keys | interface fields, member access |
+| `syntax.propField` | interface / type-literal field names (`#C48464`) | class field declaration, member access |
+| `syntax.propDecl` | class field declaration (`#BD7F63`) | member access (`this.accents`) |
+| `syntax.propAccess` | member access (`dto.hex`, `this.accents`, `#98BC6C`) | declarations |
+| `syntax.param` | params in signature and body (`#A898CC`) | locals that are not params |
+| `syntax.this` | `this` / `super` (`#4CACC0`) | member after `.` |
 | `syntax.string` | quoted strings | types, keys |
+
+Measured Nest shot (glyph core) vs closest catalog leftovers:
+
+| Scope | Measured | Role | Closest old palette |
+| --- | --- | --- | --- |
+| param signature + body | `#A898CC` | `syntax.param` | `#D4BFFF` |
+| interface / type-literal field | `#C48464` | `syntax.propField` | `#F29E74` |
+| class field declaration | `#BD7F63` | `syntax.propDecl` | `#ED8274` |
+| property access | `#98BC6C` | `syntax.propAccess` | `#BAE67E` |
+| `this` | `#4CACC0` | `syntax.this` | `#5CCFE6` |
+
+Declaration (`propDecl` / `propField`) and access (`propAccess`) must stay different hexes.
+

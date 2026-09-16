@@ -37,8 +37,16 @@ export const syntaxCatalog = {
     desc: 'Object-literal and destructure KEYS on the left',
   },
   'syntax.propField': {
-    hex: '#F29E74',
-    desc: 'Interface / type-literal field names — not object keys',
+    hex: '#C48464',
+    desc: 'Interface / type-literal field names (`role`, `hex`, `{ id, accent }`)',
+  },
+  'syntax.propDecl': {
+    hex: '#BD7F63',
+    desc: 'Class field declaration (`private readonly accents`) — not access',
+  },
+  'syntax.propAccess': {
+    hex: '#98BC6C',
+    desc: 'Property access (`dto.hex`, `this.accents`) — not declaration',
   },
   'syntax.regexp': {
     hex: '#95E6CB',
@@ -49,7 +57,7 @@ export const syntaxCatalog = {
     desc: 'Numbers',
   },
   'syntax.param': {
-    hex: '#D4BFFF',
+    hex: '#A898CC',
     desc: 'Function params at declaration AND body usage',
   },
   'syntax.func': {
@@ -58,11 +66,15 @@ export const syntaxCatalog = {
   },
   'syntax.entity': {
     hex: '#73D0FF',
-    desc: 'Class identifiers and type-alias names (ThemeService, ThemeId)',
+    desc: 'Class identifiers only — type/interface names are locked salad in ts/типизация',
   },
   'syntax.interface': {
-    hex: '#73D0FF',
-    desc: 'Interface names (TokenDto) — own role so fields cannot steal it',
+    hex: '#BAF6CA',
+    desc: 'Interface names (TokenDto) — LOCKED salad green, do not recolor',
+  },
+  'syntax.typeName': {
+    hex: '#BAF6CA',
+    desc: 'Type alias names (ThemeId) — LOCKED salad green, do not recolor',
   },
   'syntax.ctor': {
     hex: '#73D0FF',
@@ -73,7 +85,7 @@ export const syntaxCatalog = {
     desc: 'Builtin / primitive type annotations (`string`, `number`)',
   },
   'syntax.this': {
-    hex: '#5CCFE6',
+    hex: '#4CACC0',
     desc: '`this` / `super`',
   },
   'syntax.tag': {
