@@ -302,10 +302,10 @@
     "enum.defaultLibrary": "#73D0FF",
     "struct": "#73D0FF",
     "struct.defaultLibrary": "#73D0FF",
-    "type": "#73D0FF",
-    "typeParameter": "#73D0FF",
-    "interface": "#73D0FF",
-    "interface.defaultLibrary": "#73D0FF",
+    "interface": "#BAE67E",
+    "interface.defaultLibrary": "#BAE67E",
+    "type": "#BAE67E",
+    "typeParameter": "#BAE67E",
     "class": "#73D0FF",
     "class.defaultLibrary": "#73D0FF",
     "variable.defaultLibrary": "#73D0FF",
@@ -385,9 +385,7 @@
     },
     {
       "scope": [
-        "entity.name.type",
         "entity.name.type.class",
-        "entity.name.type.alias",
         "entity.name.type.enum",
         "support.class"
       ],
@@ -400,7 +398,16 @@
         "entity.name.type.interface"
       ],
       "settings": {
-        "foreground": "#73D0FF"
+        "foreground": "#BAE67E"
+      }
+    },
+    {
+      "scope": [
+        "entity.name.type.alias",
+        "entity.name.type"
+      ],
+      "settings": {
+        "foreground": "#BAE67E"
       }
     },
     {

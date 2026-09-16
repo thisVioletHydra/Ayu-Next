@@ -1,5 +1,9 @@
 import type { TokenRole } from '#tokens';
 import { token } from '#tokens';
+import {
+  interfaceTypingPaint,
+  typeAliasTypingPaint,
+} from '#ts/типизация';
 
 export type SyntaxRole = Extract<TokenRole, `syntax.${string}`>;
 
@@ -18,8 +22,9 @@ export type RolePaint = {
  *   syntax.keyword        — keywords (`type`, `return`, `new`)
  *   syntax.keywordStrong  — bold `class` keyword + decorator `@`
  *   syntax.func           — methods + .get/.set + decorator NAME (`Injectable`)
- *   syntax.entity         — class + type-alias identifiers
- *   syntax.interface      — interface names only
+ *   syntax.entity         — class identifiers only
+ *   syntax.typeAlias      — type-alias names (ThemeId) — салатовый замок
+ *   syntax.interface      — interface names (TokenDto) — салатовый замок
  *   syntax.ctor           — every `new X` name: defaultLibrary + constructor
  *                           TM scopes (Date/Map/Error/HttpException)
  *   syntax.typeBuiltin    — primitives (`string` in annotations)
@@ -83,21 +88,23 @@ export const rolePaint = [
       'enum.defaultLibrary',
       'struct',
       'struct.defaultLibrary',
-      'type',
-      'typeParameter',
     ],
     textmate: [
-      'entity.name.type',
       'entity.name.type.class',
-      'entity.name.type.alias',
       'entity.name.type.enum',
       'support.class',
     ],
   },
+  // типизация: имена интерфейсов и type-alias — салатовый замок (src/ts/типизация)
   {
-    role: 'syntax.interface',
-    semantic: ['interface', 'interface.defaultLibrary'],
-    textmate: ['entity.name.type.interface'],
+    role: interfaceTypingPaint.role,
+    semantic: [...interfaceTypingPaint.semantic],
+    textmate: [...interfaceTypingPaint.textmate],
+  },
+  {
+    role: typeAliasTypingPaint.role,
+    semantic: [...typeAliasTypingPaint.semantic],
+    textmate: [...typeAliasTypingPaint.textmate],
   },
   {
     role: 'syntax.ctor',

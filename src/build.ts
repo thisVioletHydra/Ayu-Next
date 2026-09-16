@@ -5,6 +5,7 @@ import {
 } from '#semanticTokenColors';
 import { ownedScopeHex, rolePaint } from '#syntax/roles';
 import { token } from '#tokens';
+import { typingNameLock } from '#ts/типизация';
 import { tokenColors } from '#tokenColors';
 
 import fsPromises from 'node:fs/promises';
@@ -189,6 +190,68 @@ function assertSyntaxAligned(): void {
   }
 }
 
+
+function assertTypingNameLock(): void {
+  const expected = typingNameLock.hex.toLowerCase();
+  const mismatches: string[] = [];
+
+  for (const role of typingNameLock.roles) {
+    const actual = token(role).toLowerCase();
+    if (actual !== expected) {
+      mismatches.push(`${role} is ${actual}, locked salad ${expected}`);
+    }
+  }
+
+  for (const selector of typingNameLock.semantic) {
+    const actual = hexOf(
+      semanticTokenColors[selector as keyof typeof semanticTokenColors],
+    );
+    if (actual !== expected) {
+      mismatches.push(`semantic ${selector} is ${actual || '(missing)'}, locked salad ${expected}`);
+    }
+  }
+
+  const owned = ownedScopeHex();
+  for (const scope of typingNameLock.textmate) {
+    const owner = owned.get(scope);
+    if (!owner) {
+      mismatches.push(`TextMate ${scope} has no owner — typing lock broken`);
+      continue;
+    }
+    if (owner.hex !== expected) {
+      mismatches.push(
+        `TextMate ${scope} owned by ${owner.role} ${owner.hex}, locked salad ${expected}`,
+      );
+    }
+    if (!typingNameLock.roles.includes(owner.role as typeof typingNameLock.roles[number])) {
+      mismatches.push(
+        `TextMate ${scope} stolen by ${owner.role} — only typing roles may own salad names`,
+      );
+    }
+  }
+
+  // Регресс: синий entity/ctor не должен владеть type/interface scopes.
+  for (const paint of rolePaint) {
+    if (typingNameLock.roles.includes(paint.role as typeof typingNameLock.roles[number])) {
+      continue;
+    }
+    for (const selector of paint.semantic) {
+      if ((typingNameLock.semantic as readonly string[]).includes(selector)) {
+        mismatches.push(`${paint.role} steals semantic ${selector} from typing lock`);
+      }
+    }
+    for (const scope of paint.textmate) {
+      if ((typingNameLock.textmate as readonly string[]).includes(scope)) {
+        mismatches.push(`${paint.role} steals TextMate ${scope} from typing lock`);
+      }
+    }
+  }
+
+  if (mismatches.length > 0) {
+    throw new Error(`Typing name lock (салатовый) broken:\n- ${mismatches.join('\n- ')}`);
+  }
+}
+
 async function assertPlaygroundProject(): Promise<void> {
   const tsconfigPath = path.join(root, 'playground/tsconfig.json');
   const nestTsconfigPath = path.join(root, 'playground/node/nest/tsconfig.json');
@@ -233,6 +296,7 @@ function buildTheme() {
 const known = await loadKnownKeys();
 validateColors(known);
 assertSyntaxAligned();
+assertTypingNameLock();
 await assertPlaygroundProject();
 
 const theme = buildTheme();

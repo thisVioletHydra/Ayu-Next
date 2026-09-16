@@ -58,11 +58,15 @@ export const syntaxCatalog = {
   },
   'syntax.entity': {
     hex: '#73D0FF',
-    desc: 'Class identifiers and type-alias names (ThemeService, ThemeId)',
+    desc: 'Class identifiers only (ThemeService) — type-alias names live in syntax.typeAlias',
+  },
+  'syntax.typeAlias': {
+    hex: '#BAE67E',
+    desc: 'Type-alias names (ThemeId) — салатовый замок типизации',
   },
   'syntax.interface': {
-    hex: '#73D0FF',
-    desc: 'Interface names (TokenDto) — own role so fields cannot steal it',
+    hex: '#BAE67E',
+    desc: 'Interface names (TokenDto) — салатовый замок типизации, forever',
   },
   'syntax.ctor': {
     hex: '#73D0FF',
