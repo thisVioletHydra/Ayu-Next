@@ -6,6 +6,11 @@ import {
 import { ownedScopeHex, rolePaint } from '#syntax/roles';
 import { token } from '#tokens';
 import { tokenColors } from '#tokenColors';
+import {
+  LOCKED_TYPE_SEMANTIC,
+  LOCKED_TYPE_TEXTMATE,
+  SALAD_GREEN_LC,
+} from '#ts/типизация/salad';
 
 import fsPromises from 'node:fs/promises';
 import path from 'node:path';
@@ -213,9 +218,68 @@ function assertSyntaxAligned(): void {
     }
   }
 
+  mismatches.push(...assertSaladGreenLock());
+
   if (mismatches.length > 0) {
     throw new Error(`Syntax roles drifted:\n- ${mismatches.join('\n- ')}`);
   }
+}
+
+function lastTextMateHex(scope: string): string {
+  for (let i = tokenColors.length - 1; i >= 0; i -= 1) {
+    const rule = tokenColors[i] as TokenRule;
+    const scopes = scopesOf(rule);
+    const foreground = String(rule.settings?.foreground ?? '').toLowerCase();
+
+    if (scopes.includes(scope) && foreground) {
+      return foreground;
+    }
+  }
+
+  return '';
+}
+
+function assertSaladGreenLock(): string[] {
+  const mismatches: string[] = [];
+  const banned = new Set(['#73d0ff', '#5ccfe6', '#cbccc6']);
+
+  for (const selector of LOCKED_TYPE_SEMANTIC) {
+    const actual = hexOf(
+      semanticTokenColors[selector as keyof typeof semanticTokenColors],
+    );
+
+    if (actual !== SALAD_GREEN_LC) {
+      mismatches.push(
+        `LOCK type/interface ${selector} is ${actual || '(missing)'}, expected salad ${SALAD_GREEN_LC}`,
+      );
+    }
+
+    if (banned.has(actual)) {
+      mismatches.push(
+        `LOCK FAILED: ${selector} flipped off salad to ${actual}`,
+      );
+    }
+  }
+
+  for (const scope of LOCKED_TYPE_TEXTMATE) {
+    const actual = lastTextMateHex(scope);
+
+    if (actual !== SALAD_GREEN_LC) {
+      mismatches.push(
+        `LOCK TM last-wins ${scope} is ${actual || '(missing)'}, expected salad ${SALAD_GREEN_LC}`,
+      );
+    }
+  }
+
+  if (token('syntax.interface').toLowerCase() !== SALAD_GREEN_LC) {
+    mismatches.push(`syntax.interface catalog drifted off salad ${SALAD_GREEN_LC}`);
+  }
+
+  if (token('syntax.typeName').toLowerCase() !== SALAD_GREEN_LC) {
+    mismatches.push(`syntax.typeName catalog drifted off salad ${SALAD_GREEN_LC}`);
+  }
+
+  return mismatches;
 }
 
 async function assertPlaygroundProject(): Promise<void> {

@@ -18,8 +18,8 @@ export type RolePaint = {
  *   syntax.keyword        — keywords (`type`, `return`, `new`)
  *   syntax.keywordStrong  — bold `class` keyword + decorator `@`
  *   syntax.func           — methods + .get/.set + decorator NAME (`Injectable`)
- *   syntax.entity         — class + type-alias identifiers
- *   syntax.interface      — interface names only
+ *   syntax.entity         — class identifiers only (NOT type/interface names)
+ *   syntax.interface      — unused here; locked in src/ts/типизация/interface.ts
  *   syntax.ctor           — every `new X` name: defaultLibrary + constructor
  *                           TM scopes (Date/Map/Error/HttpException)
  *   syntax.typeBuiltin    — primitives (`string` in annotations)
@@ -85,21 +85,13 @@ export const rolePaint = [
       'enum.defaultLibrary',
       'struct',
       'struct.defaultLibrary',
-      'type',
       'typeParameter',
     ],
     textmate: [
-      'entity.name.type',
       'entity.name.type.class',
-      'entity.name.type.alias',
       'entity.name.type.enum',
       'support.class',
     ],
-  },
-  {
-    role: 'syntax.interface',
-    semantic: ['interface', 'interface.defaultLibrary'],
-    textmate: ['entity.name.type.interface'],
   },
   {
     role: 'syntax.ctor',

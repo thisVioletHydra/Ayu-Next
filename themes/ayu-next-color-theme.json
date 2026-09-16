@@ -302,10 +302,7 @@
     "enum.defaultLibrary": "#73D0FF",
     "struct": "#73D0FF",
     "struct.defaultLibrary": "#73D0FF",
-    "type": "#73D0FF",
     "typeParameter": "#73D0FF",
-    "interface": "#73D0FF",
-    "interface.defaultLibrary": "#73D0FF",
     "class": "#73D0FF",
     "class.defaultLibrary": "#73D0FF",
     "variable.defaultLibrary": "#73D0FF",
@@ -333,7 +330,12 @@
       "fontStyle": "italic"
     },
     "macro": "#FFE6B3",
-    "variable": "#CBCCC6"
+    "variable": "#CBCCC6",
+    "type": "#BAF6CA",
+    "type.declaration": "#BAF6CA",
+    "interface": "#BAF6CA",
+    "interface.declaration": "#BAF6CA",
+    "interface.defaultLibrary": "#BAF6CA"
   },
   "tokenColors": [
     {
@@ -386,19 +388,9 @@
     },
     {
       "scope": [
-        "entity.name.type",
         "entity.name.type.class",
-        "entity.name.type.alias",
         "entity.name.type.enum",
         "support.class"
-      ],
-      "settings": {
-        "foreground": "#73D0FF"
-      }
-    },
-    {
-      "scope": [
-        "entity.name.type.interface"
       ],
       "settings": {
         "foreground": "#73D0FF"
@@ -965,6 +957,26 @@
       "scope": "punctuation.definition.markdown",
       "settings": {
         "foreground": "#5c6773"
+      }
+    },
+    {
+      "scope": [
+        "entity.name.type.alias",
+        "meta.type.declaration entity.name.type.alias",
+        "entity.name.type"
+      ],
+      "settings": {
+        "foreground": "#BAF6CA"
+      }
+    },
+    {
+      "scope": [
+        "entity.name.type.interface",
+        "meta.interface entity.name.type.interface",
+        "meta.type.annotation entity.name.type.interface"
+      ],
+      "settings": {
+        "foreground": "#BAF6CA"
       }
     }
   ]

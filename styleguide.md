@@ -58,8 +58,11 @@ Source of truth: `src/syntax/roles.ts` + `src/tokens/catalog/syntax.ts`.
 | `syntax.keyword` | `type` / `return` / `new` / `if` | decorator `@`, class keyword |
 | `syntax.keywordStrong` | `class` keyword, `@` | decorator name |
 | `syntax.func` | methods (`resolve` / `.get` / `.set`), `method.defaultLibrary`, decorator name | `@`, constructors |
-| `syntax.entity` | `class.declaration` + type-alias names | `new X`, builtins, interface fields |
-| `syntax.interface` | interface names | interface field names |
+| `syntax.entity` | class identifiers | type/interface **names** (locked salad) |
+| `syntax.interface` | interface names `#BAF6CA` (LOCKED) | interface field names |
+| `syntax.typeName` | type alias names `#BAF6CA` (LOCKED) | class names, constructors |
+
+Type/interface **names** are owned by `src/ts/типизация/` and appended last in the theme. Do not recolor to `#73D0FF`.
 | `syntax.ctor` | every `new X` name: `class/variable/function/property.defaultLibrary` + `new.expr` / `meta.function-call.constructor` | class declarations, object keys, methods |
 | `syntax.typeBuiltin` | `string` / `number` annotations | type-alias / interface names |
 | `syntax.propKey` | object / destructure keys | interface fields, member access |

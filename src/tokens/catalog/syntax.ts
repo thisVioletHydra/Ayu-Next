@@ -66,11 +66,15 @@ export const syntaxCatalog = {
   },
   'syntax.entity': {
     hex: '#73D0FF',
-    desc: 'Class identifiers and type-alias names (ThemeService, ThemeId)',
+    desc: 'Class identifiers only — type/interface names are locked salad in ts/типизация',
   },
   'syntax.interface': {
-    hex: '#73D0FF',
-    desc: 'Interface names (TokenDto) — own role so fields cannot steal it',
+    hex: '#BAF6CA',
+    desc: 'Interface names (TokenDto) — LOCKED salad green, do not recolor',
+  },
+  'syntax.typeName': {
+    hex: '#BAF6CA',
+    desc: 'Type alias names (ThemeId) — LOCKED salad green, do not recolor',
   },
   'syntax.ctor': {
     hex: '#73D0FF',
