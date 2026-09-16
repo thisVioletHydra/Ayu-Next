@@ -296,7 +296,7 @@
     "function": "#FF9944",
     "method": "#FF9944",
     "method.defaultLibrary": "#FF9944",
-    "decorator": "#FF9944",
+    "decorator": "#CBCCC6",
     "class.declaration": "#5CCFE6",
     "enum": "#5CCFE6",
     "enum.defaultLibrary": "#5CCFE6",
@@ -311,7 +311,7 @@
     "variable.defaultLibrary": "#5CCFE6",
     "function.defaultLibrary": "#5CCFE6",
     "property.defaultLibrary": "#5CCFE6",
-    "type.defaultLibrary": "#5CCFE6",
+    "type.defaultLibrary": "#CBCCC6",
     "property": "#CBCCC6",
     "property.declaration": "#CBCCC6",
     "parameter": "#CBCCC6",
@@ -344,7 +344,9 @@
         "storage.type.type",
         "storage.type.interface",
         "keyword.control.default",
-        "keyword.operator.new"
+        "keyword.operator.new",
+        "keyword.control.import",
+        "keyword.control.export"
       ],
       "settings": {
         "foreground": "#FF9944"
@@ -372,7 +374,14 @@
         "variable.function",
         "meta.function-call.generic",
         "support.function",
-        "meta.function-call support.function",
+        "meta.function-call support.function"
+      ],
+      "settings": {
+        "foreground": "#FF9944"
+      }
+    },
+    {
+      "scope": [
         "entity.name.function.decorator",
         "meta.decorator entity.name.function",
         "meta.decorator variable.other",
@@ -380,7 +389,7 @@
         "variable.annotation"
       ],
       "settings": {
-        "foreground": "#FF9944"
+        "foreground": "#CBCCC6"
       }
     },
     {
@@ -440,7 +449,7 @@
         "storage.type.primitive"
       ],
       "settings": {
-        "foreground": "#5CCFE6"
+        "foreground": "#CBCCC6"
       }
     },
     {
@@ -495,8 +504,6 @@
       "scope": [
         "keyword.operator",
         "punctuation.accessor",
-        "keyword.control.import",
-        "keyword.control.export",
         "source support.type.object.module"
       ],
       "settings": {

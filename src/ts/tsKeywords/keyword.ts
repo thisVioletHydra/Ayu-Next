@@ -14,6 +14,8 @@ export const keywordPaint = {
     'storage.type.interface',
     'keyword.control.default',
     'keyword.operator.new',
+    'keyword.control.import',
+    'keyword.control.export',
   ] as const,
 };
 

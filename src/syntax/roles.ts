@@ -57,7 +57,6 @@ export const rolePaint = [
       'function',
       'method',
       'method.defaultLibrary',
-      ...decoratorNamePaint.semantic,
     ],
     textmate: [
       'entity.name.function',
@@ -69,8 +68,12 @@ export const rolePaint = [
       'meta.function-call.generic',
       'support.function',
       'meta.function-call support.function',
-      ...decoratorNamePaint.textmate,
     ],
+  },
+  {
+    role: decoratorNamePaint.role,
+    semantic: [...decoratorNamePaint.semantic],
+    textmate: [...decoratorNamePaint.textmate],
   },
   {
     role: classPaint.role,
@@ -134,8 +137,6 @@ export const rolePaint = [
     textmate: [
       'keyword.operator',
       'punctuation.accessor',
-      'keyword.control.import',
-      'keyword.control.export',
       'source support.type.object.module',
     ],
   },
