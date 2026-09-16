@@ -24,7 +24,9 @@ export type RolePaint = {
  *                           TM scopes (Date/Map/Error/HttpException)
  *   syntax.typeBuiltin    — primitives (`string` in annotations)
  *   syntax.propKey        — `{ id, accent: }` / destructure keys
- *   syntax.propField      — interface field names (`role`, `hex`)
+ *   syntax.propField      — interface / type-literal field names (`role`, `hex`)
+ *   syntax.propDecl       — class field declaration (`private readonly accents`)
+ *   syntax.propAccess     — property access (`dto.hex`, `this.accents`)
  *   syntax.param          — params in signature AND body
  *   syntax.string         — quoted strings only
  *   syntax.fg             — values after `:` in object literals (fallback)
@@ -138,7 +140,7 @@ export const rolePaint = [
   },
   {
     role: 'syntax.propKey',
-    semantic: ['property'],
+    semantic: [],
     textmate: [
       'meta.object-literal.key',
       'meta.object-binding-pattern variable.object.property',
@@ -153,6 +155,28 @@ export const rolePaint = [
       'meta.interface meta.field.declaration variable.other.readwrite',
       'meta.type.declaration meta.field.declaration variable.object.property',
       'meta.type.object.type meta.field.declaration variable.object.property',
+      'meta.object.type meta.field.declaration variable.object.property',
+      'meta.type.parameters meta.object.type variable.object.property',
+    ],
+  },
+  {
+    role: 'syntax.propDecl',
+    semantic: ['property.declaration.readonly'],
+    textmate: [
+      'meta.class meta.field.declaration variable.object.property',
+      'meta.class meta.field.declaration variable.other.readwrite',
+      'meta.class meta.definition.property variable.object.property',
+      'meta.class meta.field.declaration meta.definition.property',
+      'variable.member',
+    ],
+  },
+  {
+    role: 'syntax.propAccess',
+    semantic: ['property'],
+    textmate: [
+      'variable.other.property',
+      'variable.object.property',
+      'variable.other.object.property',
     ],
   },
   {

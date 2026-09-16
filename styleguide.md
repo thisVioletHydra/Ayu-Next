@@ -62,7 +62,23 @@ Source of truth: `src/syntax/roles.ts` + `src/tokens/catalog/syntax.ts`.
 | `syntax.interface` | interface names | interface field names |
 | `syntax.ctor` | every `new X` name: `class/variable/function/property.defaultLibrary` + `new.expr` / `meta.function-call.constructor` | class declarations, object keys, methods |
 | `syntax.typeBuiltin` | `string` / `number` annotations | type-alias / interface names |
-| `syntax.propKey` | object / destructure keys | interface fields, values after `:` |
-| `syntax.propField` | interface field names | object-literal keys |
-| `syntax.param` | params in signature and body | locals that are not params |
+| `syntax.propKey` | object / destructure keys | interface fields, member access |
+| `syntax.propField` | interface / type-literal field names (`#C48464`) | class field declaration, member access |
+| `syntax.propDecl` | class field declaration (`#BD7F63`) | member access (`this.accents`) |
+| `syntax.propAccess` | member access (`dto.hex`, `this.accents`, `#98BC6C`) | declarations |
+| `syntax.param` | params in signature and body (`#A898CC`) | locals that are not params |
+| `syntax.this` | `this` / `super` (`#4CACC0`) | member after `.` |
 | `syntax.string` | quoted strings | types, keys |
+
+Measured Nest shot (glyph core) vs closest catalog leftovers:
+
+| Scope | Measured | Role | Closest old palette |
+| --- | --- | --- | --- |
+| param signature + body | `#A898CC` | `syntax.param` | `#D4BFFF` |
+| interface / type-literal field | `#C48464` | `syntax.propField` | `#F29E74` |
+| class field declaration | `#BD7F63` | `syntax.propDecl` | `#ED8274` |
+| property access | `#98BC6C` | `syntax.propAccess` | `#BAE67E` |
+| `this` | `#4CACC0` | `syntax.this` | `#5CCFE6` |
+
+Declaration (`propDecl` / `propField`) and access (`propAccess`) must stay different hexes.
+

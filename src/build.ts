@@ -164,6 +164,35 @@ function assertSyntaxAligned(): void {
     mismatches.push('syntax.typeBuiltin must stay the same hex as syntax.fg');
   }
 
+  const propFieldHex = token('syntax.propField').toLowerCase();
+  const propDeclHex = token('syntax.propDecl').toLowerCase();
+  const propAccessHex = token('syntax.propAccess').toLowerCase();
+
+  if (propFieldHex === propAccessHex) {
+    mismatches.push('syntax.propField must not equal syntax.propAccess (declaration vs usage)');
+  }
+
+  if (propDeclHex === propAccessHex) {
+    mismatches.push('syntax.propDecl must not equal syntax.propAccess (class field vs member access)');
+  }
+
+  if (hexOf(semanticTokenColors.property) !== propAccessHex) {
+    mismatches.push(
+      `semantic property must be syntax.propAccess ${propAccessHex} (got ${hexOf(semanticTokenColors.property) || 'missing'})`,
+    );
+  }
+
+  const propDeclSelector = 'property.declaration.readonly';
+  const propDeclActual = hexOf(
+    semanticTokenColors[propDeclSelector as keyof typeof semanticTokenColors],
+  );
+
+  if (propDeclActual !== propDeclHex) {
+    mismatches.push(
+      `semantic ${propDeclSelector} must be syntax.propDecl ${propDeclHex} (got ${propDeclActual || 'missing'})`,
+    );
+  }
+
   const ctorSelectors = [
     'class',
     'class.defaultLibrary',

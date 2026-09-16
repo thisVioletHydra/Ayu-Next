@@ -312,10 +312,11 @@
     "function.defaultLibrary": "#73D0FF",
     "property.defaultLibrary": "#73D0FF",
     "type.defaultLibrary": "#CBCCC6",
-    "property": "#BAE67E",
-    "property.declaration": "#F29E74",
-    "parameter": "#D4BFFF",
-    "parameter.declaration": "#D4BFFF",
+    "property.declaration": "#C48464",
+    "property.declaration.readonly": "#BD7F63",
+    "property": "#98BC6C",
+    "parameter": "#A898CC",
+    "parameter.declaration": "#A898CC",
     "string": "#BAE67E",
     "comment": {
       "foreground": "#5C6773",
@@ -328,7 +329,7 @@
     "regexp": "#95E6CB",
     "enumMember": "#95E6CB",
     "variable.language.this": {
-      "foreground": "#5CCFE6",
+      "foreground": "#4CACC0",
       "fontStyle": "italic"
     },
     "macro": "#FFE6B3",
@@ -451,10 +452,34 @@
         "meta.interface meta.field.declaration variable.object.property",
         "meta.interface meta.field.declaration variable.other.readwrite",
         "meta.type.declaration meta.field.declaration variable.object.property",
-        "meta.type.object.type meta.field.declaration variable.object.property"
+        "meta.type.object.type meta.field.declaration variable.object.property",
+        "meta.object.type meta.field.declaration variable.object.property",
+        "meta.type.parameters meta.object.type variable.object.property"
       ],
       "settings": {
-        "foreground": "#F29E74"
+        "foreground": "#C48464"
+      }
+    },
+    {
+      "scope": [
+        "meta.class meta.field.declaration variable.object.property",
+        "meta.class meta.field.declaration variable.other.readwrite",
+        "meta.class meta.definition.property variable.object.property",
+        "meta.class meta.field.declaration meta.definition.property",
+        "variable.member"
+      ],
+      "settings": {
+        "foreground": "#BD7F63"
+      }
+    },
+    {
+      "scope": [
+        "variable.other.property",
+        "variable.object.property",
+        "variable.other.object.property"
+      ],
+      "settings": {
+        "foreground": "#98BC6C"
       }
     },
     {
@@ -463,7 +488,7 @@
         "meta.parameter"
       ],
       "settings": {
-        "foreground": "#D4BFFF"
+        "foreground": "#A898CC"
       }
     },
     {
@@ -520,7 +545,7 @@
         "variable.language.super"
       ],
       "settings": {
-        "foreground": "#5CCFE6",
+        "foreground": "#4CACC0",
         "fontStyle": "italic"
       }
     },

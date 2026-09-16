@@ -37,8 +37,16 @@ export const syntaxCatalog = {
     desc: 'Object-literal and destructure KEYS on the left',
   },
   'syntax.propField': {
-    hex: '#F29E74',
-    desc: 'Interface / type-literal field names — not object keys',
+    hex: '#C48464',
+    desc: 'Interface / type-literal field names (`role`, `hex`, `{ id, accent }`)',
+  },
+  'syntax.propDecl': {
+    hex: '#BD7F63',
+    desc: 'Class field declaration (`private readonly accents`) — not access',
+  },
+  'syntax.propAccess': {
+    hex: '#98BC6C',
+    desc: 'Property access (`dto.hex`, `this.accents`) — not declaration',
   },
   'syntax.regexp': {
     hex: '#95E6CB',
@@ -49,7 +57,7 @@ export const syntaxCatalog = {
     desc: 'Numbers',
   },
   'syntax.param': {
-    hex: '#D4BFFF',
+    hex: '#A898CC',
     desc: 'Function params at declaration AND body usage',
   },
   'syntax.func': {
@@ -73,7 +81,7 @@ export const syntaxCatalog = {
     desc: 'Builtin / primitive type annotations (`string`, `number`)',
   },
   'syntax.this': {
-    hex: '#5CCFE6',
+    hex: '#4CACC0',
     desc: '`this` / `super`',
   },
   'syntax.tag': {
