@@ -3,6 +3,7 @@ import {
   semanticHighlighting,
   semanticTokenColors,
 } from '#semanticTokenColors';
+import { ownedScopeHex, rolePaint } from '#syntax/roles';
 import { token } from '#tokens';
 import { tokenColors } from '#tokenColors';
 
@@ -77,16 +78,16 @@ function hexOf(value: string | { foreground?: string } | undefined): string {
 }
 
 function assertSyntaxAligned(): void {
-  const entity = token('syntax.entity').toLowerCase();
-  const func = token('syntax.func').toLowerCase();
   const mismatches: string[] = [];
+  const owned = ownedScopeHex();
+  const semanticOwner = new Map<string, string>();
   const banned = [
     '*.declaration',
     'customLiteral',
     'newOperator',
     'stringLiteral',
     'numberLiteral',
-  ] as const;
+  ];
 
   for (const key of banned) {
     if (key in semanticTokenColors) {
@@ -94,43 +95,126 @@ function assertSyntaxAligned(): void {
     }
   }
 
-  const semanticExpect: Record<string, string> = {
-    type: entity,
-    class: entity,
-    function: func,
-    method: func,
-    decorator: func,
-  };
+  for (const paint of rolePaint) {
+    const expected = token(paint.role).toLowerCase();
 
-  for (const [key, expected] of Object.entries(semanticExpect)) {
-    const actual = hexOf(
-      semanticTokenColors[key as keyof typeof semanticTokenColors],
-    );
+    for (const selector of paint.semantic) {
+      const prev = semanticOwner.get(selector);
 
-    if (actual !== expected) {
-      mismatches.push(`semantic ${key} is ${actual || '(missing)'}, expected ${expected}`);
+      if (prev && prev !== paint.role) {
+        mismatches.push(
+          `semantic ${selector} owned by both ${prev} and ${paint.role}`,
+        );
+      }
+
+      semanticOwner.set(selector, paint.role);
+
+      const actual = hexOf(
+        semanticTokenColors[selector as keyof typeof semanticTokenColors],
+      );
+
+      if (actual !== expected) {
+        mismatches.push(
+          `semantic ${selector} is ${actual || '(missing)'}, expected ${paint.role} ${expected}`,
+        );
+      }
     }
   }
 
   for (const rule of tokenColors as TokenRule[]) {
-    const scopes = scopesOf(rule);
     const foreground = String(rule.settings?.foreground ?? '').toLowerCase();
 
-    if (scopes.length === 1 && scopes[0] === 'entity.name.type' && foreground !== entity) {
-      mismatches.push(`TextMate entity.name.type is ${foreground}, expected ${entity}`);
-    }
+    for (const scope of scopesOf(rule)) {
+      if (scope === 'entity.name') {
+        mismatches.push(
+          `TextMate entity.name is banned — it paints methods sky (got ${foreground || 'empty'})`,
+        );
+      }
 
-    if (scopes.length === 1 && scopes[0] === 'entity.name' && foreground !== entity) {
-      mismatches.push(`TextMate entity.name is ${foreground}, expected ${entity}`);
-    }
+      const owner = owned.get(scope);
 
-    if (scopes.some((scope) => scope.includes('punctuation.decorator')) && foreground !== func) {
-      mismatches.push(`TextMate decorator punctuation is ${foreground}, expected ${func}`);
+      if (owner && foreground !== owner.hex) {
+        mismatches.push(
+          `TextMate ${scope} is ${foreground}, owned by ${owner.role} ${owner.hex}`,
+        );
+      }
+    }
+  }
+
+  const methodHex = hexOf(semanticTokenColors.method);
+  const funcHex = token('syntax.func').toLowerCase();
+
+  if (methodHex !== funcHex) {
+    mismatches.push(`semantic method is ${methodHex || '(missing)'}, expected syntax.func ${funcHex}`);
+  }
+
+  if (!owned.has('entity.name.function') || owned.get('entity.name.function')?.role !== 'syntax.func') {
+    mismatches.push('TextMate entity.name.function must be owned by syntax.func');
+  }
+
+  if (token('syntax.keywordStrong').toLowerCase() !== token('syntax.keyword').toLowerCase()) {
+    mismatches.push('syntax.keywordStrong must stay the same hex as syntax.keyword');
+  }
+
+  if (token('syntax.propKey').toLowerCase() !== token('syntax.string').toLowerCase()) {
+    mismatches.push('syntax.propKey must stay the same hex as syntax.string');
+  }
+
+  if (token('syntax.typeBuiltin').toLowerCase() !== token('syntax.fg').toLowerCase()) {
+    mismatches.push('syntax.typeBuiltin must stay the same hex as syntax.fg');
+  }
+
+  const ctorSelectors = [
+    'class',
+    'class.defaultLibrary',
+    'variable.defaultLibrary',
+    'function.defaultLibrary',
+    'property.defaultLibrary',
+  ];
+
+  for (const selector of ctorSelectors) {
+    const actual = hexOf(
+      semanticTokenColors[selector as keyof typeof semanticTokenColors],
+    );
+
+    if (actual !== token('syntax.ctor').toLowerCase()) {
+      mismatches.push(
+        `semantic ${selector} must be syntax.ctor ${token('syntax.ctor')} (got ${actual || 'missing'})`,
+      );
     }
   }
 
   if (mismatches.length > 0) {
     throw new Error(`Syntax roles drifted:\n- ${mismatches.join('\n- ')}`);
+  }
+}
+
+async function assertPlaygroundProject(): Promise<void> {
+  const tsconfigPath = path.join(root, 'playground/tsconfig.json');
+  const nestTsconfigPath = path.join(root, 'playground/node/nest/tsconfig.json');
+  const nestSample = path.join(root, 'playground/node/nest/app.controller.ts');
+  const nestDts = path.join(root, 'playground/node/nest/nestjs-common.d.ts');
+  const missing: string[] = [];
+
+  for (const filePath of [tsconfigPath, nestTsconfigPath, nestSample, nestDts]) {
+    try {
+      await fsPromises.access(filePath);
+    }
+    catch {
+      missing.push(path.relative(root, filePath));
+    }
+  }
+
+  if (missing.length > 0) {
+    throw new Error(`Playground project incomplete (No tsconfig / no Nest types):\n- ${missing.join('\n- ')}`);
+  }
+
+  const tsconfig = JSON.parse(await fsPromises.readFile(tsconfigPath, 'utf8')) as {
+    compilerOptions?: { experimentalDecorators?: boolean };
+  };
+
+  if (tsconfig.compilerOptions?.experimentalDecorators !== true) {
+    throw new Error('playground/tsconfig.json must set experimentalDecorators so Nest decorators get semantic tokens');
   }
 }
 
@@ -149,6 +233,7 @@ function buildTheme() {
 const known = await loadKnownKeys();
 validateColors(known);
 assertSyntaxAligned();
+await assertPlaygroundProject();
 
 const theme = buildTheme();
 await fsPromises.mkdir(path.dirname(outPath), { recursive: true });

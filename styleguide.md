@@ -47,3 +47,22 @@
 | SoftBlack           | #191E2A   |
 | HardBlack           | #171C24   |
 | -                   | -         |
+
+## Syntax role ownership
+
+Do not assign the same TextMate scope or semantic selector to two roles.
+Source of truth: `src/syntax/roles.ts` + `src/tokens/catalog/syntax.ts`.
+
+| Role | Owns | Does not own |
+| --- | --- | --- |
+| `syntax.keyword` | `type` / `return` / `new` / `if` | decorator `@`, class keyword |
+| `syntax.keywordStrong` | `class` keyword, `@` | decorator name |
+| `syntax.func` | methods (`resolve` / `.get` / `.set`), `method.defaultLibrary`, decorator name | `@`, constructors |
+| `syntax.entity` | `class.declaration` + type-alias names | `new X`, builtins, interface fields |
+| `syntax.interface` | interface names | interface field names |
+| `syntax.ctor` | every `new X` name: `class/variable/function/property.defaultLibrary` + `new.expr` / `meta.function-call.constructor` | class declarations, object keys, methods |
+| `syntax.typeBuiltin` | `string` / `number` annotations | type-alias / interface names |
+| `syntax.propKey` | object / destructure keys | interface fields, values after `:` |
+| `syntax.propField` | interface field names | object-literal keys |
+| `syntax.param` | params in signature and body | locals that are not params |
+| `syntax.string` | quoted strings | types, keys |

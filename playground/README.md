@@ -10,6 +10,8 @@ Open samples in the **Extension Development Host** and judge syntax + workbench 
 4. Command Palette → **Preferences: Color Theme** → **Ayu Next**
 5. Browse the files below — that is the visual QA loop
 
+`playground/tsconfig.json` (and `node/nest/tsconfig.json`) must exist so the Host is **not** `No tsconfig`. Semantic tokens need that project: params in the body, `string` builtins, `new Map` / `new Date` / `new HttpException` as one ctor color.
+
 Themes are **not** hot-reloaded. After `pnpm build` / `pnpm build:watch`, in the Host window either:
 
 - Command Palette → **Developer: Reload Window**, or
