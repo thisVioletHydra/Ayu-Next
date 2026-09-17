@@ -1,21 +1,29 @@
 /**
- * Keywords from app.controller.ts: type/interface/export/class/private/readonly/new/return/if/throw/const.
- * Orange #FF9944. Does not own type/interface *names* (salad lock).
+ * Keywords from app.controller.ts only.
+ * Orange #FF9944. No bare `keyword`/`storage` (they paint half the file).
+ * Does not own type/interface *names* (salad lock).
  */
 export const keywordPaint = {
   role: 'syntax.keyword' as const,
   semantic: ['keyword'] as const,
   textmate: [
-    'keyword',
-    'storage',
-    'storage.type.keyword',
+    'keyword.control',
+    'keyword.control.default',
+    'keyword.control.import',
+    'keyword.control.export',
+    'keyword.control.from',
+    'keyword.control.as',
+    'keyword.control.flow',
+    'keyword.control.conditional',
+    'keyword.control.trycatch',
+    'keyword.operator.new',
+    'keyword.other',
+    'storage.modifier',
     'storage.type.function',
     'storage.type.type',
     'storage.type.interface',
-    'keyword.control.default',
-    'keyword.operator.new',
-    'keyword.control.import',
-    'keyword.control.export',
+    'storage.type.namespace',
+    'storage.type.module',
   ] as const,
 };
 

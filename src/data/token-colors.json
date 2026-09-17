@@ -15,7 +15,7 @@
       "source.ts punctuation.definition.typeparameters.end"
     ],
     "settings": {
-      "foreground": "#FF9944"
+      "foreground": "#CBCCC6"
     }
   },
   {
@@ -52,7 +52,7 @@
       "source string.template punctuation.definition.string.template.end"
     ],
     "settings": {
-      "foreground": "#FF9944"
+      "foreground": "#CBCCC6"
     }
   },
   {
@@ -149,7 +149,7 @@
       "source.stylus meta.property-value.css"
     ],
     "settings": {
-      "foreground": "#FF9944"
+      "foreground": "#CBCCC6"
     }
   },
   {
@@ -174,7 +174,7 @@
       "source.js meta.template.expression.js punctuation.definition.template-expression.end.js"
     ],
     "settings": {
-      "foreground": "#FF9944"
+      "foreground": "#CBCCC6"
     }
   },
   {
@@ -263,7 +263,7 @@
   {
     "scope": "constant.numeric.line-number.match",
     "settings": {
-      "foreground": "#FF9944"
+      "foreground": "#CBCCC6"
     }
   },
   {

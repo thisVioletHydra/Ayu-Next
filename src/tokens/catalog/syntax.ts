@@ -25,8 +25,8 @@ export const syntaxCatalog = {
     desc: 'Thick keyword: `class` keyword and decorator `@` (bold)',
   },
   'syntax.operator': {
-    hex: '#F29E74',
-    desc: 'Operators, accessors, import/export',
+    hex: '#CBCCC6',
+    desc: 'Operators/accessors/punctuation — light (not orange); keywords own import/export',
   },
   'syntax.string': {
     hex: '#FF9944',

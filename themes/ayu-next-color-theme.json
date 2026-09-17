@@ -321,9 +321,9 @@
       "foreground": "#5C6773",
       "fontStyle": "italic"
     },
-    "operator": "#F29E74",
-    "namespace": "#F29E74",
-    "module": "#F29E74",
+    "operator": "#CBCCC6",
+    "namespace": "#CBCCC6",
+    "module": "#CBCCC6",
     "number": "#8C9EFF",
     "regexp": "#95E6CB",
     "enumMember": "#95E6CB",
@@ -337,16 +337,23 @@
   "tokenColors": [
     {
       "scope": [
-        "keyword",
-        "storage",
-        "storage.type.keyword",
+        "keyword.control",
+        "keyword.control.default",
+        "keyword.control.import",
+        "keyword.control.export",
+        "keyword.control.from",
+        "keyword.control.as",
+        "keyword.control.flow",
+        "keyword.control.conditional",
+        "keyword.control.trycatch",
+        "keyword.operator.new",
+        "keyword.other",
+        "storage.modifier",
         "storage.type.function",
         "storage.type.type",
         "storage.type.interface",
-        "keyword.control.default",
-        "keyword.operator.new",
-        "keyword.control.import",
-        "keyword.control.export"
+        "storage.type.namespace",
+        "storage.type.module"
       ],
       "settings": {
         "foreground": "#FF9944"
@@ -507,7 +514,7 @@
         "source support.type.object.module"
       ],
       "settings": {
-        "foreground": "#F29E74"
+        "foreground": "#CBCCC6"
       }
     },
     {
@@ -583,7 +590,7 @@
         "source.ts punctuation.definition.typeparameters.end"
       ],
       "settings": {
-        "foreground": "#FF9944"
+        "foreground": "#CBCCC6"
       }
     },
     {
@@ -620,7 +627,7 @@
         "source string.template punctuation.definition.string.template.end"
       ],
       "settings": {
-        "foreground": "#FF9944"
+        "foreground": "#CBCCC6"
       }
     },
     {
@@ -717,7 +724,7 @@
         "source.stylus meta.property-value.css"
       ],
       "settings": {
-        "foreground": "#FF9944"
+        "foreground": "#CBCCC6"
       }
     },
     {
@@ -742,7 +749,7 @@
         "source.js meta.template.expression.js punctuation.definition.template-expression.end.js"
       ],
       "settings": {
-        "foreground": "#FF9944"
+        "foreground": "#CBCCC6"
       }
     },
     {
@@ -831,7 +838,7 @@
     {
       "scope": "constant.numeric.line-number.match",
       "settings": {
-        "foreground": "#FF9944"
+        "foreground": "#CBCCC6"
       }
     },
     {
