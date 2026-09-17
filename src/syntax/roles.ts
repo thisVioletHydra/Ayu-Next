@@ -66,8 +66,6 @@ export const rolePaint = [
       'meta.definition.method entity.name.function',
       'variable.function',
       'meta.function-call.generic',
-      'support.function',
-      'meta.function-call support.function',
     ],
   },
   {
@@ -75,6 +73,7 @@ export const rolePaint = [
     semantic: [...decoratorNamePaint.semantic],
     textmate: [...decoratorNamePaint.textmate],
   },
+
   {
     role: classPaint.role,
     semantic: [...classPaint.semantic],

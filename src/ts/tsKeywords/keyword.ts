@@ -1,11 +1,12 @@
 /**
- * Keywords from app.controller.ts only.
- * Orange #FF9944. No bare `keyword`/`storage` (they paint half the file).
- * Does not own type/interface *names* (salad lock).
+ * Keywords from app.controller.ts.
+ * Orange #FF9944 via TextMate only — NO semantic `keyword`
+ * (TypeScript classifies `this` as keyword; semantic would force orange).
+ * No bare keyword/storage scopes.
  */
 export const keywordPaint = {
   role: 'syntax.keyword' as const,
-  semantic: ['keyword'] as const,
+  semantic: [] as const,
   textmate: [
     'keyword.control',
     'keyword.control.default',
@@ -17,7 +18,6 @@ export const keywordPaint = {
     'keyword.control.conditional',
     'keyword.control.trycatch',
     'keyword.operator.new',
-    'keyword.other',
     'storage.modifier',
     'storage.type.function',
     'storage.type.type',

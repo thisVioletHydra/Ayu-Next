@@ -241,16 +241,24 @@ function assertTypingNameLock(): void {
   }
 
 
-  // Final array: last matching rule wins in VS Code — lock rules MUST be last
-  const last = tokenColors[tokenColors.length - 1];
-  const lastScopes = Array.isArray(last?.scope) ? last.scope : [last?.scope];
+  // Typing-name lock rules must appear after leftover/roles (last-wins for names).
+  // this/prop lock may follow them.
   const lockScopes = new Set(
     typingNameLockTokenColors.flatMap((r) =>
       Array.isArray(r.scope) ? r.scope : [r.scope],
     ),
   );
-  if (!lastScopes.some((s) => lockScopes.has(String(s)))) {
-    mismatches.push('FINAL tokenColors must end with salad lock rules (type/interface names)');
+  let lastTypingLockIdx = -1;
+  for (let i = 0; i < tokenColors.length; i++) {
+    const raw = tokenColors[i]?.scope;
+    const scopes = (Array.isArray(raw) ? raw : [raw]).map((s) => String(s));
+    if (scopes.some((s) => lockScopes.has(s))) lastTypingLockIdx = i;
+  }
+  if (lastTypingLockIdx < 0) {
+    mismatches.push('tokenColors missing salad lock rules for type/interface names');
+  } else {
+    // nothing after typing lock may paint typing-name scopes non-salad (checked below)
+    void lastTypingLockIdx;
   }
 
   for (let i = 0; i < tokenColors.length; i++) {

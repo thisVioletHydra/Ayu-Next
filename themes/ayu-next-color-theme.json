@@ -292,7 +292,6 @@
   },
   "semanticHighlighting": true,
   "semanticTokenColors": {
-    "keyword": "#FF9944",
     "function": "#FF9944",
     "method": "#FF9944",
     "method.defaultLibrary": "#FF9944",
@@ -330,6 +329,10 @@
     "number": "#8C9EFF",
     "regexp": "#95E6CB",
     "enumMember": "#95E6CB",
+    "variable.language": {
+      "foreground": "#5CCFE6",
+      "fontStyle": "italic"
+    },
     "variable.language.this": {
       "foreground": "#5CCFE6",
       "fontStyle": "italic"
@@ -435,7 +438,7 @@
         "source.vue meta.definition.method entity.name.function"
       ],
       "settings": {
-        "foreground": "#FFD580"
+        "foreground": "#CBCCC6"
       }
     },
     {
@@ -547,7 +550,7 @@
     {
       "scope": "entity.other.attribute-name",
       "settings": {
-        "foreground": "#ffd580"
+        "foreground": "#CBCCC6"
       }
     },
     {
@@ -560,7 +563,7 @@
     {
       "scope": "constant.language",
       "settings": {
-        "foreground": "#ffcc66"
+        "foreground": "#CBCCC6"
       }
     },
     {
@@ -676,7 +679,7 @@
     {
       "scope": "markup.list punctuation.definition.list.begin",
       "settings": {
-        "foreground": "#ffd580"
+        "foreground": "#CBCCC6"
       }
     },
     {
@@ -700,7 +703,7 @@
     {
       "scope": "markup.strike",
       "settings": {
-        "foreground": "#ffe6b3"
+        "foreground": "#CBCCC6"
       }
     },
     {
@@ -739,7 +742,6 @@
         "keyword.control.conditional",
         "keyword.control.trycatch",
         "keyword.operator.new",
-        "keyword.other",
         "storage.modifier",
         "storage.type.function",
         "storage.type.type",
@@ -771,9 +773,7 @@
         "meta.method.declaration entity.name.function",
         "meta.definition.method entity.name.function",
         "variable.function",
-        "meta.function-call.generic",
-        "support.function",
-        "meta.function-call support.function"
+        "meta.function-call.generic"
       ],
       "settings": {
         "foreground": "#FF9944"
@@ -836,27 +836,6 @@
     },
     {
       "scope": [
-        "meta.object-literal.key",
-        "meta.object-binding-pattern variable.object.property",
-        "meta.array-binding-pattern variable.object.property"
-      ],
-      "settings": {
-        "foreground": "#CBCCC6"
-      }
-    },
-    {
-      "scope": [
-        "meta.interface meta.field.declaration variable.object.property",
-        "meta.interface meta.field.declaration variable.other.readwrite",
-        "meta.type.declaration meta.field.declaration variable.object.property",
-        "meta.type.object.type meta.field.declaration variable.object.property"
-      ],
-      "settings": {
-        "foreground": "#CBCCC6"
-      }
-    },
-    {
-      "scope": [
         "variable.parameter",
         "meta.parameter"
       ],
@@ -908,16 +887,6 @@
       ],
       "settings": {
         "foreground": "#95E6CB"
-      }
-    },
-    {
-      "scope": [
-        "variable.language.this",
-        "variable.language.super"
-      ],
-      "settings": {
-        "foreground": "#5CCFE6",
-        "fontStyle": "italic"
       }
     },
     {
@@ -977,6 +946,39 @@
       ],
       "settings": {
         "foreground": "#BAE67E"
+      }
+    },
+    {
+      "scope": [
+        "variable.language.this",
+        "variable.language.super",
+        "variable.language"
+      ],
+      "settings": {
+        "foreground": "#5CCFE6",
+        "fontStyle": "italic"
+      }
+    },
+    {
+      "scope": [
+        "meta.object-literal.key",
+        "meta.object-binding-pattern variable.object.property",
+        "meta.array-binding-pattern variable.object.property",
+        "variable.object.property",
+        "variable.other.property",
+        "variable.other.object.property",
+        "entity.name.variable.property",
+        "meta.definition.property",
+        "meta.definition.property variable",
+        "meta.interface meta.field.declaration variable.object.property",
+        "meta.interface meta.field.declaration variable.other.readwrite",
+        "meta.type.declaration meta.field.declaration variable.object.property",
+        "meta.type.object.type meta.field.declaration variable.object.property",
+        "meta.class meta.field.declaration variable.object.property",
+        "meta.class meta.field.declaration meta.definition.property variable"
+      ],
+      "settings": {
+        "foreground": "#CBCCC6"
       }
     }
   ]

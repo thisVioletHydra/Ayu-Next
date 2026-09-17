@@ -5,6 +5,8 @@ import {
   typeAliasTypingPaint,
   TYPING_NAME_HEX,
 } from '#ts/tsTypes';
+import { thisPaint, THIS_HEX } from '#ts/tsLanguage';
+import { propKeyPaint, propFieldPaint, PROP_HEX } from '#ts/tsProps';
 
 type TokenRule = {
   scope: string | string[];
@@ -12,6 +14,17 @@ type TokenRule = {
 };
 
 /** Salad lock rules — MUST be last so no leftover/keyword orange can win. */
+export const thisPropLockTokenColors: TokenRule[] = [
+  {
+    scope: [...thisPaint.textmate],
+    settings: { foreground: THIS_HEX, fontStyle: thisPaint.fontStyle },
+  },
+  {
+    scope: [...propKeyPaint.textmate, ...propFieldPaint.textmate],
+    settings: { foreground: PROP_HEX },
+  },
+];
+
 export const typingNameLockTokenColors: TokenRule[] = [
   {
     scope: [...interfaceTypingPaint.textmate],
@@ -22,6 +35,17 @@ export const typingNameLockTokenColors: TokenRule[] = [
     settings: { foreground: TYPING_NAME_HEX },
   },
 ];
+
+function stripLockedScopes(rules: TokenRule[], locked: Set<string>): TokenRule[] {
+  const out: TokenRule[] = [];
+  for (const rule of rules) {
+    const scopes = Array.isArray(rule.scope) ? rule.scope : [rule.scope];
+    const kept = scopes.filter((s) => s && !locked.has(s));
+    if (kept.length === 0) continue;
+    out.push({ ...rule, scope: kept });
+  }
+  return out;
+}
 
 function stripTypingScopesFromRoles(rules: TokenRule[]): TokenRule[] {
   const locked = new Set<string>([
@@ -38,11 +62,17 @@ function stripTypingScopesFromRoles(rules: TokenRule[]): TokenRule[] {
   return out;
 }
 
+const lockedTm = new Set<string>([
+  ...interfaceTypingPaint.textmate,
+  ...typeAliasTypingPaint.textmate,
+  ...thisPaint.textmate,
+  ...propKeyPaint.textmate,
+  ...propFieldPaint.textmate,
+]);
+
 export const tokenColors: TokenRule[] = [
-  // 1) leftover first (lowest priority)
   ...(leftoverJson as TokenRule[]),
-  // 2) role paints, but without typing-name scopes (those go last)
-  ...stripTypingScopesFromRoles(textMateFromRoles()),
-  // 3) HARD LOCK last — type/interface names cannot be overridden to orange
+  ...stripLockedScopes(textMateFromRoles(), lockedTm),
   ...typingNameLockTokenColors,
+  ...thisPropLockTokenColors,
 ];

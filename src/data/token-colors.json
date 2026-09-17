@@ -96,7 +96,7 @@
       "source.vue meta.definition.method entity.name.function"
     ],
     "settings": {
-      "foreground": "#FFD580"
+      "foreground": "#CBCCC6"
     }
   },
   {
@@ -208,7 +208,7 @@
   {
     "scope": "entity.other.attribute-name",
     "settings": {
-      "foreground": "#ffd580"
+      "foreground": "#CBCCC6"
     }
   },
   {
@@ -221,7 +221,7 @@
   {
     "scope": "constant.language",
     "settings": {
-      "foreground": "#ffcc66"
+      "foreground": "#CBCCC6"
     }
   },
   {
@@ -337,7 +337,7 @@
   {
     "scope": "markup.list punctuation.definition.list.begin",
     "settings": {
-      "foreground": "#ffd580"
+      "foreground": "#CBCCC6"
     }
   },
   {
@@ -361,7 +361,7 @@
   {
     "scope": "markup.strike",
     "settings": {
-      "foreground": "#ffe6b3"
+      "foreground": "#CBCCC6"
     }
   },
   {
