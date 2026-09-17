@@ -6,7 +6,13 @@ import {
 import { ownedScopeHex, rolePaint } from '#syntax/roles';
 import { token } from '#tokens';
 import { typingNameLock } from '#ts/tsTypes';
-import { tokenColors, typingNameLockTokenColors } from '#tokenColors';
+import {
+  tokenColors,
+  typingNameLockTokenColors,
+  tokenColorPipeline,
+  tokenColorSlices,
+  TokenLayer,
+} from '#tokenColors';
 
 import fsPromises from 'node:fs/promises';
 import path from 'node:path';
@@ -183,6 +189,52 @@ function assertSyntaxAligned(): void {
   }
 }
 
+
+
+function assertTokenLayers(): void {
+  const errors: string[] = [];
+  // L3 semantic is separate field — must be enabled
+  // (checked via semanticHighlighting export in buildTheme)
+
+  let maxGeneral = -1;
+  let maxNarrow = -1;
+  let minLock = tokenColors.length;
+  // Reconstruct indices from slices (source of truth)
+  let cursor = 0;
+  const ranges: { id: string; layer: number; start: number; end: number }[] = [];
+  for (const slice of [...tokenColorSlices].sort((a, b) =>
+    a.layer !== b.layer ? a.layer - b.layer : a.filePriority - b.filePriority || a.id.localeCompare(b.id),
+  )) {
+    const start = cursor;
+    cursor += slice.rules.length;
+    ranges.push({ id: slice.id, layer: slice.layer, start, end: cursor });
+    if (slice.layer === TokenLayer.General) maxGeneral = cursor - 1;
+    if (slice.layer === TokenLayer.Narrow) maxNarrow = cursor - 1;
+    if (slice.layer === TokenLayer.Lock) minLock = Math.min(minLock, start);
+  }
+  if (cursor !== tokenColors.length) {
+    errors.push(`slice rule count ${cursor} != tokenColors ${tokenColors.length}`);
+  }
+  if (maxGeneral >= 0 && maxNarrow >= 0 && maxGeneral >= minLock) {
+    errors.push(`GENERAL overlaps LOCK (maxGeneral=${maxGeneral}, minLock=${minLock})`);
+  }
+  if (maxNarrow >= 0 && maxNarrow >= minLock) {
+    errors.push(`NARROW overlaps LOCK (maxNarrow=${maxNarrow}, minLock=${minLock}) — leftover/roles would beat lime`);
+  }
+  const lastSlice = ranges[ranges.length - 1];
+  if (!lastSlice || lastSlice.layer !== TokenLayer.Lock || lastSlice.id !== 'lock.typing') {
+    errors.push(`pipeline must end with lock.typing, got ${lastSlice?.id}`);
+  }
+  // No non-lock slice after first lock
+  let seenLock = false;
+  for (const r of ranges) {
+    if (r.layer === TokenLayer.Lock) seenLock = true;
+    else if (seenLock) errors.push(`non-LOCK slice ${r.id} after LOCK`);
+  }
+  if (errors.length > 0) {
+    throw new Error(`Token layer pipeline broken:\n- ${errors.join('\n- ')}\nPipeline: ${tokenColorPipeline}`);
+  }
+}
 
 function assertTypingNameLock(): void {
   const expected = typingNameLock.hex.toLowerCase();
@@ -388,6 +440,7 @@ function buildTheme() {
 const known = await loadKnownKeys();
 validateColors(known);
 assertSyntaxAligned();
+assertTokenLayers();
 assertTypingNameLock();
 await assertPlaygroundProject();
 
@@ -396,5 +449,6 @@ await fsPromises.mkdir(path.dirname(outPath), { recursive: true });
 await fsPromises.writeFile(outPath, `${JSON.stringify(theme, null, 2)}\n`);
 
 process.stdout.write(
-  `Built ${outPath} (${Object.keys(colors).length} colors, ${tokenColors.length} token rules)\n`,
+  `Built ${outPath} (${Object.keys(colors).length} colors, ${tokenColors.length} token rules)\n` +
+  `Layers: ${tokenColorPipeline}\n`,
 );

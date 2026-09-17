@@ -42,6 +42,23 @@ Nest playground target (approx): types/interfaces `#B9F6CA`, classes/ctors `#5CC
 pnpm build
 ```
 
+
+## Token priority layers
+
+VS Code `tokenColors` are **last-wins**. The builder concatenates layers via `assembleTokenColors()` — do not hand-edit order in the JSON:
+
+| Layer | What | Source |
+|------:|------|--------|
+| 1 GENERAL | leftover / punct / broad defaults | `src/data/token-colors.json` |
+| 2 NARROW | keywords, methods, strings, classes… | `src/ts/*` roles |
+| 3 SEMANTIC | semantic token colors (separate key) | `semanticTokenColors` |
+| 4 LOCK | ultra-specific locks **last** (`#B9F6CA` typing names, `this`, props) | `lock.thisProp` → `lock.typing` |
+
+Typing lime + storage exclusions are enforced by build asserts so a late leftover cannot stomp `#B9F6CA`.
+
+**QA:** use **Inspect Editor Tokens** and the reported foreground hex — not screenshot pixels.
+
+
 ## Changelog
 
 [CHANGELOG](https://github.com/thisVioletHydra/Ayu-Next/blob/master/CHANGELOG.md)

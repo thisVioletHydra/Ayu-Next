@@ -2,7 +2,7 @@
   "icon": "images/icon-hero.png",
   "name": "ayu-next",
   "displayName": "Ayu Next",
-  "description": "🔥 This is a Dark theme (Mirage), screenshots inside",
+  "description": "\ud83d\udd25 This is a Dark theme (Mirage), screenshots inside",
   "version": "2.0.0",
   "license": "MIT",
   "private": false,
@@ -31,7 +31,8 @@
     "#ts/tsDecorators/*": "./src/ts/tsDecorators/*.ts",
     "#ts/tsProps": "./src/ts/tsProps/index.ts",
     "#ts/tsProps/*": "./src/ts/tsProps/*.ts",
-    "#data/*": "./src/data/*"
+    "#data/*": "./src/data/*",
+    "#tokenLayers": "./src/tokenLayers.ts"
   },
   "publisher": "Roman",
   "author": "VioletHydra <thisviolethydra@gmail.com>",
