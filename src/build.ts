@@ -321,7 +321,25 @@ function assertTypingNameLock(): void {
     }
   }
 
-    if (mismatches.length > 0) {
+    
+  // ThemeId lock must be absolute last tokenColors entry
+  const last = tokenColors[tokenColors.length - 1];
+  const lastScopes = (Array.isArray(last?.scope) ? last.scope : [last?.scope]).map(String);
+  if (!lastScopes.some((s) => s.includes('entity.name.type.alias'))) {
+    mismatches.push('last tokenColors rule must lock entity.name.type.alias (ThemeId) — was ' + lastScopes.slice(0, 3).join(','));
+  }
+  // Ban unscoped storage.type.type → orange (use .ts leaf or exclusion)
+  for (let i = 0; i < tokenColors.length; i++) {
+    const rule = tokenColors[i];
+    const fg = String(rule.settings?.foreground ?? '').toLowerCase();
+    if (fg !== '#ff9944') continue;
+    const scopes = (Array.isArray(rule.scope) ? rule.scope : [rule.scope]).map((s) => String(s));
+    if (scopes.some((s) => s === 'storage.type.type')) {
+      mismatches.push(`tokenColors[${i}] has bare storage.type.type → orange (use storage.type.type.ts or exclusion)`);
+    }
+  }
+
+if (mismatches.length > 0) {
     throw new Error(`Typing name lock (lime #B9F6CA) broken:\n- ${mismatches.join('\n- ')}`);
   }
 }

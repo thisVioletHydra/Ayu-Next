@@ -744,10 +744,19 @@
         "keyword.operator.new",
         "storage.modifier - entity.name.type",
         "storage.type.function",
-        "storage.type.type - entity.name.type",
         "storage.type.interface - entity.name.type",
         "storage.type.namespace - entity.name.type",
         "storage.type.module - entity.name.type"
+      ],
+      "settings": {
+        "foreground": "#FF9944"
+      }
+    },
+    {
+      "scope": [
+        "storage.type.type.ts",
+        "storage.type.type.tsx",
+        "storage.type.type - entity.name.type"
       ],
       "settings": {
         "foreground": "#FF9944"
@@ -920,27 +929,6 @@
     },
     {
       "scope": [
-        "entity.name.type.interface",
-        "entity.name.type.interface.ts",
-        "entity.name.type.interface.tsx"
-      ],
-      "settings": {
-        "foreground": "#B9F6CA"
-      }
-    },
-    {
-      "scope": [
-        "entity.name.type",
-        "entity.name.type.alias",
-        "entity.name.type.alias.ts",
-        "entity.name.type.alias.tsx"
-      ],
-      "settings": {
-        "foreground": "#B9F6CA"
-      }
-    },
-    {
-      "scope": [
         "variable.language.this",
         "variable.language.super",
         "variable.language"
@@ -970,6 +958,30 @@
       ],
       "settings": {
         "foreground": "#CBCCC6"
+      }
+    },
+    {
+      "scope": [
+        "entity.name.type.interface",
+        "entity.name.type.interface.ts",
+        "entity.name.type.interface.tsx"
+      ],
+      "settings": {
+        "foreground": "#B9F6CA"
+      }
+    },
+    {
+      "scope": [
+        "entity.name.type.alias",
+        "entity.name.type.alias.ts",
+        "entity.name.type.alias.tsx",
+        "meta.type.declaration entity.name.type.alias",
+        "meta.type.declaration entity.name.type.alias.ts",
+        "meta.type.declaration entity.name.type",
+        "entity.name.type"
+      ],
+      "settings": {
+        "foreground": "#B9F6CA"
       }
     }
   ]

@@ -32,6 +32,8 @@ Syntax roles are split by construct under ASCII paths only (no Cyrillic in folde
 | `src/ts/tsProps/` | Property access & interface fields |
 | `src/ts/tsDecorators/` | Decorator names (`Injectable`, `Controller`) |
 
+**Verify with Inspect Editor Tokens (hex), not pixel-guessing.**
+
 **Hard lock:** type and interface names stay lime `#B9F6CA` forever. `pnpm build` fails if another role repaints those scopes. Reference file: `playground/node/nest/app.controller.ts`.
 
 Nest playground target (approx): types/interfaces `#B9F6CA`, classes/ctors `#5CCFE6`, keywords/methods/strings `#FF9944`, params/properties/`string`/decorator-names `#CBCCC6`.

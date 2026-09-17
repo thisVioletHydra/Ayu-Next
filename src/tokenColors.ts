@@ -31,6 +31,7 @@ export const typingNameLockTokenColors: TokenRule[] = [
     settings: { foreground: TYPING_NAME_HEX },
   },
   {
+    // ThemeId / type-alias — absolute last rule in tokenColors
     scope: [...typeAliasTypingPaint.textmate],
     settings: { foreground: TYPING_NAME_HEX },
   },
@@ -70,9 +71,10 @@ const lockedTm = new Set<string>([
   ...propFieldPaint.textmate,
 ]);
 
+/** Alias/interface lime MUST be absolute last — Tester: ThemeId lost to storage.type.type. */
 export const tokenColors: TokenRule[] = [
   ...(leftoverJson as TokenRule[]),
   ...stripLockedScopes(textMateFromRoles(), lockedTm),
-  ...typingNameLockTokenColors,
   ...thisPropLockTokenColors,
+  ...typingNameLockTokenColors,
 ];
