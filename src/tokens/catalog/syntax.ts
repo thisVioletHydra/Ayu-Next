@@ -18,11 +18,11 @@ export const syntaxCatalog = {
   },
   'syntax.keyword': {
     hex: '#FF9944',
-    desc: 'Keywords — etalon orange',
+    desc: 'Keywords — etalon #FF9944',
   },
   'syntax.keywordStrong': {
     hex: '#FF9944',
-    desc: 'Thick keyword + @ — etalon orange',
+    desc: 'Thick keyword + @ — etalon #FF9944',
   },
   'syntax.operator': {
     hex: '#CBCCC6',
@@ -30,7 +30,7 @@ export const syntaxCatalog = {
   },
   'syntax.string': {
     hex: '#BAE67F',
-    desc: 'String literals — etalon green #BAE67F',
+    desc: 'String literals — etalon #BAE67F',
   },
   'syntax.propKey': {
     hex: '#F29E74',
@@ -54,39 +54,39 @@ export const syntaxCatalog = {
   },
   'syntax.func': {
     hex: '#FFD580',
-    desc: 'Methods — etalon gold #FFD580',
+    desc: 'Methods — etalon #FFD580 (not keyword orange)',
   },
   'syntax.entity': {
-    hex: '#5BD0E6',
-    desc: 'Class names — etalon cyan',
+    hex: '#5CCFE6',
+    desc: 'Class names — etalon cyan #5CCFE6',
   },
   'syntax.typeAlias': {
-    hex: '#BAF6CB',
-    desc: 'ThemeId — etalon #BAF6CB',
+    hex: '#B9F6CA',
+    desc: 'ThemeId — etalon #B9F6CA',
   },
   'syntax.interface': {
-    hex: '#BAF6CB',
-    desc: 'TokenDto — etalon #BAF6CB',
+    hex: '#B9F6CA',
+    desc: 'TokenDto — etalon #B9F6CA',
   },
   'syntax.ctor': {
     hex: '#D5BFFF',
-    desc: 'Lib Map/Date/Http*/Readonly — etalon lavender',
+    desc: 'Lib Map/Date/Http*/Readonly — etalon #D5BFFF',
   },
   'syntax.typeBuiltin': {
     hex: '#D5BFFF',
-    desc: 'string annotations — etalon lavender',
+    desc: 'string annotations — etalon #D5BFFF',
   },
   'syntax.decoratorName': {
     hex: '#FFE6B3',
     desc: 'Decorator names — etalon cream #FFE6B3',
   },
   'syntax.this': {
-    hex: '#5BD0E6',
-    desc: 'this/super — etalon cyan',
+    hex: '#5CCFE6',
+    desc: 'this/super — etalon cyan #5CCFE6',
   },
   'syntax.tag': {
     hex: '#5CCFE6',
-    desc: 'HTML/XML tags only — not TS types',
+    desc: 'HTML/XML tags — cyan',
   },
   'syntax.markup': {
     hex: '#F28779',

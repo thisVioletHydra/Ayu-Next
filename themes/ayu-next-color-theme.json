@@ -296,18 +296,18 @@
     "method": "#FFD580",
     "method.defaultLibrary": "#FFD580",
     "decorator": "#FFE6B3",
-    "class.declaration": "#5BD0E6",
-    "enum": "#5BD0E6",
-    "enum.defaultLibrary": "#5BD0E6",
-    "struct": "#5BD0E6",
-    "struct.defaultLibrary": "#5BD0E6",
-    "interface": "#BAF6CB",
-    "interface.declaration": "#BAF6CB",
-    "interface.defaultLibrary": "#BAF6CB",
-    "type": "#BAF6CB",
-    "type.declaration": "#BAF6CB",
-    "typeParameter": "#BAF6CB",
-    "typeParameter.declaration": "#BAF6CB",
+    "class.declaration": "#5CCFE6",
+    "enum": "#5CCFE6",
+    "enum.defaultLibrary": "#5CCFE6",
+    "struct": "#5CCFE6",
+    "struct.defaultLibrary": "#5CCFE6",
+    "interface": "#B9F6CA",
+    "interface.declaration": "#B9F6CA",
+    "interface.defaultLibrary": "#B9F6CA",
+    "type": "#B9F6CA",
+    "type.declaration": "#B9F6CA",
+    "typeParameter": "#B9F6CA",
+    "typeParameter.declaration": "#B9F6CA",
     "class": "#D5BFFF",
     "class.defaultLibrary": "#D5BFFF",
     "variable.defaultLibrary": "#D5BFFF",
@@ -330,11 +330,11 @@
     "regexp": "#95E6CB",
     "enumMember": "#95E6CB",
     "variable.language": {
-      "foreground": "#5BD0E6",
+      "foreground": "#5CCFE6",
       "fontStyle": "italic"
     },
     "variable.language.this": {
-      "foreground": "#5BD0E6",
+      "foreground": "#5CCFE6",
       "fontStyle": "italic"
     },
     "macro": "#FFE6B3",
@@ -800,7 +800,7 @@
         "entity.name.type.enum"
       ],
       "settings": {
-        "foreground": "#5BD0E6"
+        "foreground": "#5CCFE6"
       }
     },
     {
@@ -894,7 +894,7 @@
         "variable.language"
       ],
       "settings": {
-        "foreground": "#5BD0E6",
+        "foreground": "#5CCFE6",
         "fontStyle": "italic"
       }
     },
@@ -1003,7 +1003,7 @@
         "entity.name.type.interface.tsx"
       ],
       "settings": {
-        "foreground": "#BAF6CB"
+        "foreground": "#B9F6CA"
       }
     },
     {
@@ -1016,7 +1016,7 @@
         "meta.type.declaration entity.name.type.alias.tsx"
       ],
       "settings": {
-        "foreground": "#BAF6CB"
+        "foreground": "#B9F6CA"
       }
     }
   ]

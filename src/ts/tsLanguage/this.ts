@@ -13,4 +13,4 @@ export const thisPaint = {
   fontStyle: 'italic' as const,
 };
 
-export const THIS_HEX = '#5BD0E6' as const;
+export const THIS_HEX = '#5CCFE6' as const;
