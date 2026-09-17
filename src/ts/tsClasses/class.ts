@@ -18,4 +18,4 @@ export const classPaint = {
   ] as const,
 };
 
-export const CLASS_NAME_HEX = '#5CCFE6' as const;
+export const CLASS_NAME_HEX = '#5BD0E6' as const;

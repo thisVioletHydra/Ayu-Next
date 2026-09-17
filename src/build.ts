@@ -392,7 +392,7 @@ function assertTypingNameLock(): void {
   }
 
 if (mismatches.length > 0) {
-    throw new Error(`Typing name lock (lime #B9F6CA) broken:\n- ${mismatches.join('\n- ')}`);
+    throw new Error(`Typing name lock (lime #BAE67F) broken:\n- ${mismatches.join('\n- ')}`);
   }
 }
 

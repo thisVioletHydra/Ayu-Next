@@ -1,8 +1,7 @@
 /**
- * HARD LOCK: type & interface names = lime #B9F6CA forever
- * (Roman Inspect: semantic `type` → #b9f6ca).
- * No later patch may repaint them orange.
+ * HARD LOCK: type & interface names = etalon green `#BAE67F`
+ * Sampled from SCR-20260917-svwb.png (exact `#BAE67F`).
  */
-export const TYPING_NAME_HEX = '#B9F6CA' as const;
+export const TYPING_NAME_HEX = '#BAE67F' as const;
 
 export type TypingNameHex = typeof TYPING_NAME_HEX;

@@ -11,5 +11,5 @@ export const typeBuiltinTyping = {
     'support.type',
     'storage.type.primitive',
   ] as const,
-  hex: '#D4BFFF' as const,
+  hex: '#D5BFFF' as const,
 } as const;

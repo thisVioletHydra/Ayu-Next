@@ -292,33 +292,33 @@
   },
   "semanticHighlighting": true,
   "semanticTokenColors": {
-    "function": "#FF9944",
-    "method": "#FF9944",
-    "method.defaultLibrary": "#FF9944",
-    "decorator": "#5CCFE6",
-    "class.declaration": "#5CCFE6",
-    "enum": "#5CCFE6",
-    "enum.defaultLibrary": "#5CCFE6",
-    "struct": "#5CCFE6",
-    "struct.defaultLibrary": "#5CCFE6",
-    "interface": "#B9F6CA",
-    "interface.declaration": "#B9F6CA",
-    "interface.defaultLibrary": "#B9F6CA",
-    "type": "#B9F6CA",
-    "type.declaration": "#B9F6CA",
-    "typeParameter": "#B9F6CA",
-    "typeParameter.declaration": "#B9F6CA",
-    "class": "#D4BFFF",
-    "class.defaultLibrary": "#D4BFFF",
-    "variable.defaultLibrary": "#D4BFFF",
-    "function.defaultLibrary": "#D4BFFF",
-    "property.defaultLibrary": "#D4BFFF",
-    "type.defaultLibrary": "#D4BFFF",
-    "property": "#CBCCC6",
-    "property.declaration": "#CBCCC6",
-    "parameter": "#CBCCC6",
-    "parameter.declaration": "#CBCCC6",
-    "string": "#FF9944",
+    "function": "#FFD580",
+    "method": "#FFD580",
+    "method.defaultLibrary": "#FFD580",
+    "decorator": "#5BD0E6",
+    "class.declaration": "#5BD0E6",
+    "enum": "#5BD0E6",
+    "enum.defaultLibrary": "#5BD0E6",
+    "struct": "#5BD0E6",
+    "struct.defaultLibrary": "#5BD0E6",
+    "interface": "#BAE67F",
+    "interface.declaration": "#BAE67F",
+    "interface.defaultLibrary": "#BAE67F",
+    "type": "#BAE67F",
+    "type.declaration": "#BAE67F",
+    "typeParameter": "#BAE67F",
+    "typeParameter.declaration": "#BAE67F",
+    "class": "#D5BFFF",
+    "class.defaultLibrary": "#D5BFFF",
+    "variable.defaultLibrary": "#D5BFFF",
+    "function.defaultLibrary": "#D5BFFF",
+    "property.defaultLibrary": "#D5BFFF",
+    "type.defaultLibrary": "#D5BFFF",
+    "property": "#F29E74",
+    "property.declaration": "#F29E74",
+    "parameter": "#F29E74",
+    "parameter.declaration": "#F29E74",
+    "string": "#FFE6B3",
     "comment": {
       "foreground": "#5C6773",
       "fontStyle": "italic"
@@ -330,11 +330,11 @@
     "regexp": "#95E6CB",
     "enumMember": "#95E6CB",
     "variable.language": {
-      "foreground": "#5CCFE6",
+      "foreground": "#5BD0E6",
       "fontStyle": "italic"
     },
     "variable.language.this": {
-      "foreground": "#5CCFE6",
+      "foreground": "#5BD0E6",
       "fontStyle": "italic"
     },
     "macro": "#FFE6B3",
@@ -785,7 +785,7 @@
         "meta.function-call.generic"
       ],
       "settings": {
-        "foreground": "#FF9944"
+        "foreground": "#FFD580"
       }
     },
     {
@@ -795,7 +795,7 @@
         "entity.name.type.enum"
       ],
       "settings": {
-        "foreground": "#5CCFE6"
+        "foreground": "#5BD0E6"
       }
     },
     {
@@ -804,7 +804,7 @@
         "meta.parameter"
       ],
       "settings": {
-        "foreground": "#CBCCC6"
+        "foreground": "#F29E74"
       }
     },
     {
@@ -813,7 +813,7 @@
         "constant.other.symbol"
       ],
       "settings": {
-        "foreground": "#FF9944"
+        "foreground": "#FFE6B3"
       }
     },
     {
@@ -889,7 +889,7 @@
         "variable.language"
       ],
       "settings": {
-        "foreground": "#5CCFE6",
+        "foreground": "#5BD0E6",
         "fontStyle": "italic"
       }
     },
@@ -912,7 +912,7 @@
         "meta.class meta.field.declaration meta.definition.property variable"
       ],
       "settings": {
-        "foreground": "#CBCCC6"
+        "foreground": "#F29E74"
       }
     },
     {
@@ -930,7 +930,7 @@
         "variable.annotation"
       ],
       "settings": {
-        "foreground": "#5CCFE6"
+        "foreground": "#5BD0E6"
       }
     },
     {
@@ -941,7 +941,7 @@
         "storage.type.primitive"
       ],
       "settings": {
-        "foreground": "#D4BFFF"
+        "foreground": "#D5BFFF"
       }
     },
     {
@@ -971,7 +971,7 @@
         "source new.expr entity.name.type"
       ],
       "settings": {
-        "foreground": "#D4BFFF"
+        "foreground": "#D5BFFF"
       }
     },
     {
@@ -981,7 +981,7 @@
         "entity.name.type.interface.tsx"
       ],
       "settings": {
-        "foreground": "#B9F6CA"
+        "foreground": "#BAE67F"
       }
     },
     {
@@ -994,7 +994,7 @@
         "meta.type.declaration entity.name.type.alias.tsx"
       ],
       "settings": {
-        "foreground": "#B9F6CA"
+        "foreground": "#BAE67F"
       }
     }
   ]

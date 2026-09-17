@@ -31,4 +31,4 @@ export const propFieldPaint = {
   ] as const,
 };
 
-export const PROP_HEX = '#CBCCC6' as const;
+export const PROP_HEX = '#F29E74' as const;

@@ -4,6 +4,6 @@
  */
 export const utilityTyping = {
   role: 'syntax.typeBuiltin' as const,
-  hex: '#D4BFFF' as const,
+  hex: '#D5BFFF' as const,
   examples: ['Readonly', 'Partial', 'Pick'] as const,
 } as const;

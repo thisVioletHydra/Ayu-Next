@@ -21,4 +21,4 @@ export const decoratorNamePaint = {
   ] as const,
 };
 
-export const DECORATOR_NAME_HEX = '#5CCFE6' as const;
+export const DECORATOR_NAME_HEX = '#5BD0E6' as const;

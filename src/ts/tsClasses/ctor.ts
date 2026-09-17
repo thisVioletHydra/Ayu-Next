@@ -39,4 +39,4 @@ export const ctorPaint = {
   ] as const,
 };
 
-export const CTOR_HEX = '#D4BFFF' as const;
+export const CTOR_HEX = '#D5BFFF' as const;
