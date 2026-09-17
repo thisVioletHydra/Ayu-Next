@@ -1,6 +1,6 @@
 /**
  * Builtin primitives in annotations (`string`, `number`) — light `#CBCCC6`.
- * Custom type/interface names stay salad lock `#B9F6CA`.
+ * Custom type/interface names stay lime lock `#B9F6CA`.
  */
 export const typeBuiltinTyping = {
   role: 'syntax.typeBuiltin' as const,

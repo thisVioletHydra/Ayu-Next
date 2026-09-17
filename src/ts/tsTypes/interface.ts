@@ -1,8 +1,11 @@
 import { TYPING_NAME_HEX } from './lock.js';
 
 /**
- * Interface names (`TokenDto`) only — not fields.
- * MUST stay salad — never orange.
+ * Interface names (`TokenDto`) only — not fields → lime `#B9F6CA`.
+ *
+ * Short TS TextMate scopes only. No Vue ultra-long exact-match chains —
+ * they never hit Nest/TS tokens. Semantic `interface` covers declarations.
+ * MUST stay lime — never orange.
  */
 export const interfaceTypingPaint = {
   role: 'syntax.interface' as const,
@@ -15,8 +18,6 @@ export const interfaceTypingPaint = {
     'entity.name.type.interface',
     'entity.name.type.interface.ts',
     'entity.name.type.interface.tsx',
-    'meta.interface entity.name.type.interface',
-    'meta.interface.declaration entity.name.type.interface',
   ] as const,
 };
 

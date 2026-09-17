@@ -191,7 +191,7 @@ function assertTypingNameLock(): void {
   for (const role of typingNameLock.roles) {
     const actual = token(role).toLowerCase();
     if (actual !== expected) {
-      mismatches.push(`${role} is ${actual}, locked salad ${expected}`);
+      mismatches.push(`${role} is ${actual}, locked lime ${expected}`);
     }
   }
 
@@ -200,7 +200,7 @@ function assertTypingNameLock(): void {
       semanticTokenColors[selector as keyof typeof semanticTokenColors],
     );
     if (actual !== expected) {
-      mismatches.push(`semantic ${selector} is ${actual || '(missing)'}, locked salad ${expected}`);
+      mismatches.push(`semantic ${selector} is ${actual || '(missing)'}, locked lime ${expected}`);
     }
   }
 
@@ -213,7 +213,7 @@ function assertTypingNameLock(): void {
     }
     if (owner.hex !== expected) {
       mismatches.push(
-        `TextMate ${scope} owned by ${owner.role} ${owner.hex}, locked salad ${expected}`,
+        `TextMate ${scope} owned by ${owner.role} ${owner.hex}, locked lime ${expected}`,
       );
     }
     if (!typingNameLock.roles.includes(owner.role as typeof typingNameLock.roles[number])) {
@@ -255,7 +255,7 @@ function assertTypingNameLock(): void {
     if (scopes.some((s) => lockScopes.has(s))) lastTypingLockIdx = i;
   }
   if (lastTypingLockIdx < 0) {
-    mismatches.push('tokenColors missing salad lock rules for type/interface names');
+    mismatches.push('tokenColors missing lime lock rules for type/interface names');
   } else {
     // nothing after typing lock may paint typing-name scopes non-salad (checked below)
     void lastTypingLockIdx;
@@ -288,7 +288,7 @@ function assertTypingNameLock(): void {
       semanticTokenColors[selector as keyof typeof semanticTokenColors],
     );
     if (actual && actual !== expected) {
-      mismatches.push(`semantic ${selector} is ${actual}, locked salad ${expected}`);
+      mismatches.push(`semantic ${selector} is ${actual}, locked lime ${expected}`);
     }
   }
 
@@ -304,7 +304,7 @@ function assertTypingNameLock(): void {
   }
 
     if (mismatches.length > 0) {
-    throw new Error(`Typing name lock (салатовый) broken:\n- ${mismatches.join('\n- ')}`);
+    throw new Error(`Typing name lock (lime #B9F6CA) broken:\n- ${mismatches.join('\n- ')}`);
   }
 }
 

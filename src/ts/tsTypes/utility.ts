@@ -1,7 +1,7 @@
 /**
  * Utility types in type position (`Readonly<...>`).
  * Painted via syntax.typeBuiltin / lib class cyan `#5CCFE6`.
- * Never override salad lock on custom interface/type-alias names.
+ * Never override lime lock on custom interface/type-alias names.
  */
 export const utilityTyping = {
   role: 'syntax.typeBuiltin' as const,

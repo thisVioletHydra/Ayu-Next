@@ -15,7 +15,7 @@ export const typingPaints = [
   typeAliasTypingPaint,
 ] as const;
 
-/** Селекторы/скоупы под замком салатового. */
+/** Selectors/scopes under lime `#B9F6CA` lock (short TS scopes + semantic). */
 export const typingNameLock = {
   hex: TYPING_NAME_HEX,
   roles: ['syntax.interface', 'syntax.typeAlias'] as const,

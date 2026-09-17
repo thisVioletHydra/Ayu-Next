@@ -922,9 +922,7 @@
       "scope": [
         "entity.name.type.interface",
         "entity.name.type.interface.ts",
-        "entity.name.type.interface.tsx",
-        "meta.interface entity.name.type.interface",
-        "meta.interface.declaration entity.name.type.interface"
+        "entity.name.type.interface.tsx"
       ],
       "settings": {
         "foreground": "#B9F6CA"
@@ -932,17 +930,10 @@
     },
     {
       "scope": [
+        "entity.name.type",
         "entity.name.type.alias",
         "entity.name.type.alias.ts",
-        "entity.name.type.alias.tsx",
-        "meta.type.declaration entity.name.type",
-        "meta.type.declaration entity.name.type.alias",
-        "meta.type.annotation entity.name.type",
-        "meta.type.annotation entity.name.type.alias",
-        "meta.interface meta.type.annotation entity.name.type",
-        "meta.function meta.return.type entity.name.type",
-        "meta.function meta.parameters entity.name.type",
-        "entity.name.type"
+        "entity.name.type.alias.tsx"
       ],
       "settings": {
         "foreground": "#B9F6CA"

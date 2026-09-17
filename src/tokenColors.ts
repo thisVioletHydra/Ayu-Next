@@ -13,7 +13,7 @@ type TokenRule = {
   settings: { foreground?: string; fontStyle?: string };
 };
 
-/** Salad lock rules — MUST be last so no leftover/keyword orange can win. */
+/** Lime lock rules — MUST be last so no leftover/keyword orange can win. */
 export const thisPropLockTokenColors: TokenRule[] = [
   {
     scope: [...thisPaint.textmate],
