@@ -3,6 +3,7 @@ import { token } from '#tokens';
 import {
   interfaceTypingPaint,
   typeAliasTypingPaint,
+  typeBuiltinTyping,
 } from '#ts/tsTypes';
 import { classPaint, ctorPaint } from '#ts/tsClasses';
 import { thisPaint } from '#ts/tsLanguage';
@@ -26,13 +27,13 @@ export type RolePaint = {
  *
  *   syntax.keyword        — keywords (`type`, `return`, `new`)
  *   syntax.keywordStrong  — bold `class` keyword + decorator `@`
- *   syntax.func           — methods + .get/.set + decorator NAME (`Injectable`)
+ *   syntax.func           — methods + .get/.set (decorator NAME → syntax.decoratorName)
  *   syntax.entity         — class identifiers only
  *   syntax.typeAlias      — type-alias names (ThemeId) — салатовый замок
  *   syntax.interface      — interface names (TokenDto) — салатовый замок
- *   syntax.ctor           — every `new X` name: defaultLibrary + constructor
- *                           TM scopes (Date/Map/Error/HttpException)
- *   syntax.typeBuiltin    — primitives (`string` in annotations)
+ *   syntax.ctor           — lib classes Map/Date/HttpException/Readonly — lavender
+ *   syntax.typeBuiltin    — primitives (`string`) — lavender
+ *   syntax.decoratorName  — Injectable/Controller — light cyan
  *   syntax.propKey        — `{ id, accent: }` / destructure keys
  *   syntax.propField      — interface field names (`role`, `hex`)
  *   syntax.param          — params in signature AND body
@@ -101,13 +102,9 @@ export const rolePaint = [
     textmate: [...ctorPaint.textmate],
   },
   {
-    role: 'syntax.typeBuiltin',
-    semantic: ['type.defaultLibrary'],
-    textmate: [
-      'support.type.primitive',
-      'support.type.builtin',
-      'storage.type.primitive',
-    ],
+    role: typeBuiltinTyping.role,
+    semantic: [...typeBuiltinTyping.semantic],
+    textmate: [...typeBuiltinTyping.textmate],
   },
   {
     role: propKeyPaint.role,

@@ -3,10 +3,8 @@ import { TYPING_NAME_HEX } from './lock.js';
 /**
  * Type-alias names (`ThemeId`) + type parameters → lime `#B9F6CA`.
  *
- * Short TS scopes only (no ultra-long Vue exact-match chains — useless on Nest/TS).
- * Live FAIL (Tester): ThemeId stayed `#FF9944` while TokenDto was lime — strengthen
- * `entity.name.type.alias*` + `meta.type.declaration entity.name.type*` last-wins.
- * Semantic `type` / `type.declaration` must stay `#B9F6CA`.
+ * Do NOT include bare `entity.name.type` — it paints Readonly/Map lime.
+ * Alias + interface leaves only; lib/utility → lavender via ctor/typeBuiltin locks.
  */
 export const typeAliasTypingPaint = {
   role: 'syntax.typeAlias' as const,
@@ -22,8 +20,7 @@ export const typeAliasTypingPaint = {
     'entity.name.type.alias.tsx',
     'meta.type.declaration entity.name.type.alias',
     'meta.type.declaration entity.name.type.alias.ts',
-    'meta.type.declaration entity.name.type',
-    'entity.name.type',
+    'meta.type.declaration entity.name.type.alias.tsx',
   ] as const,
 };
 

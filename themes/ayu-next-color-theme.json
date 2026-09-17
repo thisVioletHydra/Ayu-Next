@@ -295,7 +295,7 @@
     "function": "#FF9944",
     "method": "#FF9944",
     "method.defaultLibrary": "#FF9944",
-    "decorator": "#CBCCC6",
+    "decorator": "#5CCFE6",
     "class.declaration": "#5CCFE6",
     "enum": "#5CCFE6",
     "enum.defaultLibrary": "#5CCFE6",
@@ -308,12 +308,12 @@
     "type.declaration": "#B9F6CA",
     "typeParameter": "#B9F6CA",
     "typeParameter.declaration": "#B9F6CA",
-    "class": "#5CCFE6",
-    "class.defaultLibrary": "#5CCFE6",
-    "variable.defaultLibrary": "#5CCFE6",
-    "function.defaultLibrary": "#5CCFE6",
-    "property.defaultLibrary": "#5CCFE6",
-    "type.defaultLibrary": "#CBCCC6",
+    "class": "#D4BFFF",
+    "class.defaultLibrary": "#D4BFFF",
+    "variable.defaultLibrary": "#D4BFFF",
+    "function.defaultLibrary": "#D4BFFF",
+    "property.defaultLibrary": "#D4BFFF",
+    "type.defaultLibrary": "#D4BFFF",
     "property": "#CBCCC6",
     "property.declaration": "#CBCCC6",
     "parameter": "#CBCCC6",
@@ -790,57 +790,12 @@
     },
     {
       "scope": [
-        "entity.name.function.decorator",
-        "meta.decorator entity.name.function",
-        "meta.decorator variable.other",
-        "storage.type.annotation",
-        "variable.annotation"
-      ],
-      "settings": {
-        "foreground": "#CBCCC6"
-      }
-    },
-    {
-      "scope": [
         "entity.name.type.class",
-        "entity.name.type.enum",
-        "support.class"
+        "entity.name.type.class.ts",
+        "entity.name.type.enum"
       ],
       "settings": {
         "foreground": "#5CCFE6"
-      }
-    },
-    {
-      "scope": [
-        "meta.function-call.constructor",
-        "meta.function-call.constructor entity.name.function",
-        "meta.function-call.constructor entity.name.type",
-        "meta.function-call.constructor support.class",
-        "meta.function-call.constructor support.class.builtin",
-        "meta.function-call.constructor variable.other.readwrite",
-        "new.expr entity.name.type",
-        "new.expr entity.name.function",
-        "new.expr entity.name.type.class",
-        "new.expr support.class",
-        "new.expr support.class.builtin",
-        "new.expr variable.other.readwrite",
-        "new.expr variable.other.constant",
-        "meta.new-expression entity.name.type",
-        "source new.expr entity.name.type",
-        "source meta.export.default meta.class meta.method.declaration meta.block meta.var.expr new.expr entity.name.type"
-      ],
-      "settings": {
-        "foreground": "#5CCFE6"
-      }
-    },
-    {
-      "scope": [
-        "support.type.primitive",
-        "support.type.builtin",
-        "storage.type.primitive"
-      ],
-      "settings": {
-        "foreground": "#CBCCC6"
       }
     },
     {
@@ -962,6 +917,65 @@
     },
     {
       "scope": [
+        "entity.name.function.decorator",
+        "entity.name.function.decorator.ts",
+        "meta.decorator entity.name.function",
+        "meta.decorator.ts entity.name.function",
+        "meta.decorator.ts entity.name.function.ts",
+        "meta.decorator meta.function-call entity.name.function",
+        "meta.decorator.ts meta.function-call.ts entity.name.function.ts",
+        "meta.decorator variable.other",
+        "meta.decorator.ts variable.other.readwrite.ts",
+        "storage.type.annotation",
+        "variable.annotation"
+      ],
+      "settings": {
+        "foreground": "#5CCFE6"
+      }
+    },
+    {
+      "scope": [
+        "support.type.primitive",
+        "support.type.builtin",
+        "support.type",
+        "storage.type.primitive"
+      ],
+      "settings": {
+        "foreground": "#D4BFFF"
+      }
+    },
+    {
+      "scope": [
+        "support.class",
+        "support.class.builtin",
+        "support.class.builtin.ts",
+        "entity.name.type",
+        "entity.name.type.ts",
+        "meta.type.annotation entity.name.type",
+        "meta.type.annotation entity.name.type.ts",
+        "meta.type.annotation support.class",
+        "meta.function-call.constructor",
+        "meta.function-call.constructor entity.name.function",
+        "meta.function-call.constructor entity.name.type",
+        "meta.function-call.constructor support.class",
+        "meta.function-call.constructor support.class.builtin",
+        "meta.function-call.constructor variable.other.readwrite",
+        "new.expr entity.name.type",
+        "new.expr entity.name.function",
+        "new.expr entity.name.type.class",
+        "new.expr support.class",
+        "new.expr support.class.builtin",
+        "new.expr variable.other.readwrite",
+        "new.expr variable.other.constant",
+        "meta.new-expression entity.name.type",
+        "source new.expr entity.name.type"
+      ],
+      "settings": {
+        "foreground": "#D4BFFF"
+      }
+    },
+    {
+      "scope": [
         "entity.name.type.interface",
         "entity.name.type.interface.ts",
         "entity.name.type.interface.tsx"
@@ -977,8 +991,7 @@
         "entity.name.type.alias.tsx",
         "meta.type.declaration entity.name.type.alias",
         "meta.type.declaration entity.name.type.alias.ts",
-        "meta.type.declaration entity.name.type",
-        "entity.name.type"
+        "meta.type.declaration entity.name.type.alias.tsx"
       ],
       "settings": {
         "foreground": "#B9F6CA"

@@ -10,15 +10,18 @@ import {
 import {
   interfaceTypingPaint,
   typeAliasTypingPaint,
+  typeBuiltinTyping,
   TYPING_NAME_HEX,
 } from '#ts/tsTypes';
 import { thisPaint, THIS_HEX } from '#ts/tsLanguage';
 import { propKeyPaint, propFieldPaint, PROP_HEX } from '#ts/tsProps';
+import { decoratorNamePaint, DECORATOR_NAME_HEX } from '#ts/tsDecorators';
+import { ctorPaint, CTOR_HEX } from '#ts/tsClasses';
 
 export type { TokenRule } from '#tokenLayers';
 export { TokenLayer, describePipeline } from '#tokenLayers';
 
-/** L4 LOCK — this / props (before typing so ThemeId stays absolute last). */
+/** L4 LOCK — this / props (before lib/decorator/typing). */
 export const thisPropLockTokenColors: TokenRule[] = [
   {
     scope: [...thisPaint.textmate],
@@ -30,7 +33,27 @@ export const thisPropLockTokenColors: TokenRule[] = [
   },
 ];
 
-/** L4 LOCK — interface then type-alias lime `#B9F6CA` (alias must be last rule). */
+/** L4 LOCK — decorator names light cyan (beats syntax.func orange). */
+export const decoratorLockTokenColors: TokenRule[] = [
+  {
+    scope: [...decoratorNamePaint.textmate],
+    settings: { foreground: DECORATOR_NAME_HEX },
+  },
+];
+
+/** L4 LOCK — lib/utility lavender (Readonly/Map/Date/string) before lime. */
+export const libLockTokenColors: TokenRule[] = [
+  {
+    scope: [...typeBuiltinTyping.textmate],
+    settings: { foreground: typeBuiltinTyping.hex },
+  },
+  {
+    scope: [...ctorPaint.textmate],
+    settings: { foreground: CTOR_HEX },
+  },
+];
+
+/** L4 LOCK — interface then type-alias lime `#B9F6CA` (alias absolute last). */
 export const typingNameLockTokenColors: TokenRule[] = [
   {
     scope: [...interfaceTypingPaint.textmate],
@@ -59,6 +82,9 @@ const lockedTm = new Set<string>([
   ...thisPaint.textmate,
   ...propKeyPaint.textmate,
   ...propFieldPaint.textmate,
+  ...decoratorNamePaint.textmate,
+  ...typeBuiltinTyping.textmate,
+  ...ctorPaint.textmate,
 ]);
 
 /**
@@ -88,9 +114,27 @@ export const tokenColorSlices: LayerSlice[] = [
   },
   {
     layer: TokenLayer.Lock,
-    id: 'lock.typing',
-    filePriority: 20, // after this/prop — ThemeId absolute last
-    rules: typingNameLockTokenColors,
+    id: 'lock.decorator',
+    filePriority: 20,
+    rules: decoratorLockTokenColors,
+  },
+  {
+    layer: TokenLayer.Lock,
+    id: 'lock.lib',
+    filePriority: 30,
+    rules: libLockTokenColors,
+  },
+  {
+    layer: TokenLayer.Lock,
+    id: 'lock.typing.interface',
+    filePriority: 40,
+    rules: [typingNameLockTokenColors[0]],
+  },
+  {
+    layer: TokenLayer.Lock,
+    id: 'lock.typing.alias',
+    filePriority: 50,
+    rules: [typingNameLockTokenColors[1]],
   },
 ];
 

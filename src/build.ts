@@ -222,8 +222,8 @@ function assertTokenLayers(): void {
     errors.push(`NARROW overlaps LOCK (maxNarrow=${maxNarrow}, minLock=${minLock}) — leftover/roles would beat lime`);
   }
   const lastSlice = ranges[ranges.length - 1];
-  if (!lastSlice || lastSlice.layer !== TokenLayer.Lock || lastSlice.id !== 'lock.typing') {
-    errors.push(`pipeline must end with lock.typing, got ${lastSlice?.id}`);
+  if (!lastSlice || lastSlice.layer !== TokenLayer.Lock || lastSlice.id !== 'lock.typing.alias') {
+    errors.push(`pipeline must end with lock.typing.alias, got ${lastSlice?.id}`);
   }
   // No non-lock slice after first lock
   let seenLock = false;

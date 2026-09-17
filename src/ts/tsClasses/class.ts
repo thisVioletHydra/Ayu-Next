@@ -1,6 +1,6 @@
 /**
  * Class names only (`ThemeService`, `ThemeController`).
- * Cyan — never salad (salad lock is ts/tsTypes for interface/type-alias names).
+ * Cyan — never salad; lib Map/Date/Readonly → syntax.ctor lavender.
  */
 export const classPaint = {
   role: 'syntax.entity' as const,
@@ -13,8 +13,8 @@ export const classPaint = {
   ] as const,
   textmate: [
     'entity.name.type.class',
+    'entity.name.type.class.ts',
     'entity.name.type.enum',
-    'support.class',
   ] as const,
 };
 

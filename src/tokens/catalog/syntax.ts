@@ -54,7 +54,7 @@ export const syntaxCatalog = {
   },
   'syntax.func': {
     hex: '#FF9944',
-    desc: 'Methods + decorator names — orange per Nest original (not yellow)',
+    desc: 'Methods — orange/gold; decorator names own syntax.decoratorName cyan',
   },
   'syntax.entity': {
     hex: '#5CCFE6',
@@ -69,16 +69,16 @@ export const syntaxCatalog = {
     desc: 'Interface names (TokenDto) — salad lock (tsTypes), forever',
   },
   'syntax.ctor': {
-    hex: '#5CCFE6',
-    desc: 'Every `new X` / lib class in type or value (Map, Date, HttpException) — cyan',
+    hex: '#D4BFFF',
+    desc: 'Lib classes in type/value (Map, Date, HttpException, Readonly) — lavender',
   },
   'syntax.typeBuiltin': {
-    hex: '#CBCCC6',
-    desc: 'Primitive/lib type annotations (`string`) — light per Nest shot (not salad names)',
+    hex: '#D4BFFF',
+    desc: 'Primitive/lib annotations (`string`) + utilities — lavender (not salad names)',
   },
   'syntax.decoratorName': {
-    hex: '#CBCCC6',
-    desc: 'Decorator names (Injectable, Controller) — light; `@` stays keywordStrong orange',
+    hex: '#5CCFE6',
+    desc: 'Decorator names (Injectable, Controller) — light cyan; `@` stays keywordStrong orange',
   },
   'syntax.this': {
     hex: '#5CCFE6',

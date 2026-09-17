@@ -1,5 +1,5 @@
 /**
- * Builtin primitives in annotations (`string`, `number`) — light `#CBCCC6`.
+ * Builtin primitives in annotations (`string`, `number`) — lavender `#D4BFFF`.
  * Custom type/interface names stay lime lock `#B9F6CA`.
  */
 export const typeBuiltinTyping = {
@@ -8,7 +8,8 @@ export const typeBuiltinTyping = {
   textmate: [
     'support.type.primitive',
     'support.type.builtin',
+    'support.type',
     'storage.type.primitive',
   ] as const,
-  hex: '#CBCCC6' as const,
+  hex: '#D4BFFF' as const,
 } as const;

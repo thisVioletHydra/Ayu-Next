@@ -1,6 +1,6 @@
 /**
  * `new X` / lib classes in value or type position: Map, Date, HttpException, Readonly.
- * Cyan — must never repaint salad type-alias / interface names.
+ * Lavender `#D4BFFF` (Roman etalon) — never cyan, never salad lime.
  */
 export const ctorPaint = {
   role: 'syntax.ctor' as const,
@@ -12,6 +12,15 @@ export const ctorPaint = {
     'property.defaultLibrary',
   ] as const,
   textmate: [
+    'support.class',
+    'support.class.builtin',
+    'support.class.builtin.ts',
+    // bare entity.name.type for lib/utility (Readonly/Map) — typing alias/interface locks win last for ThemeId/TokenDto
+    'entity.name.type',
+    'entity.name.type.ts',
+    'meta.type.annotation entity.name.type',
+    'meta.type.annotation entity.name.type.ts',
+    'meta.type.annotation support.class',
     'meta.function-call.constructor',
     'meta.function-call.constructor entity.name.function',
     'meta.function-call.constructor entity.name.type',
@@ -27,8 +36,7 @@ export const ctorPaint = {
     'new.expr variable.other.constant',
     'meta.new-expression entity.name.type',
     'source new.expr entity.name.type',
-    'source meta.export.default meta.class meta.method.declaration meta.block meta.var.expr new.expr entity.name.type',
   ] as const,
 };
 
-export const CTOR_HEX = '#5CCFE6' as const;
+export const CTOR_HEX = '#D4BFFF' as const;
