@@ -6,7 +6,7 @@ import {
 import { ownedScopeHex, rolePaint } from '#syntax/roles';
 import { token } from '#tokens';
 import { typingNameLock } from '#ts/tsTypes';
-import { tokenColors } from '#tokenColors';
+import { tokenColors, typingNameLockTokenColors } from '#tokenColors';
 
 import fsPromises from 'node:fs/promises';
 import path from 'node:path';
@@ -237,6 +237,50 @@ function assertTypingNameLock(): void {
       if ((typingNameLock.textmate as readonly string[]).includes(scope)) {
         mismatches.push(`${paint.role} steals TextMate ${scope} from typing lock`);
       }
+    }
+  }
+
+
+  // Final array: last matching rule wins in VS Code — lock rules MUST be last
+  const last = tokenColors[tokenColors.length - 1];
+  const lastScopes = Array.isArray(last?.scope) ? last.scope : [last?.scope];
+  const lockScopes = new Set(
+    typingNameLockTokenColors.flatMap((r) =>
+      Array.isArray(r.scope) ? r.scope : [r.scope],
+    ),
+  );
+  if (!lastScopes.some((s) => lockScopes.has(String(s)))) {
+    mismatches.push('FINAL tokenColors must end with salad lock rules (type/interface names)');
+  }
+
+  for (let i = 0; i < tokenColors.length; i++) {
+    const rule = tokenColors[i];
+    const fg = String(rule.settings?.foreground ?? '').toLowerCase();
+    const scopes = (Array.isArray(rule.scope) ? rule.scope : [rule.scope]).map(String);
+    for (const scope of scopes) {
+      const isTypingName =
+        scope === 'entity.name.type' ||
+        scope.startsWith('entity.name.type.alias') ||
+        scope.startsWith('entity.name.type.interface') ||
+        scope.includes('entity.name.type.alias') ||
+        scope.includes('entity.name.type.interface');
+      if (!isTypingName) continue;
+      // after the last lock rule index, only salad allowed; before, warn if orange
+      if (fg === '#ff9944') {
+        mismatches.push(
+          `tokenColors[${i}] paints typing name scope ${scope} orange ${fg} — lock broken`,
+        );
+      }
+    }
+  }
+
+  // semantic declarations also locked
+  for (const selector of ['type.declaration', 'interface.declaration'] as const) {
+    const actual = hexOf(
+      semanticTokenColors[selector as keyof typeof semanticTokenColors],
+    );
+    if (actual && actual !== expected) {
+      mismatches.push(`semantic ${selector} is ${actual}, locked salad ${expected}`);
     }
   }
 
