@@ -115,13 +115,13 @@ export const tokenColorSlices: LayerSlice[] = [
   {
     layer: TokenLayer.Lock,
     id: 'lock.decorator',
-    filePriority: 20,
+    filePriority: 35,
     rules: decoratorLockTokenColors,
   },
   {
     layer: TokenLayer.Lock,
     id: 'lock.lib',
-    filePriority: 30,
+    filePriority: 25,
     rules: libLockTokenColors,
   },
   {

@@ -10,7 +10,7 @@ export type CatalogEntry = { hex: HexColor; desc: string };
 export const syntaxCatalog = {
   'syntax.fg': {
     hex: '#CBCCC6',
-    desc: 'Default text / values — etalon fg',
+    desc: 'Default text — etalon fg',
   },
   'syntax.comment': {
     hex: '#5C6773',
@@ -22,15 +22,15 @@ export const syntaxCatalog = {
   },
   'syntax.keywordStrong': {
     hex: '#FF9944',
-    desc: 'Thick keyword + decorator @ — etalon orange',
+    desc: 'Thick keyword + @ — etalon orange',
   },
   'syntax.operator': {
     hex: '#CBCCC6',
     desc: 'Operators/punct — etalon fg',
   },
   'syntax.string': {
-    hex: '#FFE6B3',
-    desc: 'String literals — etalon warm yellow',
+    hex: '#BAE67F',
+    desc: 'String literals — etalon green #BAE67F',
   },
   'syntax.propKey': {
     hex: '#F29E74',
@@ -54,19 +54,19 @@ export const syntaxCatalog = {
   },
   'syntax.func': {
     hex: '#FFD580',
-    desc: 'Methods — etalon gold',
+    desc: 'Methods — etalon gold #FFD580',
   },
   'syntax.entity': {
     hex: '#5BD0E6',
     desc: 'Class names — etalon cyan',
   },
   'syntax.typeAlias': {
-    hex: '#BAE67F',
-    desc: 'Type-alias ThemeId — etalon green',
+    hex: '#BAF6CB',
+    desc: 'ThemeId — etalon #BAF6CB',
   },
   'syntax.interface': {
-    hex: '#BAE67F',
-    desc: 'Interface TokenDto — etalon green',
+    hex: '#BAF6CB',
+    desc: 'TokenDto — etalon #BAF6CB',
   },
   'syntax.ctor': {
     hex: '#D5BFFF',
@@ -74,11 +74,11 @@ export const syntaxCatalog = {
   },
   'syntax.typeBuiltin': {
     hex: '#D5BFFF',
-    desc: 'Primitive string annotations — etalon lavender',
+    desc: 'string annotations — etalon lavender',
   },
   'syntax.decoratorName': {
-    hex: '#5BD0E6',
-    desc: 'Decorator names — etalon cyan',
+    hex: '#FFE6B3',
+    desc: 'Decorator names — etalon cream #FFE6B3',
   },
   'syntax.this': {
     hex: '#5BD0E6',

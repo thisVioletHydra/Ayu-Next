@@ -295,19 +295,19 @@
     "function": "#FFD580",
     "method": "#FFD580",
     "method.defaultLibrary": "#FFD580",
-    "decorator": "#5BD0E6",
+    "decorator": "#FFE6B3",
     "class.declaration": "#5BD0E6",
     "enum": "#5BD0E6",
     "enum.defaultLibrary": "#5BD0E6",
     "struct": "#5BD0E6",
     "struct.defaultLibrary": "#5BD0E6",
-    "interface": "#BAE67F",
-    "interface.declaration": "#BAE67F",
-    "interface.defaultLibrary": "#BAE67F",
-    "type": "#BAE67F",
-    "type.declaration": "#BAE67F",
-    "typeParameter": "#BAE67F",
-    "typeParameter.declaration": "#BAE67F",
+    "interface": "#BAF6CB",
+    "interface.declaration": "#BAF6CB",
+    "interface.defaultLibrary": "#BAF6CB",
+    "type": "#BAF6CB",
+    "type.declaration": "#BAF6CB",
+    "typeParameter": "#BAF6CB",
+    "typeParameter.declaration": "#BAF6CB",
     "class": "#D5BFFF",
     "class.defaultLibrary": "#D5BFFF",
     "variable.defaultLibrary": "#D5BFFF",
@@ -318,7 +318,7 @@
     "property.declaration": "#F29E74",
     "parameter": "#F29E74",
     "parameter.declaration": "#F29E74",
-    "string": "#FFE6B3",
+    "string": "#BAE67F",
     "comment": {
       "foreground": "#5C6773",
       "fontStyle": "italic"
@@ -777,11 +777,16 @@
     {
       "scope": [
         "entity.name.function",
+        "entity.name.function - meta.decorator",
+        "entity.name.function - new.expr",
+        "entity.name.function.ts - meta.decorator",
         "entity.name.function.member",
-        "meta.function-call entity.name.function",
+        "meta.function-call entity.name.function - meta.decorator",
+        "meta.function-call entity.name.function - new.expr",
         "meta.method.declaration entity.name.function",
         "meta.definition.method entity.name.function",
         "variable.function",
+        "variable.function - meta.decorator",
         "meta.function-call.generic"
       ],
       "settings": {
@@ -813,7 +818,7 @@
         "constant.other.symbol"
       ],
       "settings": {
-        "foreground": "#FFE6B3"
+        "foreground": "#BAE67F"
       }
     },
     {
@@ -917,24 +922,6 @@
     },
     {
       "scope": [
-        "entity.name.function.decorator",
-        "entity.name.function.decorator.ts",
-        "meta.decorator entity.name.function",
-        "meta.decorator.ts entity.name.function",
-        "meta.decorator.ts entity.name.function.ts",
-        "meta.decorator meta.function-call entity.name.function",
-        "meta.decorator.ts meta.function-call.ts entity.name.function.ts",
-        "meta.decorator variable.other",
-        "meta.decorator.ts variable.other.readwrite.ts",
-        "storage.type.annotation",
-        "variable.annotation"
-      ],
-      "settings": {
-        "foreground": "#5BD0E6"
-      }
-    },
-    {
-      "scope": [
         "support.type.primitive",
         "support.type.builtin",
         "support.type",
@@ -949,6 +936,7 @@
         "support.class",
         "support.class.builtin",
         "support.class.builtin.ts",
+        "support.function.builtin",
         "entity.name.type",
         "entity.name.type.ts",
         "meta.type.annotation entity.name.type",
@@ -956,22 +944,56 @@
         "meta.type.annotation support.class",
         "meta.function-call.constructor",
         "meta.function-call.constructor entity.name.function",
+        "meta.function-call.constructor entity.name.function.ts",
         "meta.function-call.constructor entity.name.type",
         "meta.function-call.constructor support.class",
         "meta.function-call.constructor support.class.builtin",
         "meta.function-call.constructor variable.other.readwrite",
         "new.expr entity.name.type",
+        "new.expr entity.name.type.ts",
         "new.expr entity.name.function",
+        "new.expr entity.name.function.ts",
         "new.expr entity.name.type.class",
         "new.expr support.class",
         "new.expr support.class.builtin",
         "new.expr variable.other.readwrite",
         "new.expr variable.other.constant",
         "meta.new-expression entity.name.type",
-        "source new.expr entity.name.type"
+        "meta.new-expression entity.name.function",
+        "source new.expr entity.name.type",
+        "source new.expr entity.name.function",
+        "meta.import support.class",
+        "meta.import entity.name.type",
+        "meta.import variable.other.readwrite",
+        "meta.import.ts support.class",
+        "meta.import.ts entity.name.type",
+        "meta.import.ts variable.other.readwrite.ts"
       ],
       "settings": {
         "foreground": "#D5BFFF"
+      }
+    },
+    {
+      "scope": [
+        "entity.name.function.decorator",
+        "entity.name.function.decorator.ts",
+        "meta.decorator entity.name.function",
+        "meta.decorator.ts entity.name.function",
+        "meta.decorator.ts entity.name.function.ts",
+        "meta.decorator meta.function-call entity.name.function",
+        "meta.decorator.ts meta.function-call.ts entity.name.function",
+        "meta.decorator.ts meta.function-call.ts entity.name.function.ts",
+        "meta.decorator meta.function-call.ts entity.name.function.ts",
+        "meta.decorator variable.other",
+        "meta.decorator.ts variable.other.readwrite",
+        "meta.decorator.ts variable.other.readwrite.ts",
+        "meta.decorator support.function",
+        "meta.decorator.ts support.function",
+        "storage.type.annotation",
+        "variable.annotation"
+      ],
+      "settings": {
+        "foreground": "#FFE6B3"
       }
     },
     {
@@ -981,7 +1003,7 @@
         "entity.name.type.interface.tsx"
       ],
       "settings": {
-        "foreground": "#BAE67F"
+        "foreground": "#BAF6CB"
       }
     },
     {
@@ -994,7 +1016,7 @@
         "meta.type.declaration entity.name.type.alias.tsx"
       ],
       "settings": {
-        "foreground": "#BAE67F"
+        "foreground": "#BAF6CB"
       }
     }
   ]
