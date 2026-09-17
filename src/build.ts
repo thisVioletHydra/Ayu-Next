@@ -292,7 +292,18 @@ function assertTypingNameLock(): void {
     }
   }
 
-  if (mismatches.length > 0) {
+
+  // Ban bare `storage` → orange (Inspect: it flooded type names)
+  for (let i = 0; i < tokenColors.length; i++) {
+    const rule = tokenColors[i];
+    const fg = String(rule.settings?.foreground ?? '').toLowerCase();
+    const scopes = (Array.isArray(rule.scope) ? rule.scope : [rule.scope]).map((s) => String(s));
+    if (fg === '#ff9944' && scopes.some((s) => s === 'storage' || s === 'storage.ts')) {
+      mismatches.push(`tokenColors[${i}] maps bare storage → orange — forbids type-name flood`);
+    }
+  }
+
+    if (mismatches.length > 0) {
     throw new Error(`Typing name lock (салатовый) broken:\n- ${mismatches.join('\n- ')}`);
   }
 }

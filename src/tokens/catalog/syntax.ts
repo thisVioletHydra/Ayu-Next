@@ -61,11 +61,11 @@ export const syntaxCatalog = {
     desc: 'Class identifiers (ThemeService, ThemeController) — cyan, not salad types',
   },
   'syntax.typeAlias': {
-    hex: '#BAE67E',
+    hex: '#B9F6CA',
     desc: 'Type-alias names (ThemeId) — salad lock (tsTypes)',
   },
   'syntax.interface': {
-    hex: '#BAE67E',
+    hex: '#B9F6CA',
     desc: 'Interface names (TokenDto) — salad lock (tsTypes), forever',
   },
   'syntax.ctor': {

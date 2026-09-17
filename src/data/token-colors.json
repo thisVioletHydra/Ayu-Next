@@ -41,7 +41,7 @@
       "source punctuation.definition.template-expression.end"
     ],
     "settings": {
-      "foreground": "#BAE67E"
+      "foreground": "#CBCCC6"
     }
   },
   {
@@ -123,7 +123,7 @@
       "source.vue variable.object.property"
     ],
     "settings": {
-      "foreground": "#BAE67E"
+      "foreground": "#CBCCC6"
     }
   },
   {
@@ -157,7 +157,7 @@
       "source.stylus entity.name.function.stylus"
     ],
     "settings": {
-      "foreground": "#BAE67E"
+      "foreground": "#CBCCC6"
     }
   },
   {
@@ -233,7 +233,7 @@
   {
     "scope": "entity.name.import, entity.name.package",
     "settings": {
-      "foreground": "#bae67e"
+      "foreground": "#CBCCC6"
     }
   },
   {
@@ -269,13 +269,13 @@
   {
     "scope": "entity.name.filename.find-in-files",
     "settings": {
-      "foreground": "#bae67e"
+      "foreground": "#CBCCC6"
     }
   },
   {
     "scope": "markup.heading, markup.heading entity.name",
     "settings": {
-      "foreground": "#bae67e",
+      "foreground": "#CBCCC6",
       "fontStyle": "bold"
     }
   },

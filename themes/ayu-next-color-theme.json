@@ -301,13 +301,13 @@
     "enum.defaultLibrary": "#5CCFE6",
     "struct": "#5CCFE6",
     "struct.defaultLibrary": "#5CCFE6",
-    "interface": "#BAE67E",
-    "interface.declaration": "#BAE67E",
-    "interface.defaultLibrary": "#BAE67E",
-    "type": "#BAE67E",
-    "type.declaration": "#BAE67E",
-    "typeParameter": "#BAE67E",
-    "typeParameter.declaration": "#BAE67E",
+    "interface": "#B9F6CA",
+    "interface.declaration": "#B9F6CA",
+    "interface.defaultLibrary": "#B9F6CA",
+    "type": "#B9F6CA",
+    "type.declaration": "#B9F6CA",
+    "typeParameter": "#B9F6CA",
+    "typeParameter.declaration": "#B9F6CA",
     "class": "#5CCFE6",
     "class.defaultLibrary": "#5CCFE6",
     "variable.defaultLibrary": "#5CCFE6",
@@ -383,7 +383,7 @@
         "source punctuation.definition.template-expression.end"
       ],
       "settings": {
-        "foreground": "#BAE67E"
+        "foreground": "#CBCCC6"
       }
     },
     {
@@ -465,7 +465,7 @@
         "source.vue variable.object.property"
       ],
       "settings": {
-        "foreground": "#BAE67E"
+        "foreground": "#CBCCC6"
       }
     },
     {
@@ -499,7 +499,7 @@
         "source.stylus entity.name.function.stylus"
       ],
       "settings": {
-        "foreground": "#BAE67E"
+        "foreground": "#CBCCC6"
       }
     },
     {
@@ -575,7 +575,7 @@
     {
       "scope": "entity.name.import, entity.name.package",
       "settings": {
-        "foreground": "#bae67e"
+        "foreground": "#CBCCC6"
       }
     },
     {
@@ -611,13 +611,13 @@
     {
       "scope": "entity.name.filename.find-in-files",
       "settings": {
-        "foreground": "#bae67e"
+        "foreground": "#CBCCC6"
       }
     },
     {
       "scope": "markup.heading, markup.heading entity.name",
       "settings": {
-        "foreground": "#bae67e",
+        "foreground": "#CBCCC6",
         "fontStyle": "bold"
       }
     },
@@ -927,7 +927,7 @@
         "meta.interface.declaration entity.name.type.interface"
       ],
       "settings": {
-        "foreground": "#BAE67E"
+        "foreground": "#B9F6CA"
       }
     },
     {
@@ -945,7 +945,7 @@
         "entity.name.type"
       ],
       "settings": {
-        "foreground": "#BAE67E"
+        "foreground": "#B9F6CA"
       }
     },
     {
