@@ -293,13 +293,31 @@ function assertTypingNameLock(): void {
   }
 
 
-  // Ban bare `storage` → orange (Inspect: it flooded type names)
+  // Ban storage→orange that can parent-bleed onto type names (Roman Inspect)
   for (let i = 0; i < tokenColors.length; i++) {
     const rule = tokenColors[i];
     const fg = String(rule.settings?.foreground ?? '').toLowerCase();
+    if (fg !== '#ff9944') continue;
     const scopes = (Array.isArray(rule.scope) ? rule.scope : [rule.scope]).map((s) => String(s));
-    if (fg === '#ff9944' && scopes.some((s) => s === 'storage' || s === 'storage.ts')) {
-      mismatches.push(`tokenColors[${i}] maps bare storage → orange — forbids type-name flood`);
+    for (const s of scopes) {
+      const base = s.split(' - ')[0].trim();
+      const hasTypeExclusion = s.includes('- entity.name.type');
+      if (base === 'storage' || base === 'storage.ts') {
+        mismatches.push(`tokenColors[${i}] bare storage → orange (scope ${s})`);
+      }
+      if (
+        !hasTypeExclusion &&
+        (base === 'storage.modifier' ||
+          base === 'storage.type.type' ||
+          base === 'storage.type.interface' ||
+          base === 'storage.type.namespace' ||
+          base === 'storage.type.module' ||
+          base === 'storage.type.class')
+      ) {
+        mismatches.push(
+          `tokenColors[${i}] ${base} → orange without "- entity.name.type" exclusion — ThemeId/TokenDto flood`,
+        );
+      }
     }
   }
 

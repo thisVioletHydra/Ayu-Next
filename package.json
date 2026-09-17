@@ -65,7 +65,7 @@
   ],
   "contributes": {
     "configurationDefaults": {
-      "editor.semanticHighlighting.enabled": "configuredByTheme"
+      "editor.semanticHighlighting.enabled": true
     },
     "themes": [
       {

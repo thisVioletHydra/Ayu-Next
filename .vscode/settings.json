@@ -1,6 +1,6 @@
 {
   "eslint.enable": false,
-  "editor.semanticHighlighting.enabled": "configuredByTheme",
+  "editor.semanticHighlighting.enabled": true,
   "editor.codeActionsOnSaveMode": "all",
   "oxc.enable": true,
   "oxc.enable.oxfmt": false,

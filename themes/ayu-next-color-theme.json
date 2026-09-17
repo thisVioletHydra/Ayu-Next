@@ -742,12 +742,12 @@
         "keyword.control.conditional",
         "keyword.control.trycatch",
         "keyword.operator.new",
-        "storage.modifier",
+        "storage.modifier - entity.name.type",
         "storage.type.function",
-        "storage.type.type",
-        "storage.type.interface",
-        "storage.type.namespace",
-        "storage.type.module"
+        "storage.type.type - entity.name.type",
+        "storage.type.interface - entity.name.type",
+        "storage.type.namespace - entity.name.type",
+        "storage.type.module - entity.name.type"
       ],
       "settings": {
         "foreground": "#FF9944"
@@ -755,7 +755,7 @@
     },
     {
       "scope": [
-        "storage.type.class",
+        "storage.type.class - entity.name.type",
         "punctuation.decorator",
         "punctuation.definition.decorator",
         "punctuation.definition.annotation"
