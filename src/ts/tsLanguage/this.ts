@@ -1,14 +1,16 @@
 /**
  * `this` / `super` — cyan italic #5CCFE6.
- * TS semantic often labels `this` as keyword — we do NOT paint semantic keyword orange.
+ * Do NOT use bare `variable.language` — too broad.
+ * TS semantic often labels `this` as keyword — no semantic keyword orange.
  */
 export const thisPaint = {
   role: 'syntax.this' as const,
-  semantic: ['variable.language', 'variable.language.this'] as const,
+  semantic: ['variable.language.this'] as const,
   textmate: [
     'variable.language.this',
+    'variable.language.this.ts',
     'variable.language.super',
-    'variable.language',
+    'variable.language.super.ts',
   ] as const,
   fontStyle: 'italic' as const,
 };

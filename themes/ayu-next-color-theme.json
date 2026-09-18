@@ -24,6 +24,13 @@
     "editor.wordHighlightStrongBackground": "#FF9944",
     "editorBracketMatch.background": "#707a8c4d",
     "editorBracketMatch.border": "#707a8c99",
+    "editorBracketHighlight.foreground1": "#CBCCC6",
+    "editorBracketHighlight.foreground2": "#CBCCC6",
+    "editorBracketHighlight.foreground3": "#CBCCC6",
+    "editorBracketHighlight.foreground4": "#CBCCC6",
+    "editorBracketHighlight.foreground5": "#CBCCC6",
+    "editorBracketHighlight.foreground6": "#CBCCC6",
+    "editorBracketHighlight.unexpectedBracket.foreground": "#E74C3C",
     "editorCodeLens.foreground": "#CBCCC6",
     "editorCursor.foreground": "#FFCC66",
     "editorError.foreground": "#E74C3C",
@@ -329,10 +336,6 @@
     "number": "#8C9EFF",
     "regexp": "#95E6CB",
     "enumMember": "#95E6CB",
-    "variable.language": {
-      "foreground": "#5CCFE6",
-      "fontStyle": "italic"
-    },
     "variable.language.this": {
       "foreground": "#5CCFE6",
       "fontStyle": "italic"
@@ -854,7 +857,32 @@
       "scope": [
         "keyword.operator",
         "punctuation.accessor",
-        "source support.type.object.module"
+        "source support.type.object.module",
+        "punctuation.definition.block",
+        "punctuation.definition.block.ts",
+        "punctuation.definition.parameters",
+        "punctuation.definition.parameters.ts",
+        "punctuation.definition.array",
+        "punctuation.definition.array.ts",
+        "punctuation.section.block",
+        "punctuation.section.block.ts",
+        "punctuation.section.parameters",
+        "meta.brace.curly",
+        "meta.brace.curly.ts",
+        "meta.brace.round",
+        "meta.brace.round.ts",
+        "meta.brace.square",
+        "meta.brace.square.ts",
+        "punctuation.brackets",
+        "punctuation.parentheses",
+        "punctuation.separator",
+        "punctuation.separator.comma",
+        "punctuation.separator.comma.ts",
+        "punctuation.terminator",
+        "punctuation.terminator.statement",
+        "punctuation.terminator.statement.ts",
+        "punctuation.separator.key-value",
+        "punctuation.separator.key-value.ts"
       ],
       "settings": {
         "foreground": "#CBCCC6"
@@ -910,8 +938,9 @@
     {
       "scope": [
         "variable.language.this",
+        "variable.language.this.ts",
         "variable.language.super",
-        "variable.language"
+        "variable.language.super.ts"
       ],
       "settings": {
         "foreground": "#5CCFE6",
@@ -938,6 +967,38 @@
       ],
       "settings": {
         "foreground": "#F29E74"
+      }
+    },
+    {
+      "scope": [
+        "punctuation.definition.block",
+        "punctuation.definition.block.ts",
+        "punctuation.definition.parameters",
+        "punctuation.definition.parameters.ts",
+        "punctuation.definition.array",
+        "punctuation.definition.array.ts",
+        "punctuation.section.block",
+        "punctuation.section.block.ts",
+        "meta.brace.curly",
+        "meta.brace.curly.ts",
+        "meta.brace.round",
+        "meta.brace.round.ts",
+        "meta.brace.square",
+        "meta.brace.square.ts",
+        "punctuation.brackets",
+        "punctuation.parentheses",
+        "punctuation.separator",
+        "punctuation.separator.comma",
+        "punctuation.separator.comma.ts",
+        "punctuation.terminator",
+        "punctuation.terminator.statement",
+        "punctuation.terminator.statement.ts",
+        "punctuation.separator.key-value",
+        "punctuation.separator.key-value.ts",
+        "punctuation.section"
+      ],
+      "settings": {
+        "foreground": "#CBCCC6"
       }
     },
     {
