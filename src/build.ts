@@ -168,8 +168,6 @@ function assertSyntaxAligned(): void {
   const ctorValueSelectors = [
     'class.defaultLibrary',
     'variable.defaultLibrary',
-    'function.defaultLibrary',
-    'property.defaultLibrary',
   ];
 
   for (const selector of ctorValueSelectors) {

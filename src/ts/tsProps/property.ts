@@ -19,7 +19,7 @@ export const propKeyPaint = {
 /** Interface / type object field names (`role`, `hex`) — green, TextMate only. */
 export const propFieldPaint = {
   role: 'syntax.propField' as const,
-  semantic: [] as const,
+  semantic: ['property.declaration'] as const,
   textmate: [
     'meta.interface meta.field.declaration variable.object.property',
     'meta.interface meta.field.declaration variable.object.property.ts',
@@ -40,7 +40,9 @@ export const propFieldPaint = {
  */
 export const classFieldPaint = {
   role: 'syntax.fg' as const,
-  semantic: ['property.declaration'] as const,
+  // no property.declaration semantic — it whitened interface keys (role/hex).
+  // Class fields white via TextMate lock only.
+  semantic: [] as const,
   textmate: [
     // exact Inspect winner
     'meta.class meta.field.declaration meta.definition.property variable.object.property',

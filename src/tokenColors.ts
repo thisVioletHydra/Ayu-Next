@@ -181,6 +181,25 @@ export const tokenColorSlices: LayerSlice[] = [
   },
   {
     layer: TokenLayer.Lock,
+    id: 'lock.libMethod',
+    filePriority: 37,
+    rules: [
+      {
+        scope: [
+          'support.function',
+          'support.function.ts',
+          'support.function.builtin',
+          'support.function.builtin.ts',
+          'entity.name.function.defaultLibrary',
+          'meta.function-call support.function',
+          'meta.function-call.support support.function',
+        ],
+        settings: { foreground: '#F28779' },
+      },
+    ],
+  },
+  {
+    layer: TokenLayer.Lock,
     id: 'lock.lib.primitive',
     filePriority: 28,
     rules: libPrimitiveLockTokenColors,

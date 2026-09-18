@@ -309,11 +309,9 @@
     "typeParameter.declaration": "#B9F6CA",
     "class.defaultLibrary": "#5CCFE6",
     "variable.defaultLibrary": "#5CCFE6",
-    "function.defaultLibrary": "#5CCFE6",
-    "property.defaultLibrary": "#5CCFE6",
     "type.defaultLibrary": "#CBCCC6",
     "property": "#BAE67F",
-    "property.declaration": "#CBCCC6",
+    "property.declaration": "#BAE67F",
     "parameter": "#F29E74",
     "parameter.declaration": "#F29E74",
     "string": "#BAE67F",
@@ -1017,25 +1015,34 @@
         "meta.function-call.constructor entity.name.function",
         "meta.function-call.constructor entity.name.function.ts",
         "meta.function-call.constructor entity.name.type",
+        "meta.function-call.constructor entity.name.type.ts",
         "meta.function-call.constructor support.class",
         "meta.function-call.constructor support.class.builtin",
         "meta.function-call.constructor variable.other.readwrite",
         "new.expr entity.name.type",
         "new.expr entity.name.type.ts",
-        "new.expr entity.name.function",
-        "new.expr entity.name.function.ts",
         "new.expr entity.name.type.class",
         "new.expr support.class",
         "new.expr support.class.builtin",
-        "new.expr variable.other.readwrite",
-        "new.expr variable.other.constant",
-        "meta.new-expression entity.name.type",
-        "meta.new-expression entity.name.function",
-        "source new.expr entity.name.type",
-        "source new.expr entity.name.function"
+        "new.expr support.class.builtin.ts",
+        "meta.new-expression entity.name.type"
       ],
       "settings": {
         "foreground": "#5CCFE6"
+      }
+    },
+    {
+      "scope": [
+        "support.function",
+        "support.function.ts",
+        "support.function.builtin",
+        "support.function.builtin.ts",
+        "entity.name.function.defaultLibrary",
+        "meta.function-call support.function",
+        "meta.function-call.support support.function"
+      ],
+      "settings": {
+        "foreground": "#F28779"
       }
     },
     {
