@@ -1,27 +1,18 @@
 /**
- * Interface / type-literal / object-literal KEYS — green `#BAE67F`.
- * Class fields (`accents`) are NOT green — see classFieldPaint (white).
+ * Interface / type / object-literal KEYS — green `#BAE67F`.
+ * Class fields (`accents`) — white via classFieldPaint (not green).
  *
- * No semantic `property.declaration` here: it paints both interface AND class
- * fields the same. Interface keys = TextMate only; class fields = white lock.
+ * Do NOT list bare `variable.object.property` / `meta.definition.property` here:
+ * they also match class fields and beat white locks on Host.
  */
 export const propKeyPaint = {
   role: 'syntax.propKey' as const,
-  // property access (dto.role) — green; declarations handled by TM / classField
   semantic: ['property'] as const,
   textmate: [
     'meta.object-literal.key',
     'meta.object-literal.key.ts',
     'meta.object-binding-pattern variable.object.property',
     'meta.array-binding-pattern variable.object.property',
-    'variable.object.property',
-    'variable.object.property.ts',
-    'variable.other.property',
-    'variable.other.property.ts',
-    'variable.other.object.property',
-    'entity.name.variable.property',
-    'meta.definition.property',
-    'meta.definition.property variable',
   ] as const,
 };
 
@@ -44,19 +35,23 @@ export const propFieldPaint = {
 
 /**
  * Class fields / private vars (`accents`) — white `#CBCCC6`.
- * Semantic property.declaration → white so Inspect matches Host.
+ * Exact Host Inspect winner:
+ *   meta.class meta.field.declaration meta.definition.property variable.object.property
  */
 export const classFieldPaint = {
   role: 'syntax.fg' as const,
   semantic: ['property.declaration'] as const,
   textmate: [
+    // exact Inspect winner
+    'meta.class meta.field.declaration meta.definition.property variable.object.property',
+    'meta.class meta.field.declaration meta.definition.property variable.object.property.ts',
+    'meta.class.ts meta.field.declaration meta.definition.property variable.object.property.ts',
+    'meta.class meta.field.declaration meta.definition.property variable',
     'meta.class meta.field.declaration variable.object.property',
     'meta.class meta.field.declaration variable.object.property.ts',
     'meta.class meta.field.declaration variable.other.readwrite',
     'meta.class meta.field.declaration variable.other.readwrite.ts',
-    'meta.class meta.field.declaration meta.definition.property variable',
     'meta.class.ts meta.field.declaration.ts variable.object.property.ts',
-    'meta.class property.declaration',
   ] as const,
 };
 

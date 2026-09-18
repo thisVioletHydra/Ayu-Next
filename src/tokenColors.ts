@@ -31,7 +31,10 @@ export const thisPropLockTokenColors: TokenRule[] = [
     scope: [...propKeyPaint.textmate, ...propFieldPaint.textmate],
     settings: { foreground: PROP_HEX },
   },
-  // class fields LAST — white beats broad variable.object.property green
+];
+
+/** L4 LOCK — class fields white (after prop green). */
+export const classFieldLockTokenColors: TokenRule[] = [
   {
     scope: [...classFieldPaint.textmate],
     settings: { foreground: CLASS_FIELD_HEX },
@@ -127,6 +130,12 @@ export const tokenColorSlices: LayerSlice[] = [
     id: 'lock.thisProp',
     filePriority: 10,
     rules: thisPropLockTokenColors,
+  },
+  {
+    layer: TokenLayer.Lock,
+    id: 'lock.classField',
+    filePriority: 12,
+    rules: classFieldLockTokenColors,
   },
   {
     layer: TokenLayer.Lock,

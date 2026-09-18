@@ -915,14 +915,6 @@
         "meta.object-literal.key.ts",
         "meta.object-binding-pattern variable.object.property",
         "meta.array-binding-pattern variable.object.property",
-        "variable.object.property",
-        "variable.object.property.ts",
-        "variable.other.property",
-        "variable.other.property.ts",
-        "variable.other.object.property",
-        "entity.name.variable.property",
-        "meta.definition.property",
-        "meta.definition.property variable",
         "meta.interface meta.field.declaration variable.object.property",
         "meta.interface meta.field.declaration variable.object.property.ts",
         "meta.interface meta.field.declaration variable.other.readwrite",
@@ -939,13 +931,15 @@
     },
     {
       "scope": [
+        "meta.class meta.field.declaration meta.definition.property variable.object.property",
+        "meta.class meta.field.declaration meta.definition.property variable.object.property.ts",
+        "meta.class.ts meta.field.declaration meta.definition.property variable.object.property.ts",
+        "meta.class meta.field.declaration meta.definition.property variable",
         "meta.class meta.field.declaration variable.object.property",
         "meta.class meta.field.declaration variable.object.property.ts",
         "meta.class meta.field.declaration variable.other.readwrite",
         "meta.class meta.field.declaration variable.other.readwrite.ts",
-        "meta.class meta.field.declaration meta.definition.property variable",
-        "meta.class.ts meta.field.declaration.ts variable.object.property.ts",
-        "meta.class property.declaration"
+        "meta.class.ts meta.field.declaration.ts variable.object.property.ts"
       ],
       "settings": {
         "foreground": "#CBCCC6"
