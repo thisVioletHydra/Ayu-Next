@@ -14,7 +14,7 @@ import {
   TYPING_NAME_HEX,
 } from '#ts/tsTypes';
 import { thisPaint, THIS_HEX } from '#ts/tsLanguage';
-import { propKeyPaint, propFieldPaint, PROP_HEX } from '#ts/tsProps';
+import { propKeyPaint, propFieldPaint, classFieldPaint, PROP_HEX, CLASS_FIELD_HEX } from '#ts/tsProps';
 import { decoratorNamePaint, DECORATOR_NAME_HEX } from '#ts/tsDecorators';
 import { ctorPaint, CTOR_HEX } from '#ts/tsClasses';
 
@@ -30,6 +30,11 @@ export const thisPropLockTokenColors: TokenRule[] = [
   {
     scope: [...propKeyPaint.textmate, ...propFieldPaint.textmate],
     settings: { foreground: PROP_HEX },
+  },
+  // class fields LAST — white beats broad variable.object.property green
+  {
+    scope: [...classFieldPaint.textmate],
+    settings: { foreground: CLASS_FIELD_HEX },
   },
 ];
 
@@ -92,6 +97,7 @@ const lockedTm = new Set<string>([
   ...thisPaint.textmate,
   ...propKeyPaint.textmate,
   ...propFieldPaint.textmate,
+  ...classFieldPaint.textmate,
   ...decoratorNamePaint.textmate,
   ...typeBuiltinTyping.textmate,
   ...ctorPaint.textmate,

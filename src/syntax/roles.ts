@@ -9,7 +9,7 @@ import { classPaint, ctorPaint } from '#ts/tsClasses';
 import { thisPaint } from '#ts/tsLanguage';
 import { keywordPaint, keywordStrongPaint, typeKeywordPaint } from '#ts/tsKeywords';
 import { decoratorNamePaint } from '#ts/tsDecorators';
-import { propKeyPaint, propFieldPaint } from '#ts/tsProps';
+import { propKeyPaint, propFieldPaint, classFieldPaint } from '#ts/tsProps';
 
 export type SyntaxRole = Extract<TokenRole, `syntax.${string}`>;
 
@@ -121,6 +121,11 @@ export const rolePaint = [
     role: propFieldPaint.role,
     semantic: [...propFieldPaint.semantic],
     textmate: [...propFieldPaint.textmate],
+  },
+  {
+    role: classFieldPaint.role,
+    semantic: [...classFieldPaint.semantic],
+    textmate: [...classFieldPaint.textmate],
   },
   {
     role: 'syntax.param',

@@ -1,9 +1,13 @@
 /**
- * Interface/object field KEYS — green `#BAE67F` (same as string literals).
- * Never peach/orange. Does not own type names.
+ * Interface / type-literal / object-literal KEYS — green `#BAE67F`.
+ * Class fields (`accents`) are NOT green — see classFieldPaint (white).
+ *
+ * No semantic `property.declaration` here: it paints both interface AND class
+ * fields the same. Interface keys = TextMate only; class fields = white lock.
  */
 export const propKeyPaint = {
   role: 'syntax.propKey' as const,
+  // property access (dto.role) — green; declarations handled by TM / classField
   semantic: ['property'] as const,
   textmate: [
     'meta.object-literal.key',
@@ -21,9 +25,10 @@ export const propKeyPaint = {
   ] as const,
 };
 
+/** Interface / type object field names (`role`, `hex`) — green, TextMate only. */
 export const propFieldPaint = {
   role: 'syntax.propField' as const,
-  semantic: ['property.declaration'] as const,
+  semantic: [] as const,
   textmate: [
     'meta.interface meta.field.declaration variable.object.property',
     'meta.interface meta.field.declaration variable.object.property.ts',
@@ -33,9 +38,27 @@ export const propFieldPaint = {
     'meta.interface.ts variable.object.property.ts',
     'meta.type.declaration meta.field.declaration variable.object.property',
     'meta.type.object.type meta.field.declaration variable.object.property',
+    'meta.type.object.type meta.field.declaration variable.other.readwrite',
+  ] as const,
+};
+
+/**
+ * Class fields / private vars (`accents`) — white `#CBCCC6`.
+ * Semantic property.declaration → white so Inspect matches Host.
+ */
+export const classFieldPaint = {
+  role: 'syntax.fg' as const,
+  semantic: ['property.declaration'] as const,
+  textmate: [
     'meta.class meta.field.declaration variable.object.property',
+    'meta.class meta.field.declaration variable.object.property.ts',
+    'meta.class meta.field.declaration variable.other.readwrite',
+    'meta.class meta.field.declaration variable.other.readwrite.ts',
     'meta.class meta.field.declaration meta.definition.property variable',
+    'meta.class.ts meta.field.declaration.ts variable.object.property.ts',
+    'meta.class property.declaration',
   ] as const,
 };
 
 export const PROP_HEX = '#BAE67F' as const;
+export const CLASS_FIELD_HEX = '#CBCCC6' as const;
