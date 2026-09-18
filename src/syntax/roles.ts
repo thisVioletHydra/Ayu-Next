@@ -5,7 +5,7 @@ import {
   typeAliasTypingPaint,
   typeBuiltinTyping,
 } from '#ts/tsTypes';
-import { classPaint, ctorPaint } from '#ts/tsClasses';
+import { classPaint, ctorValuePaint, typePositionLibPaint } from '#ts/tsClasses';
 import { thisPaint } from '#ts/tsLanguage';
 import { keywordPaint, keywordStrongPaint, typeKeywordPaint, modifierKeywordPaint } from '#ts/tsKeywords';
 import { decoratorNamePaint } from '#ts/tsDecorators';
@@ -109,9 +109,14 @@ export const rolePaint = [
     textmate: [...typeAliasTypingPaint.textmate],
   },
   {
-    role: ctorPaint.role,
-    semantic: [...ctorPaint.semantic],
-    textmate: [...ctorPaint.textmate],
+    role: typePositionLibPaint.role,
+    semantic: [...typePositionLibPaint.semantic],
+    textmate: [...typePositionLibPaint.textmate],
+  },
+  {
+    role: ctorValuePaint.role,
+    semantic: [...ctorValuePaint.semantic],
+    textmate: [...ctorValuePaint.textmate],
   },
   {
     role: typeBuiltinTyping.role,

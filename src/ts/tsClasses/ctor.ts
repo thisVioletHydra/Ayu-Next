@@ -1,28 +1,16 @@
 /**
- * Lib classes Map / Date / HttpException / Readonly — etalon lavender `#D5BFFF`.
- * Must beat bare entity.name.function (methods) and fg for import/value positions.
+ * Lib constructors (`new Date`, `new HttpException`) — cyan `#5CCFE6`.
+ * Type-position Map/Readonly — lavender via typePositionLibPaint.
  */
-export const ctorPaint = {
-  role: 'syntax.ctor' as const,
+export const ctorValuePaint = {
+  role: 'syntax.entity' as const, // cyan catalog
   semantic: [
-    'class',
     'class.defaultLibrary',
     'variable.defaultLibrary',
     'function.defaultLibrary',
     'property.defaultLibrary',
   ] as const,
   textmate: [
-    'support.class',
-    'support.class.builtin',
-    'support.class.builtin.ts',
-    'support.function.builtin',
-    // type-position lib / utility
-    'entity.name.type',
-    'entity.name.type.ts',
-    'meta.type.annotation entity.name.type',
-    'meta.type.annotation entity.name.type.ts',
-    'meta.type.annotation support.class',
-    // `new Map` / `new Date` / `new HttpException` — function leaf under new.expr
     'meta.function-call.constructor',
     'meta.function-call.constructor entity.name.function',
     'meta.function-call.constructor entity.name.function.ts',
@@ -43,14 +31,34 @@ export const ctorPaint = {
     'meta.new-expression entity.name.function',
     'source new.expr entity.name.type',
     'source new.expr entity.name.function',
-    // import { HttpException } — often variable.other.readwrite / support
-    'meta.import support.class',
-    'meta.import entity.name.type',
-    'meta.import variable.other.readwrite',
-    'meta.import.ts support.class',
-    'meta.import.ts entity.name.type',
-    'meta.import.ts variable.other.readwrite.ts',
   ] as const,
 };
 
-export const CTOR_HEX = '#D5BFFF' as const;
+/**
+ * Type-position lib / utility (Map, Readonly in annotations) — lavender `#D5BFFF`.
+ * Not constructors.
+ */
+export const typePositionLibPaint = {
+  role: 'syntax.ctor' as const, // lavender catalog
+  semantic: [] as const,
+  textmate: [
+    'support.class',
+    'support.class.builtin',
+    'support.class.builtin.ts',
+    'entity.name.type',
+    'entity.name.type.ts',
+    'meta.type.annotation entity.name.type',
+    'meta.type.annotation entity.name.type.ts',
+    'meta.type.annotation support.class',
+    'meta.import support.class',
+    'meta.import entity.name.type',
+    'meta.import.ts support.class',
+    'meta.import.ts entity.name.type',
+  ] as const,
+};
+
+/** @deprecated alias — prefer ctorValuePaint */
+export const ctorPaint = ctorValuePaint;
+
+export const CTOR_HEX = '#5CCFE6' as const; // constructors cyan
+export const TYPE_POSITION_LIB_HEX = '#D5BFFF' as const;

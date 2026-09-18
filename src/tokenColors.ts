@@ -14,9 +14,10 @@ import {
   TYPING_NAME_HEX,
 } from '#ts/tsTypes';
 import { thisPaint, THIS_HEX } from '#ts/tsLanguage';
+import { modifierKeywordPaint, KEYWORD_HEX } from '#ts/tsKeywords';
 import { propKeyPaint, propFieldPaint, classFieldPaint, PROP_HEX, CLASS_FIELD_HEX } from '#ts/tsProps';
 import { decoratorNamePaint, DECORATOR_NAME_HEX } from '#ts/tsDecorators';
-import { ctorPaint, CTOR_HEX } from '#ts/tsClasses';
+import { ctorValuePaint, typePositionLibPaint, CTOR_HEX, TYPE_POSITION_LIB_HEX } from '#ts/tsClasses';
 
 export type { TokenRule } from '#tokenLayers';
 export { TokenLayer, describePipeline } from '#tokenLayers';
@@ -34,6 +35,13 @@ export const thisPropLockTokenColors: TokenRule[] = [
 ];
 
 /** L4 LOCK — class fields white (after prop green). */
+export const modifierLockTokenColors: TokenRule[] = [
+  {
+    scope: [...modifierKeywordPaint.textmate],
+    settings: { foreground: KEYWORD_HEX, fontStyle: 'italic' },
+  },
+];
+
 export const classFieldLockTokenColors: TokenRule[] = [
   {
     scope: [...classFieldPaint.textmate],
@@ -52,7 +60,14 @@ export const decoratorLockTokenColors: TokenRule[] = [
 /** L4 LOCK — complex lib lavender (Map/Readonly/Date/Http*). */
 export const libComplexLockTokenColors: TokenRule[] = [
   {
-    scope: [...ctorPaint.textmate],
+    scope: [...typePositionLibPaint.textmate],
+    settings: { foreground: TYPE_POSITION_LIB_HEX },
+  },
+];
+
+export const libCtorLockTokenColors: TokenRule[] = [
+  {
+    scope: [...ctorValuePaint.textmate],
     settings: { foreground: CTOR_HEX },
   },
 ];
@@ -68,6 +83,7 @@ export const libPrimitiveLockTokenColors: TokenRule[] = [
 /** @deprecated combined — prefer complex + primitive locks */
 export const libLockTokenColors: TokenRule[] = [
   ...libComplexLockTokenColors,
+  ...libCtorLockTokenColors,
   ...libPrimitiveLockTokenColors,
 ];
 
@@ -101,9 +117,11 @@ const lockedTm = new Set<string>([
   ...propKeyPaint.textmate,
   ...propFieldPaint.textmate,
   ...classFieldPaint.textmate,
+  ...modifierKeywordPaint.textmate,
   ...decoratorNamePaint.textmate,
   ...typeBuiltinTyping.textmate,
-  ...ctorPaint.textmate,
+  ...typePositionLibPaint.textmate,
+  ...ctorValuePaint.textmate,
 ]);
 
 /**
@@ -139,6 +157,12 @@ export const tokenColorSlices: LayerSlice[] = [
   },
   {
     layer: TokenLayer.Lock,
+    id: 'lock.modifier',
+    filePriority: 13,
+    rules: modifierLockTokenColors,
+  },
+  {
+    layer: TokenLayer.Lock,
     id: 'lock.decorator',
     filePriority: 35,
     rules: decoratorLockTokenColors,
@@ -148,6 +172,12 @@ export const tokenColorSlices: LayerSlice[] = [
     id: 'lock.lib.complex',
     filePriority: 25,
     rules: libComplexLockTokenColors,
+  },
+  {
+    layer: TokenLayer.Lock,
+    id: 'lock.lib.ctor',
+    filePriority: 26,
+    rules: libCtorLockTokenColors,
   },
   {
     layer: TokenLayer.Lock,

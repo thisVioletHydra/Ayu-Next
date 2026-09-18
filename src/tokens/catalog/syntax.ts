@@ -70,7 +70,7 @@ export const syntaxCatalog = {
   },
   'syntax.ctor': {
     hex: '#D5BFFF',
-    desc: 'Lib Map/Date/Http*/Readonly — etalon #D5BFFF',
+    desc: 'Type-position lib (Map/Readonly) — lavender; constructors use syntax.entity cyan',
   },
   'syntax.typeBuiltin': {
     hex: '#CBCCC6',

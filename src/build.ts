@@ -164,22 +164,23 @@ function assertSyntaxAligned(): void {
   }
 
 
-  const ctorSelectors = [
-    'class',
+  // Lib constructors (Date/HttpException) → cyan syntax.entity; type-position Map/Readonly → lavender syntax.ctor
+  const ctorValueSelectors = [
     'class.defaultLibrary',
     'variable.defaultLibrary',
     'function.defaultLibrary',
     'property.defaultLibrary',
   ];
 
-  for (const selector of ctorSelectors) {
+  for (const selector of ctorValueSelectors) {
     const actual = hexOf(
       semanticTokenColors[selector as keyof typeof semanticTokenColors],
     );
+    const expected = token('syntax.entity').toLowerCase();
 
-    if (actual !== token('syntax.ctor').toLowerCase()) {
+    if (actual !== expected) {
       mismatches.push(
-        `semantic ${selector} must be syntax.ctor ${token('syntax.ctor')} (got ${actual || 'missing'})`,
+        `semantic ${selector} must be syntax.entity ${expected} (constructors cyan; got ${actual || 'missing'})`,
       );
     }
   }

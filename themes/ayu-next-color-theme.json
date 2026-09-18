@@ -308,11 +308,10 @@
     "type.declaration": "#B9F6CA",
     "typeParameter": "#B9F6CA",
     "typeParameter.declaration": "#B9F6CA",
-    "class": "#D5BFFF",
-    "class.defaultLibrary": "#D5BFFF",
-    "variable.defaultLibrary": "#D5BFFF",
-    "function.defaultLibrary": "#D5BFFF",
-    "property.defaultLibrary": "#D5BFFF",
+    "class.defaultLibrary": "#5CCFE6",
+    "variable.defaultLibrary": "#5CCFE6",
+    "function.defaultLibrary": "#5CCFE6",
+    "property.defaultLibrary": "#5CCFE6",
     "type.defaultLibrary": "#CBCCC6",
     "property": "#BAE67F",
     "property.declaration": "#CBCCC6",
@@ -769,16 +768,6 @@
     },
     {
       "scope": [
-        "storage.modifier.ts",
-        "storage.modifier.tsx"
-      ],
-      "settings": {
-        "foreground": "#FF9944",
-        "fontStyle": "italic"
-      }
-    },
-    {
-      "scope": [
         "storage.type.class.ts",
         "storage.type.class.tsx",
         "meta.class.ts storage.type.class.ts",
@@ -955,15 +944,35 @@
     },
     {
       "scope": [
+        "storage.modifier.ts",
+        "storage.modifier.tsx"
+      ],
+      "settings": {
+        "foreground": "#FF9944",
+        "fontStyle": "italic"
+      }
+    },
+    {
+      "scope": [
         "support.class",
         "support.class.builtin",
         "support.class.builtin.ts",
-        "support.function.builtin",
         "entity.name.type",
         "entity.name.type.ts",
         "meta.type.annotation entity.name.type",
         "meta.type.annotation entity.name.type.ts",
         "meta.type.annotation support.class",
+        "meta.import support.class",
+        "meta.import entity.name.type",
+        "meta.import.ts support.class",
+        "meta.import.ts entity.name.type"
+      ],
+      "settings": {
+        "foreground": "#D5BFFF"
+      }
+    },
+    {
+      "scope": [
         "meta.function-call.constructor",
         "meta.function-call.constructor entity.name.function",
         "meta.function-call.constructor entity.name.function.ts",
@@ -983,16 +992,10 @@
         "meta.new-expression entity.name.type",
         "meta.new-expression entity.name.function",
         "source new.expr entity.name.type",
-        "source new.expr entity.name.function",
-        "meta.import support.class",
-        "meta.import entity.name.type",
-        "meta.import variable.other.readwrite",
-        "meta.import.ts support.class",
-        "meta.import.ts entity.name.type",
-        "meta.import.ts variable.other.readwrite.ts"
+        "source new.expr entity.name.function"
       ],
       "settings": {
-        "foreground": "#D5BFFF"
+        "foreground": "#5CCFE6"
       }
     },
     {
