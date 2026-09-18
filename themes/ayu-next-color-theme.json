@@ -755,21 +755,16 @@
         "keyword.operator.new.ts",
         "storage.modifier.ts",
         "storage.modifier.tsx",
-        "storage.modifier - entity.name.type",
         "storage.type.function.ts",
         "storage.type.function.tsx",
-        "storage.type.function - entity.name.type",
         "storage.type.interface.ts",
         "storage.type.interface.tsx",
-        "storage.type.interface - entity.name.type",
         "storage.type.namespace.ts",
         "storage.type.namespace.tsx",
-        "storage.type.namespace - entity.name.type",
         "storage.type.module.ts",
         "storage.type.module.tsx",
-        "storage.type.module - entity.name.type",
-        "storage.type.ts - entity.name.type",
-        "storage.type.tsx - entity.name.type"
+        "storage.type.ts",
+        "storage.type.tsx"
       ],
       "settings": {
         "foreground": "#FF9944"
@@ -778,8 +773,7 @@
     {
       "scope": [
         "storage.type.type.ts",
-        "storage.type.type.tsx",
-        "storage.type.type - entity.name.type"
+        "storage.type.type.tsx"
       ],
       "settings": {
         "foreground": "#FF9944"
@@ -789,7 +783,6 @@
       "scope": [
         "storage.type.class.ts",
         "storage.type.class.tsx",
-        "storage.type.class - entity.name.type",
         "meta.class.ts storage.type.class.ts",
         "meta.class.tsx storage.type.class.tsx",
         "punctuation.decorator",

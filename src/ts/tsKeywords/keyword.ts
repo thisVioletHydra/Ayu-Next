@@ -1,11 +1,12 @@
 /**
- * Keywords from app.controller.ts.
- * Orange #FF9944 via TextMate only — NO semantic `keyword`.
+ * Keywords — orange #FF9944, TextMate only (no semantic keyword).
  *
- * Roman Inspect: `class` is storage.type.class.ts (no entity.name.type on token).
- * Leaf `.ts`/`.tsx` selectors required — exclusion-only can be «No theme selector».
- * Never bare `storage` / bare `storage.type.class` / bare `storage.type.type`.
- * Always keep `- entity.name.type` on non-leaf storage.* so ThemeId lime holds.
+ * Host Inspect (2026-09-18): exclusion selectors like
+ * `storage.type.class - entity.name.type` do NOT match `storage.type.class.ts`
+ * («No theme selector» → fg #CBCCC6). Use language leaf scopes ONLY.
+ *
+ * Never bare `storage` / `storage.type.class` / `storage.type.type`.
+ * ThemeId/TokenDto stay lime via typing lock on entity.name.type.* (last-wins).
  */
 export const keywordPaint = {
   role: 'syntax.keyword' as const,
@@ -32,49 +33,42 @@ export const keywordPaint = {
     'keyword.control.trycatch.ts',
     'keyword.operator.new',
     'keyword.operator.new.ts',
-    // private / readonly / public …
+    // private / readonly / public
     'storage.modifier.ts',
     'storage.modifier.tsx',
-    'storage.modifier - entity.name.type',
     // function keyword
     'storage.type.function.ts',
     'storage.type.function.tsx',
-    'storage.type.function - entity.name.type',
     // interface / namespace / module keywords
     'storage.type.interface.ts',
     'storage.type.interface.tsx',
-    'storage.type.interface - entity.name.type',
     'storage.type.namespace.ts',
     'storage.type.namespace.tsx',
-    'storage.type.namespace - entity.name.type',
     'storage.type.module.ts',
     'storage.type.module.tsx',
-    'storage.type.module - entity.name.type',
-    // const / let / var / constructor (leaf + exclusion only)
-    'storage.type.ts - entity.name.type',
-    'storage.type.tsx - entity.name.type',
+    // const / let / var / constructor
+    'storage.type.ts',
+    'storage.type.tsx',
   ] as const,
 };
 
-/** `type` keyword — leaf only, never paints ThemeId. */
+/** `type` keyword — language leaf only. */
 export const typeKeywordPaint = {
   role: 'syntax.keyword' as const,
   semantic: [] as const,
   textmate: [
     'storage.type.type.ts',
     'storage.type.type.tsx',
-    'storage.type.type - entity.name.type',
   ] as const,
 };
 
-/** `class` keyword + decorator `@`. Leaf scopes required for Host. */
+/** `class` keyword + decorator `@` punct — language leaf only. */
 export const keywordStrongPaint = {
   role: 'syntax.keywordStrong' as const,
   semantic: [] as const,
   textmate: [
     'storage.type.class.ts',
     'storage.type.class.tsx',
-    'storage.type.class - entity.name.type',
     'meta.class.ts storage.type.class.ts',
     'meta.class.tsx storage.type.class.tsx',
     'punctuation.decorator',

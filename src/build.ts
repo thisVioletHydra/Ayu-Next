@@ -345,7 +345,9 @@ function assertTypingNameLock(): void {
   }
 
 
-  // Ban storage→orange that can parent-bleed onto type names (Roman Inspect)
+  // Ban bare storage→orange (Roman Inspect). Language leaves `.ts`/`.tsx` OK —
+  // Host does not match exclusion selectors like `storage.type.class - entity.name.type`
+  // against `storage.type.class.ts`. ThemeId stays lime via typing lock last-wins.
   for (let i = 0; i < tokenColors.length; i++) {
     const rule = tokenColors[i];
     const fg = String(rule.settings?.foreground ?? '').toLowerCase();
@@ -353,21 +355,29 @@ function assertTypingNameLock(): void {
     const scopes = (Array.isArray(rule.scope) ? rule.scope : [rule.scope]).map((s) => String(s));
     for (const s of scopes) {
       const base = s.split(' - ')[0].trim();
-      const hasTypeExclusion = s.includes('- entity.name.type');
-      if (base === 'storage' || base === 'storage.ts') {
+      const isLangLeaf = /\.(ts|tsx|js|jsx|mts|cts)$/.test(base);
+      if (base === 'storage') {
         mismatches.push(`tokenColors[${i}] bare storage → orange (scope ${s})`);
       }
+      // exclusion selectors are broken on Host for class/interface/modifier — ban them
+      if (s.includes('- entity.name.type') && base.startsWith('storage.')) {
+        mismatches.push(
+          `tokenColors[${i}] exclusion scope broken on Host (use leaf .ts instead): ${s}`,
+        );
+      }
       if (
-        !hasTypeExclusion &&
+        !isLangLeaf &&
         (base === 'storage.modifier' ||
+          base === 'storage.type' ||
           base === 'storage.type.type' ||
           base === 'storage.type.interface' ||
           base === 'storage.type.namespace' ||
           base === 'storage.type.module' ||
-          base === 'storage.type.class')
+          base === 'storage.type.class' ||
+          base === 'storage.type.function')
       ) {
         mismatches.push(
-          `tokenColors[${i}] ${base} → orange without "- entity.name.type" exclusion — ThemeId/TokenDto flood`,
+          `tokenColors[${i}] bare ${base} → orange (use ${base}.ts leaf, not exclusion)`,
         );
       }
     }
@@ -392,7 +402,7 @@ function assertTypingNameLock(): void {
   }
 
 if (mismatches.length > 0) {
-    throw new Error(`Typing name lock (lime #BAE67F) broken:\n- ${mismatches.join('\n- ')}`);
+    throw new Error(`Typing name lock (lime ${expected}) broken:\n- ${mismatches.join('\n- ')}`);
   }
 }
 
