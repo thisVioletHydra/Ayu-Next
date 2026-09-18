@@ -320,9 +320,9 @@
     "variable.defaultLibrary": "#D5BFFF",
     "function.defaultLibrary": "#D5BFFF",
     "property.defaultLibrary": "#D5BFFF",
-    "type.defaultLibrary": "#D5BFFF",
-    "property": "#F29E74",
-    "property.declaration": "#F29E74",
+    "type.defaultLibrary": "#CBCCC6",
+    "property": "#BAE67F",
+    "property.declaration": "#BAE67F",
     "parameter": "#F29E74",
     "parameter.declaration": "#F29E74",
     "string": "#BAE67F",
@@ -966,7 +966,7 @@
         "meta.class meta.field.declaration meta.definition.property variable"
       ],
       "settings": {
-        "foreground": "#F29E74"
+        "foreground": "#BAE67F"
       }
     },
     {
@@ -1009,7 +1009,7 @@
         "storage.type.primitive"
       ],
       "settings": {
-        "foreground": "#D5BFFF"
+        "foreground": "#CBCCC6"
       }
     },
     {

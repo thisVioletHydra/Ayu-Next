@@ -33,12 +33,12 @@ export const syntaxCatalog = {
     desc: 'String literals — etalon #BAE67F',
   },
   'syntax.propKey': {
-    hex: '#F29E74',
-    desc: 'Object keys — etalon peach',
+    hex: '#BAE67F',
+    desc: 'Interface/object field keys — green like strings',
   },
   'syntax.propField': {
-    hex: '#F29E74',
-    desc: 'Interface fields — etalon peach',
+    hex: '#BAE67F',
+    desc: 'Interface field names (role, hex) — green like strings',
   },
   'syntax.regexp': {
     hex: '#95E6CB',
@@ -73,8 +73,8 @@ export const syntaxCatalog = {
     desc: 'Lib Map/Date/Http*/Readonly — etalon #D5BFFF',
   },
   'syntax.typeBuiltin': {
-    hex: '#D5BFFF',
-    desc: 'string annotations — etalon #D5BFFF',
+    hex: '#CBCCC6',
+    desc: 'Primitive annotations (string/number) — white; complex types keep lime/lavender',
   },
   'syntax.decoratorName': {
     hex: '#FFE6B3',

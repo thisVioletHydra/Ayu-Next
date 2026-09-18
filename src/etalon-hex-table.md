@@ -15,3 +15,11 @@ Source: King/Inspector table from etalon PNG.
 | punct / fg | `#CBCCC6` |
 
 Methods and strings are **not** `#FF9944`.
+
+## Interface / object fields (Roman 2026-09-18)
+
+| Role | Hex |
+|------|-----|
+| field keys (`role`, `hex`, …) | `#BAE67F` |
+| primitive type values (`string`, `number`, …) | `#CBCCC6` |
+| complex type values (ThemeId/TokenDto/Map/Readonly…) | type colors (lime/lavender) |

@@ -1,6 +1,6 @@
 /**
- * Property access: dto.role / accents / object keys — light #CBCCC6.
- * Never orange. Does not own type/interface names.
+ * Property access: dto.role / accents / object keys — green #BAE67F like strings.
+ * Never orange/peach. Does not own type/interface names.
  */
 export const propKeyPaint = {
   role: 'syntax.propKey' as const,
@@ -31,4 +31,4 @@ export const propFieldPaint = {
   ] as const,
 };
 
-export const PROP_HEX = '#F29E74' as const;
+export const PROP_HEX = '#BAE67F' as const;
