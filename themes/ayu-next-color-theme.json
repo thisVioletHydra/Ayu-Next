@@ -950,16 +950,23 @@
     {
       "scope": [
         "meta.object-literal.key",
+        "meta.object-literal.key.ts",
         "meta.object-binding-pattern variable.object.property",
         "meta.array-binding-pattern variable.object.property",
         "variable.object.property",
+        "variable.object.property.ts",
         "variable.other.property",
+        "variable.other.property.ts",
         "variable.other.object.property",
         "entity.name.variable.property",
         "meta.definition.property",
         "meta.definition.property variable",
         "meta.interface meta.field.declaration variable.object.property",
+        "meta.interface meta.field.declaration variable.object.property.ts",
         "meta.interface meta.field.declaration variable.other.readwrite",
+        "meta.interface meta.field.declaration variable.other.readwrite.ts",
+        "meta.interface variable.object.property",
+        "meta.interface.ts variable.object.property.ts",
         "meta.type.declaration meta.field.declaration variable.object.property",
         "meta.type.object.type meta.field.declaration variable.object.property",
         "meta.class meta.field.declaration variable.object.property",
@@ -996,17 +1003,6 @@
         "punctuation.separator.key-value",
         "punctuation.separator.key-value.ts",
         "punctuation.section"
-      ],
-      "settings": {
-        "foreground": "#CBCCC6"
-      }
-    },
-    {
-      "scope": [
-        "support.type.primitive",
-        "support.type.builtin",
-        "support.type",
-        "storage.type.primitive"
       ],
       "settings": {
         "foreground": "#CBCCC6"
@@ -1052,6 +1048,19 @@
       ],
       "settings": {
         "foreground": "#D5BFFF"
+      }
+    },
+    {
+      "scope": [
+        "support.type.primitive",
+        "support.type.primitive.ts",
+        "support.type.builtin",
+        "support.type.builtin.ts",
+        "storage.type.primitive",
+        "storage.type.primitive.ts"
+      ],
+      "settings": {
+        "foreground": "#CBCCC6"
       }
     },
     {

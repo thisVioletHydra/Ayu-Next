@@ -1,16 +1,19 @@
 /**
- * Builtin primitives in annotations (`string`, `number`) — white `#CBCCC6`.
- * Complex lib types (Map/Readonly/Date/Http*) stay lavender via syntax.ctor.
- * Custom ThemeId/TokenDto stay lime lock `#B9F6CA`.
+ * Primitive annotations only (`string`, `number`, `boolean`) — white `#CBCCC6`.
+ * Do NOT include bare `support.type` (too broad).
+ * Complex lib (Map/Readonly/Date/Http*) → syntax.ctor lavender `#D5BFFF`.
+ * ThemeId/TokenDto → lime lock.
  */
 export const typeBuiltinTyping = {
   role: 'syntax.typeBuiltin' as const,
   semantic: ['type.defaultLibrary'] as const,
   textmate: [
     'support.type.primitive',
+    'support.type.primitive.ts',
     'support.type.builtin',
-    'support.type',
+    'support.type.builtin.ts',
     'storage.type.primitive',
+    'storage.type.primitive.ts',
   ] as const,
   hex: '#CBCCC6' as const,
 } as const;

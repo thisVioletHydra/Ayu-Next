@@ -32,7 +32,7 @@ export type RolePaint = {
  *   syntax.typeAlias      — type-alias names (ThemeId) — салатовый замок
  *   syntax.interface      — interface names (TokenDto) — салатовый замок
  *   syntax.ctor           — lib classes Map/Date/HttpException/Readonly — lavender
- *   syntax.typeBuiltin    — primitives (`string`) — lavender
+ *   syntax.typeBuiltin    — primitives (`string`) — white #CBCCC6
  *   syntax.decoratorName  — Injectable/Controller — light cyan
  *   syntax.propKey        — `{ id, accent: }` / destructure keys
  *   syntax.propField      — interface field names (`role`, `hex`)

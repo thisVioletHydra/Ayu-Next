@@ -41,16 +41,26 @@ export const decoratorLockTokenColors: TokenRule[] = [
   },
 ];
 
-/** L4 LOCK — lib/utility lavender (Readonly/Map/Date/string) before lime. */
-export const libLockTokenColors: TokenRule[] = [
-  {
-    scope: [...typeBuiltinTyping.textmate],
-    settings: { foreground: typeBuiltinTyping.hex },
-  },
+/** L4 LOCK — complex lib lavender (Map/Readonly/Date/Http*). */
+export const libComplexLockTokenColors: TokenRule[] = [
   {
     scope: [...ctorPaint.textmate],
     settings: { foreground: CTOR_HEX },
   },
+];
+
+/** L4 LOCK — primitive annotations white (AFTER complex lib). */
+export const libPrimitiveLockTokenColors: TokenRule[] = [
+  {
+    scope: [...typeBuiltinTyping.textmate],
+    settings: { foreground: typeBuiltinTyping.hex },
+  },
+];
+
+/** @deprecated combined — prefer complex + primitive locks */
+export const libLockTokenColors: TokenRule[] = [
+  ...libComplexLockTokenColors,
+  ...libPrimitiveLockTokenColors,
 ];
 
 /** L4 LOCK — interface then type-alias lime `#B9F6CA` (alias absolute last). */
@@ -157,9 +167,15 @@ export const tokenColorSlices: LayerSlice[] = [
   },
   {
     layer: TokenLayer.Lock,
-    id: 'lock.lib',
+    id: 'lock.lib.complex',
     filePriority: 25,
-    rules: libLockTokenColors,
+    rules: libComplexLockTokenColors,
+  },
+  {
+    layer: TokenLayer.Lock,
+    id: 'lock.lib.primitive',
+    filePriority: 28,
+    rules: libPrimitiveLockTokenColors,
   },
   {
     layer: TokenLayer.Lock,
