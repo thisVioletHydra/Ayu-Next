@@ -743,8 +743,6 @@
         "keyword.control.trycatch.ts",
         "keyword.operator.new",
         "keyword.operator.new.ts",
-        "storage.modifier.ts",
-        "storage.modifier.tsx",
         "storage.type.function.ts",
         "storage.type.function.tsx",
         "storage.type.interface.ts",
@@ -767,6 +765,16 @@
       ],
       "settings": {
         "foreground": "#FF9944"
+      }
+    },
+    {
+      "scope": [
+        "storage.modifier.ts",
+        "storage.modifier.tsx"
+      ],
+      "settings": {
+        "foreground": "#FF9944",
+        "fontStyle": "italic"
       }
     },
     {

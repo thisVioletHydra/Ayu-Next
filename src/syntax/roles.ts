@@ -7,7 +7,7 @@ import {
 } from '#ts/tsTypes';
 import { classPaint, ctorPaint } from '#ts/tsClasses';
 import { thisPaint } from '#ts/tsLanguage';
-import { keywordPaint, keywordStrongPaint, typeKeywordPaint } from '#ts/tsKeywords';
+import { keywordPaint, keywordStrongPaint, typeKeywordPaint, modifierKeywordPaint } from '#ts/tsKeywords';
 import { decoratorNamePaint } from '#ts/tsDecorators';
 import { propKeyPaint, propFieldPaint, classFieldPaint } from '#ts/tsProps';
 
@@ -50,6 +50,12 @@ export const rolePaint = [
     role: typeKeywordPaint.role,
     semantic: [...typeKeywordPaint.semantic],
     textmate: [...typeKeywordPaint.textmate],
+  },
+  {
+    role: modifierKeywordPaint.role,
+    semantic: [...modifierKeywordPaint.semantic],
+    textmate: [...modifierKeywordPaint.textmate],
+    fontStyle: modifierKeywordPaint.fontStyle,
   },
   {
     role: keywordStrongPaint.role,

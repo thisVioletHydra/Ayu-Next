@@ -33,9 +33,7 @@ export const keywordPaint = {
     'keyword.control.trycatch.ts',
     'keyword.operator.new',
     'keyword.operator.new.ts',
-    // private / readonly / public
-    'storage.modifier.ts',
-    'storage.modifier.tsx',
+    // private / readonly → modifierKeywordPaint (italic)
     // function keyword
     'storage.type.function.ts',
     'storage.type.function.tsx',
@@ -76,6 +74,17 @@ export const keywordStrongPaint = {
     'punctuation.definition.annotation',
   ] as const,
   fontStyle: 'bold' as const,
+};
+
+/** `private` / `readonly` / `public` — orange #FF9944 + italic. */
+export const modifierKeywordPaint = {
+  role: 'syntax.keyword' as const,
+  semantic: [] as const,
+  textmate: [
+    'storage.modifier.ts',
+    'storage.modifier.tsx',
+  ] as const,
+  fontStyle: 'italic' as const,
 };
 
 export const KEYWORD_HEX = '#FF9944' as const;
