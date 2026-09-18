@@ -2,8 +2,8 @@
   "icon": "images/icon-hero.png",
   "name": "ayu-next",
   "displayName": "Ayu Next",
-  "description": "🔥 This is a Dark theme (Mirage), screenshots inside",
-  "version": "2.0.0",
+  "description": "\ud83d\udd25 This is a Dark theme (Mirage), screenshots inside",
+  "version": "2.0.8",
   "license": "MIT",
   "private": false,
   "type": "module",
@@ -19,7 +19,20 @@
     "#paint": "./src/paint/index.ts",
     "#paint/*": "./src/paint/*.ts",
     "#syntax/*": "./src/syntax/*.ts",
-    "#data/*": "./src/data/*"
+    "#ts/tsTypes": "./src/ts/tsTypes/index.ts",
+    "#ts/tsTypes/*": "./src/ts/tsTypes/*.ts",
+    "#ts/tsClasses": "./src/ts/tsClasses/index.ts",
+    "#ts/tsClasses/*": "./src/ts/tsClasses/*.ts",
+    "#ts/tsLanguage": "./src/ts/tsLanguage/index.ts",
+    "#ts/tsLanguage/*": "./src/ts/tsLanguage/*.ts",
+    "#ts/tsKeywords": "./src/ts/tsKeywords/index.ts",
+    "#ts/tsKeywords/*": "./src/ts/tsKeywords/*.ts",
+    "#ts/tsDecorators": "./src/ts/tsDecorators/index.ts",
+    "#ts/tsDecorators/*": "./src/ts/tsDecorators/*.ts",
+    "#ts/tsProps": "./src/ts/tsProps/index.ts",
+    "#ts/tsProps/*": "./src/ts/tsProps/*.ts",
+    "#data/*": "./src/data/*",
+    "#tokenLayers": "./src/tokenLayers.ts"
   },
   "publisher": "Roman",
   "author": "VioletHydra <thisviolethydra@gmail.com>",
@@ -53,7 +66,7 @@
   ],
   "contributes": {
     "configurationDefaults": {
-      "editor.semanticHighlighting.enabled": "configuredByTheme"
+      "editor.semanticHighlighting.enabled": true
     },
     "themes": [
       {

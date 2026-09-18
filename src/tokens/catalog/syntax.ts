@@ -10,7 +10,7 @@ export type CatalogEntry = { hex: HexColor; desc: string };
 export const syntaxCatalog = {
   'syntax.fg': {
     hex: '#CBCCC6',
-    desc: 'Default text, values, builtin types (`string` in annotations)',
+    desc: 'Default text — etalon fg',
   },
   'syntax.comment': {
     hex: '#5C6773',
@@ -18,27 +18,27 @@ export const syntaxCatalog = {
   },
   'syntax.keyword': {
     hex: '#FF9944',
-    desc: 'Keywords: type/interface/return/new/if/private/readonly',
+    desc: 'Keywords — etalon #FF9944',
   },
   'syntax.keywordStrong': {
     hex: '#FF9944',
-    desc: 'Thick keyword: `class` keyword and decorator `@` (bold)',
+    desc: 'Thick keyword + @ — etalon #FF9944',
   },
   'syntax.operator': {
-    hex: '#F29E74',
-    desc: 'Operators, accessors, import/export',
+    hex: '#CBCCC6',
+    desc: 'Operators/punct — etalon fg',
   },
   'syntax.string': {
-    hex: '#BAE67E',
-    desc: 'String literals only — not types, not object keys',
+    hex: '#BAE67F',
+    desc: 'String literals — etalon #BAE67F',
   },
   'syntax.propKey': {
-    hex: '#BAE67E',
-    desc: 'Object-literal and destructure KEYS on the left',
+    hex: '#BAE67F',
+    desc: 'Interface/object field keys — green like strings',
   },
   'syntax.propField': {
-    hex: '#F29E74',
-    desc: 'Interface / type-literal field names — not object keys',
+    hex: '#BAE67F',
+    desc: 'Interface field names (role, hex) — green like strings',
   },
   'syntax.regexp': {
     hex: '#95E6CB',
@@ -49,40 +49,48 @@ export const syntaxCatalog = {
     desc: 'Numbers',
   },
   'syntax.param': {
-    hex: '#D4BFFF',
-    desc: 'Function params at declaration AND body usage',
+    hex: '#F29E74',
+    desc: 'Params — etalon peach',
   },
   'syntax.func': {
     hex: '#FFD580',
-    desc: 'Functions, methods, decorator NAMES (not `@`)',
+    desc: 'Methods — etalon #FFD580 (not keyword orange)',
   },
   'syntax.entity': {
-    hex: '#73D0FF',
-    desc: 'Class identifiers and type-alias names (ThemeService, ThemeId)',
+    hex: '#5CCFE6',
+    desc: 'Class names — etalon cyan #5CCFE6',
+  },
+  'syntax.typeAlias': {
+    hex: '#B9F6CA',
+    desc: 'ThemeId — etalon #B9F6CA',
   },
   'syntax.interface': {
-    hex: '#73D0FF',
-    desc: 'Interface names (TokenDto) — own role so fields cannot steal it',
+    hex: '#B9F6CA',
+    desc: 'TokenDto — etalon #B9F6CA',
   },
   'syntax.ctor': {
-    hex: '#73D0FF',
-    desc: 'Every `new X` constructor name — one color, no class/string/error mix',
+    hex: '#D5BFFF',
+    desc: 'Type-position lib (Map/Readonly) — lavender; constructors use syntax.entity cyan',
   },
   'syntax.typeBuiltin': {
     hex: '#CBCCC6',
-    desc: 'Builtin / primitive type annotations (`string`, `number`)',
+    desc: 'Primitive annotations (string/number) — white; complex types keep lime/lavender',
+  },
+  'syntax.decoratorName': {
+    hex: '#FFE6B3',
+    desc: 'Decorator names — etalon cream #FFE6B3',
   },
   'syntax.this': {
     hex: '#5CCFE6',
-    desc: '`this` / `super`',
+    desc: 'this/super — etalon cyan #5CCFE6',
   },
   'syntax.tag': {
     hex: '#5CCFE6',
-    desc: 'HTML/XML tags only — not TS types',
+    desc: 'HTML/XML tags — cyan',
   },
   'syntax.markup': {
     hex: '#F28779',
-    desc: 'Library callables (console.*) — not constructors',
+    desc: 'Built-in lib methods (toISOString) / support.function — Mirage library red',
   },
   'syntax.special': {
     hex: '#FFE6B3',

@@ -5,7 +5,14 @@ import {
 } from '#semanticTokenColors';
 import { ownedScopeHex, rolePaint } from '#syntax/roles';
 import { token } from '#tokens';
-import { tokenColors } from '#tokenColors';
+import { typingNameLock } from '#ts/tsTypes';
+import {
+  tokenColors,
+  typingNameLockTokenColors,
+  tokenColorPipeline,
+  tokenColorSlices,
+  TokenLayer,
+} from '#tokenColors';
 
 import fsPromises from 'node:fs/promises';
 import path from 'node:path';
@@ -156,36 +163,245 @@ function assertSyntaxAligned(): void {
     mismatches.push('syntax.keywordStrong must stay the same hex as syntax.keyword');
   }
 
-  if (token('syntax.propKey').toLowerCase() !== token('syntax.string').toLowerCase()) {
-    mismatches.push('syntax.propKey must stay the same hex as syntax.string');
-  }
 
-  if (token('syntax.typeBuiltin').toLowerCase() !== token('syntax.fg').toLowerCase()) {
-    mismatches.push('syntax.typeBuiltin must stay the same hex as syntax.fg');
-  }
-
-  const ctorSelectors = [
-    'class',
+  // Lib constructors (Date/HttpException) → cyan syntax.entity; type-position Map/Readonly → lavender syntax.ctor
+  const ctorValueSelectors = [
     'class.defaultLibrary',
     'variable.defaultLibrary',
-    'function.defaultLibrary',
-    'property.defaultLibrary',
   ];
 
-  for (const selector of ctorSelectors) {
+  for (const selector of ctorValueSelectors) {
     const actual = hexOf(
       semanticTokenColors[selector as keyof typeof semanticTokenColors],
     );
+    const expected = token('syntax.entity').toLowerCase();
 
-    if (actual !== token('syntax.ctor').toLowerCase()) {
+    if (actual !== expected) {
       mismatches.push(
-        `semantic ${selector} must be syntax.ctor ${token('syntax.ctor')} (got ${actual || 'missing'})`,
+        `semantic ${selector} must be syntax.entity ${expected} (constructors cyan; got ${actual || 'missing'})`,
       );
     }
   }
 
   if (mismatches.length > 0) {
     throw new Error(`Syntax roles drifted:\n- ${mismatches.join('\n- ')}`);
+  }
+}
+
+
+
+function assertTokenLayers(): void {
+  const errors: string[] = [];
+  // L3 semantic is separate field — must be enabled
+  // (checked via semanticHighlighting export in buildTheme)
+
+  let maxGeneral = -1;
+  let maxNarrow = -1;
+  let minLock = tokenColors.length;
+  // Reconstruct indices from slices (source of truth)
+  let cursor = 0;
+  const ranges: { id: string; layer: number; start: number; end: number }[] = [];
+  for (const slice of [...tokenColorSlices].sort((a, b) =>
+    a.layer !== b.layer ? a.layer - b.layer : a.filePriority - b.filePriority || a.id.localeCompare(b.id),
+  )) {
+    const start = cursor;
+    cursor += slice.rules.length;
+    ranges.push({ id: slice.id, layer: slice.layer, start, end: cursor });
+    if (slice.layer === TokenLayer.General) maxGeneral = cursor - 1;
+    if (slice.layer === TokenLayer.Narrow) maxNarrow = cursor - 1;
+    if (slice.layer === TokenLayer.Lock) minLock = Math.min(minLock, start);
+  }
+  if (cursor !== tokenColors.length) {
+    errors.push(`slice rule count ${cursor} != tokenColors ${tokenColors.length}`);
+  }
+  if (maxGeneral >= 0 && maxNarrow >= 0 && maxGeneral >= minLock) {
+    errors.push(`GENERAL overlaps LOCK (maxGeneral=${maxGeneral}, minLock=${minLock})`);
+  }
+  if (maxNarrow >= 0 && maxNarrow >= minLock) {
+    errors.push(`NARROW overlaps LOCK (maxNarrow=${maxNarrow}, minLock=${minLock}) — leftover/roles would beat lime`);
+  }
+  const lastSlice = ranges[ranges.length - 1];
+  if (!lastSlice || lastSlice.layer !== TokenLayer.Lock || lastSlice.id !== 'lock.typing.alias') {
+    errors.push(`pipeline must end with lock.typing.alias, got ${lastSlice?.id}`);
+  }
+  // No non-lock slice after first lock
+  let seenLock = false;
+  for (const r of ranges) {
+    if (r.layer === TokenLayer.Lock) seenLock = true;
+    else if (seenLock) errors.push(`non-LOCK slice ${r.id} after LOCK`);
+  }
+  if (errors.length > 0) {
+    throw new Error(`Token layer pipeline broken:\n- ${errors.join('\n- ')}\nPipeline: ${tokenColorPipeline}`);
+  }
+}
+
+function assertTypingNameLock(): void {
+  const expected = typingNameLock.hex.toLowerCase();
+  const mismatches: string[] = [];
+
+  for (const role of typingNameLock.roles) {
+    const actual = token(role).toLowerCase();
+    if (actual !== expected) {
+      mismatches.push(`${role} is ${actual}, locked lime ${expected}`);
+    }
+  }
+
+  for (const selector of typingNameLock.semantic) {
+    const actual = hexOf(
+      semanticTokenColors[selector as keyof typeof semanticTokenColors],
+    );
+    if (actual !== expected) {
+      mismatches.push(`semantic ${selector} is ${actual || '(missing)'}, locked lime ${expected}`);
+    }
+  }
+
+  const owned = ownedScopeHex();
+  for (const scope of typingNameLock.textmate) {
+    const owner = owned.get(scope);
+    if (!owner) {
+      mismatches.push(`TextMate ${scope} has no owner — typing lock broken`);
+      continue;
+    }
+    if (owner.hex !== expected) {
+      mismatches.push(
+        `TextMate ${scope} owned by ${owner.role} ${owner.hex}, locked lime ${expected}`,
+      );
+    }
+    if (!typingNameLock.roles.includes(owner.role as typeof typingNameLock.roles[number])) {
+      mismatches.push(
+        `TextMate ${scope} stolen by ${owner.role} — only typing roles may own salad names`,
+      );
+    }
+  }
+
+  // Регресс: синий entity/ctor не должен владеть type/interface scopes.
+  for (const paint of rolePaint) {
+    if (typingNameLock.roles.includes(paint.role as typeof typingNameLock.roles[number])) {
+      continue;
+    }
+    for (const selector of paint.semantic) {
+      if ((typingNameLock.semantic as readonly string[]).includes(selector)) {
+        mismatches.push(`${paint.role} steals semantic ${selector} from typing lock`);
+      }
+    }
+    for (const scope of paint.textmate) {
+      if ((typingNameLock.textmate as readonly string[]).includes(scope)) {
+        mismatches.push(`${paint.role} steals TextMate ${scope} from typing lock`);
+      }
+    }
+  }
+
+
+  // Typing-name lock rules must appear after leftover/roles (last-wins for names).
+  // this/prop lock may follow them.
+  const lockScopes = new Set(
+    typingNameLockTokenColors.flatMap((r) =>
+      Array.isArray(r.scope) ? r.scope : [r.scope],
+    ),
+  );
+  let lastTypingLockIdx = -1;
+  for (let i = 0; i < tokenColors.length; i++) {
+    const raw = tokenColors[i]?.scope;
+    const scopes = (Array.isArray(raw) ? raw : [raw]).map((s) => String(s));
+    if (scopes.some((s) => lockScopes.has(s))) lastTypingLockIdx = i;
+  }
+  if (lastTypingLockIdx < 0) {
+    mismatches.push('tokenColors missing lime lock rules for type/interface names');
+  } else {
+    // nothing after typing lock may paint typing-name scopes non-salad (checked below)
+    void lastTypingLockIdx;
+  }
+
+  for (let i = 0; i < tokenColors.length; i++) {
+    const rule = tokenColors[i];
+    const fg = String(rule.settings?.foreground ?? '').toLowerCase();
+    const scopes = (Array.isArray(rule.scope) ? rule.scope : [rule.scope]).map(String);
+    for (const scope of scopes) {
+      const isTypingName =
+        scope === 'entity.name.type' ||
+        scope.startsWith('entity.name.type.alias') ||
+        scope.startsWith('entity.name.type.interface') ||
+        scope.includes('entity.name.type.alias') ||
+        scope.includes('entity.name.type.interface');
+      if (!isTypingName) continue;
+      // after the last lock rule index, only salad allowed; before, warn if orange
+      if (fg === '#ff9944') {
+        mismatches.push(
+          `tokenColors[${i}] paints typing name scope ${scope} orange ${fg} — lock broken`,
+        );
+      }
+    }
+  }
+
+  // semantic declarations also locked
+  for (const selector of ['type.declaration', 'interface.declaration'] as const) {
+    const actual = hexOf(
+      semanticTokenColors[selector as keyof typeof semanticTokenColors],
+    );
+    if (actual && actual !== expected) {
+      mismatches.push(`semantic ${selector} is ${actual}, locked lime ${expected}`);
+    }
+  }
+
+
+  // Ban bare storage→orange (Roman Inspect). Language leaves `.ts`/`.tsx` OK —
+  // Host does not match exclusion selectors like `storage.type.class - entity.name.type`
+  // against `storage.type.class.ts`. ThemeId stays lime via typing lock last-wins.
+  for (let i = 0; i < tokenColors.length; i++) {
+    const rule = tokenColors[i];
+    const fg = String(rule.settings?.foreground ?? '').toLowerCase();
+    if (fg !== '#ff9944') continue;
+    const scopes = (Array.isArray(rule.scope) ? rule.scope : [rule.scope]).map((s) => String(s));
+    for (const s of scopes) {
+      const base = s.split(' - ')[0].trim();
+      const isLangLeaf = /\.(ts|tsx|js|jsx|mts|cts)$/.test(base);
+      if (base === 'storage') {
+        mismatches.push(`tokenColors[${i}] bare storage → orange (scope ${s})`);
+      }
+      // exclusion selectors are broken on Host for class/interface/modifier — ban them
+      if (s.includes('- entity.name.type') && base.startsWith('storage.')) {
+        mismatches.push(
+          `tokenColors[${i}] exclusion scope broken on Host (use leaf .ts instead): ${s}`,
+        );
+      }
+      if (
+        !isLangLeaf &&
+        (base === 'storage.modifier' ||
+          base === 'storage.type' ||
+          base === 'storage.type.type' ||
+          base === 'storage.type.interface' ||
+          base === 'storage.type.namespace' ||
+          base === 'storage.type.module' ||
+          base === 'storage.type.class' ||
+          base === 'storage.type.function')
+      ) {
+        mismatches.push(
+          `tokenColors[${i}] bare ${base} → orange (use ${base}.ts leaf, not exclusion)`,
+        );
+      }
+    }
+  }
+
+    
+  // ThemeId lock must be absolute last tokenColors entry
+  const last = tokenColors[tokenColors.length - 1];
+  const lastScopes = (Array.isArray(last?.scope) ? last.scope : [last?.scope]).map(String);
+  if (!lastScopes.some((s) => s.includes('entity.name.type.alias'))) {
+    mismatches.push('last tokenColors rule must lock entity.name.type.alias (ThemeId) — was ' + lastScopes.slice(0, 3).join(','));
+  }
+  // Ban unscoped storage.type.type → orange (use .ts leaf or exclusion)
+  for (let i = 0; i < tokenColors.length; i++) {
+    const rule = tokenColors[i];
+    const fg = String(rule.settings?.foreground ?? '').toLowerCase();
+    if (fg !== '#ff9944') continue;
+    const scopes = (Array.isArray(rule.scope) ? rule.scope : [rule.scope]).map((s) => String(s));
+    if (scopes.some((s) => s === 'storage.type.type')) {
+      mismatches.push(`tokenColors[${i}] has bare storage.type.type → orange (use storage.type.type.ts or exclusion)`);
+    }
+  }
+
+if (mismatches.length > 0) {
+    throw new Error(`Typing name lock (lime ${expected}) broken:\n- ${mismatches.join('\n- ')}`);
   }
 }
 
@@ -233,6 +449,8 @@ function buildTheme() {
 const known = await loadKnownKeys();
 validateColors(known);
 assertSyntaxAligned();
+assertTokenLayers();
+assertTypingNameLock();
 await assertPlaygroundProject();
 
 const theme = buildTheme();
@@ -240,5 +458,6 @@ await fsPromises.mkdir(path.dirname(outPath), { recursive: true });
 await fsPromises.writeFile(outPath, `${JSON.stringify(theme, null, 2)}\n`);
 
 process.stdout.write(
-  `Built ${outPath} (${Object.keys(colors).length} colors, ${tokenColors.length} token rules)\n`,
+  `Built ${outPath} (${Object.keys(colors).length} colors, ${tokenColors.length} token rules)\n` +
+  `Layers: ${tokenColorPipeline}\n`,
 );

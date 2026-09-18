@@ -1,5 +1,15 @@
 import type { TokenRole } from '#tokens';
 import { token } from '#tokens';
+import {
+  interfaceTypingPaint,
+  typeAliasTypingPaint,
+  typeBuiltinTyping,
+} from '#ts/tsTypes';
+import { classPaint, ctorValuePaint, typePositionLibPaint } from '#ts/tsClasses';
+import { thisPaint } from '#ts/tsLanguage';
+import { keywordPaint, keywordStrongPaint, typeKeywordPaint, modifierKeywordPaint } from '#ts/tsKeywords';
+import { decoratorNamePaint } from '#ts/tsDecorators';
+import { propKeyPaint, propFieldPaint, classFieldPaint } from '#ts/tsProps';
 
 export type SyntaxRole = Extract<TokenRole, `syntax.${string}`>;
 
@@ -17,12 +27,13 @@ export type RolePaint = {
  *
  *   syntax.keyword        — keywords (`type`, `return`, `new`)
  *   syntax.keywordStrong  — bold `class` keyword + decorator `@`
- *   syntax.func           — methods + .get/.set + decorator NAME (`Injectable`)
- *   syntax.entity         — class + type-alias identifiers
- *   syntax.interface      — interface names only
- *   syntax.ctor           — every `new X` name: defaultLibrary + constructor
- *                           TM scopes (Date/Map/Error/HttpException)
- *   syntax.typeBuiltin    — primitives (`string` in annotations)
+ *   syntax.func           — methods + .get/.set (decorator NAME → syntax.decoratorName)
+ *   syntax.entity         — class identifiers only
+ *   syntax.typeAlias      — type-alias names (ThemeId) — салатовый замок
+ *   syntax.interface      — interface names (TokenDto) — салатовый замок
+ *   syntax.ctor           — lib classes Map/Date/HttpException/Readonly — lavender
+ *   syntax.typeBuiltin    — primitives (`string`) — white #CBCCC6
+ *   syntax.decoratorName  — Injectable/Controller — light cyan
  *   syntax.propKey        — `{ id, accent: }` / destructure keys
  *   syntax.propField      — interface field names (`role`, `hex`)
  *   syntax.param          — params in signature AND body
@@ -31,129 +42,100 @@ export type RolePaint = {
  */
 export const rolePaint = [
   {
-    role: 'syntax.keyword',
-    semantic: ['keyword'],
-    textmate: [
-      'keyword',
-      'storage',
-      'storage.type.keyword',
-      'storage.type.function',
-      'storage.type.type',
-      'storage.type.interface',
-      'keyword.control.default',
-      'keyword.operator.new',
-    ],
+    role: keywordPaint.role,
+    semantic: [...keywordPaint.semantic],
+    textmate: [...keywordPaint.textmate],
   },
   {
-    role: 'syntax.keywordStrong',
-    semantic: [],
-    textmate: [
-      'storage.type.class',
-      'punctuation.decorator',
-      'punctuation.definition.decorator',
-      'punctuation.definition.annotation',
-    ],
-    fontStyle: 'bold',
+    role: typeKeywordPaint.role,
+    semantic: [...typeKeywordPaint.semantic],
+    textmate: [...typeKeywordPaint.textmate],
+  },
+  {
+    role: modifierKeywordPaint.role,
+    semantic: [...modifierKeywordPaint.semantic],
+    textmate: [...modifierKeywordPaint.textmate],
+    fontStyle: modifierKeywordPaint.fontStyle,
+  },
+  {
+    role: keywordStrongPaint.role,
+    semantic: [...keywordStrongPaint.semantic],
+    textmate: [...keywordStrongPaint.textmate],
+    fontStyle: keywordStrongPaint.fontStyle,
   },
   {
     role: 'syntax.func',
-    semantic: ['function', 'method', 'method.defaultLibrary', 'decorator'],
+    semantic: [
+      'function',
+      'method',
+    ],
     textmate: [
+      // bare leaf kept for ownership assert; exclusions stop decorator/`new X` bleed
       'entity.name.function',
+      'entity.name.function - meta.decorator',
+      'entity.name.function - new.expr',
+      'entity.name.function.ts - meta.decorator',
       'entity.name.function.member',
-      'meta.function-call entity.name.function',
+      'meta.function-call entity.name.function - meta.decorator',
+      'meta.function-call entity.name.function - new.expr',
       'meta.method.declaration entity.name.function',
       'meta.definition.method entity.name.function',
       'variable.function',
+      'variable.function - meta.decorator',
       'meta.function-call.generic',
-      'support.function',
-      'meta.function-call support.function',
-      'entity.name.function.decorator',
-      'meta.decorator entity.name.function',
-      'meta.decorator variable.other',
-      'storage.type.annotation',
-      'variable.annotation',
     ],
   },
   {
-    role: 'syntax.entity',
-    semantic: [
-      'class.declaration',
-      'enum',
-      'enum.defaultLibrary',
-      'struct',
-      'struct.defaultLibrary',
-      'type',
-      'typeParameter',
-    ],
-    textmate: [
-      'entity.name.type',
-      'entity.name.type.class',
-      'entity.name.type.alias',
-      'entity.name.type.enum',
-      'support.class',
-    ],
+    role: decoratorNamePaint.role,
+    semantic: [...decoratorNamePaint.semantic],
+    textmate: [...decoratorNamePaint.textmate],
+  },
+
+  {
+    role: classPaint.role,
+    semantic: [...classPaint.semantic],
+    textmate: [...classPaint.textmate],
+  },
+  // tsTypes: interface + type-alias names — salad lock (src/ts/tsTypes)
+  {
+    role: interfaceTypingPaint.role,
+    semantic: [...interfaceTypingPaint.semantic],
+    textmate: [...interfaceTypingPaint.textmate],
   },
   {
-    role: 'syntax.interface',
-    semantic: ['interface', 'interface.defaultLibrary'],
-    textmate: ['entity.name.type.interface'],
+    role: typeAliasTypingPaint.role,
+    semantic: [...typeAliasTypingPaint.semantic],
+    textmate: [...typeAliasTypingPaint.textmate],
   },
   {
-    role: 'syntax.ctor',
-    semantic: [
-      'class',
-      'class.defaultLibrary',
-      'variable.defaultLibrary',
-      'function.defaultLibrary',
-      'property.defaultLibrary',
-    ],
-    textmate: [
-      'meta.function-call.constructor',
-      'meta.function-call.constructor entity.name.function',
-      'meta.function-call.constructor entity.name.type',
-      'meta.function-call.constructor support.class',
-      'meta.function-call.constructor support.class.builtin',
-      'meta.function-call.constructor variable.other.readwrite',
-      'new.expr entity.name.type',
-      'new.expr entity.name.function',
-      'new.expr entity.name.type.class',
-      'new.expr support.class',
-      'new.expr support.class.builtin',
-      'new.expr variable.other.readwrite',
-      'new.expr variable.other.constant',
-      'meta.new-expression entity.name.type',
-      'source new.expr entity.name.type',
-      'source meta.export.default meta.class meta.method.declaration meta.block meta.var.expr new.expr entity.name.type',
-    ],
+    role: typePositionLibPaint.role,
+    semantic: [...typePositionLibPaint.semantic],
+    textmate: [...typePositionLibPaint.textmate],
   },
   {
-    role: 'syntax.typeBuiltin',
-    semantic: ['type.defaultLibrary'],
-    textmate: [
-      'support.type.primitive',
-      'support.type.builtin',
-      'storage.type.primitive',
-    ],
+    role: ctorValuePaint.role,
+    semantic: [...ctorValuePaint.semantic],
+    textmate: [...ctorValuePaint.textmate],
   },
   {
-    role: 'syntax.propKey',
-    semantic: ['property'],
-    textmate: [
-      'meta.object-literal.key',
-      'meta.object-binding-pattern variable.object.property',
-      'meta.array-binding-pattern variable.object.property',
-    ],
+    role: typeBuiltinTyping.role,
+    semantic: [...typeBuiltinTyping.semantic],
+    textmate: [...typeBuiltinTyping.textmate],
   },
   {
-    role: 'syntax.propField',
-    semantic: ['property.declaration'],
-    textmate: [
-      'meta.interface meta.field.declaration variable.object.property',
-      'meta.interface meta.field.declaration variable.other.readwrite',
-      'meta.type.declaration meta.field.declaration variable.object.property',
-      'meta.type.object.type meta.field.declaration variable.object.property',
-    ],
+    role: propKeyPaint.role,
+    semantic: [...propKeyPaint.semantic],
+    textmate: [...propKeyPaint.textmate],
+  },
+  {
+    role: propFieldPaint.role,
+    semantic: [...propFieldPaint.semantic],
+    textmate: [...propFieldPaint.textmate],
+  },
+  {
+    role: classFieldPaint.role,
+    semantic: [...classFieldPaint.semantic],
+    textmate: [...classFieldPaint.textmate],
   },
   {
     role: 'syntax.param',
@@ -177,8 +159,6 @@ export const rolePaint = [
     textmate: [
       'keyword.operator',
       'punctuation.accessor',
-      'keyword.control.import',
-      'keyword.control.export',
       'source support.type.object.module',
     ],
   },
@@ -193,10 +173,10 @@ export const rolePaint = [
     textmate: ['string.regexp', 'constant.character', 'constant.other'],
   },
   {
-    role: 'syntax.this',
-    semantic: ['variable.language.this'],
-    textmate: ['variable.language.this', 'variable.language.super'],
-    fontStyle: 'italic',
+    role: thisPaint.role,
+    semantic: [...thisPaint.semantic],
+    textmate: [...thisPaint.textmate],
+    fontStyle: thisPaint.fontStyle,
   },
   {
     role: 'syntax.tag',
@@ -205,8 +185,14 @@ export const rolePaint = [
   },
   {
     role: 'syntax.markup',
-    semantic: [],
+    semantic: [
+      'method.defaultLibrary',
+    ],
     textmate: [
+      'support.function',
+      'support.function.ts',
+      'support.function.builtin',
+      'support.function.builtin.ts',
       'support.macro',
       'support.function.console',
       'source meta.export.default meta.class meta.method.declaration meta.block meta.function-call support.function.console',

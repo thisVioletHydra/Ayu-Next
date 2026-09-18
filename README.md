@@ -18,6 +18,47 @@ Ayu Next is a precision dark theme — Mirage depth, sharp accents, syntax that 
 
 Standing on the shoulders of [Ayu](https://github.com/dempfi/ayu) — then rebuilt for how we actually write software now.
 
+
+## Builder (TypeScript syntax)
+
+Syntax roles are split by construct under ASCII paths only (no Cyrillic in folders/files):
+
+| Path | Owns |
+| --- | --- |
+| `src/ts/tsTypes/` | Type & interface **names** (`ThemeId`, `TokenDto`) |
+| `src/ts/tsClasses/` | Class names + `new X` / lib ctors |
+| `src/ts/tsKeywords/` | Keywords + decorator `@` |
+| `src/ts/tsLanguage/` | `this` / `super` |
+| `src/ts/tsProps/` | Property access & interface fields |
+| `src/ts/tsDecorators/` | Decorator names (`Injectable`, `Controller`) |
+
+**Verify with Inspect Editor Tokens (hex), not pixel-guessing.**
+
+**Hard lock:** type and interface names stay lime `#B9F6CA` forever. `pnpm build` fails if another role repaints those scopes. Reference file: `playground/node/nest/app.controller.ts`.
+
+Nest playground target (approx): types/interfaces `#B9F6CA`, classes/ctors `#5CCFE6`, keywords/methods/strings `#FF9944`, params/properties/`string`/decorator-names `#CBCCC6`.
+
+```bash
+pnpm build
+```
+
+
+## Token priority layers
+
+VS Code `tokenColors` are **last-wins**. The builder concatenates layers via `assembleTokenColors()` — do not hand-edit order in the JSON:
+
+| Layer | What | Source |
+|------:|------|--------|
+| 1 GENERAL | leftover / punct / broad defaults | `src/data/token-colors.json` |
+| 2 NARROW | keywords, methods, strings, classes… | `src/ts/*` roles |
+| 3 SEMANTIC | semantic token colors (separate key) | `semanticTokenColors` |
+| 4 LOCK | ultra-specific locks **last** (`#B9F6CA` typing names, `this`, props) | `lock.thisProp` → `lock.typing` |
+
+Typing lime + storage exclusions are enforced by build asserts so a late leftover cannot stomp `#B9F6CA`.
+
+**QA:** use **Inspect Editor Tokens** and the reported foreground hex — not screenshot pixels.
+
+
 ## Changelog
 
 [CHANGELOG](https://github.com/thisVioletHydra/Ayu-Next/blob/master/CHANGELOG.md)
