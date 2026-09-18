@@ -294,7 +294,6 @@
   "semanticTokenColors": {
     "function": "#FFD580",
     "method": "#FFD580",
-    "method.defaultLibrary": "#FFD580",
     "decorator": "#FFE6B3",
     "class.declaration": "#5CCFE6",
     "enum": "#5CCFE6",
@@ -332,6 +331,7 @@
       "foreground": "#5CCFE6",
       "fontStyle": "italic"
     },
+    "method.defaultLibrary": "#F28779",
     "macro": "#FFE6B3",
     "variable": "#CBCCC6"
   },
@@ -877,6 +877,10 @@
     },
     {
       "scope": [
+        "support.function",
+        "support.function.ts",
+        "support.function.builtin",
+        "support.function.builtin.ts",
         "support.macro",
         "support.function.console",
         "source meta.export.default meta.class meta.method.declaration meta.block meta.function-call support.function.console"
@@ -973,33 +977,6 @@
     },
     {
       "scope": [
-        "meta.function-call.constructor",
-        "meta.function-call.constructor entity.name.function",
-        "meta.function-call.constructor entity.name.function.ts",
-        "meta.function-call.constructor entity.name.type",
-        "meta.function-call.constructor support.class",
-        "meta.function-call.constructor support.class.builtin",
-        "meta.function-call.constructor variable.other.readwrite",
-        "new.expr entity.name.type",
-        "new.expr entity.name.type.ts",
-        "new.expr entity.name.function",
-        "new.expr entity.name.function.ts",
-        "new.expr entity.name.type.class",
-        "new.expr support.class",
-        "new.expr support.class.builtin",
-        "new.expr variable.other.readwrite",
-        "new.expr variable.other.constant",
-        "meta.new-expression entity.name.type",
-        "meta.new-expression entity.name.function",
-        "source new.expr entity.name.type",
-        "source new.expr entity.name.function"
-      ],
-      "settings": {
-        "foreground": "#5CCFE6"
-      }
-    },
-    {
-      "scope": [
         "support.type.primitive",
         "support.type.primitive.ts",
         "support.type.builtin",
@@ -1032,6 +1009,33 @@
       ],
       "settings": {
         "foreground": "#FFE6B3"
+      }
+    },
+    {
+      "scope": [
+        "meta.function-call.constructor",
+        "meta.function-call.constructor entity.name.function",
+        "meta.function-call.constructor entity.name.function.ts",
+        "meta.function-call.constructor entity.name.type",
+        "meta.function-call.constructor support.class",
+        "meta.function-call.constructor support.class.builtin",
+        "meta.function-call.constructor variable.other.readwrite",
+        "new.expr entity.name.type",
+        "new.expr entity.name.type.ts",
+        "new.expr entity.name.function",
+        "new.expr entity.name.function.ts",
+        "new.expr entity.name.type.class",
+        "new.expr support.class",
+        "new.expr support.class.builtin",
+        "new.expr variable.other.readwrite",
+        "new.expr variable.other.constant",
+        "meta.new-expression entity.name.type",
+        "meta.new-expression entity.name.function",
+        "source new.expr entity.name.type",
+        "source new.expr entity.name.function"
+      ],
+      "settings": {
+        "foreground": "#5CCFE6"
       }
     },
     {

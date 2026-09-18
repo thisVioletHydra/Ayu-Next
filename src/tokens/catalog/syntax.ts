@@ -90,7 +90,7 @@ export const syntaxCatalog = {
   },
   'syntax.markup': {
     hex: '#F28779',
-    desc: 'Library callables (console.*) — not constructors',
+    desc: 'Built-in lib methods (toISOString) / support.function — Mirage library red',
   },
   'syntax.special': {
     hex: '#FFE6B3',

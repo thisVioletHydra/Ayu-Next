@@ -68,7 +68,6 @@ export const rolePaint = [
     semantic: [
       'function',
       'method',
-      'method.defaultLibrary',
     ],
     textmate: [
       // bare leaf kept for ownership assert; exclusions stop decorator/`new X` bleed
@@ -186,8 +185,14 @@ export const rolePaint = [
   },
   {
     role: 'syntax.markup',
-    semantic: [],
+    semantic: [
+      'method.defaultLibrary',
+    ],
     textmate: [
+      'support.function',
+      'support.function.ts',
+      'support.function.builtin',
+      'support.function.builtin.ts',
       'support.macro',
       'support.function.console',
       'source meta.export.default meta.class meta.method.declaration meta.block meta.function-call support.function.console',

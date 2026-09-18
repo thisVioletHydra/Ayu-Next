@@ -176,7 +176,7 @@ export const tokenColorSlices: LayerSlice[] = [
   {
     layer: TokenLayer.Lock,
     id: 'lock.lib.ctor',
-    filePriority: 26,
+    filePriority: 36,
     rules: libCtorLockTokenColors,
   },
   {
