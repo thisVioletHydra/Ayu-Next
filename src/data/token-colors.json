@@ -194,12 +194,6 @@
     }
   },
   {
-    "scope": "punctuation.section",
-    "settings": {
-      "foreground": "#cbccc6"
-    }
-  },
-  {
     "scope": "punctuation.definition.tag.end, punctuation.definition.tag.begin, punctuation.definition.tag",
     "settings": {
       "foreground": "#5ccfe680"
