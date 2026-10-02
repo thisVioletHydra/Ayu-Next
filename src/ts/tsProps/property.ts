@@ -1,13 +1,14 @@
 /**
  * Interface / type / object-literal KEYS — green `#BAE67F`.
- * Class fields (`accents`) — white via classFieldPaint (not green).
+ * Member access (`this.accents`) — white via memberAccessPaint / classFieldPaint.
  *
  * Do NOT list bare `variable.object.property` / `meta.definition.property` here:
  * they also match class fields and beat white locks on Host.
+ * Do NOT claim semantic `property` here — that paints `this.accents` green.
  */
 export const propKeyPaint = {
   role: 'syntax.propKey' as const,
-  semantic: ['property'] as const,
+  semantic: [] as const,
   textmate: [
     'meta.object-literal.key',
     'meta.object-literal.key.ts',
@@ -54,6 +55,24 @@ export const classFieldPaint = {
     'meta.class meta.field.declaration variable.other.readwrite',
     'meta.class meta.field.declaration variable.other.readwrite.ts',
     'meta.class.ts meta.field.declaration.ts variable.object.property.ts',
+  ] as const,
+};
+
+/**
+ * Member / property access (`this.accents`, obj.foo) — white `#CBCCC6`.
+ * Semantic `property` (not `.declaration`) — interface keys stay green via property.declaration.
+ */
+export const memberAccessPaint = {
+  role: 'syntax.fg' as const,
+  semantic: ['property'] as const,
+  textmate: [
+    'variable.other.object.property',
+    'variable.other.object.property.ts',
+    'variable.other.object.property.tsx',
+    'meta.property.access variable.other.object.property',
+    'meta.property.access.ts variable.other.object.property.ts',
+    'support.variable.property',
+    'support.variable.property.ts',
   ] as const,
 };
 

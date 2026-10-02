@@ -9,7 +9,7 @@ import { classPaint, ctorValuePaint, typePositionLibPaint } from '#ts/tsClasses'
 import { thisPaint } from '#ts/tsLanguage';
 import { keywordPaint, keywordStrongPaint, typeKeywordPaint, modifierKeywordPaint } from '#ts/tsKeywords';
 import { decoratorNamePaint } from '#ts/tsDecorators';
-import { propKeyPaint, propFieldPaint, classFieldPaint } from '#ts/tsProps';
+import { propKeyPaint, propFieldPaint, classFieldPaint, memberAccessPaint } from '#ts/tsProps';
 
 export type SyntaxRole = Extract<TokenRole, `syntax.${string}`>;
 
@@ -96,6 +96,19 @@ export const rolePaint = [
     semantic: [...classPaint.semantic],
     textmate: [...classPaint.textmate],
   },
+  {
+    // HttpStatus / enum + NOT_FOUND member — white
+    role: 'syntax.fg',
+    semantic: ['enum', 'enum.defaultLibrary', 'enumMember', 'enumMember.defaultLibrary'],
+    textmate: [
+      'entity.name.type.enum',
+      'entity.name.type.enum.ts',
+      'variable.other.enummember',
+      'variable.other.enummember.ts',
+      'variable.other.constant.object',
+      'meta.enum.declaration entity.name',
+    ],
+  },
   // tsTypes: interface + type-alias names — salad lock (src/ts/tsTypes)
   {
     role: interfaceTypingPaint.role,
@@ -138,9 +151,32 @@ export const rolePaint = [
     textmate: [...classFieldPaint.textmate],
   },
   {
+    role: memberAccessPaint.role,
+    semantic: [...memberAccessPaint.semantic],
+    textmate: [...memberAccessPaint.textmate],
+  },
+  {
+    // formal params in signature only
     role: 'syntax.param',
-    semantic: ['parameter', 'parameter.declaration'],
-    textmate: ['variable.parameter', 'meta.parameter'],
+    semantic: ['parameter.declaration'],
+    textmate: [
+      'meta.parameters variable.parameter',
+      'meta.parameters.ts variable.parameter.ts',
+      'meta.function.parameters variable.parameter',
+      'meta.function.parameters.ts variable.parameter.ts',
+      'variable.parameter.ts',
+      'variable.parameter',
+    ],
+  },
+  {
+    // parameter USAGE in body / ${id} — white (not lilac)
+    role: 'syntax.fg',
+    semantic: ['parameter'],
+    textmate: [
+      'meta.template.expression variable.other.readwrite',
+      'meta.template.expression.ts variable.other.readwrite.ts',
+      'string.template meta.template.expression variable.other.readwrite',
+    ],
   },
   {
     role: 'syntax.string',
@@ -169,7 +205,7 @@ export const rolePaint = [
   },
   {
     role: 'syntax.regexp',
-    semantic: ['regexp', 'enumMember'],
+    semantic: ['regexp'],
     textmate: ['string.regexp', 'constant.character', 'constant.other'],
   },
   {

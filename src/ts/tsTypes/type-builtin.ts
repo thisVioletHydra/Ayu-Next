@@ -6,7 +6,8 @@
  */
 export const typeBuiltinTyping = {
   role: 'syntax.typeBuiltin' as const,
-  semantic: ['type.defaultLibrary'] as const,
+  // primitives use support.type.primitive TM; type.defaultLibrary = Readonly/Map (lavender)
+  semantic: [] as const,
   textmate: [
     'support.type.primitive',
     'support.type.primitive.ts',

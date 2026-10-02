@@ -15,7 +15,7 @@ import {
 } from '#ts/tsTypes';
 import { thisPaint, THIS_HEX } from '#ts/tsLanguage';
 import { modifierKeywordPaint, KEYWORD_HEX } from '#ts/tsKeywords';
-import { propKeyPaint, propFieldPaint, classFieldPaint, PROP_HEX, CLASS_FIELD_HEX } from '#ts/tsProps';
+import { propKeyPaint, propFieldPaint, classFieldPaint, memberAccessPaint, PROP_HEX, CLASS_FIELD_HEX } from '#ts/tsProps';
 import { decoratorNamePaint, DECORATOR_NAME_HEX } from '#ts/tsDecorators';
 import { ctorValuePaint, typePositionLibPaint, CTOR_HEX, TYPE_POSITION_LIB_HEX } from '#ts/tsClasses';
 
@@ -42,9 +42,28 @@ export const modifierLockTokenColors: TokenRule[] = [
   },
 ];
 
+
+/** L4 LOCK — `constructor` keyword gold like methods (beats storage.type.ts orange). */
+export const constructorKeywordLockTokenColors: TokenRule[] = [
+  {
+    scope: [
+      'meta.method.declaration storage.type',
+      'meta.method.declaration storage.type.ts',
+      'meta.method.declaration.ts storage.type.ts',
+      'meta.method.declaration.tsx storage.type.tsx',
+      'meta.definition.method storage.type',
+      'meta.definition.method storage.type.ts',
+      'meta.definition.method.ts storage.type.ts',
+      'meta.class meta.method.declaration storage.type.ts',
+      'meta.class.ts meta.method.declaration.ts storage.type.ts',
+    ],
+    settings: { foreground: '#FFD580' },
+  },
+];
+
 export const classFieldLockTokenColors: TokenRule[] = [
   {
-    scope: [...classFieldPaint.textmate],
+    scope: [...classFieldPaint.textmate, ...memberAccessPaint.textmate],
     settings: { foreground: CLASS_FIELD_HEX },
   },
 ];
@@ -95,6 +114,17 @@ export const typingNameLockTokenColors: TokenRule[] = [
   },
   {
     scope: [...typeAliasTypingPaint.textmate],
+    settings: { foreground: TYPING_NAME_HEX },
+  },
+  {
+    // ThemeService in type position — lime; not bare entity.name.type (Readonly)
+    scope: [
+      'meta.type.annotation entity.name.type.class',
+      'meta.type.annotation.ts entity.name.type.class.ts',
+      'meta.type.annotation entity.name.type.class.ts',
+      'meta.function.parameters entity.name.type.class',
+      'meta.function.parameters.ts entity.name.type.class.ts',
+    ],
     settings: { foreground: TYPING_NAME_HEX },
   },
 ];
@@ -163,6 +193,149 @@ export const tokenColorSlices: LayerSlice[] = [
   },
   {
     layer: TokenLayer.Lock,
+    id: 'lock.constructorKeyword',
+    filePriority: 13,
+    rules: constructorKeywordLockTokenColors,
+  },
+  {
+    layer: TokenLayer.Lock,
+    id: 'lock.operators',
+    filePriority: 14,
+    rules: [
+      {
+        scope: [
+          // catch-all operators (last-wins over gray keyword.operator role)
+          'keyword.operator',
+          'keyword.operator.ts',
+          'keyword.operator.tsx',
+          'keyword.operator.arrow',
+          'keyword.operator.arrow.ts',
+          'keyword.operator.arrow.tsx',
+          'keyword.operator.assignment',
+          'keyword.operator.assignment.ts',
+          'keyword.operator.assignment.tsx',
+          'keyword.operator.assignment.compound',
+          'keyword.operator.assignment.compound.ts',
+          'keyword.operator.comparison',
+          'keyword.operator.comparison.ts',
+          'keyword.operator.comparison.tsx',
+          'keyword.operator.relational',
+          'keyword.operator.relational.ts',
+          'keyword.operator.equality',
+          'keyword.operator.equality.ts',
+          'keyword.operator.ternary',
+          'keyword.operator.ternary.ts',
+          'keyword.operator.ternary.tsx',
+          'keyword.operator.optional',
+          'keyword.operator.optional.ts',
+          'keyword.operator.optional-chaining',
+          'keyword.operator.optional-chaining.ts',
+          'punctuation.accessor.optional',
+          'punctuation.accessor.optional.ts',
+          'keyword.operator.nullish-coalescing',
+          'keyword.operator.nullish-coalescing.ts',
+          'keyword.operator.logical',
+          'keyword.operator.logical.ts',
+          'keyword.operator.spread',
+          'keyword.operator.spread.ts',
+          'keyword.operator.spread.tsx',
+          'keyword.operator.rest',
+          'keyword.operator.rest.ts',
+          'keyword.operator.rest.tsx',
+          'keyword.operator.arithmetic',
+          'keyword.operator.arithmetic.ts',
+          'keyword.operator.increment',
+          'keyword.operator.decrement',
+          'keyword.operator.bitwise',
+          'keyword.operator.bitwise.ts',
+          'keyword.operator.expression',
+          'keyword.operator.type',
+          'keyword.operator.type.ts',
+        ],
+        settings: { foreground: '#F29E74' },
+      },
+    ],
+  },
+  {
+    layer: TokenLayer.Lock,
+    id: 'lock.templateString',
+    filePriority: 15,
+    rules: [
+      {
+        // template string CONTENT — green (not orange keyword)
+        scope: [
+          'string.template',
+          'string.template.ts',
+          'string.template.tsx',
+        ],
+        settings: { foreground: '#BAE67F' },
+      },
+      {
+        // backticks + ${ } + $ — coral operators
+        scope: [
+          'punctuation.definition.string.template',
+          'punctuation.definition.string.template.begin',
+          'punctuation.definition.string.template.end',
+          'punctuation.definition.string.template.ts',
+          'punctuation.definition.string.template.begin.ts',
+          'punctuation.definition.string.template.end.ts',
+          'string.template punctuation.definition.string.template.begin',
+          'string.template punctuation.definition.string.template.end',
+          'source string.template punctuation.definition.string.template.begin',
+          'source string.template punctuation.definition.string.template.end',
+          'source punctuation.definition.string.template.begin.js',
+          'source punctuation.definition.string.template.end.js',
+          'punctuation.definition.template-expression',
+          'punctuation.definition.template-expression.begin',
+          'punctuation.definition.template-expression.end',
+          'punctuation.definition.template-expression.begin.ts',
+          'punctuation.definition.template-expression.end.ts',
+          'source punctuation.definition.template-expression.begin',
+          'source punctuation.definition.template-expression.end',
+          'source.js meta.template.expression.js punctuation.definition.template-expression.begin.js',
+          'source.js meta.template.expression.js punctuation.definition.template-expression.end.js',
+          'punctuation.definition.template-expression.begin.js',
+          'punctuation.definition.template-expression.end.js',
+        ],
+        settings: { foreground: '#F29E74' },
+      },
+    ],
+  },
+  {
+    layer: TokenLayer.Lock,
+    id: 'lock.comma',
+    filePriority: 15,
+    rules: [
+      {
+        scope: [
+          'punctuation.separator.comma',
+          'punctuation.separator.comma.ts',
+          'meta.brace.round punctuation.separator.comma',
+          'source punctuation.separator.comma',
+        ],
+        settings: { foreground: '#F29E74' },
+      },
+    ],
+  },
+  {
+    layer: TokenLayer.Lock,
+    id: 'lock.keywordNew',
+    filePriority: 16,
+    rules: [
+      {
+        // `new` stays keyword orange — beats bare keyword.operator coral
+        scope: [
+          'keyword.operator.new',
+          'keyword.operator.new.ts',
+          'keyword.operator.new.tsx',
+        ],
+        settings: { foreground: '#FF9944' },
+      },
+    ],
+  },
+
+  {
+    layer: TokenLayer.Lock,
     id: 'lock.decorator',
     filePriority: 35,
     rules: decoratorLockTokenColors,
@@ -209,6 +382,12 @@ export const tokenColorSlices: LayerSlice[] = [
     id: 'lock.typing.interface',
     filePriority: 40,
     rules: [typingNameLockTokenColors[0]],
+  },
+  {
+    layer: TokenLayer.Lock,
+    id: 'lock.typing.classRef',
+    filePriority: 45,
+    rules: [typingNameLockTokenColors[2]],
   },
   {
     layer: TokenLayer.Lock,

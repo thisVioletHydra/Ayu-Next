@@ -25,8 +25,8 @@ export const syntaxCatalog = {
     desc: 'Thick keyword + @ — etalon #FF9944',
   },
   'syntax.operator': {
-    hex: '#CBCCC6',
-    desc: 'Operators/punct — etalon fg',
+    hex: '#F29E74',
+    desc: 'Operators (=> === ?. ... ternary) — coral #F29E74',
   },
   'syntax.string': {
     hex: '#BAE67F',
@@ -42,15 +42,15 @@ export const syntaxCatalog = {
   },
   'syntax.regexp': {
     hex: '#95E6CB',
-    desc: 'Regexp, enum members',
+    desc: 'Regexp',
   },
   'syntax.number': {
     hex: '#8C9EFF',
     desc: 'Numbers',
   },
   'syntax.param': {
-    hex: '#F29E74',
-    desc: 'Params — etalon peach',
+    hex: '#D5BFFF',
+    desc: 'Params/props (dto, id) — lilac #D5BFFF from original',
   },
   'syntax.func': {
     hex: '#FFD580',

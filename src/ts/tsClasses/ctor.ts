@@ -1,7 +1,10 @@
 /**
  * Lib constructors (`new Date`, `new HttpException`) — cyan `#5CCFE6`.
- * Do NOT use bare `new.expr entity.name.function` — it paints chained
- * `.toISOString()` under `new Date().toISOString()`.
+ *
+ * Grammar is `new.expr meta.function-call entity.name.function` (not
+ * `meta.function-call.constructor`). Do NOT use bare
+ * `source new.expr entity.name.function` — that paints chained `.toISOString()`.
+ *
  * Type-position Map/Readonly — lavender via typePositionLibPaint.
  */
 export const ctorValuePaint = {
@@ -11,15 +14,22 @@ export const ctorValuePaint = {
     'variable.defaultLibrary',
   ] as const,
   textmate: [
+    // actual TS grammar for `new Date()` / `new HttpException()`
+    'new.expr meta.function-call entity.name.function',
+    'new.expr meta.function-call entity.name.function.ts',
+    'new.expr.ts meta.function-call.ts entity.name.function.ts',
+    'new.expr meta.function-call support.class',
+    'new.expr meta.function-call support.class.builtin',
+    'new.expr meta.function-call entity.name.type',
+    'new.expr.ts meta.function-call.ts support.class.ts',
+    // legacy constructor meta (if grammar emits it)
     'meta.function-call.constructor',
     'meta.function-call.constructor entity.name.function',
     'meta.function-call.constructor entity.name.function.ts',
     'meta.function-call.constructor entity.name.type',
-    'meta.function-call.constructor entity.name.type.ts',
     'meta.function-call.constructor support.class',
     'meta.function-call.constructor support.class.builtin',
-    'meta.function-call.constructor variable.other.readwrite',
-    // ctor type name only — not chained methods
+    // type-name form of ctor
     'new.expr entity.name.type',
     'new.expr entity.name.type.ts',
     'new.expr entity.name.type.class',
@@ -31,11 +41,12 @@ export const ctorValuePaint = {
 };
 
 /**
- * Type-position lib / utility (Map, Readonly in annotations) — lavender `#D5BFFF`.
+ * Type-position lib / utility (Map, Readonly in annotations) — lime `#B9F6CA`.
  */
 export const typePositionLibPaint = {
-  role: 'syntax.ctor' as const,
-  semantic: [] as const,
+  // Readonly/Map type-position → lime via typeAlias + libComplex lock (not lavender)
+  role: 'syntax.typeAlias' as const,
+  semantic: ['type.defaultLibrary'] as const,
   textmate: [
     'support.class',
     'support.class.builtin',
@@ -54,4 +65,4 @@ export const typePositionLibPaint = {
 
 export const ctorPaint = ctorValuePaint;
 export const CTOR_HEX = '#5CCFE6' as const;
-export const TYPE_POSITION_LIB_HEX = '#D5BFFF' as const;
+export const TYPE_POSITION_LIB_HEX = '#B9F6CA' as const;

@@ -44,7 +44,7 @@ export const keywordPaint = {
     'storage.type.namespace.tsx',
     'storage.type.module.ts',
     'storage.type.module.tsx',
-    // const / let / var / constructor
+    // const / let / var (constructor → lock.constructorKeyword gold)
     'storage.type.ts',
     'storage.type.tsx',
   ] as const,

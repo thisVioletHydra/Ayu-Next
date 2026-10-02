@@ -13,6 +13,8 @@ export const typeAliasTypingPaint = {
     'type.declaration',
     'typeParameter',
     'typeParameter.declaration',
+    // `: ThemeService` type-position — lime (not class.declaration cyan)
+    'class',
   ] as const,
   textmate: [
     'entity.name.type.alias',
