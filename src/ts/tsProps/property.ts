@@ -1,0 +1,80 @@
+/**
+ * Interface / type / object-literal KEYS — green `#BAE67F`.
+ * Member access (`this.accents`) — white via memberAccessPaint / classFieldPaint.
+ *
+ * Do NOT list bare `variable.object.property` / `meta.definition.property` here:
+ * they also match class fields and beat white locks on Host.
+ * Do NOT claim semantic `property` here — that paints `this.accents` green.
+ */
+export const propKeyPaint = {
+  role: 'syntax.propKey' as const,
+  semantic: [] as const,
+  textmate: [
+    'meta.object-literal.key',
+    'meta.object-literal.key.ts',
+    'meta.object-binding-pattern variable.object.property',
+    'meta.array-binding-pattern variable.object.property',
+  ] as const,
+};
+
+/** Interface / type object field names (`role`, `hex`) — green, TextMate only. */
+export const propFieldPaint = {
+  role: 'syntax.propField' as const,
+  semantic: ['property.declaration'] as const,
+  textmate: [
+    'meta.interface meta.field.declaration variable.object.property',
+    'meta.interface meta.field.declaration variable.object.property.ts',
+    'meta.interface meta.field.declaration variable.other.readwrite',
+    'meta.interface meta.field.declaration variable.other.readwrite.ts',
+    'meta.interface variable.object.property',
+    'meta.interface.ts variable.object.property.ts',
+    'meta.type.declaration meta.field.declaration variable.object.property',
+    'meta.type.object.type meta.field.declaration variable.object.property',
+    'meta.type.object.type meta.field.declaration variable.other.readwrite',
+  ] as const,
+};
+
+/**
+ * Class fields / private vars (`accents`) — white `#CBCCC6`.
+ * Exact Host Inspect winner:
+ *   meta.class meta.field.declaration meta.definition.property variable.object.property
+ */
+export const classFieldPaint = {
+  role: 'syntax.fg' as const,
+  // no property.declaration semantic — it whitened interface keys (role/hex).
+  // Class fields white via TextMate lock only.
+  semantic: [] as const,
+  textmate: [
+    // exact Inspect winner
+    'meta.class meta.field.declaration meta.definition.property variable.object.property',
+    'meta.class meta.field.declaration meta.definition.property variable.object.property.ts',
+    'meta.class.ts meta.field.declaration meta.definition.property variable.object.property.ts',
+    'meta.class meta.field.declaration meta.definition.property variable',
+    'meta.class meta.field.declaration variable.object.property',
+    'meta.class meta.field.declaration variable.object.property.ts',
+    'meta.class meta.field.declaration variable.other.readwrite',
+    'meta.class meta.field.declaration variable.other.readwrite.ts',
+    'meta.class.ts meta.field.declaration.ts variable.object.property.ts',
+  ] as const,
+};
+
+/**
+ * Member / property access (`this.accents`, obj.foo) — white `#CBCCC6`.
+ * Semantic `property` (not `.declaration`) — interface keys stay green via property.declaration.
+ */
+export const memberAccessPaint = {
+  role: 'syntax.fg' as const,
+  semantic: ['property'] as const,
+  textmate: [
+    'variable.other.object.property',
+    'variable.other.object.property.ts',
+    'variable.other.object.property.tsx',
+    'meta.property.access variable.other.object.property',
+    'meta.property.access.ts variable.other.object.property.ts',
+    'support.variable.property',
+    'support.variable.property.ts',
+  ] as const,
+};
+
+export const PROP_HEX = '#BAE67F' as const;
+export const CLASS_FIELD_HEX = '#CBCCC6' as const;
