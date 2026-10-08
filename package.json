@@ -2,7 +2,7 @@
   "icon": "images/icon-hero.png",
   "name": "ayu-next",
   "displayName": "Ayu Next",
-  "description": "\ud83d\udd25 This is a Dark theme (Mirage), screenshots inside",
+  "description": "🔥 This is a Dark theme (Mirage), screenshots inside",
   "version": "2.0.13",
   "license": "MIT",
   "private": false,
@@ -88,11 +88,11 @@
     "publish": "pnpm build && vsce publish"
   },
   "devDependencies": {
-    "@oxyhub/oxlint-plugin": "^0.3.1",
-    "@types/node": "^26.5.1",
-    "@vscode/vsce": "^3.9.2",
-    "oxlint": "^1.82.0",
-    "tsx": "^4.23.13",
+    "@oxyhub/oxlint-plugin": "^0.4.0",
+    "@types/node": "^26.6.3",
+    "@vscode/vsce": "^4.0.0",
+    "oxlint": "^1.86.0",
+    "tsx": "^4.23.15",
     "typescript": "^7.0.2"
   }
 }
